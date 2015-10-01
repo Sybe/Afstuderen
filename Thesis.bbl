@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{eemcs18152}
+S.~C.~C. {Blom}, J.~C. {van de Pol}, and M.~{Weber}.
+\newblock Ltsmin: Distributed and symbolic reachability.
+\newblock In T.~{Touili}, B.~{Cook}, and P.~{Jackson}, editors, {\em Computer
+  Aided Verification, Edinburgh}, volume 6174 of {\em Lecture Notes in Computer
+  Science}, pages 354--359, Berlin, July 2010. Springer Verlag.
+
+\bibitem{eemcs21972}
+A.~E. {Dalsgaard}, A.~W. {Laarman}, K.~G. {Larsen}, M.~C. {Olesen}, and J.~C.
+  {van de Pol}.
+\newblock Multi-core reachability for timed automata.
+\newblock In M.~{Jurdzinski} and D.~{Nickovic}, editors, {\em 10th
+  International Conference on Formal Modeling and Analysis of Timed Systems,
+  FORMATS 2012, London, UK}, volume 7595 of {\em Lecture Notes in Computer
+  Science}, pages 91--106, London, September 2012. Springer Verlag.
+
+\end{thebibliography}
