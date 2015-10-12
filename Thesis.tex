@@ -1,14 +1,40 @@
 \documentclass[11pt]{article}
-\usepackage{cite}[sort]
+\usepackage{cite}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
 
 \begin{document}
 
+\newtheorem{mydef}{Definition}
 \title{My Article}
-\author{Nobody Jr.}
+\author{Sybe van Hijum}
 \date{Today}
 \maketitle
 
 Blablabla said Nobody ~\cite{eemcs21972}. Maar kees zei ~\cite{eemcs18152}
+
+
+
+\begin{mydef}[Timed Automata]
+\label{def:TA}
+An extended timed automaton is a 7-tuple A = $<L, C, Act, s_0, \rightarrow, I_c>$ where
+{\renewcommand\labelitemi{--}
+	\begin{itemize}
+		\item L is a finite set of locations, typically denoted by $l$
+		\item C is ia finite set of clocks, typically denoted by c
+		\item Act is a finite set of actions
+		\item $s_0 \in$ L is the initial location
+		\item $\rightarrow \subseteq L \times G(C) \times Act \times 2^C \times L$ is the (non-deterministic) transition relation. We noramlly write l $\stackrel{g,a,r}{\longrightarrow}$ l' for a transition., where l is the source location, g is the guard over the clocks, a is the action, and r is the set of clocks reset.
+		\item $I_C : L \rightarrow G(C)$ is a function mapping locations to downwards closed clock invariants.
+	\end{itemize}
+}
+\end{mydef}
+
+\begin{mydef}[Network of timed automata]
+\label{def:networkTA}
+Let Act = $\{ch!,ch?|ch \in Chan\} \cup \{\tau\}$ be a finite set of actions, and let C be a finite set of clocks. Then the parallel composition of extended timed automata $A_i = (L_i, C, Act, S^i_0, \rightarrow_{i}, I^i_C)$ for all $1 \leq i \leq n$, where $n \in \mathbb{N}$, is a network of timed automata, denoted $A = A_1||A_2||..||A_n$.
+\end{mydef}
 
 \bibliography{references}{}
 \bibliographystyle{plain}
