@@ -1,4 +1,25 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{crds}
+
+
+\bibitem{Alur1994183}
+Rajeev Alur and David~L. Dill.
+\newblock A theory of timed automata.
+\newblock {\em Theoretical Computer Science}, 126(2):183 -- 235, 1994.
+
+\bibitem{UPPAAL}
+Gerd Behrmann, Alexandre David, and KimG. Larsen.
+\newblock A tutorial on uppaal.
+\newblock In Marco Bernardo and Flavio Corradini, editors, {\em Formal Methods
+  for the Design of Real-Time Systems}, volume 3185 of {\em Lecture Notes in
+  Computer Science}, pages 200--236. Springer Berlin Heidelberg, 2004.
+
+\bibitem{bengtsson2002clocks}
+Johan Bengtsson.
+\newblock {\em Clocks, DBMS and States in Timed Systems (Uppsala Dissertations
+  from the Faculty of Science Technology, 39)}.
+\newblock Uppsala Universitet, 7 2002.
 
 \bibitem{eemcs18152}
 S.~C.~C. {Blom}, J.~C. {van de Pol}, and M.~{Weber}.
@@ -6,6 +27,14 @@ S.~C.~C. {Blom}, J.~C. {van de Pol}, and M.~{Weber}.
 \newblock In T.~{Touili}, B.~{Cook}, and P.~{Jackson}, editors, {\em Computer
   Aided Verification, Edinburgh}, volume 6174 of {\em Lecture Notes in Computer
   Science}, pages 354--359, Berlin, July 2010. Springer Verlag.
+
+\bibitem{so62465}
+Stefan {Blom} and Jaco van~de {Pol}.
+\newblock Symbolic reachability for process algebras with recursive data types.
+\newblock In J.S. {Fitzgerald}, A.E. {Haxthausen}, and H.~{Yenigun}, editors,
+  {\em Theoretical Aspects of Computing}, volume 5160 of {\em Lecture Notes in
+  Computer Science}, pages 81--95, Berlin, Germany, August 2008. Springer
+  Verlag.
 
 \bibitem{eemcs21972}
 A.~E. {Dalsgaard}, A.~W. {Laarman}, K.~G. {Larsen}, M.~C. {Olesen}, and J.~C.
@@ -15,5 +44,56 @@ A.~E. {Dalsgaard}, A.~W. {Laarman}, K.~G. {Larsen}, M.~C. {Olesen}, and J.~C.
   International Conference on Formal Modeling and Analysis of Timed Systems,
   FORMATS 2012, London, UK}, volume 7595 of {\em Lecture Notes in Computer
   Science}, pages 91--106, London, September 2012. Springer Verlag.
+
+\bibitem{opaal}
+Andreas~Engelbredt Dalsgaard, René~Rydhof Hansen, Kenneth~Yrke Jørgensen,
+  Kim~Gulstrand Larsen, Mads~Chr. Olesen, Petur Olsen, and Jiří Srba.
+\newblock opaal: A lattice model checker.
+\newblock In Mihaela Bobaru, Klaus Havelund, GerardJ. Holzmann, and Rajeev
+  Joshi, editors, {\em NASA Formal Methods}, volume 6617 of {\em Lecture Notes
+  in Computer Science}, pages 487--493. Springer Berlin Heidelberg, 2011.
+
+\bibitem{5702245}
+R.~Ehlers, D.~Fass, M.~Gerke, and H.-J. Peter.
+\newblock Fully symbolic timed model checking using constraint matrix diagrams.
+\newblock In {\em Real-Time Systems Symposium (RTSS), 2010 IEEE 31st}, pages
+  360--371, Nov 2010.
+
+\bibitem{ltsmin-mc:nmf2011}
+A.~W. {Laarman}, J.~C. {van de Pol}, and M.~{Weber}.
+\newblock Multi-core ltsmin: Marrying modularity and scalability.
+\newblock In M.~{Bobaru}, K.~{Havelund}, G.~{Holzmann}, and R.~{Joshi},
+  editors, {\em Proceedings of the Third International Symposium on NASA Formal
+  Methods, NFM 2011, Pasadena, CA, USA}, volume 6617 of {\em Lecture Notes in
+  Computer Science}, pages 506--511, Berlin, July 2011. Springer Verlag.
+
+\bibitem{BRICS19491}
+Kim Larsen, Carsten Weise, Wang Yi, and Justin Pearson.
+\newblock Clock difference diagrams.
+\newblock {\em BRICS Report Series}, 5(46), 1998.
+
+\bibitem{Møller200188}
+Jesper Møller, Jakob Lichtenberg, Henrik~R. Andersen, and Henrik Hulgaard.
+\newblock Fully symbolic model checking of timed systems using difference
+  decision diagrams1.
+\newblock {\em Electronic Notes in Theoretical Computer Science}, 23(2):88 --
+  107, 2001.
+\newblock SMC'99, First International Workshop on Symbolic Model Checking
+  (associated to FLoC'99, the 1999 Federated Logic Conference).
+
+\bibitem{DBLP:conf/bibe/SchivoSWCVKLPP12}
+Stefano Schivo, Jetse Scholma, Brend Wanders, Ricardo A.~Urquidi Camacho,
+  Paul~E. van~der Vet, Marcel Karperien, Rom Langerak, Jaco van~de Pol, and
+  Janine~N. Post.
+\newblock Modelling biological pathway dynamics with timed automata.
+\newblock In {\em 12th {IEEE} International Conference on Bioinformatics {\&}
+  Bioengineering, {BIBE} 2012, Larnaca, Cyprus, November 11-13, 2012}, pages
+  447--453, 2012.
+
+\bibitem{129849}
+A.~Srinivasan, T.~Ham, S.~Malik, and R.K. Brayton.
+\newblock Algorithms for discrete function manipulation.
+\newblock In {\em Computer-Aided Design, 1990. ICCAD-90. Digest of Technical
+  Papers., 1990 IEEE International Conference on}, pages 92--95, Nov 1990.
 
 \end{thebibliography}
