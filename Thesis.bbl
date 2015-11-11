@@ -53,6 +53,14 @@ Andreas~Engelbredt Dalsgaard, René~Rydhof Hansen, Kenneth~Yrke Jørgensen,
   Joshi, editors, {\em NASA Formal Methods}, volume 6617 of {\em Lecture Notes
   in Computer Science}, pages 487--493. Springer Berlin Heidelberg, 2011.
 
+\bibitem{dbmorig}
+DavidL. Dill.
+\newblock Timing assumptions and verification of finite-state concurrent
+  systems.
+\newblock In Joseph Sifakis, editor, {\em Automatic Verification Methods for
+  Finite State Systems}, volume 407 of {\em Lecture Notes in Computer Science},
+  pages 197--212. Springer Berlin Heidelberg, 1990.
+
 \bibitem{5702245}
 R.~Ehlers, D.~Fass, M.~Gerke, and H.-J. Peter.
 \newblock Fully symbolic timed model checking using constraint matrix diagrams.
@@ -95,5 +103,13 @@ A.~Srinivasan, T.~Ham, S.~Malik, and R.K. Brayton.
 \newblock Algorithms for discrete function manipulation.
 \newblock In {\em Computer-Aided Design, 1990. ICCAD-90. Digest of Technical
   Papers., 1990 IEEE International Conference on}, pages 92--95, Nov 1990.
+
+\bibitem{sylvan}
+Tom van Dijk and Jaco van~de Pol.
+\newblock Sylvan: Multi-core decision diagrams.
+\newblock In Christel Baier and Cesare Tinelli, editors, {\em Tools and
+  Algorithms for the Construction and Analysis of Systems}, volume 9035 of {\em
+  Lecture Notes in Computer Science}, pages 677--691. Springer Berlin
+  Heidelberg, 2015.
 
 \end{thebibliography}

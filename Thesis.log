@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  11 NOV 2015 15:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  11 NOV 2015 15:56
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -74,8 +74,8 @@ LaTeX Warning: Citation `?' on page 1 undefined on input line 16.
 
 [1
 
-{C:/Users/Sybe/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(Thesis.bbl [2]
+{C:/Users/Sybe/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+(Thesis.bbl [3]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no Ã in font cmr10!
@@ -84,22 +84,21 @@ Missing character: There is no Å in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [3]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¸ in font cmr10!
-) [4] (Thesis.aux)
+ [4]) [5] (Thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 543 strings out of 493698
- 6347 string characters out of 3144415
- 58632 words of memory out of 3000000
- 3914 multiletter control sequences out of 15000+200000
+ 545 strings out of 493698
+ 6364 string characters out of 3144415
+ 59632 words of memory out of 3000000
+ 3916 multiletter control sequences out of 15000+200000
  12319 words of font info for 46 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 21i,8n,24p,784b,255s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 21i,8n,24p,864b,201s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKT
@@ -110,9 +109,9 @@ msfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (4 pages, 143026 bytes).
+Output written on Thesis.pdf (5 pages, 144970 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

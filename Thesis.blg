@@ -6,6 +6,10 @@ I was expecting a `,' or a `}'---line 189 of file references.bib
  : year={2003},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Repeated entry---line 300 of file references.bib
+ : @book{bengtsson2002clocks
+ :                          ,
+I'm skipping whatever remains of this entry
 A bad cross reference---entry "DBLP:conf/bibe/SchivoSWCVKLPP12"
 refers to entry "DBLP:conf/bibe/2012", which doesn't exist
 Warning--I didn't find a database entry for "?"
@@ -16,4 +20,4 @@ Warning--empty title in crds
 Warning--empty booktitle in crds
 Warning--empty publisher in crds
 Warning--empty year in crds
-(There were 2 error messages)
+(There were 3 error messages)
