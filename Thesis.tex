@@ -2,27 +2,61 @@
 \usepackage{cite}
 \usepackage{amsthm}
 \usepackage{amsfonts}
+\usepackage{graphicx}
 
 \begin{document}
 
 \newtheorem{mydef}{Definition}
-\title{My Article}
+\title{Symbolic Model checking of Timed Automata using LTSmin}
 \author{Sybe van Hijum}
-\date{Today}
+\date{\today}
 \maketitle
+
+\tableofcontents
 
 \section{Introduction}
 Timed Automata~\cite{Alur1994183} are a widely used modelling formalism. A recent usage of this formalism is the modelling of biological signalling pathways~\cite{DBLP:conf/bibe/SchivoSWCVKLPP12}. This leads however to large state spaces, and sometimes to models that are too large to handle by conventional methods. Therefore the ANIMO~\cite{DBLP:conf/bibe/SchivoSWCVKLPP12} tool at this time uses simulation of models and not complete state space generation and property checking.
-\\BDDs(Binary Decision Diagrams)~\cite{?} and variations like LDDs(List Decision Diagrams)~\cite{so62465} and MDDs(Multi-valued Decision Diagrams)~\cite{129849} have proven their value in model checking algorithms. Due to advances in this field models with much larger state spaces can be explored on the same machine. This progress has not translated directly to more efficient methods for Timed Automata. Several methods have been proposed, like CDDs(Clock Difference Diagrams)~\cite{BRICS19491}, CMDs(Constraint Matrix Diagrams~\cite{5702245}, CRDs(Clock Restriction Diagrams)~\cite{crds} and DDDs(Difference Decision Diagrams)~\cite{ddds}. All of these methods show some extra difficulties or time complexity over BDDs or some limitations.
-\\LTSmin~\cite{eemcs18152,ltsmin-mc:nmf2011} is a language independent on the fly model checker with several algorithmic backends. Its symbolic backend uses LDDs to both represent the state space and the transition relations of models. LTSmin has a language module for the UPPAAL~\cite{UPPAAL} through the opaal~\cite{opaal} lattice model checker. For this language at this time, only the multicore backend can be used~\cite{eemcs21972}. This multicore approach showed efficient enough to compete with the latest version of the UPPAAL model checker. It showed significant speedups on multicore machines, at the cost of some memory increase however.
-\\The symbolic backend of LTSmin provides both a memory reduction by using LDDs and a speedup by using multi-threaded search algorithms and the multi-threaded LDD package Sylvan~\cite{sylvan}. Using this together with the UPPAAL language frontend will hopefully result in a model checker that can compete both on time and memory consumption with the UPPAAL model checker. We propose a method that uses LDDs to represent both the discrete states as the clocks and that uses DBMs~\cite{dbmorig, bengtsson2002clocks} only in the next state generation. This way we can combine existing techniques to build a complete model checker. It will also remain possible to use the other techniques that LTSmin has, such as transition caching, variable reordering and LTL checking. This will result in a complete model checker for Timed Automata.
+
+BDDs(Binary Decision Diagrams)~\cite{?} and variations like LDDs(List Decision Diagrams)~\cite{so62465} and MDDs(Multi-valued Decision Diagrams)~\cite{129849} have proven their value in model checking algorithms. Due to advances in this field models with much larger state spaces can be explored on the same machine. This progress has not translated directly to more efficient methods for Timed Automata. Several methods have been proposed, like CDDs(Clock Difference Diagrams)~\cite{BRICS19491}, CMDs(Constraint Matrix Diagrams~\cite{5702245}, CRDs(Clock Restriction Diagrams)~\cite{crds} and DDDs(Difference Decision Diagrams)~\cite{ddds}. All of these methods show some extra difficulties or time complexity over BDDs or some limitations.
+
+LTSmin~\cite{eemcs18152,ltsmin-mc:nmf2011} is a language independent on the fly model checker with several algorithmic backends. Its symbolic backend uses LDDs to both represent the state space and the transition relations of models. LTSmin has a language module for the UPPAAL~\cite{UPPAAL} through the opaal~\cite{opaal} lattice model checker. For this language at this time, only the multicore backend can be used~\cite{eemcs21972}. This multicore approach showed efficient enough to compete with the latest version of the UPPAAL model checker. It showed significant speedups on multicore machines, at the cost of some memory increase however.
+
+The symbolic backend of LTSmin provides both a memory reduction by using LDDs and a speedup by using multi-threaded search algorithms and the multi-threaded LDD package Sylvan~\cite{sylvan}. Using this together with the UPPAAL language frontend will hopefully result in a model checker that can compete both on time and memory consumption with the UPPAAL model checker. We propose a method that uses LDDs to represent both the discrete states as the clocks and that uses DBMs~\cite{dbmorig, bengtsson2002clocks} only in the next state generation. This way we can combine existing techniques to build a complete model checker. It will also remain possible to use the other techniques that LTSmin has, such as transition caching, variable reordering and LTL checking. This will result in a complete model checker for Timed Automata.
+
+We will propose a method that will use the best of both worlds. We will use the DBMs in the state exploration such that we can find a canonical representation of the clock zone of a newly explored state quite easily. For the symbolic representation of the state space, including the clock zones, we will use normal LDDs. Therefore both the efficient algorithms and the memory efficient representation can be used. A downside to this approach is zones that are contained in larger zones might be explored again. Further we will focus on efficient orderings of the LDDs, as both clock zones and states are contained in a single structure. A final point of research will be the achievable efficiency by partitioning the next state function, or leaving it intact as a single function. This will of course be combined with the different orderings. 
 
 \section{Related Work}
-Already several model checkers for Timed Automata exist such as UPPAAL~\cite{UPPAAL} and RED~\cite{crds}. We focus mainly on the UPPAAL tool as we use the same input format. Opaal uses the XML format that is created by the UPPAAL tools. This way we can use the UPPAAL user interface to create and adapt models. We also use the UPPAAL DBM library to represent zones.
+Already several model checkers for Timed Automata exist such as UPPAAL~\cite{UPPAAL}, KRONOS~\cite{kronos} and RED~\cite{crds}. We focus mainly on the UPPAAL tool as we use the same input format. Opaal uses the XML format that is created by the UPPAAL tools. This way we can use the UPPAAL user interface to create and adapt models. We also use the UPPAAL DBM library to represent zones.
 Several methods exist to represent the clock variables in a timed model. The most used methods are digitization and zones. 
 Digitization approximates the continuous values of clocks by using discrete values. This approach is however very sensitive to the granularity of the values used and the upper bound of the clock values. An advantage of this approach is that basic model checking approaches can be used and no extra complexity due to zone calculations is added. In ~\cite{nguyen2012discrete} a similar approach is proposed by using clock tick actions and removing clock variables altogether. 
-\\The most established method to represent clock zones are DBMs~\cite{dbmorig, bengtsson2002clocks}. DBMs use a matrix structure that gives an lower and upper bound to each clock and to the difference between each pair of clocks. By this approach convex zones of clocks can be created. By using graph algorithms a normal form can be found quite efficiently. The downside of this approach is that only these convex zones can be represented, when a state has multiple zones that are not a convex combination multiple DBMs are needed and thus increasing the memory usage. 
-\\Several methods based on BDDs have been developed to represent zones. All of these are based on DMBs in the sense that the use upper and lower bounds of clocks and of the difference between a pair of clocks. CDDs~\cite{BRICS19491} use single nodes for each value with a larger fanout with disjoint intervals on each edge. DDDs~\cite{ddds} use a constraint on each node that can either be true or false. This requires a fixed ordering based on the variables, values and operators. CRDs~\cite{crds} differ mainly from CDDs by using not disjoint intervals but possibly overlapping upperbounds on their edges. They also use different normal forms for the diagrams which results in different performances. It is also shown that CRDs can be combined with BDDs into a single structure to represent state space. CMDs~\cite{5702245} combine CDDs, CRDs and DMBs into a single structure. This diagram type differs from the others by having multiple constraint per edge, resulting in a diagram with few nodes. CMDs do not have a normal form so only reduced forms are proposed. In ~\cite{7098276, 7184781} a method is proposed purely based on BDDs by translating the constraints into BDD nodes. This results in a unified structure for both the discrete variables and the clock constraints. The method has not been implemented in a model checker and no performance results are known, only the concept is known.  
+
+The most established method to represent clock zones are DBMs~\cite{dbmorig, bengtsson2002clocks}. DBMs use a matrix structure that gives an lower and upper bound to each clock and to the difference between each pair of clocks. By this approach convex zones of clocks can be created. By using graph algorithms a normal form can be found quite efficiently. The downside of this approach is that only these convex zones can be represented, when a state has multiple zones that are not a convex combination multiple DBMs are needed and thus increasing the memory usage. 
+
+Several methods based on BDDs have been developed to represent zones. All of these are based on DMBs in the sense that the use upper and lower bounds of clocks and of the difference between a pair of clocks. CDDs~\cite{BRICS19491} use single nodes for each value with a larger fanout with disjoint intervals on each edge. DDDs~\cite{ddds} use a constraint on each node that can either be true or false. This requires a fixed ordering based on the variables, values and operators. CRDs~\cite{crds} differ mainly from CDDs by using not disjoint intervals but possibly overlapping upperbounds on their edges. They also use different normal forms for the diagrams which results in different performances. It is also shown that CRDs can be combined with BDDs into a single structure to represent state space. CMDs~\cite{5702245} combine CDDs, CRDs and DMBs into a single structure. This diagram type differs from the others by having multiple constraint per edge, resulting in a diagram with few nodes. CMDs do not have a normal form so only reduced forms are proposed. In ~\cite{7098276, 7184781} a method is proposed purely based on BDDs by translating the constraints into BDD nodes. This results in a unified structure for both the discrete variables and the clock constraints. The method has not been implemented in a model checker and no performance results are known, only the concept is known. 
+
+A known difficulty in BDDs is the variable ordering. A bad ordering can lead to a BDD exponential in size where a good ordering can sometimes lead to a significant smaller diagram. Of the diagrams named above only CRDs have experimented with different orderings, the other researches assume a given ordering. The CRD case shows that full interleaving and having related variables close to each other in the ordering is preferable and gives the best results, both on speed and memory. This is the same result as expected with BDDs, this suggests that similar orderings should be used.
+
+\begin{figure}[t] 
+\includegraphics[width=\textwidth]{pins_modern}
+\caption{Modular structure of LTSmin}
+\label{fig:pins_modern}
+\end{figure}
+
+LTSmin~\cite{eemcs18152,ltsmin-mc:nmf2011} is a language independent model checker. It is build modular such that new languages can be added by an PINS interface without too much effort and new algorithms can be added more easily. LTSmin offers four different algorithmic back ends for model analysis: symbolic, multi-core, sequential and distributed. All of these back ends support different types of reduction and model checking. Several language modules have already been built for LTSmin such as mCRL2, Promela, DVE and UPPAAL. The modular structure of LTSmin is shown in figure \ref{fig:pins_modern}. States are stored in fixed length integer arrays. The PINS(Partitioned Next-State Interface) is the core of LTSmin. This interface abstracts as much as possible from the model without losing the structure. The main function of the interface is a (partitioned) next state function which returns the successor states. With these functions a state space can be generated on the fly. With the use of dependency matrices event locality can be determined statically~\cite{rwcmatrices}. Using these matrices more efficient symbolic algorithms can be used, the number of next-state calls can be reduced and transition caching can be used. In the current UPPAAL PINS the next-state function is not partitioned and therefore no meaningful dependency matrix is created. 
+
+\begin{table}[]
+\begin{tabular}{|l|l|l|}
+\hline
+DMB                                                    & \begin{tabular}[c]{@{}l@{}}Canonical form for convex zones\\ Existing library\\ Inclusion check\end{tabular}                                                                                                                                                                            & \begin{tabular}[c]{@{}l@{}}Concave zones need multiple DBMs\\ Not memory efficient\end{tabular}                                                                                                                                              \\ \hline
+DDD                                                    & \begin{tabular}[c]{@{}l@{}}Nodes with difference constraints\\ Implement as LDD \\ Re-ordering of variables possible\\ Apply same efficiency as BDDs\\ Boolean variables also in DDD\end{tabular}                                                                                       & \begin{tabular}[c]{@{}l@{}}Canonicity hard to obtain\\ No on the fly canonicity\\ Only speed performance tested\end{tabular}                                                                                                                 \\ \hline
+CDD                                                    & \begin{tabular}[c]{@{}l@{}}Branching on intervals\\ Implement as MDD\\ Intervals need to be disjoint\\ Inclusion check\\ (intersection of complement)\end{tabular}                                                                                                                      & \begin{tabular}[c]{@{}l@{}}No algorithm to get normal form\\ Only high level algorithms\\ Methods don't maintain disjointness\\ Expensive normal form computation\\ No implementation results\\ Disjointness memory inefficient\end{tabular} \\ \hline
+CRD                                                    & \begin{tabular}[c]{@{}l@{}}Nodes with multiple fanout for \\ upperbound constraints\\ Combination with BDD possible\\ Variable ordering with \\ interleaving is best\\ Modelchecker available\\ Library available\\ Some benchmarks better than CDD\\ Extensive benchmarks\end{tabular} & \begin{tabular}[c]{@{}l@{}}3 possible canonical forms\\ Good performance backwards reach\\ No algorithms in paper\\ Some benchmarks linear worse than CDD\end{tabular}                                                                       \\ \hline
+CMD                                                    & \begin{tabular}[c]{@{}l@{}}Multiple DBM constraints per edge\\ Benchmarks against RED and UPPAAL\end{tabular}                                                                                                                                                                           & \begin{tabular}[c]{@{}l@{}}Results differ per case\\ Needs translation from vector to edges\end{tabular}                                                                                                                                     \\ \hline
+\begin{tabular}[c]{@{}l@{}}BDD\\ discrete\end{tabular} & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ Good performance for small clock values\end{tabular}                                                                                                                                                                           & \begin{tabular}[c]{@{}l@{}}Performance decreases fast for large values\\ Not possible with current opaal PINS\\ Models created separately as C code\\ Introducing 'tick' actions\\ Only for closed timed automata\end{tabular}               \\ \hline
+\begin{tabular}[c]{@{}l@{}}BDD\\ zones\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ All variable reorderings possible\\ Only need direct translation DBM to\\ state vector\\ Easy to implement\end{tabular}                                                                                                        & \begin{tabular}[c]{@{}l@{}}Losing zone containment\\ No research known\end{tabular}                                                                                                                                                          \\ \hline
+\end{tabular}
+\end{table}
+
 
 
 \subsection{Timed Automata}
@@ -42,7 +76,7 @@ An extended timed automaton is a 7-tuple A = $<L, C, Act, s_0, \rightarrow, I_c>
 }
 \end{mydef}
 
-With this definition we can combine timed automata to a network of timed automata.
+With this definition we can combine timed automata to a network of timed automata to define larger systems.
 
 \begin{mydef}[Network of timed automata~\cite{eemcs21972}]
 \label{def:networkTA}
@@ -51,8 +85,45 @@ Let Act = $\{ch!,ch?|ch \in Chan\} \cup \{\tau\}$ be a finite set of actions, an
 
 \subsection{Zones}
 For basic transition systems the state space can grow exponentially for the size of the system. For Timed Automata the growth can become even larger and in some cases become unbounded. To tackle this problem most model checkers use a notion of zones for the representation of time. A zone can be seen as a set of constraints over the clocks C of the form $c_i \sim x$ and $c_i - c_j \sim x$ where $\sim  \in \{<, \leq, =, \geq, >\}$ and $x \in \mathbb{N}$. To represent these zones several data structures have been developed. One of the most common used structures are Difference Bound Matrices(DMB's)~\cite{bengtsson2002clocks}.\\ 
-These matrices use both a column and a row for each clock, and on each position $(i,j)$ an upperbound on the difference between the clocks $c_i$ and $c_j$ is given in the form $c_i - c_j \preceq x$ where $\preceq \in \{<, \leq\}$ and $x \in \mathbb{N}$. For the constraints over the single clocks an extra clock $\mathbf{O}$ with a constant value 0 is added.
+These matrices use both a column and a row for each clock, and on each position $(i,j)$ an upper bound on the difference between the clocks $c_i$ and $c_j$ is given in the form $c_i - c_j \preceq x$ where $\preceq \in \{<, \leq\}$ and $x \in \mathbb{N}$. For the constraints over the single clocks an extra clock $\mathbf{O}$ with a constant value 0 is added.
+
+\section{Plan}
+
+\subsection{Questions}
+For the research we will state a couple of research questions:
+{\renewcommand\labelitemi{--}
+	\begin{itemize}
+		\item Is the combination of LDDs and DMBs an efficient method for model checking timed automata?
+		\item Can improvements be achieved by different orderings? Both by changing the order of only the clock variables and by mixing the clock and state variables.
+		\item What is the effect of next state function partitioning on the efficiency?
+		\item Can basic LDD variable ordering heuristics be used for timed automata?
+	\end{itemize}
+}
+
+\subsection{Approach}
+The first task will be to find a suitable translation function from DBM values to integers that LTSmin uses as state vector, and vice versa. This function will be needed at the begin and end of each next-state call. Together with this the structure of the UPPAAL PINS will need to be changed. For the later experiments also changes to the ordering of variables and a partition of the next state function in the PINS will be constructed. 
+
+For the tests on variable ordering heuristics we will use the options that have already been implemented in LTSmin~\cite{rwcmatrices}. We will compare these against the basic ordering and the manually created orderings. For this experiment also the partitioned next state function will be needed as otherwise no meaningful dependency matrices exist and no reordering can be performed. 
+
+We will test all our approaches with multiple testcases against the state of the art UPPAAL and the latest multi core version of LTSmin. All tests will be carried out on a laptop with 4GB of memory and a 2.53GHz Intel I5 processor with 4 cores. If we achieve promising results, the tests can be expanded to a 48 core machine, on which the multi threaded algorithms can be exploited more and thus better tests on time efficiency can be performed.
+
+\subsection{To do}
+In this section we describe all things that need to be implemented to make model checking with a certain diagram possible. 
+
+To make most diagrams work we need to change the opaal PINS. The PINS currently uses a pointer to a DBM. For the new approach we will put the values of the DBM directly into the state vector. This will increase the size of the state vector. All other references to the types and values of the state vector entries will need to be changed. 
+
+To make symbolic reordering possible for any of the diagrams we will need to partition the next state function and create a dependency matrix. In the code the next state function is already split up per transition, but in a single transition group. Splitting this into multiple transition groups should not be too hard. In this same step also the dependency matrices need to be created and made as sparse as possible.
+
+If we use reordering of variables a mapping function from the state vector to a DBM will be needed. Without reordering it is simply taking a part of the state vector as DBM, but now the variables might be scattered through the vector. A function will be needed to create a DBM from the vector and a function to place the DBM variables back into the state vector.
+
+For the DDD, CDD, CRD and CMD the diagram will need to be able to identify the zone variables from the state variables in the state vector. This will need an extra function in the pins interface. This function will also need to cope with variable reordering. 
+
+To combine the new PINS with the multicore LTSmin backend the subsumption check will need to be changed. This check now relies on a pointer to a DBM, but it will now get the complete DBM, or state vector. Here the search algorithm or the subsumption check will need to know which variables are zone variables.
+
+For a BDD with discrete clock variables another input model will be needed. This is probably not possible with the opaal PINS. An option is to encode this as C code. This new model will need a tick action to represent the progress of time. For each clock the model will need a single state variable. 
+
+For all diagrams other than BDDs the values from the DBM will need to be translated to useful variables as ordering of values is for most diagrams needed. Also to check for inequalities and set containment the meaningful values are needed. As the values in a DBM both contain the value of an inequality as the operator some more complex translation might be needed. 
 
 \bibliography{references}{}
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \end{document}
