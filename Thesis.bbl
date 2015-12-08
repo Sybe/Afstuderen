@@ -55,6 +55,13 @@ Jesper Møller, Jakob Lichtenberg, HenrikReif Andersen, and Henrik Hulgaard.
   Science Logic}, volume 1683 of {\em Lecture Notes in Computer Science}, pages
   111--125. Springer Berlin Heidelberg, 1999.
 
+\bibitem{ddd-datastructure-99}
+J.~M{\o}ller, J.~Lichtenberg, H.~R. Andersen, and H.~Hulgaard.
+\newblock Dif\-feren\-ce decision dia\-grams.
+\newblock Technical Report IT-TR-1999-023, Department of Information
+  Technology, Technical University of Denmark, Building 344, DK-2800 Lyngby,
+  Denmark, February 1999.
+
 \bibitem{eemcs18152}
 S.~C.~C. {Blom}, J.~C. {van de Pol}, and M.~{Weber}.
 \newblock Ltsmin: Distributed and symbolic reachability.
@@ -102,6 +109,36 @@ Tom van Dijk and Jaco van~de Pol.
   Lecture Notes in Computer Science}, pages 677--691. Springer Berlin
   Heidelberg, 2015.
 
+\bibitem{kronos}
+Sergio Yovine.
+\newblock Kronos: a verification tool for real-time systems.
+\newblock {\em International Journal on Software Tools for Technology
+  Transfer}, 1(1-2):123--133, 1997.
+
+\bibitem{CAV03}
+Dirk Beyer, Claus Lewerentz, and Andreas Noack.
+\newblock Rabbit: A tool for {BDD}-based verification of real-time systems.
+\newblock In W.~A. Hunt and F.~Somenzi, editors, {\em Proceedings of the 15th
+  International Conference on Computer Aided Verification (CAV~2003, Boulder,
+  CO, July 8-12)}, LNCS~2725, pages 122--125. Springer-Verlag, Heidelberg,
+  2003.
+
+\bibitem{CHARME01}
+Dirk Beyer.
+\newblock Efficient reachability analysis and refinement checking of timed
+  automata using {BDD}s.
+\newblock In T.~Margaria and T.~F. Melham, editors, {\em Proceedings of the
+  11th IFIP Advanced Research Working Conference on Correct Hardware Design and
+  Verification Methods (CHARME~2001, Livingston, September 4-7)}, LNCS~2144,
+  pages 86--91. Springer-Verlag, Heidelberg, 2001.
+
+\bibitem{nguyen2012discrete}
+TruongKhanh Nguyen, Jun Sun, Yang Liu, JinSong Dong, and Yan Liu.
+\newblock Improved bdd-based discrete analysis of timed systems.
+\newblock In Dimitra Giannakopoulou and Dominique Méry, editors, {\em FM 2012:
+  Formal Methods}, volume 7436 of {\em Lecture Notes in Computer Science},
+  pages 326--340. Springer Berlin Heidelberg, 2012.
+
 \bibitem{dbmorig}
 DavidL. Dill.
 \newblock Timing assumptions and verification of finite-state concurrent
@@ -115,19 +152,6 @@ Johan Bengtsson.
 \newblock {\em Clocks, DBMS and States in Timed Systems (Uppsala Dissertations
   from the Faculty of Science Technology, 39)}.
 \newblock Uppsala Universitet, 7 2002.
-
-\bibitem{kronos}
-Sergio Yovine.
-\newblock Kronos: a verification tool for real-time systems.
-\newblock {\em International Journal on Software Tools for Technology
-  Transfer}, 1(1-2):123--133, 1997.
-
-\bibitem{nguyen2012discrete}
-TruongKhanh Nguyen, Jun Sun, Yang Liu, JinSong Dong, and Yan Liu.
-\newblock Improved bdd-based discrete analysis of timed systems.
-\newblock In Dimitra Giannakopoulou and Dominique Méry, editors, {\em FM 2012:
-  Formal Methods}, volume 7436 of {\em Lecture Notes in Computer Science},
-  pages 326--340. Springer Berlin Heidelberg, 2012.
 
 \bibitem{7098276}
 Huiping Zhang, Junwei Du, Ling Cao, and Guixin Zhu.

@@ -336,6 +336,18 @@ pages={111-125},
 language={English}
 }
 
+@TechReport{ddd-datastructure-99,
+  author = 	 {J. M{\o}ller and J. Lichtenberg and 
+                  H. R. Andersen and H. Hulgaard},
+  title = 	 {Dif\-feren\-ce Decision Dia\-grams},
+  institution =  {Department of Information Technology, 
+                  Technical University of Denmark},
+  year = 	 1999,
+  number = 	 {IT-TR-1999-023},
+  address =      {Building 344, DK-2800 Lyngby, Denmark},
+  month =        feb    
+}
+
 @INPROCEEDINGS{7098276,
 author={Huiping Zhang and Junwei Du and Ling Cao and Guixin Zhu},
 booktitle={Autonomous Decentralized Systems (ISADS), 2015 IEEE Twelfth International Symposium on},
@@ -388,3 +400,44 @@ pages={204-219},
 language={English}
 }
 
+@InProceedings{CHARME01,
+author = {Dirk Beyer},
+title = {Efficient Reachability Analysis and Refinement Checking of Timed Automata using {BDD}s},
+booktitle = {Proceedings of the 11th IFIP Advanced Research Working Conference on Correct Hardware Design and Verification Methods (CHARME~2001, Livingston, September 4-7)},
+editor = {T.~Margaria and T.~F.~Melham},
+series = {LNCS~2144},
+pages = {86-91},
+publisher = {Springer-Verlag, Heidelberg},
+year = {2001},
+isbn = {3-540-42541-1},
+keyword = {Formal Verification of Real-Time Systems},
+pdf = {http://www.sosy-lab.org/~dbeyer/Publications/2001-CHARME.Efficient_Reachability_Analysis_and_Refinement_Checking_of_Timed_Automata_using_BDDs.pdf},
+url = {},
+abstract = { For the formal specification and verification of real-time systems we use the modular formalism Cottbus Timed Automata (CTA), which is an extension of timed automata [AD94]. Matrix-based algorithms for the reachability analysis of timed automata are implemented in tools like Kronos, Uppaal, HyTech and Rabbit. A new BDD-based version of Rabbit, which supports also refinement checking, is now available. },
+annote = { CHARME 2001, Livingston, September 4-7,
+ Tiziana Margaria, Tom Melham, editors.
+ © 2006 Springer-Verlag 
+ Online:  http://link.springer.de/link/service/series/0558/bibs/2144/21440086.htm 
+ Decribes how the tool checks refinement via simulation relation. }
+ }
+ 
+@InProceedings{CAV03,
+author = {Dirk Beyer and Claus Lewerentz and Andreas Noack},
+title = {Rabbit: A Tool for {BDD}-Based Verification of Real-Time Systems},
+booktitle = {Proceedings of the 15th International Conference on Computer Aided Verification (CAV~2003, Boulder, CO, July 8-12)},
+editor = {W.~A.~Hunt and F.~Somenzi},
+series = {LNCS~2725},
+pages = {122-125},
+publisher = {Springer-Verlag, Heidelberg},
+year = {2003},
+isbn = {3-540-40524-0},
+keyword = {Formal Verification of Real-Time Systems},
+pdf = {http://www.sosy-lab.org/~dbeyer/Publications/2003-CAV.Rabbit_A_Tool_for_BDD-Based_Verification_of_Real-Time_Systems.pdf},
+url = {},
+abstract = { This paper gives a short overview of a model checking tool for real-time systems. The modeling language are timed automata extended with concepts for modular modeling. The tool provides reachability analysis and refinement checking, both implemented using the data structure BDD. Good variable orderings for the BDDs are computed from the modular structure of the model and an estimate of the BDD size. This leads to a significant performance improvement compared to the tool RED and the BDD-based version of Kronos. },
+annote = { CAV 2003, Boulder, CO, July 8-12,
+ Warren A. Hunt Jr., Fabio Somenzi, editors.
+ © 2006 Springer-Verlag 
+ Online:  http://springerlink.metapress.com/openurl.asp?genre=article&issn=0302-9743&volume=2725&spage=122 
+ A description of the BDD-based tool's main features. }
+}
