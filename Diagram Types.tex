@@ -1,0 +1,22 @@
+\begin{center}
+
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+			
+		\node[smallvertex](S0){$S_0$};
+		\node[smallvertex, below of = S0, yshift = -1 cm](S1){$S_1$};
+		\node[smallvertex, right of = S1 ,fill=black!10, xshift = 1cm](S2){$S_2$};
+		\node[smallvertex, right of = S2, xshift = 1 cm](S3){$S_3$};
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =0.25 cm, yshift = -0.2cm]{$a?$};
+		\draw[->] (S0) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =0.1 cm, yshift = -0.1cm, rotate =315]{$\mu$};
+		\draw[->] (S1) --(S2) node [midway, below, sloped, scale=0.75,
+		 ]{$\lambda$};
+		\draw[->] (S2) --(S3) node [midway, below, sloped, scale=0.75,
+		 ]{$f!$}; 
+		 \draw[->] ($ (S0) + (0, 0.6) $) -- (S0);
+		 \draw (S3) circle (0.25 cm);
+	\end{tikzpicture}
+\end{center}
