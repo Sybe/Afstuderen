@@ -14,6 +14,16 @@ Stefano Schivo, Jetse Scholma, Brend Wanders, Ricardo A.~Urquidi Camacho,
   Bioengineering, {BIBE} 2012, Larnaca, Cyprus, November 11-13, 2012}, pages
   447--453, 2012.
 
+\bibitem{Akers:1978:BDD:1310167.1310815}
+S.~B. Akers.
+\newblock Binary decision diagrams.
+\newblock {\em IEEE Trans. Comput.}, 27(6):509--516, June 1978.
+
+\bibitem{1676819}
+R.E. Bryant.
+\newblock Graph-based algorithms for boolean function manipulation.
+\newblock {\em Computers, IEEE Transactions on}, C-35(8):677--691, Aug 1986.
+
 \bibitem{so62465}
 Stefan {Blom} and Jaco van~de {Pol}.
 \newblock Symbolic reachability for process algebras with recursive data types.
@@ -173,5 +183,12 @@ Jeroen Meijer, Gijs Kant, Stefan Blom, and Jaco van~de Pol.
 \newblock In Eran Yahav, editor, {\em Hardware and Software: Verification and
   Testing}, volume 8855 of {\em Lecture Notes in Computer Science}, pages
   204--219. Springer International Publishing, 2014.
+
+\bibitem{Møller200253}
+Jesper Møller, Henrik Hulgaard, and Henrik~Reif Andersen.
+\newblock Symbolic model checking of timed guarded commands using difference
+  decision diagrams.
+\newblock {\em The Journal of Logic and Algebraic Programming}, 52–53:53 --
+  77, 2002.
 
 \end{thebibliography}
