@@ -6,6 +6,7 @@
 \usepackage{tikz}
 \usepackage{caption}
 \usepackage{booktabs}
+\usepackage{amssymb}
 \usetikzlibrary{calc}
 
 \begin{document}
@@ -124,13 +125,14 @@ Several methods based on BDDs have been developed to represent zones. All of the
 \label{table:diagrams}
 \begin{tabular}{|l|l|l|}
 \hline
-DBM                                                    & \begin{tabular}[c]{@{}l@{}}Canonical form for convex zones\\ Existing library\\ Inclusion check\end{tabular}                                                                                                                                                                                & \begin{tabular}[c]{@{}l@{}}Concave zones need multiple DBMs\\ Not memory efficient\end{tabular}                                                                                                                                              \\ \hline
-DDD                                                    & \begin{tabular}[c]{@{}l@{}}Nodes with difference constraints\\ Implement as LDD \\ Re-ordering of variables possible\\ Apply same efficiency as BDDs\\ Boolean variables also in DDD\end{tabular}                                                                                           & \begin{tabular}[c]{@{}l@{}}Canonicity hard to obtain\\ No on the fly canonicity\\ Only speed performance tested\\ Only reduction algorithms\end{tabular}                                                                                     \\ \hline
-CDD                                                    & \begin{tabular}[c]{@{}l@{}}Branching on intervals\\ Implement as MDD\\ Intervals need to be disjoint\\ Inclusion check\\ (intersection of complement)\end{tabular}                                                                                                                          & \begin{tabular}[c]{@{}l@{}}No algorithm to get normal form\\ Only high level algorithms\\ Methods don't maintain disjointness\\ Expensive normal form computation\\ No implementation results\\ Disjointness memory inefficient\end{tabular} \\ \hline
-CRD                                                    & \begin{tabular}[c]{@{}l@{}}Nodes with multiple fanout for \\ upperbound constraints\\ Combination with BDD possible\\ Variable ordering with \\ interleaving is best\\ Modelchecker available\\ Library available\\ Some benchmarks exp better than CDD\\ Extensive benchmarks\end{tabular} & \begin{tabular}[c]{@{}l@{}}3 possible canonical forms\\ Good performance backwards reach\\ No algorithms in paper\\ Some benchmarks linear worse than CDD\end{tabular}                                                                       \\ \hline
-CMD                                                    & \begin{tabular}[c]{@{}l@{}}Multiple DBM constraints per edge\\ Benchmarks against RED and UPPAAL\end{tabular}                                                                                                                                                                               & \begin{tabular}[c]{@{}l@{}}Results differ per case\\ Needs translation from vector to edges\\ Two reduced forms\end{tabular}                                                                                                                 \\ \hline
-\begin{tabular}[c]{@{}l@{}}BDD\\ discrete\end{tabular} & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ Good performance for small clock values\end{tabular}                                                                                                                                                                               & \begin{tabular}[c]{@{}l@{}}Performance decreases fast for large values\\ Not possible with current opaal PINS\\ Models created separately as C code\\ Introducing 'tick' actions\\ Only for closed timed automata\end{tabular}               \\ \hline
-\begin{tabular}[c]{@{}l@{}}BDD\\ zones\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ All variable reorderings possible\\ Only need direct translation DBM to\\ state vector\\ Easy to implement\end{tabular}                                                                                                            & \begin{tabular}[c]{@{}l@{}}Losing zone containment\\ No implementation results\end{tabular}                                                                                                                                                  \\ \hline
+Type                                                   & Pro                                                                                                                                                                                                                             & Con                                                                                                                                                                                                                                                          \\ \hline
+DBM                                                    & \begin{tabular}[c]{@{}l@{}}Canonical form for convex zones\\ Existing library\\ Inclusion check\end{tabular}                                                                                                                    & \begin{tabular}[c]{@{}l@{}}Concave zones need multiple DBMs\\ Not memory efficient\end{tabular}                                                                                                                                                              \\ \hline
+DDD                                                    & \begin{tabular}[c]{@{}l@{}}Structure like LDD\\ Re-ordering of variables possible\\ Apply same efficiency as BDDs\\ Boolean variables also in DDD\end{tabular}                                                                  & \begin{tabular}[c]{@{}l@{}}Canonicity hard to obtain\\ No on the fly canonicity\\ Expensive normal form computation\\ Only time performance tested\\ Only reduction algorithms\end{tabular}                                                                  \\ \hline
+CDD                                                    & \begin{tabular}[c]{@{}l@{}}Structure like MDD\\ Inclusion check\\ (intersection of complement)\end{tabular}                                                                                                                     & \begin{tabular}[c]{@{}l@{}}No algorithm to get normal form\\ Only high level algorithms given\\ Methods don't maintain disjointness\\ Expensive normal form computation\\ No implementation results available\\ Disjointness memory inefficient\end{tabular} \\ \hline
+CRD                                                    & \begin{tabular}[c]{@{}l@{}}Combination with BDD possible\\ Variable reordering shows advantage\\ Library available\\ Some benchmarks exp better than CDD\\ Extensive benchmarks\\ Good performance backwards reach\end{tabular} & \begin{tabular}[c]{@{}l@{}}3 possible canonical forms\\ No algorithms in paper\\ Some benchmarks linear worse than CDD\end{tabular}                                                                                                                          \\ \hline
+CMD                                                    & Benchmarks against RED and UPPAAL                                                                                                                                                                                               & \begin{tabular}[c]{@{}l@{}}Results differ per case\\ Needs translation from vector to edges\\ Two reduced forms\end{tabular}                                                                                                                                 \\ \hline
+\begin{tabular}[c]{@{}l@{}}BDD\\ discrete\end{tabular} & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ Good performance for small clock values\end{tabular}                                                                                                                   & \begin{tabular}[c]{@{}l@{}}Performance decreases fast for large values\\ Not possible with current opaal PINS\\ Introducing additional 'tick' actions\\ Only for closed timed automata\end{tabular}                                                          \\ \hline
+\begin{tabular}[c]{@{}l@{}}BDD\\ zones\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ All variable reorderings possible\\ Only need direct translation DBM to\\ state vector\\ Easy to implement\end{tabular}                                                & \begin{tabular}[c]{@{}l@{}}Losing zone containment\\ No implementation results\end{tabular}                                                                                                                                                                  \\ \hline
 \end{tabular}
 \end{table}
 
@@ -181,20 +183,69 @@ We have discussed several symbolic approaches for representing zones. All of the
 \label{def:DDD}
 A difference decision diagram (DDD) is a directed acyclic graph $(V,E)$. The vertex set $V$ contains two terminals $0$ and $1$ with out-degree zero, and a set of non-terminal vertices with out-degree two and the following attributes.
 \\\\
-\centering
 \begin{tabular}{lll}
-Attribute                & Type                      & Description                                         \\\hline
-pos(v), neg(v)  & \textbf{Var}              & Positive variable $x_i$, and negative variable $x_j$. \\
-op(v)           & \{\textless, $\leq\}$ & Operator \textless or $\leq$.                   \\
-const(v)        & $\mathbb{D}$                 & Constant c.                                         \\
-high(v), low(v) & V                         & High-branch h, and low-branch l.                   
+Attribute                & Type                      & Description                                           \\\hline
+pos(v), neg(v)           & \textbf{Var}              & Positive variable $x_i$, and negative variable $x_j$. \\
+op(v)                    & \{\textless, $\leq\}$     & Operator \textless or $\leq$.                         \\
+const(v)                 & $\mathbb{D}$              & Constant c.                                           \\
+high(v), low(v)          & $V$                       & High-branch h, and low-branch l.                   
 \end{tabular}
 \captionof*{table}{}  
-The set E contains the deges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is a non-terminal vertex.
+The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is a non-terminal vertex.
 \end{mydef}
 
-In ~\cite{ddds} a canonical form for DDDs is discussed, also called a fully reduced DDD. Only definitions are given here, no algorithms to reach this form. It is stated that it is difficult to reach this fully reduced form. It is not clear if they managed to make their apply function in such a way that it maintains canonicity. To reach canonicity, local reductions and ordering are a first step, but it is not enough due to dependencies among the constraints. For BDDs the local reductions and ordering are sufficient to reach a canonical form.
+In ~\cite{ddds} a canonical form for DDDs is discussed, also called a fully reduced DDD. Only definitions are given here, no algorithms to reach this form. It is stated that it is difficult to reach this fully reduced form. It is not clear if they managed to make their apply function in such a way that it maintains canonicity. To reach canonicity, local reductions and ordering are a first step, but it is not enough due to dependencies among the constraints. For BDDs the local reductions and ordering are sufficient to reach a canonical form. First we give some notational shorthands and then we define an ordering and local reductions on DDDs.
+%
+\begin{center}
+\begin{tabular}{lll}
+$var(v)$   & $=$ & $(pos(v),neg(v))$   \\
+$bound(v)$ & $=$ & $(const(v),op(v))$  \\
+$cstr(v)$  & $=$ & $(var(v),bound(v))$
+\end{tabular}
+\end{center}
 
+\begin{mydef}[Ordered DDD~\cite{ddds}]
+\label{def:ODDD}
+An ordered DDD (ODDD) is a DDD where each non-terminal vertex $v$ satisfies:
+\begin{enumerate}
+  \item $neg(v) \prec pos(v)$,
+  \item $var(v) \prec var(high(v))$,
+  \item $var(v) \prec var(low(v))$ or \\ $var(v) = var(low(v))$ and $bound(v) \prec bound(low(v))$.
+\end{enumerate}
+\end{mydef}
+
+After ordering a DDD some local reductions can be defined to reduce the size of a DDD.
+
+\begin{mydef}[Locally Reduced DDD~\cite{ddds}]
+A locally reduced DDD ($R_LDDD$) is an ODDD satisfying, for all non-terminals u and v:
+\begin{enumerate}
+  \item $\mathbb{D} = \mathbb{Z}$ implies $op(v) = '\leq'$,
+  \item $(cstr(u),high(u),low(u)) = (cstr(v),high(v),low(v))$ implies $u = v$,
+  \item $low(v) \neq high(v)$,
+  \item $var(v) = var(low(v))$ implies $high(v) \neq high(low(v))$.
+\end{enumerate}
+\end{mydef}
+
+These reductions are not enough to reach a canonical form. Here we define the other reductions and methods needed to reach a canonical form.
+
+\begin{mydef}[Path-reduced DDD~\cite{ddds}]
+A path-reduced DDD ($R_PDDD$) is a locally reduced DDD where all paths are feasible.
+\end{mydef}
+
+\begin{mydef}[Tightness~\cite{ddds}]
+A dominating constraint $\alpha = x_i - x_j \lesssim c$ is tight in a feasible path $[p] = [p_1] \wedge \alpha \wedge [p_2]$ if for all tighter constraints $(c', \lesssim') < (c,\lesssim),$ the systems $[p_1] \wedge (x_i - x_j \lesssim' c') \wedge [p_2]$ and $[p]$ have different solutions. A path $p$ is tight if it is feasible and all dominating constraints on it are tight. An $R_LDDD u$ is tight if all paths from $u$ are tight. 
+\end{mydef}
+
+\begin{mydef}[Saturation~\cite{ddds}]
+A tight path $p$ from an $R_PDDD$ is saturated if for all constraints $\alpha$ not on $p$, if $\alpha$ is added to $p$ either (1) $\alpha$ is not dominating and tight, or (2) the constraint system $[p_1] \wedge \neg\alpha$ is infeasible when $[p]$ is written $[p] = [p_1] \wedge [p_2]$ with all constraints on $p_1$ smaller than $\alpha$ with respect to $\prec$ and all constraints on $p_2$ larger than $\alpha$. An $R_PDDD$ $u$ is saturated if all paths from $u$ are saturated.
+\end{mydef}
+
+\begin{mydef}[Disjunctive vertex~\cite{ddds}]
+Let $p$ be a path leading to the vertex $u$ in a DDD, and assume $\alpha = cstr(u), h = high(u),$ and $l = low(u)$. Then $u$ is disjunctive in $p$ if $[p] \wedge (\alpha \rightarrow h,l)$ and $[p] \wedge (h \vee l)$ have the same set of solutions.
+\end{mydef}
+
+All of these definitions lead to the following definition of a fully reduced DDD.
+% 
 \begin{mydef}[Fully reduced DDD~\cite{ddds}]
 \label{def:RFDDD}
 An $R_pDDD$ u is a fully-reduced DDD ($R_FDDD$) if it is tight, saturated and has no disjunctive vertices.
@@ -210,7 +261,7 @@ So far we only found the results of two benchmark tests of DDDs, Milner's schedu
 For the research we will state a couple of research questions:
 {\renewcommand\labelitemi{--}
 	\begin{itemize}
-		\item Is the combination of BDDs and flattened DBMs an efficient method for symbolic reachability analysis of timed automata?
+		\item Is the combination of BDDs and flattened DBMs an efficient method for symbolic reachability analysis of timed automata? Both on memory usage and speed.
 		\item Can improvements be achieved by using different orderings? Both by changing the order of only the clock variables and by mixing the clock and state variables.
 		\item Is the new language module needed for the symbolic approach also usable for the multicore approach with subsumption?
 		\item Can the BDD approach be generalized towards a method using DDDs?
@@ -220,7 +271,7 @@ For the research we will state a couple of research questions:
 
 
 \subsection{Approach}
-We will propose first a method that will use the best of both worlds. We will use the DBMs in the state exploration such that we can find a canonical representation of the clock zone of a newly explored state quite easily. For the symbolic representation of the state space, including the clock zones, and the transition relations, we will use normal BDDs. The DBMs will be flattened and put directly into the state vector and can than be handled by the symbolic BDD backend. Therefore both the efficient algorithms and the memory efficient representation can be used. A downside to this approach is that a zone subsumption check is not possible anymore, resulting in revisiting of some states. Further we will focus on efficient orderings of the BDDs, as both clock zones and states are contained in a single structure. We will also use this new method with the existing multicore tool, such that we can still use the subsumption check. Afther that we will continue towards a DDD model checker. First we will use the DDDs as the state space representation and still use the language module using the DBMs. Eventually we want a complete symbolic solution with more operations on the DDD, such as the progress of time, then we can have a language module which does not use the DBMs any more. We will compare this approach extensively to other approaches. All of these approaches will be implemented in the LTSmin toolset. This way we can really compare the methods and not just the tools.
+We will propose first a method that will use the best of both worlds. We will use the DBMs in the state exploration such that we can find a canonical representation of the clock zone of a newly explored state quite easily. For the symbolic representation of the state space, including the clock zones, and the transition relations, we will use normal BDDs. The DBMs will be flattened and put directly into the state vector and can than be handled by the symbolic BDD backend. Therefore both the efficient algorithms and the memory efficient representation can be used. A downside to this approach is that a zone subsumption check is not possible anymore, resulting in revisiting of some states. Further we will focus on efficient orderings of the BDDs, as both clock zones and states are contained in a single structure. We will also use this new method with the existing multicore tool, such that we can still use the subsumption check. Afther that we will continue towards a DDD model checker. First we will use the DDDs as the state space representation and still use the language module using the DBMs. We have not been able to find any literature on the combination of these techniques. There might be a significant memory improvement possible here. Eventually we want a complete symbolic solution with more operations on the DDD, such as the progress of time, then we can have a language module which does not use the DBMs any more. We will compare this approach extensively to other approaches. All of these approaches will be implemented in the LTSmin toolset. This way we can really compare the methods and not just the tools.
 
 Alongside this we will also have to make the opaal PINS work with the UPPAAL models generated by ANIMO. The current versions doe not work together because of global variables are used in the system declaration in the generated model. We can make this work by either changing the models generated by ANIMO or by extending the opaal PINS. At this time we do not know the best solution for this problem.
 
@@ -237,9 +288,9 @@ For the combination with the multicore backend also the data structure will need
 
 For the DDD the diagram will need to be able to identify the zone variables from the discrete state variables in the state vector. This will need an extra function in the PINS interface recognizing the different types of variables.  
 
-For the DDD representation the values from the DBM will need to be translated to useful variables as ordering of the DDD is based on the values. Also to check for inequalities and set containment the meaningful values are needed. As the values in a DBM both contain the value of an inequality and the operator some more complex translation might be needed. 
+For the DDD representation the values from the DBM will need to be translated to useful variables as ordering of the DDD is based on the values. Also to check for inequalities and set containment the meaningful values are needed. In the current DBM library both the value and the operator are saved in a single 32 bit integer. The DDD will need to know the value and the operator separately.
 
-For the DDD the mixing of BDDs, or LDDs, and zone diagrams needs to be researched. There is little knowledge on how algorithms might need to be changed. Also the possibility and results of the mixing of discrete and zone variables need to be researched. It might be that it functions better when the two types of variables remain separated, or when they are mixed.
+To make an efficient DDD representation, we need to mix these DDD nodes with BDDs or LDDs for the discrete variables. For this diagram this has not been done before, we can only look at the CRD solution. Algorithms probably need some adaptation for these multiple types of nodes. Also the possibility and results of the mixing of discrete and zone variables need to be researched. It might be that it functions better when the two types of variables remain separated, or when they are mixed.
 
 \subsection{Planning}
 In the table below we have put all actions that need to be done into tasks. In the second column we put which tool should work correctly for the opaal language module after the task. This will give us intermediate points on which we can test the work that has been done to that point.
