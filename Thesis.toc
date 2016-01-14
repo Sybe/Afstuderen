@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Related Work}{2}
+\contentsline {subsection}{\numberline {2.1}Methods}{2}
+\contentsline {subsection}{\numberline {2.2}Timed Automata}{4}
+\contentsline {subsection}{\numberline {2.3}Zones}{6}
+\contentsline {subsection}{\numberline {2.4}Difference Decision Diagrams}{7}
+\contentsline {section}{\numberline {3}Plan}{9}
+\contentsline {subsection}{\numberline {3.1}Questions}{9}
+\contentsline {subsection}{\numberline {3.2}Zone Containment}{9}
+\contentsline {subsection}{\numberline {3.3}Approach}{10}
+\contentsline {subsection}{\numberline {3.4}To do}{12}
+\contentsline {subsection}{\numberline {3.5}Planning}{13}

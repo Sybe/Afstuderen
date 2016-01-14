@@ -7,7 +7,12 @@
 \usepackage{caption}
 \usepackage{booktabs}
 \usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{amsmath}
 \usetikzlibrary{calc}
+\algnewcommand\True{\textbf{true}}
+\algnewcommand\False{\textbf{false}}
 
 \begin{document}
 
@@ -269,6 +274,87 @@ For the research we will state a couple of research questions:
 	\end{itemize}
 }
 
+\subsection{Zone Containment}
+In BDDs it is simple to test for containment of a state. This can be done in linear time over the number of variables. For zones in DDDs this can be a harder question, as a zone can be contained in some larger zone in the DDD. For this we need an extension to the normal LDD algorithm, that can handle these zones. The main difference is that on some nodes both the high and the low edge can lead to a satisfying path. Algorithm \ref{alg:contain} tests if a zone $z$ is contained in the DDD rooted at $v$.
+
+\begin{algorithm}
+\caption{Zone containment for DDDs}\label{alg:contain}
+\begin{algorithmic}[1]
+\Procedure{Contains}{$v, z$}
+	\If{$v \in {0,1}$} 
+		\Return{$v$} 
+	\EndIf
+	\If{z[$var(v)$] correct in $v$}
+		\If{\Call{Contains}{$high(v), z$}} 
+			\Return{\True}
+		\Else{ 
+			\Return{\Call{Contains}{$low(v), z$}}} 
+		\EndIf
+	\Else{ 
+		\Return{\Call{Contains}{$low(v), z$}}} 
+	\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+Where the correct in check will evaluate if the upper-bound in the zone is lower than the upper bound in the node $v$. As we will use maximal sharing of subtrees, some nodes might be revisited. Once we revisit a node, we know that none of it subtrees will lead to a correct evaluation. Therefore we could use a visited flag, to save computation time. The worst case running time of the algorithm will be $\mathcal{O}(|v|)$, where $|v|$ is the number of nodes in the DDD. This can increase the running time of the state space generation significantly, as this algorithm will need to be ran every time a new state is found. It will however save memory, as no zones will be added that are already in the DDD. As the main goal of a symbolic approach is the reduction of memory, we think this is the better solution, over a less time consuming approach which would lead to more memory consumption. The algorithm will not work correctly when the discrete variables are also translated into DDD nodes, as the value in those cases needs to be correct, and an higher upper bound will not work. For the mix of DDD and LDD nodes we will need to change the algorithm to algorithm \ref{alg:containLDD}. This algorithm checks if a node is of type DDD. If it is, the old algorithm will be executed normally, if not, then it is an LDD node and in case of a correct evaluation only the high edge will be explored. The low edge will in that case never lead to a correct evaluation of the state.
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\caption{Zone containment for mixed diagram}\label{alg:containLDD}
+\Procedure{Contains}{$v, z$}
+	\If{$v \in {0,1}$} 
+		\Return{$v$} 
+	\EndIf
+	\If{z[$var(v)$] correct in $v$}
+		\If{$type(v)$ is DDD} 
+			\If{\Call{Contains}{$high(v), z$}} 
+				\Return{\True}
+			\Else{ 
+				\Return{\Call{Contains}{$low(v), z$}}} 
+			\EndIf
+		\Else{
+			\Return{\Call{Contains}{$high(v), z$}}}
+		\EndIf 
+	\Else{ 
+		\Return{\Call{Contains}{$low(v), z$}}} 
+	\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\caption{Union}\label{alg:union}
+\Procedure{Union}{$v1, v2$}
+	\If{$v1 = v2$} 
+		\Return{$v1$} 
+	\EndIf
+	\If{$v1 =$ \False}
+		\Return{$v2$}
+	\EndIf
+	\If{$v2 =$ \False}
+		\Return{$v1$}
+	\EndIf
+	\If{$v1 \prec v2$}
+		\State $high \gets$ \Call{Union}{$high(v1), high(v2)$}
+		\State $low \gets$ \Call{Union}{$low(v1), v2$}
+		\State $result \gets$ \Call{Mk}{$cstr(v1), high, low$}
+	\EndIf
+	\If{$v2 \prec v1$}
+		\State $high \gets$ \Call{Union}{$high(v1), high(v2)$}
+		\State $low \gets$ \Call{Union}{$v1, low(v2)$}
+		\State $result \gets$ \Call{Mk}{$cstr(v2), high, low$}
+	\EndIf
+	\If{$v1 = v2$}
+		\State $high(v1) \gets$ \Call{Union}{$high(v1), high(v2)$}
+		\State $low(v1) \gets$ \Call{Union}{$low(v1), low(v2)$}
+		\State $result \gets$ \Call{Mk}{$cstr(v1), high, low$}
+	\EndIf
+	\Return $result$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{Approach}
 We will propose first a method that will use the best of both worlds. We will use the DBMs in the state exploration such that we can find a canonical representation of the clock zone of a newly explored state quite easily. For the symbolic representation of the state space, including the clock zones, and the transition relations, we will use normal BDDs. The DBMs will be flattened and put directly into the state vector and can than be handled by the symbolic BDD backend. Therefore both the efficient algorithms and the memory efficient representation can be used. A downside to this approach is that a zone subsumption check is not possible anymore, resulting in revisiting of some states. Further we will focus on efficient orderings of the BDDs, as both clock zones and states are contained in a single structure. We will also use this new method with the existing multicore tool, such that we can still use the subsumption check. Afther that we will continue towards a DDD model checker. First we will use the DDDs as the state space representation and still use the language module using the DBMs. We have not been able to find any literature on the combination of these techniques. There might be a significant memory improvement possible here. Eventually we want a complete symbolic solution with more operations on the DDD, such as the progress of time, then we can have a language module which does not use the DBMs any more. We will compare this approach extensively to other approaches. All of these approaches will be implemented in the LTSmin toolset. This way we can really compare the methods and not just the tools.
