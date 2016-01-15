@@ -27,7 +27,7 @@
 \section{Introduction}
 Timed Automata~\cite{Alur1994183} are a widely used modelling formalism. A recent usage of this formalism is the modelling of biological signalling pathways~\cite{DBLP:conf/bibe/SchivoSWCVKLPP12}. This leads however to large state spaces, and sometimes to models that are too large to handle by conventional methods. Therefore better model checking techniques for timed automata, that can handle larger state spaces are needed. We look into symbolic algorithms for timed automata.
 
-BDDs(Binary Decision Diagrams)~\cite{Akers:1978:BDD:1310167.1310815,1676819} and variations like LDDs(List Decision Diagrams)~\cite{so62465} and MDDs(Multi-valued Decision Diagrams)~\cite{129849} have proven their value in model checking algorithms. Due to advances in this field, models with much larger state spaces can be explored on the same machine. This progress has not been translated directly to more efficient methods for Timed Automata. Several methods have been proposed, like CDDs(Clock Difference Diagrams)~\cite{BRICS19491}, CMDs(Constraint Matrix Diagrams)~\cite{5702245}, CRDs(Clock Restriction Diagrams)~\cite{crds} and DDDs(Difference Decision Diagrams)~\cite{ddds, ddd-datastructure-99}. All of these methods show some extra difficulties or limitations over BDDs. Also after their introduction they have not been developed further.
+BDDs (Binary Decision Diagrams)~\cite{Akers:1978:BDD:1310167.1310815,1676819} and variations like LDDs (List Decision Diagrams)~\cite{so62465} and MDDs (Multi-valued Decision Diagrams)~\cite{129849} have proven their value in model checking algorithms. Due to advances in this field, models with much larger state spaces can be explored on the same machine. This progress has not been translated directly to more efficient methods for Timed Automata. Several methods have been proposed, like CDDs (Clock Difference Diagrams)~\cite{BRICS19491}, CMDs (Constraint Matrix Diagrams)~\cite{5702245}, CRDs (Clock Restriction Diagrams)~\cite{crds} and DDDs (Difference Decision Diagrams)~\cite{ddds, ddd-datastructure-99}. All of these methods show some extra difficulties or limitations over BDDs. Also after their introduction they have not been developed further.
 
 LTSmin~\cite{eemcs18152,ltsmin-mc:nmf2011} is a language independent on the fly model checker with several algorithmic backends. Its symbolic backend uses BDDs to both represent the state space and the transition relations of models. These BDDs are generated on the fly by the search algorithms. LTSmin has a language module for the UPPAAL~\cite{UPPAAL} through the opaal~\cite{opaal} lattice model checker. For this language at this time, only the multicore backend can be used~\cite{eemcs21972}. This multicore approach showed efficient enough to compete with the latest version of the UPPAAL model checker. It showed significant speedups on multicore machines, at the cost of some memory increase however. To tackle the memory increase a combination of the opaal frontend and the symbolic backend could be a solution.
 
@@ -329,29 +329,32 @@ Where the correct in check will evaluate if the upper-bound in the zone is lower
 \Procedure{Union}{$v1, v2$}
 	\If{$v1 = v2$} 
 		\Return{$v1$} 
-	\EndIf
-	\If{$v1 =$ \False}
+	\ElsIf{$v1 =$ \False}
 		\Return{$v2$}
-	\EndIf
-	\If{$v2 =$ \False}
+	\ElsIf{$v2 =$ \False}
 		\Return{$v1$}
-	\EndIf
-	\If{$v1 \prec v2$}
+	\ElsIf{$var(v1) \prec var(v2)$}
+		\State $high \gets$ \Call{Union}{$high(v1), v2$}
+		\State $low \gets$ \Call{Union}{$low(v1), v2$}
+		\State $result \gets$ \Call{Mk}{$cstr(v1), high, low$} 
+	\ElsIf{$var(v2) \prec var(v1)$}
+		\State $high \gets$ \Call{Union}{$high(v2), v1$}
+		\State $low \gets$ \Call{Union}{$low(v2), v1$}
+		\State $result \gets$ \Call{Mk}{$cstr(v2), high, low$} 
+	\ElsIf{$v1 \prec v2$}
 		\State $high \gets$ \Call{Union}{$high(v1), high(v2)$}
 		\State $low \gets$ \Call{Union}{$low(v1), v2$}
 		\State $result \gets$ \Call{Mk}{$cstr(v1), high, low$}
-	\EndIf
-	\If{$v2 \prec v1$}
+	\ElsIf{$v2 \prec v1$}
 		\State $high \gets$ \Call{Union}{$high(v1), high(v2)$}
 		\State $low \gets$ \Call{Union}{$v1, low(v2)$}
 		\State $result \gets$ \Call{Mk}{$cstr(v2), high, low$}
-	\EndIf
-	\If{$v1 = v2$}
+	\ElsIf{$v1 = v2$}
 		\State $high(v1) \gets$ \Call{Union}{$high(v1), high(v2)$}
 		\State $low(v1) \gets$ \Call{Union}{$low(v1), low(v2)$}
 		\State $result \gets$ \Call{Mk}{$cstr(v1), high, low$}
 	\EndIf
-	\Return $result$
+	\State \Return $result$
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
