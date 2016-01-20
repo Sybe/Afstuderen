@@ -1,0 +1,47 @@
+We will first define Timed Automata and zones, a method used to represent Timed Automata. Also a subsumption check over zones will be defined. 
+
+\subsection{Timed Automata}
+Timed Automata is a formalism that extends labelled transition systems with one ore more, but finite, clocks. Guards over these clocks, denoted as $G(C)$ can be used for transitions. Also reset actions for clock can be defined for transitions. All clocks in the system will increase at the same rate. As our work continues on ~\cite{eemcs21972} we use the same definition of timed automata.
+
+\begin{mydef}[Timed Automata]
+\label{def:TA}
+An extended timed automaton is a 6-tuple A = $\langle L, C, Act, s_0, \rightarrow, I_c\rangle$ where
+{\renewcommand\labelitemi{--}
+	\begin{itemize}
+		\item L is a finite set of locations, typically denoted by $l$
+		\item C is ia finite set of clocks, typically denoted by c
+		\item Act is a finite set of actions
+		\item $l_0 \in$ L is the initial location
+		\item $\rightarrow \subseteq L \times G(C) \times Act \times 2^C \times L$ is the (non-deterministic) transition relation. We normally write l $\stackrel{g,a,r}{\longrightarrow}$ l' for a transition., where l is the source location, g is the guard over the clocks, a is the action, and r is the set of clocks reset.
+		\item $I_C : L \rightarrow G(C)$ is a function mapping locations to downwards closed clock invariants.
+	\end{itemize}
+}
+\end{mydef}
+
+With this definition we can combine timed automata to a network of timed automata, which is a parallel composition, to define larger systems.
+
+\begin{mydef}[Network of timed automata~\cite{eemcs21972}]
+\label{def:networkTA}
+Let Act = $\{ch!,ch?|ch \in Chan\} \cup \{\tau\}$ be a finite set of actions, and let C be a finite set of clocks. Then the parallel composition of extended timed automata $A_i = \langle L_i, C, Act, S^i_0, \rightarrow_{i}, I^i_C\rangle$ for all $1 \leq i \leq n$, where $n \in \mathbb{N}$, is a network of timed automata, denoted $A = A_1||A_2||..||A_n$.
+\end{mydef}
+
+\subsection{Zones}
+For basic transition systems the state space can grow exponentially for the size of the system. Timed Automata are by definition infinite, as clocks have real values. If a state is defined between two points in time, an infinite amount of moments in time can happen during that state. Even when some granularity is used, that defines that clocks will only increase with certain step size the automata can still have infinite state space. To tackle this problem most model checkers use a notion of zones for the representation of time. A zone can be seen as a set of constraints over the clocks C of the form $c_i \sim x$ and $c_i - c_j \sim x$ where $\sim  \in \{<, \leq, =, \geq, >\}$ and $x \in \mathbb{N}$. To represent these zones several data structures have been developed. One of the most common used structures are Difference Bound Matrices (DBMs)~\cite{dbmorig,bengtsson2002clocks}.
+ 
+These matrices use both a column and a row for each clock, and on each position $(i,j)$ an upper bound on the difference between the clocks $c_i$ and $c_j$ is given in the form $c_i - c_j \preceq x$ where $\preceq \in \{<, \leq\}$ and $x \in \mathbb{N}$. For the constraints over the single clocks an extra clock $\mathbf{O}$ with a constant value 0 is added. The addition of this $\mathbf{O}$ clock will give the matrix of a Timed Automata always size $(|C|+1)^2$. By switching the two variables also a lower bound can be given to each pair. This way convex zones of clock variables can be represented. Each matrix can however only contain a single convex zone. Concave zones and multiple convex zones need multiple matrices to be represented. As a solution often a list of DBMs is used. In figure \ref{fig:dbm} we give an example of a DBM with two clocks: $c_1$ and $c_2$, representing the zone $0 \leq c_1 \leq 5 \wedge 0 \leq c_2 \leq 4$.
+
+\begin{figure}
+	\centering
+	\begin{math}
+ 		\begin{pmatrix}
+ 			(0,\leq) & (0,\leq) & (0,\leq) \\
+ 			(5,\leq) & (0,\leq) & \infty   \\
+ 			(4,\leq) & \infty   & (0,\leq) \\
+ 		\end{pmatrix}
+	\end{math}
+	\caption{DBM}
+	\label{fig:dbm}
+\end{figure}
+
+\subsection{Zone subsumption}
+In model checking an important function is to check if a certain state has been visited already earlier. For normal automata this can be done by comparing the newly found state to all states that have already been visited, and check if one of those states is equal to that new state. This is often done by more efficient methods, like hash functions, but the equality check remains. For states with zones this equality check does not satisfy. As two zones do not need to be equal, but the new zone needs to be a part of the already visited zones. In LTSmin this is done by a subsumption check~\cite{eemcs21972} that is performed over the DBMs. This function checks if a new zone is a subset of the zone represented by a DBM, so that all of its' upper bounds are lower than the upper bounds of the already discovered zone.

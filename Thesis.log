@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  20 JAN 2016 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  20 JAN 2016 15:17
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -573,56 +573,61 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (Thesis.toc)
 \tf@toc=\write4
 
-[1
+(Introduction.tex [1
 
-{C:/Users/Sybe/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-[3] [4] [5]
+{C:/Users/Sybe/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]) (Preliminar
+ies.tex [2] [3]) (RelatedWork.tex [4] [5]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 180.
+               Default added (so using `tbp') on input line 91.
 
 
-Overfull \hbox (111.88657pt too wide) in paragraph at lines 184--195
+Overfull \hbox (111.88657pt too wide) in paragraph at lines 95--106
  [][] 
  []
 
 <pins_modern.png, id=32, 560.0925pt x 261.25604pt>
 File: pins_modern.png Graphic file (type png)
  <use pins_modern.png>
-Package pdftex.def Info: pins_modern.png used on input line 201.
+Package pdftex.def Info: pins_modern.png used on input line 112.
 (pdftex.def)             Requested size: 360.0pt x 167.92882pt.
 
 [6] [7]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 220.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 131.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 220.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 220.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 131.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 131.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 220.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 131.
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--224
+Underfull \hbox (badness 10000) in paragraph at lines 126--135
 
  []
 
 [8]
-Overfull \hbox (7.40977pt too wide) in paragraph at lines 251--252
+Overfull \hbox (7.40977pt too wide) in paragraph at lines 162--163
 []\OT1/cmr/bx/n/10.95 Definition 5 \OT1/cmr/m/n/10.95 (Lo-cally Re-duced DDD [1
 0])\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/it/10.95 A lo-cally re-duced DDD ($\OML/c
 mm/m/it/10.95 R[]DDD$\OT1/cmr/m/it/10.95 )
  []
 
-[9] [10] [11] [12] [13] [14]
-Overfull \hbox (1.1808pt too wide) in paragraph at lines 442--461
-[][] 
+[9]) (Plan.tex [10] [11] [12] [13] [14])
+Overfull \hbox (1.1808pt too wide) in paragraph at lines 152--40
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--40
+
  []
 
 (Thesis.bbl [15] [16]
@@ -640,13 +645,13 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
 ) [18] [19 <./pins_modern.png>] (Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 14060 strings out of 493698
- 272942 string characters out of 3144415
+ 14072 strings out of 493698
+ 273094 string characters out of 3144415
  316137 words of memory out of 3000000
  17125 multiletter control sequences out of 15000+200000
  13278 words of font info for 49 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 55i,14n,54p,1926b,826s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,14n,54p,1946b,826s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
@@ -663,7 +668,7 @@ s/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (19 pages, 277495 bytes).
+Output written on Thesis.pdf (19 pages, 277493 bytes).
 PDF statistics:
  136 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
