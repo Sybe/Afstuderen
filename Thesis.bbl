@@ -95,7 +95,7 @@ Gerd Behrmann, Alexandre David, and KimG. Larsen.
   Computer Science}, pages 200--236. Springer Berlin Heidelberg, 2004.
 
 \bibitem{opaal}
-Andreas~Engelbredt Dalsgaard, René~Rydhof Hansen, Kenneth~Yrke Jørgensen,
+Andreas~Engelbredt Dalsgaard, René~Rydhof Hansen, Kenneth~Yrke J{\o}rgensen,
   Kim~Gulstrand Larsen, Mads~Chr. Olesen, Petur Olsen, and Jiří Srba.
 \newblock opaal: A lattice model checker.
 \newblock In Mihaela Bobaru, Klaus Havelund, GerardJ. Holzmann, and Rajeev
@@ -118,6 +118,20 @@ Tom van Dijk and Jaco van~de Pol.
   Algorithms for the Construction and Analysis of Systems}, volume 9035 of {\em
   Lecture Notes in Computer Science}, pages 677--691. Springer Berlin
   Heidelberg, 2015.
+
+\bibitem{dbmorig}
+DavidL. Dill.
+\newblock Timing assumptions and verification of finite-state concurrent
+  systems.
+\newblock In Joseph Sifakis, editor, {\em Automatic Verification Methods for
+  Finite State Systems}, volume 407 of {\em Lecture Notes in Computer Science},
+  pages 197--212. Springer Berlin Heidelberg, 1990.
+
+\bibitem{bengtsson2002clocks}
+Johan Bengtsson.
+\newblock {\em Clocks, DBMS and States in Timed Systems (Uppsala Dissertations
+  from the Faculty of Science Technology, 39)}.
+\newblock Uppsala Universitet, 7 2002.
 
 \bibitem{kronos}
 Sergio Yovine.
@@ -149,20 +163,6 @@ TruongKhanh Nguyen, Jun Sun, Yang Liu, JinSong Dong, and Yan Liu.
   Formal Methods}, volume 7436 of {\em Lecture Notes in Computer Science},
   pages 326--340. Springer Berlin Heidelberg, 2012.
 
-\bibitem{dbmorig}
-DavidL. Dill.
-\newblock Timing assumptions and verification of finite-state concurrent
-  systems.
-\newblock In Joseph Sifakis, editor, {\em Automatic Verification Methods for
-  Finite State Systems}, volume 407 of {\em Lecture Notes in Computer Science},
-  pages 197--212. Springer Berlin Heidelberg, 1990.
-
-\bibitem{bengtsson2002clocks}
-Johan Bengtsson.
-\newblock {\em Clocks, DBMS and States in Timed Systems (Uppsala Dissertations
-  from the Faculty of Science Technology, 39)}.
-\newblock Uppsala Universitet, 7 2002.
-
 \bibitem{7098276}
 Huiping Zhang, Junwei Du, Ling Cao, and Guixin Zhu.
 \newblock A full symbolic reachability analysis algorithm of timed automata
@@ -185,7 +185,7 @@ Jeroen Meijer, Gijs Kant, Stefan Blom, and Jaco van~de Pol.
   204--219. Springer International Publishing, 2014.
 
 \bibitem{Møller200253}
-Jesper Møller, Henrik Hulgaard, and Henrik~Reif Andersen.
+Jesper M{\o}ller, Henrik Hulgaard, and Henrik~Reif Andersen.
 \newblock Symbolic model checking of timed guarded commands using difference
   decision diagrams.
 \newblock {\em The Journal of Logic and Algebraic Programming}, 52–53:53 --

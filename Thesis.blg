@@ -5,7 +5,11 @@ Repeated entry---line 300 of file references.bib
  : @book{bengtsson2002clocks
  :                          ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 501 of file references.bib
+ : @inproceedings{CHARME01
+ :                        ,
+I'm skipping whatever remains of this entry
 A bad cross reference---entry "DBLP:conf/bibe/SchivoSWCVKLPP12"
 refers to entry "DBLP:conf/bibe/2012", which doesn't exist
 Warning--I didn't find a database entry for "DBLP:conf/bibe/2012"
-(There were 2 error messages)
+(There were 3 error messages)
