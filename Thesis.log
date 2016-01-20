@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  20 JAN 2016 15:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  20 JAN 2016 15:24
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -570,13 +570,21 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 24.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (Thesis.toc)
+) [1
+
+{C:/Users/Sybe/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (Thesis.toc)
 \tf@toc=\write4
+ [2
 
-(Introduction.tex [1
+]
+(Introduction.tex) [3
 
-{C:/Users/Sybe/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]) (Preliminar
-ies.tex [2] [3]) (RelatedWork.tex [4] [5]
+] [4] (Preliminaries.tex [5
+
+]) [6] [7] (RelatedWork.tex
+[8
+
+]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 91.
@@ -586,13 +594,13 @@ Overfull \hbox (111.88657pt too wide) in paragraph at lines 95--106
  [][] 
  []
 
-<pins_modern.png, id=32, 560.0925pt x 261.25604pt>
+<pins_modern.png, id=42, 560.0925pt x 261.25604pt>
 File: pins_modern.png Graphic file (type png)
  <use pins_modern.png>
 Package pdftex.def Info: pins_modern.png used on input line 112.
 (pdftex.def)             Requested size: 360.0pt x 167.92882pt.
 
-[6] [7]
+[9] [10]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 131.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
@@ -613,64 +621,69 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--135
 
  []
 
-[8]
+[11]
 Overfull \hbox (7.40977pt too wide) in paragraph at lines 162--163
 []\OT1/cmr/bx/n/10.95 Definition 5 \OT1/cmr/m/n/10.95 (Lo-cally Re-duced DDD [1
 0])\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/it/10.95 A lo-cally re-duced DDD ($\OML/c
 mm/m/it/10.95 R[]DDD$\OT1/cmr/m/it/10.95 )
  []
 
-[9]) (Plan.tex [10] [11] [12] [13] [14])
-Overfull \hbox (1.1808pt too wide) in paragraph at lines 152--40
+[12]) [13] [14 <./pins_modern.png>] (Plan.tex [15
+
+] [16] [17] [18])
+Overfull \hbox (1.1808pt too wide) in paragraph at lines 152--44
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--40
+Underfull \hbox (badness 10000) in paragraph at lines 152--44
 
  []
 
-(Thesis.bbl [15] [16]
+[19] (Thesis.bbl [20
+
+]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no Å in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [17]
+ [21]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
+ [22]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-) [18] [19 <./pins_modern.png>] (Thesis.aux) ) 
+) [23] (Thesis.aux) ) 
 Here is how much of TeX's memory you used:
  14072 strings out of 493698
  273094 string characters out of 3144415
- 316137 words of memory out of 3000000
+ 316140 words of memory out of 3000000
  17125 multiletter control sequences out of 15000+200000
  13278 words of font info for 49 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  55i,14n,54p,1946b,826s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-ex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-y8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (19 pages, 277493 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Thesis.pdf (23 pages, 279481 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
+ 148 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

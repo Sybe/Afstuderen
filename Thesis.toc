@@ -1,14 +1,14 @@
-\contentsline {section}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {2}Preliminaries}{2}
-\contentsline {subsection}{\numberline {2.1}Timed Automata}{3}
-\contentsline {subsection}{\numberline {2.2}Zones}{3}
-\contentsline {subsection}{\numberline {2.3}Zone subsumption}{4}
-\contentsline {section}{\numberline {3}Related Work}{5}
-\contentsline {subsection}{\numberline {3.1}Methods}{5}
-\contentsline {subsection}{\numberline {3.2}LTSmin}{6}
-\contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{8}
-\contentsline {section}{\numberline {4}Plan}{11}
-\contentsline {subsection}{\numberline {4.1}Questions}{11}
-\contentsline {subsection}{\numberline {4.2}Algorithms}{12}
-\contentsline {subsection}{\numberline {4.3}To do}{12}
-\contentsline {subsection}{\numberline {4.4}Planning}{15}
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Preliminaries}{5}
+\contentsline {subsection}{\numberline {2.1}Timed Automata}{5}
+\contentsline {subsection}{\numberline {2.2}Zones}{6}
+\contentsline {subsection}{\numberline {2.3}Zone subsumption}{6}
+\contentsline {section}{\numberline {3}Related Work}{8}
+\contentsline {subsection}{\numberline {3.1}Methods}{8}
+\contentsline {subsection}{\numberline {3.2}LTSmin}{9}
+\contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{11}
+\contentsline {section}{\numberline {4}Plan}{15}
+\contentsline {subsection}{\numberline {4.1}Questions}{15}
+\contentsline {subsection}{\numberline {4.2}Algorithms}{16}
+\contentsline {subsection}{\numberline {4.3}To do}{16}
+\contentsline {subsection}{\numberline {4.4}Planning}{19}
