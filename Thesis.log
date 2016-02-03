@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  22 JAN 2016 13:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  3 FEB 2016 14:47
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -530,18 +530,18 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 braries\tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
 ) (Thesis.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 
 (C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -561,12 +561,12 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@mydef=\count139
-LaTeX Font Info:    Try loading font information for U+msa on input line 24.
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 24.
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -592,61 +592,59 @@ such as UP-PAAL [14],
 ]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 91.
+               Default added (so using `tbp') on input line 89.
 
 
-Overfull \hbox (111.88657pt too wide) in paragraph at lines 95--106
+Overfull \hbox (111.88657pt too wide) in paragraph at lines 93--104
  [][] 
  []
 
-<pins_modern.png, id=35, 560.0925pt x 261.25604pt>
-File: pins_modern.png Graphic file (type png)
- <use pins_modern.png>
-Package pdftex.def Info: pins_modern.png used on input line 111.
-(pdftex.def)             Requested size: 360.0pt x 167.92882pt.
-
-[7] [8] [9 <./pins_modern.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 130.
+(pins.tex)
+Overfull \hbox (68.17549pt too wide) in paragraph at lines 76--110
+[][]
+ []
 
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+Underfull \hbox (badness 10000) in paragraph at lines 76--110
+
+ []
+
+[7] [8] [9]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 128.
+
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 130.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 130.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 128.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 128.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 130.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 128.
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--134
+Underfull \hbox (badness 10000) in paragraph at lines 123--132
 
  []
 
-[10]
-Overfull \hbox (7.40977pt too wide) in paragraph at lines 161--162
+
+Overfull \hbox (7.40977pt too wide) in paragraph at lines 159--160
 []\OT1/cmr/bx/n/10.95 Definition 5 \OT1/cmr/m/n/10.95 (Lo-cally Re-duced DDD [1
 0])\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/it/10.95 A lo-cally re-duced DDD ($\OML/c
 mm/m/it/10.95 R[]DDD$\OT1/cmr/m/it/10.95 )
  []
 
-) [11] [12] (Plan.tex [13
+[10]) [11] (Plan.tex [12
 
-] [14] [15] [16] [17])
-Overfull \hbox (1.1808pt too wide) in paragraph at lines 203--44
-[][]
+] [13] [14] [15] [16]
+Overfull \hbox (38.27756pt too wide) in paragraph at lines 193--212
+ [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 203--44
-
- []
-
-[18] [19] (Thesis.bbl [20
+) [17] (Thesis.bbl [18
 
 ]
 Missing character: There is no Ã in font cmr10!
@@ -655,21 +653,21 @@ Missing character: There is no Å in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [21]
+ [19]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-) [22] (Thesis.aux) ) 
+) [20] (Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 14073 strings out of 493698
- 273105 string characters out of 3144415
- 315162 words of memory out of 3000000
- 17126 multiletter control sequences out of 15000+200000
+ 14261 strings out of 493698
+ 276168 string characters out of 3144415
+ 325168 words of memory out of 3000000
+ 17313 multiletter control sequences out of 15000+200000
  13278 words of font info for 49 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 55i,14n,54p,1946b,826s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,16n,54p,2090b,1032s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><
@@ -686,9 +684,9 @@ am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (22 pages, 283476 bytes).
+Output written on Thesis.pdf (20 pages, 268768 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
+ 138 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

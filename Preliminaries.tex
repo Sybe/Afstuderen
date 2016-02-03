@@ -9,7 +9,7 @@ An extended timed automaton is a 6-tuple A = $\langle L, C, Act, s_0, \rightarro
 {\renewcommand\labelitemi{--}
 	\begin{itemize}
 		\item L is a finite set of locations, typically denoted by $l$
-		\item C is ia finite set of clocks, typically denoted by c
+		\item C is a finite set of clocks, typically denoted by c
 		\item Act is a finite set of actions
 		\item $l_0 \in$ L is the initial location
 		\item $\rightarrow \subseteq L \times G(C) \times Act \times 2^C \times L$ is the (non-deterministic) transition relation. We normally write l $\stackrel{g,a,r}{\longrightarrow}$ l' for a transition., where l is the source location, g is the guard over the clocks, a is the action, and r is the set of clocks reset.

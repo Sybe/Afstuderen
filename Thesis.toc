@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {3.1}Methods}{6}
 \contentsline {subsection}{\numberline {3.2}LTSmin}{7}
 \contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{9}
-\contentsline {section}{\numberline {4}Plan}{13}
-\contentsline {subsection}{\numberline {4.1}Questions}{13}
-\contentsline {subsection}{\numberline {4.2}Algorithms}{14}
-\contentsline {subsection}{\numberline {4.3}Planning}{14}
+\contentsline {section}{\numberline {4}Plan}{12}
+\contentsline {subsection}{\numberline {4.1}Questions}{12}
+\contentsline {subsection}{\numberline {4.2}Algorithms}{13}
+\contentsline {subsection}{\numberline {4.3}Planning}{13}
