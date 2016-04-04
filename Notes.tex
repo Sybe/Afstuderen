@@ -1,0 +1,103 @@
+Flattened the DBM. Changing the input and output state type. At the edges converting those to the old state type and use that internally. This requires relatively little changes. 
+
+Split the next state function in groups. Removed top level switch of state variables and changed into ifs. Created switch statement on groups. Added check for urgent transitions per group.
+
+Building the dependency matrices. Both read and may-write. Parsing all functions for read/write variables and all functions called. Also parsing for all groups the guards and updates. Getting from these also the functions that are called, get the read/write vars from those and from the functions called in that function etc. Also all location variables get read dependency due to clock extrapolations based on the locations. Also the locations that are used in the urgency check are always read. 
+
+For the animo models I got the error that receiving channels should not have clock guards. This is not a UPPAAL message, but a opaal message, UPPAAL does support this. Changed this in the generated code. Making sure that first all guard on clocks are done. After those it is checked that the DBM is not empty. If it is not empty, clock updates are done and the callback function is called. Also if both guards are on the same clock, the stronger guard will still be the dominant guard.
+
+\begin{algorithm}
+\caption{Reduce}\label{alg:Reduce}
+\begin{algorithmic}[1]
+\Procedure{Reduce}{$dbm, dim$}
+	\For{$i \in dim$}
+		\For{$j \in dim$}
+			\For{$k \in dim$}
+				\If{$!(dbm[i,k] \vee dbm[k,j] \vee dbm[i,j]$ on diagonal)}
+					\If{$dbm[i,k] + dbm[k,j] \leq dbm[i,j]$}
+						\State{$dbm[i,j] := \infty$} 
+					\EndIf
+				\EndIf
+			\EndFor
+		\EndFor
+	\EndFor				
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{Reduce}\label{alg:ReduceZero}
+\begin{algorithmic}[1]
+\Procedure{ReduceZero}{$dbm, dim$}
+	\State{$placed[dim]$ all 0}
+	\State{$red[dim,dim]$ all 0}
+	\State{$eq[dim,dim]$ all 0}
+	\State{$cl := 0$}
+	\State{$newDBM[dim,dim]$ diagonal $\infty$ rest $0$}
+	\For{$i \in dim$}
+		\If{$placed[i] = 0$}
+			\For{$j \in \dim$}
+				\If{$dbm[i,j] + dbm[j,i] = 0$}
+					\State{$placed[j] := 1$}
+					\State{$eq[cl,j] := 1$}
+				\EndIf
+			\EndFor
+			\State{$cl++$}
+		\EndIf
+	\EndFor
+	\State{$repr[cl]$}
+	\For{$i \in cl$}
+		\For{$j \in dim$}
+			\If{$eq[i,j] = 1$}
+				\State{$repr[i] := j$}
+				\Break
+			\EndIf
+		\EndFor
+	\EndFor
+	\State{$clg[cl,cl]$}
+	\For{$i \in cl$}
+		\For{$j \in cl$}
+			\State{$clg[i,j] := dbm[repr[i],repr[j]]$}
+		\EndFor
+	\EndFor
+	\State{\Call{Reduce}{$clg, cl$}}
+	\For{$i \in cl$}
+		\For{$j \in dim$}
+			\If{$eq[i,j] = 1$}
+				\For{$k \in dim$}
+					\If{$eq[i,k]$}
+						\State{$newDBM[j,k] = dbm[j,k]$}
+					\EndIf
+				\EndFor
+			\EndIf
+		\EndFor
+		\For{$j \in cl$}
+			\State{$newDBM[repr[i],repr[j]] := clg[i,j]$}
+		\EndFor
+	\EndFor
+	\State{\Return newDBM}
+		
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+\caption{MK}\label{alg:MK}
+\begin{algorithmic}[1]
+\Procedure{MK}{$var, bound, h, l$}
+	\If{$bound = "<\infty"$}
+		\State{\Return $h$}
+	\EndIf
+	\If{member hashtable}
+		\State{\Return lookup}
+	\ElsIf{l = h}
+		\State{\Return $l$}
+	\ElsIf{$var = l.var \wedge h = l.high$}
+		\State{\Return $l$}
+	\Else
+		\State{\Return insert(new Node)}
+	\EndIf
+\EndProcedure	
+\end{algorithmic}
+\end{algorithm}
