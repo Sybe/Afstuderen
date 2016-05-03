@@ -101,3 +101,5 @@ For the animo models I got the error that receiving channels should not have clo
 \EndProcedure	
 \end{algorithmic}
 \end{algorithm}
+
+We use a path reduced version of the DDD. This reduced version is not needed for all operations. Maybe we can improve performance by use the reduce function more or less often. For the count of the number of states we will use the amount of paths in the reduced DDD. States are not well defined for timed automata, as it is a set of discrete locations together with a zone of clocks. As the zones can have different representations, this gives some strange results. We will use the DDD function Biimplication for the equal operation and we will use implication for the subsumption check.
