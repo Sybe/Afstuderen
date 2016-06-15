@@ -1,0 +1,30 @@
+Below we describe the different models we used to run the benchmarks. We tried to find models that scale up for a number of nodes or processes, so that we can also check the behaviour of our approaches for different sizes of the same model. In this section we use the terminology 'locations' and other 'discrete variables'. The definition of timed automata does not have this difference, but we use it to describe models, because the time extrapolation is dependent on locations, and not on the other discrete variables. This dependency fills a large part of the dependency matrices. In this section, a location is a state in the \uppaal{} transition system editor, the other discrete variables are declared in the C-like syntax that \uppaal{} uses.
+
+\subsection{Viking}
+The set of Viking tests models a torch that can taken from one side to the other by either one or two vikings. By some timing guards, the vikings have to hold one to the torch for a minimal amount of time, given by guards. The model has a low number of discrete variables, one per viking, one for the torch and an indicator for the side on which the torch is. It has a global clock and a clock per viking. 
+
+The model results in a densely filled dependency matrix. The torch and all viking variables are always read for the time extrapolation. Only the side indicator is not read always. The write matrix is sparser. 
+
+The difference between the LDD and DDD representation is quite small for this model. In the extrapolation step all clock zones are set to $[0..\infty]$ for all states, so in both diagrams the zones are represented by a single path. So the interesting things are only happening in the discrete parts.
+
+\subsection{Fischer}
+Fischers mutual exclusion protocol~\cite{Lamport:1987:FME:7351.7352} is modelled for a number of processes. There is no synchronization between processes, only blocking of actions can occur. This model has a slightly higher number of discrete variables compared to the Viking tests. Each process has a location and an id. The model also has 2 global discrete variables. Each process has a local clock, no global clock is used.
+
+The dependency matrix of this model has some sparse rows, as each model has an id, which is a constant and can only be read. Again all the location variables are always read due to the time extrapolation. 
+
+\subsection{CSMA-CD}
+The Carrier Sense Multiple Access/Collision Detection~\cite{kronos} is modelled for a number of senders. The model has a few discrete variables. Each sender only has a location and only one global counter is used. Each sender and the bus have a local clock. The model uses a lot of synchronizations between the senders and the bus.
+
+\subsection{Animo}
+We could not use the ANIMO models, only the smallest model with no synchronizations was possible. As we started the project to work on ANIMO models, we still included that single model in the benchmark set. It is a model with only one node, so only one location variable. The model has two clocks, a global clock and a clock for the node.  Further it does have quite a large number of discrete variables. Both the global declaration and the node have a portion of c-like code with a number of global variables. 
+
+This results in a model with a quite sparse dependency matrix, as only the single location is used for the time extrapolation. We expected this model to have good performance for the LDD method with variable reordering.
+
+\subsection{Lynch-Shavit}
+The Lynch-Shavit mutual exclusion protcol~\cite{LS} is modelled for different number of processes. The structure of the model is quite like the Fischer model. It only uses one global variable more than Fischer.
+
+\subsection{Milner}
+Milners scheduler~\cite{Milner:1989:CC:534666} is modelled for a number of nodes. The structure is like that of the CSMA-CD model, except that it does not use a bus. The model has a lot of synchronizations between the nodes, an between the node and a global process. Each node has two clocks, so the zone representation blows up quickly. 
+
+\subsection{Other models}
+We also used some models that we could not scale up enough due to memory/time limitations, or that could not scale up due to the nature of the model. We will not describe those models into detail. These models were the critRegion, Critical, bocdp(-fixed)~\cite{641264}, bando and timelock model.

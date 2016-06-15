@@ -191,4 +191,33 @@ Jesper M{\o}ller, Henrik Hulgaard, and Henrik~Reif Andersen.
 \newblock {\em The Journal of Logic and Algebraic Programming}, 52–53:53 --
   77, 2002.
 
+\bibitem{Behrmann2004}
+Gerd Behrmann, Patricia Bouyer, Kim~G. Larsen, and Radek Pel{\'a}nek.
+\newblock {\em Lower and Upper Bounds in Zone Based Abstractions of Timed
+  Automata}, pages 312--326.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2004.
+
+\bibitem{Lamport:1987:FME:7351.7352}
+Leslie Lamport.
+\newblock A fast mutual exclusion algorithm.
+\newblock {\em ACM Trans. Comput. Syst.}, 5(1):1--11, January 1987.
+
+\bibitem{LS}
+N.~Lynch and N.~Shavit.
+\newblock Timing based mutual exclusion.
+\newblock In {\em Proc. of the Annual Real-Time Symposium (RTSS)}, pages 2--11,
+  1992.
+
+\bibitem{Milner:1989:CC:534666}
+R.~Milner.
+\newblock {\em Communication and Concurrency}.
+\newblock Prentice-Hall, Inc., Upper Saddle River, NJ, USA, 1989.
+
+\bibitem{641264}
+K.~Havelund, A.~Skou, K.~G. Larsen, and K.~Lund.
+\newblock Formal modeling and analysis of an audio/video protocol: an
+  industrial case study using uppaal.
+\newblock In {\em Real-Time Systems Symposium, 1997. Proceedings., The 18th
+  IEEE}, pages 2--13, Dec 1997.
+
 \end{thebibliography}
