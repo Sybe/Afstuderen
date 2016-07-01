@@ -14,6 +14,15 @@
 \usetikzlibrary{calc}
 \algnewcommand\True{\textbf{true}}
 \algnewcommand\False{\textbf{false}}
+\usepackage{listings}             % Include the listings-package
+\lstset{language=C}  
+\usepackage{graphviz}
+
+\usepackage{graphicx,epstopdf}
+\epstopdfsetup{update}
+\DeclareGraphicsExtensions{.ps}
+\epstopdfDeclareGraphicsRule{.ps}{pdf}{.pdf}{ps2pdf -dEPSCrop -dNOSAFER #1 \OutputFile}
+
 
 \newcommand{\pinspins}{pins2pins}
 \newcommand{\mcrl}{mCRL2}

@@ -1,0 +1,20 @@
+digraph MyGraph {
+graph [dpi = 300];
+center = true;
+edge [dir = forward];
+59 [shape=record, label="<1> 1leq|<4> 4le"];
+51 [shape=record, label="<0> 0le"];
+41 [shape=record, label="<4> 4le"];
+40 [shape=record, label="<0> 0le"];
+41:4 -> 40:0 [style=solid];
+51:0 -> 41:4 [style=solid];
+59:1 -> 51:0 [style=solid];
+57 [shape=record, label="<-3> -3leq|<0> 0le"];
+57:-3 -> 41:4 [style=solid];
+55 [shape=record, label="<1> 1leq|<4> 4le"];
+55:1 -> 40:0 [style=solid];
+47 [shape=record, label="<-3> -3leq"];
+55:4 -> 47:-3 [style=solid];
+57:0 -> 55:1 [style=solid];
+59:4 -> 57:-3 [style=solid];
+}
