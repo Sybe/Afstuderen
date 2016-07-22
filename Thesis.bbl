@@ -1,151 +1,27 @@
 \begin{thebibliography}{10}
 
-\bibitem{Alur1994183}
-Rajeev Alur and David~L. Dill.
-\newblock A theory of timed automata.
-\newblock {\em Theoretical Computer Science}, 126(2):183 -- 235, 1994.
-
-\bibitem{DBLP:conf/bibe/SchivoSWCVKLPP12}
-Stefano Schivo, Jetse Scholma, Brend Wanders, Ricardo A.~Urquidi Camacho,
-  Paul~E. van~der Vet, Marcel Karperien, Rom Langerak, Jaco van~de Pol, and
-  Janine~N. Post.
-\newblock Modelling biological pathway dynamics with timed automata.
-\newblock In {\em 12th {IEEE} International Conference on Bioinformatics {\&}
-  Bioengineering, {BIBE} 2012, Larnaca, Cyprus, November 11-13, 2012}, pages
-  447--453, 2012.
-
 \bibitem{Akers:1978:BDD:1310167.1310815}
 S.~B. Akers.
 \newblock Binary decision diagrams.
 \newblock {\em IEEE Trans. Comput.}, 27(6):509--516, June 1978.
 
-\bibitem{1676819}
-R.E. Bryant.
-\newblock Graph-based algorithms for boolean function manipulation.
-\newblock {\em Computers, IEEE Transactions on}, C-35(8):677--691, Aug 1986.
-
-\bibitem{so62465}
-Stefan {Blom} and Jaco van~de {Pol}.
-\newblock Symbolic reachability for process algebras with recursive data types.
-\newblock In J.S. {Fitzgerald}, A.E. {Haxthausen}, and H.~{Yenigun}, editors,
-  {\em Theoretical Aspects of Computing}, volume 5160 of {\em Lecture Notes in
-  Computer Science}, pages 81--95, Berlin, Germany, August 2008. Springer
-  Verlag.
-
-\bibitem{129849}
-A.~Srinivasan, T.~Ham, S.~Malik, and R.K. Brayton.
-\newblock Algorithms for discrete function manipulation.
-\newblock In {\em Computer-Aided Design, 1990. ICCAD-90. Digest of Technical
-  Papers., 1990 IEEE International Conference on}, pages 92--95, Nov 1990.
-
-\bibitem{BRICS19491}
-Kim Larsen, Carsten Weise, Wang Yi, and Justin Pearson.
-\newblock Clock difference diagrams.
-\newblock {\em BRICS Report Series}, 5(46), 1998.
-
-\bibitem{5702245}
-R.~Ehlers, D.~Fass, M.~Gerke, and H.-J. Peter.
-\newblock Fully symbolic timed model checking using constraint matrix diagrams.
-\newblock In {\em Real-Time Systems Symposium (RTSS), 2010 IEEE 31st}, pages
-  360--371, Nov 2010.
-
-\bibitem{crds}
-Farn Wang.
-\newblock Efficient verification of timed automata with bdd-like
-  data-structures.
-\newblock In LenoreD. Zuck, PaulC. Attie, Agostino Cortesi, and Supratik
-  Mukhopadhyay, editors, {\em Verification, Model Checking, and Abstract
-  Interpretation}, volume 2575 of {\em Lecture Notes in Computer Science},
-  pages 189--205. Springer Berlin Heidelberg, 2003.
-
-\bibitem{ddds}
-Jesper M{\o}ller, Jakob Lichtenberg, HenrikReif Andersen, and Henrik Hulgaard.
-\newblock Difference decision diagrams.
-\newblock In J\"{o}rg Flum and Mario Rodriguez-Artalejo, editors, {\em Computer
-  Science Logic}, volume 1683 of {\em Lecture Notes in Computer Science}, pages
-  111--125. Springer Berlin Heidelberg, 1999.
-
-\bibitem{ddd-datastructure-99}
-J.~M{\o}ller, J.~Lichtenberg, H.~R. Andersen, and H.~Hulgaard.
-\newblock Dif\-feren\-ce decision dia\-grams.
-\newblock Technical Report IT-TR-1999-023, Department of Information
-  Technology, Technical University of Denmark, Building 344, DK-2800 Lyngby,
-  Denmark, February 1999.
-
-\bibitem{eemcs18152}
-S.~C.~C. {Blom}, J.~C. {van de Pol}, and M.~{Weber}.
-\newblock Ltsmin: Distributed and symbolic reachability.
-\newblock In T.~{Touili}, B.~{Cook}, and P.~{Jackson}, editors, {\em Computer
-  Aided Verification, Edinburgh}, volume 6174 of {\em Lecture Notes in Computer
-  Science}, pages 354--359, Berlin, July 2010. Springer Verlag.
-
-\bibitem{ltsmin-mc:nmf2011}
-A.~W. {Laarman}, J.~C. {van de Pol}, and M.~{Weber}.
-\newblock Multi-core ltsmin: Marrying modularity and scalability.
-\newblock In M.~{Bobaru}, K.~{Havelund}, G.~{Holzmann}, and R.~{Joshi},
-  editors, {\em Proceedings of the Third International Symposium on NASA Formal
-  Methods, NFM 2011, Pasadena, CA, USA}, volume 6617 of {\em Lecture Notes in
-  Computer Science}, pages 506--511, Berlin, July 2011. Springer Verlag.
+\bibitem{Alur1994183}
+Rajeev Alur and David~L. Dill.
+\newblock A theory of timed automata.
+\newblock {\em Theoretical Computer Science}, 126(2):183 -- 235, 1994.
 
 \bibitem{UPPAAL}
 Gerd Behrmann, Alexandre David, and KimG. Larsen.
-\newblock A tutorial on uppaal.
+\newblock {A Tutorial on Uppaal}.
 \newblock In Marco Bernardo and Flavio Corradini, editors, {\em Formal Methods
   for the Design of Real-Time Systems}, volume 3185 of {\em Lecture Notes in
   Computer Science}, pages 200--236. Springer Berlin Heidelberg, 2004.
-
-\bibitem{opaal}
-Andreas~Engelbredt Dalsgaard, René~Rydhof Hansen, Kenneth~Yrke J{\o}rgensen,
-  Kim~Gulstrand Larsen, Mads~Chr. Olesen, Petur Olsen, and Jiří Srba.
-\newblock opaal: A lattice model checker.
-\newblock In Mihaela Bobaru, Klaus Havelund, GerardJ. Holzmann, and Rajeev
-  Joshi, editors, {\em NASA Formal Methods}, volume 6617 of {\em Lecture Notes
-  in Computer Science}, pages 487--493. Springer Berlin Heidelberg, 2011.
-
-\bibitem{eemcs21972}
-A.~E. {Dalsgaard}, A.~W. {Laarman}, K.~G. {Larsen}, M.~C. {Olesen}, and J.~C.
-  {van de Pol}.
-\newblock Multi-core reachability for timed automata.
-\newblock In M.~{Jurdzinski} and D.~{Nickovic}, editors, {\em 10th
-  International Conference on Formal Modeling and Analysis of Timed Systems,
-  FORMATS 2012, London, UK}, volume 7595 of {\em Lecture Notes in Computer
-  Science}, pages 91--106, London, September 2012. Springer Verlag.
-
-\bibitem{sylvan}
-Tom van Dijk and Jaco van~de Pol.
-\newblock Sylvan: Multi-core decision diagrams.
-\newblock In Christel Baier and Cesare Tinelli, editors, {\em Tools and
-  Algorithms for the Construction and Analysis of Systems}, volume 9035 of {\em
-  Lecture Notes in Computer Science}, pages 677--691. Springer Berlin
-  Heidelberg, 2015.
-
-\bibitem{dbmorig}
-DavidL. Dill.
-\newblock Timing assumptions and verification of finite-state concurrent
-  systems.
-\newblock In Joseph Sifakis, editor, {\em Automatic Verification Methods for
-  Finite State Systems}, volume 407 of {\em Lecture Notes in Computer Science},
-  pages 197--212. Springer Berlin Heidelberg, 1990.
 
 \bibitem{bengtsson2002clocks}
 Johan Bengtsson.
 \newblock {\em Clocks, DBMS and States in Timed Systems (Uppsala Dissertations
   from the Faculty of Science Technology, 39)}.
 \newblock Uppsala Universitet, 7 2002.
-
-\bibitem{kronos}
-Sergio Yovine.
-\newblock Kronos: a verification tool for real-time systems.
-\newblock {\em International Journal on Software Tools for Technology
-  Transfer}, 1(1-2):123--133, 1997.
-
-\bibitem{CAV03}
-Dirk Beyer, Claus Lewerentz, and Andreas Noack.
-\newblock Rabbit: A tool for {BDD}-based verification of real-time systems.
-\newblock In W.~A. Hunt and F.~Somenzi, editors, {\em Proceedings of the 15th
-  International Conference on Computer Aided Verification (CAV~2003, Boulder,
-  CO, July 8-12)}, LNCS~2725, pages 122--125. Springer-Verlag, Heidelberg,
-  2003.
 
 \bibitem{CHARME01}
 Dirk Beyer.
@@ -156,26 +32,84 @@ Dirk Beyer.
   Verification Methods (CHARME~2001, Livingston, September 4-7)}, LNCS~2144,
   pages 86--91. Springer-Verlag, Heidelberg, 2001.
 
-\bibitem{nguyen2012discrete}
-TruongKhanh Nguyen, Jun Sun, Yang Liu, JinSong Dong, and Yan Liu.
-\newblock Improved bdd-based discrete analysis of timed systems.
-\newblock In Dimitra Giannakopoulou and Dominique Méry, editors, {\em FM 2012:
-  Formal Methods}, volume 7436 of {\em Lecture Notes in Computer Science},
-  pages 326--340. Springer Berlin Heidelberg, 2012.
+\bibitem{CAV03}
+Dirk Beyer, Claus Lewerentz, and Andreas Noack.
+\newblock Rabbit: A tool for {BDD}-based verification of real-time systems.
+\newblock In W.~A. Hunt and F.~Somenzi, editors, {\em Proceedings of the 15th
+  International Conference on Computer Aided Verification (CAV~2003, Boulder,
+  CO, July 8-12)}, LNCS~2725, pages 122--125. Springer-Verlag, Heidelberg,
+  2003.
 
-\bibitem{7098276}
-Huiping Zhang, Junwei Du, Ling Cao, and Guixin Zhu.
-\newblock A full symbolic reachability analysis algorithm of timed automata
-  based on bdd.
-\newblock In {\em Autonomous Decentralized Systems (ISADS), 2015 IEEE Twelfth
-  International Symposium on}, pages 301--304, March 2015.
+\bibitem{eemcs18152}
+S.~C.~C. {Blom}, J.~C. {van de Pol}, and M.~{Weber}.
+\newblock Ltsmin: Distributed and symbolic reachability.
+\newblock In T.~{Touili}, B.~{Cook}, and P.~{Jackson}, editors, {\em Computer
+  Aided Verification, Edinburgh}, volume 6174 of {\em Lecture Notes in Computer
+  Science}, pages 354--359, Berlin, July 2010. Springer Verlag.
+
+\bibitem{so62465}
+Stefan {Blom} and Jaco van~de {Pol}.
+\newblock Symbolic reachability for process algebras with recursive data types.
+\newblock In J.S. {Fitzgerald}, A.E. {Haxthausen}, and H.~{Yenigun}, editors,
+  {\em Theoretical Aspects of Computing}, volume 5160 of {\em Lecture Notes in
+  Computer Science}, pages 81--95, Berlin, Germany, August 2008. Springer
+  Verlag.
+
+\bibitem{1676819}
+R.E. Bryant.
+\newblock Graph-based algorithms for boolean function manipulation.
+\newblock {\em Computers, IEEE Transactions on}, C-35(8):677--691, Aug 1986.
+
+\bibitem{eemcs21972}
+A.~E. {Dalsgaard}, A.~W. {Laarman}, K.~G. {Larsen}, M.~C. {Olesen}, and J.~C.
+  {van de Pol}.
+\newblock Multi-core reachability for timed automata.
+\newblock In M.~{Jurdzinski} and D.~{Nickovic}, editors, {\em 10th
+  International Conference on Formal Modeling and Analysis of Timed Systems,
+  FORMATS 2012, London, UK}, volume 7595 of {\em Lecture Notes in Computer
+  Science}, pages 91--106, London, September 2012. Springer Verlag.
+
+\bibitem{opaal}
+Andreas~Engelbredt Dalsgaard, René~Rydhof Hansen, Kenneth~Yrke J{\o}rgensen,
+  Kim~Gulstrand Larsen, Mads~Chr. Olesen, Petur Olsen, and Jiří Srba.
+\newblock opaal: A lattice model checker.
+\newblock In Mihaela Bobaru, Klaus Havelund, GerardJ. Holzmann, and Rajeev
+  Joshi, editors, {\em NASA Formal Methods}, volume 6617 of {\em Lecture Notes
+  in Computer Science}, pages 487--493. Springer Berlin Heidelberg, 2011.
+
+\bibitem{dbmorig}
+David~L. Dill.
+\newblock Timing assumptions and verification of finite-state concurrent
+  systems.
+\newblock In Joseph Sifakis, editor, {\em Automatic Verification Methods for
+  Finite State Systems}, volume 407 of {\em Lecture Notes in Computer Science},
+  pages 197--212. Springer Berlin Heidelberg, 1990.
 
 \bibitem{7184781}
 Junwei Du, Huiping Zhang, Gang Yu, and Xi~Wang.
 \newblock A full symbolic compositional reachability analysis of timed automata
-  based on bdd.
+  based on {BDD}.
 \newblock In {\em Advanced Computational Intelligence (ICACI), 2015 Seventh
   International Conference on}, pages 218--222, March 2015.
+
+\bibitem{5702245}
+R.~Ehlers, D.~Fass, M.~Gerke, and H.-J. Peter.
+\newblock Fully symbolic timed model checking using constraint matrix diagrams.
+\newblock In {\em Real-Time Systems Symposium (RTSS), 2010 IEEE 31st}, pages
+  360--371, Nov 2010.
+
+\bibitem{ltsmin-mc:nmf2011}
+A.~W. {Laarman}, J.~C. {van de Pol}, and M.~{Weber}.
+\newblock {Multi-Core LTSmin: Marrying Modularity and Scalability}.
+\newblock In M.~{Bobaru}, K.~{Havelund}, G.~{Holzmann}, and R.~{Joshi},
+  editors, {\em Proceedings of the Third International Symposium on NASA Formal
+  Methods, NFM 2011, Pasadena, CA, USA}, volume 6617 of {\em Lecture Notes in
+  Computer Science}, pages 506--511, Berlin, July 2011. Springer Verlag.
+
+\bibitem{BRICS19491}
+Kim Larsen, Carsten Weise, Wang Yi, and Justin Pearson.
+\newblock Clock difference diagrams.
+\newblock {\em BRICS Report Series}, 5(46), 1998.
 
 \bibitem{rwcmatrices}
 Jeroen Meijer, Gijs Kant, Stefan Blom, and Jaco van~de Pol.
@@ -184,6 +118,13 @@ Jeroen Meijer, Gijs Kant, Stefan Blom, and Jaco van~de Pol.
   Testing}, volume 8855 of {\em Lecture Notes in Computer Science}, pages
   204--219. Springer International Publishing, 2014.
 
+\bibitem{ddd-datastructure-99}
+J.~M{\o}ller, J.~Lichtenberg, H.~R. Andersen, and H.~Hulgaard.
+\newblock Dif\-feren\-ce decision dia\-grams.
+\newblock Technical Report IT-TR-1999-023, Department of Information
+  Technology, Technical University of Denmark, Building 344, DK-2800 Lyngby,
+  Denmark, February 1999.
+
 \bibitem{Møller200253}
 Jesper M{\o}ller, Henrik Hulgaard, and Henrik~Reif Andersen.
 \newblock Symbolic model checking of timed guarded commands using difference
@@ -191,33 +132,63 @@ Jesper M{\o}ller, Henrik Hulgaard, and Henrik~Reif Andersen.
 \newblock {\em The Journal of Logic and Algebraic Programming}, 52–53:53 --
   77, 2002.
 
-\bibitem{Behrmann2004}
-Gerd Behrmann, Patricia Bouyer, Kim~G. Larsen, and Radek Pel{\'a}nek.
-\newblock {\em Lower and Upper Bounds in Zone Based Abstractions of Timed
-  Automata}, pages 312--326.
-\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2004.
+\bibitem{ddds}
+Jesper M{\o}ller, Jakob Lichtenberg, HenrikReif Andersen, and Henrik Hulgaard.
+\newblock Difference decision diagrams.
+\newblock In J\"{o}rg Flum and Mario Rodriguez-Artalejo, editors, {\em Computer
+  Science Logic}, volume 1683 of {\em Lecture Notes in Computer Science}, pages
+  111--125. Springer Berlin Heidelberg, 1999.
 
-\bibitem{Lamport:1987:FME:7351.7352}
-Leslie Lamport.
-\newblock A fast mutual exclusion algorithm.
-\newblock {\em ACM Trans. Comput. Syst.}, 5(1):1--11, January 1987.
+\bibitem{nguyen2012discrete}
+TruongKhanh Nguyen, Jun Sun, Yang Liu, JinSong Dong, and Yan Liu.
+\newblock Improved bdd-based discrete analysis of timed systems.
+\newblock In Dimitra Giannakopoulou and Dominique M\'{e}ry, editors, {\em FM
+  2012: Formal Methods}, volume 7436 of {\em Lecture Notes in Computer
+  Science}, pages 326--340. Springer Berlin Heidelberg, 2012.
 
-\bibitem{LS}
-N.~Lynch and N.~Shavit.
-\newblock Timing based mutual exclusion.
-\newblock In {\em Proc. of the Annual Real-Time Symposium (RTSS)}, pages 2--11,
-  1992.
+\bibitem{DBLP:conf/bibe/SchivoSWCVKLPP12}
+Stefano Schivo, Jetse Scholma, Brend Wanders, Ricardo A.~Urquidi Camacho,
+  Paul~E. van~der Vet, Marcel Karperien, Rom Langerak, Jaco van~de Pol, and
+  Janine~N. Post.
+\newblock Modelling biological pathway dynamics with timed automata.
+\newblock In {\em 12th {IEEE} International Conference on Bioinformatics {\&}
+  Bioengineering, {BIBE} 2012, Larnaca, Cyprus, November 11-13, 2012}, pages
+  447--453, 2012.
 
-\bibitem{Milner:1989:CC:534666}
-R.~Milner.
-\newblock {\em Communication and Concurrency}.
-\newblock Prentice-Hall, Inc., Upper Saddle River, NJ, USA, 1989.
+\bibitem{129849}
+A.~Srinivasan, T.~Ham, S.~Malik, and R.K. Brayton.
+\newblock Algorithms for discrete function manipulation.
+\newblock In {\em Computer-Aided Design, 1990. ICCAD-90. Digest of Technical
+  Papers., 1990 IEEE International Conference on}, pages 92--95, Nov 1990.
 
-\bibitem{641264}
-K.~Havelund, A.~Skou, K.~G. Larsen, and K.~Lund.
-\newblock Formal modeling and analysis of an audio/video protocol: an
-  industrial case study using uppaal.
-\newblock In {\em Real-Time Systems Symposium, 1997. Proceedings., The 18th
-  IEEE}, pages 2--13, Dec 1997.
+\bibitem{sylvan}
+Tom van Dijk and Jaco van~de Pol.
+\newblock Sylvan: Multi-core decision diagrams.
+\newblock In Christel Baier and Cesare Tinelli, editors, {\em Tools and
+  Algorithms for the Construction and Analysis of Systems}, volume 9035 of {\em
+  Lecture Notes in Computer Science}, pages 677--691. Springer Berlin
+  Heidelberg, 2015.
+
+\bibitem{crds}
+Farn Wang.
+\newblock Efficient verification of timed automata with bdd-like
+  data-structures.
+\newblock In LenoreD. Zuck, PaulC. Attie, Agostino Cortesi, and Supratik
+  Mukhopadhyay, editors, {\em Verification, Model Checking, and Abstract
+  Interpretation}, volume 2575 of {\em Lecture Notes in Computer Science},
+  pages 189--205. Springer Berlin Heidelberg, 2003.
+
+\bibitem{kronos}
+Sergio Yovine.
+\newblock Kronos: a verification tool for real-time systems.
+\newblock {\em International Journal on Software Tools for Technology
+  Transfer}, 1(1-2):123--133, 1997.
+
+\bibitem{7098276}
+Huiping Zhang, Junwei Du, Ling Cao, and Guixin Zhu.
+\newblock A full symbolic reachability analysis algorithm of timed automata
+  based on {BDD}.
+\newblock In {\em Autonomous Decentralized Systems (ISADS), 2015 IEEE Twelfth
+  International Symposium on}, pages 301--304, March 2015.
 
 \end{thebibliography}

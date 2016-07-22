@@ -1,5 +1,5 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Thesis.aux
-The style file: unsrt.bst
+The style file: plain.bst
 Database file #1: references.bib
 Repeated entry---line 300 of file references.bib
  : @book{bengtsson2002clocks
@@ -12,5 +12,4 @@ I'm skipping whatever remains of this entry
 A bad cross reference---entry "DBLP:conf/bibe/SchivoSWCVKLPP12"
 refers to entry "DBLP:conf/bibe/2012", which doesn't exist
 Warning--I didn't find a database entry for "DBLP:conf/bibe/2012"
-Warning--can't use both author and editor fields in Behrmann2004
 (There were 3 error messages)

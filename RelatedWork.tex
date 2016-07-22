@@ -3,32 +3,14 @@ In this related work section we will discuss a number of methods used for model 
 \subsection{Methods}
 Already several model checkers for timed automata exist such as \uppaal{}~\cite{UPPAAL}, KRONOS~\cite{kronos}, RABBIT~\cite{CAV03} and RED~\cite{crds}. We focus mainly on the \uppaal{} tool as we use the same input format. Opaal~\cite{opaal}, the language module for \ltsmin{}, uses the XML format that is created by the \uppaal{} tools. This way we can use the \uppaal{} user interface to create and adapt models. We also use the \uppaal{} DBM library to represent zones. Several methods exist to represent the clock variables in a timed model. The most used methods are digitization and zones. 
 
-Digitization approximates the continuous values of clocks by using discrete values~\cite{CHARME01}. This approach is however very sensitive to the granularity of the values used and the upper bound of the clock values. When fine granularity or large upper bounds are used, the memory usage will increase too much. An advantage of this approach is that basic model checking approaches can be used and no extra complexity due to zone calculations is added. The method however only works for closed timed automata, meaning that no strict comparisons on clocks can be made in the model. In ~\cite{nguyen2012discrete} a similar approach is proposed by using clock tick actions and removing clock variables altogether. 
+Digitization approximates the continuous values of clocks by using discrete values~\cite{CHARME01}. The method however only works for closed timed automata, meaning that no strict comparisons on clocks can be made in the model and that clocks only can be compared to integers. This approach is very sensitive to the granularity of the values used and the upper bound of the clock values. When fine granularity or large upper bounds are used, the memory usage will increase too much. An advantage of this approach is that basic model checking approaches can be used and no extra complexity due to zone calculations is added. This method results in a transition system with only discrete variables, so a normal BDD package can be used. In ~\cite{nguyen2012discrete} a similar approach is proposed by using clock tick actions to represent time progress and removing clock variables altogether. 
 
-The most established method to represent clock zones are DBMs. We gave an introduction to this structure in the preliminaries section. Several methods based on BDDs have been developed to represent zones. All of these are similar to DBMs in the sense that they use clock constraints to represent the zones. They use a BDD-like structure to represent the zones more efficiently. CDDs~\cite{BRICS19491} use single nodes for each variable and have disjoint intervals for that variable on the edges. This results in a node with a larger fanout and the upper and lower bound in a single node. DDDs~\cite{ddds, ddd-datastructure-99} use a constraint on each node that can either be true or false, when a constraint is false a next node will have another constraint on the same variable. This requires a fixed ordering based on the variables, values and operators. CRDs~\cite{crds} differ mainly from CDDs by using not disjoint intervals but possibly overlapping upper bounds for a variable pair on their edges. This diagram will have a larger fanout per node, like CDDs. They also use several normal forms for the diagrams which results in different performances. It is also shown that CRDs can be combined with BDDs into a single structure to fully symbolic represent state space. CMDs~\cite{5702245} combine CDDs, CRDs and DBMs into a single structure. This diagram type differs from the others by having multiple constraints per edge, resulting in a diagram with few nodes. CMDs do not have a normal form so only reduced forms are proposed. In ~\cite{7098276, 7184781} a method is proposed purely based on BDDs by translating the constraints directly into BDD nodes. This results in a unified structure for both the discrete variables and the clock constraints. The method is only a proof of concept and has not been implemented in a model checker and no performance results are known. In Figure \ref{fig:examples} we have an example of all four BDD like structures representing the zone $2 < c_1 - c_2 < 4 \vee 7 \leq c_1 - c_2 \leq 8$.
+The most established method to represent clock zones are DBMs. We gave an introduction to this structure in the preliminaries section. Several methods based on BDDs have been developed to represent zones. All of these are similar to DBMs in the sense that they use clock constraints to represent the zones. They use a BDD-like structure to represent the zones more efficiently. Below we shortly describe four methods. For each method we give an example, all examples represent $2 < c_1 - c_2 < 4 \vee 7 \leq c_1 - c_2 \leq 8$.
 
-\begin{figure}[b]
+CDDs~\cite{BRICS19491} use single nodes for each variable and have multiple disjoint intervals for that variable on the edges. This results in a node with a larger fanout. The upper and lower bound for each pear of clocks are represented in a single node, as the edges represent intervals. Requiring the disjointness of intervals can lead to a memory inefficient representation, as intervals need to be cut in more smaller parts. All algorithms on CDDs do not maintain disjointness, after every step it needs to be re-established. In figure \ref{fig:cdd-example} we have an example of a CDD.
+
+\begin{figure}[h]
 \begin{center}
-
-	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
-		]
-		\node[smallvertex](S0){$c_1 - c_2$};
-		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S4){};
-		\draw[->] (S4) --(S0) node [midway, above, sloped, scale=0.75,
-		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{};
-		\node[smallvertex, below of = S0, yshift = -1 cm, xshift = -1 cm](S1){$c_2 - c_1$};
-		\node[smallvertex, below of = S0, yshift = -1 cm, xshift = 1  cm](S2){$c_2 - c_1$};
-		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
-		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
-		\draw[->] (S0) --(S2) node [midway, above, sloped, scale=0.75,
-		rotate=65, xshift =0.3 cm, yshift = -0.1cm]{$\leq 8$};
-		\node[smallvertex, below of = S0, yshift = -3cm](S3){$T$};
-		\draw[->] (S1) --(S3) node [midway, above, sloped, scale=0.75,
-		rotate=60, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
-		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
-		rotate=300, xshift =0.4 cm, yshift = -0.2cm]{$\leq-7$};
-	\end{tikzpicture}
 	\begin{tikzpicture}[
 		smallvertex/.style={circle,draw,scale=0.8}
 		]
@@ -42,7 +24,16 @@ The most established method to represent clock zones are DBMs. We gave an introd
 		rotate=0, xshift =-0.9 cm, yshift = -1.5cm]{$(2,4)$};
 		\draw[->] (S0) edge [bend right](S3) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =0.8 cm, yshift = -1.5cm]{$[7,8]$};
-	\end{tikzpicture}	
+	\end{tikzpicture}
+\end{center}
+\caption{CDD representation}
+\label{fig:cdd-example}
+\end{figure}
+
+DDDs~\cite{ddds, ddd-datastructure-99} use a upper-bound constraint on each node that can either be true or false. Each node thus has a fixed fanout of two. When a constraint is false, a next node will have another constraint on the same variable. This requires a fixed ordering based on the variables, values and operators. In figure \ref{fig:ddd-example} an example of a DDD is shown.
+
+\begin{figure}[h]
+\begin{center}
 	\begin{tikzpicture}[
 		smallvertex/.style={circle,draw,scale=0.8}
 		]
@@ -66,6 +57,43 @@ The most established method to represent clock zones are DBMs. We gave an introd
 		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
 		rotate=297, xshift =0.7 cm, yshift = -0.2cm]{$\leq-7$};
 	\end{tikzpicture}
+\end{center}
+\caption{DDD representation}
+\label{fig:ddd-example}
+\end{figure}
+
+CRDs~\cite{crds} differ mainly from CDDs by not using disjoint intervals but possibly overlapping upper bounds, for a pair of variables on their edges. This diagram will have a larger fanout per node, like CDDs. Several normal forms for this diagram are proposed, with different performance results. It is also shown that CRDs can be combined with BDDs into a single structure to fully symbolic represent state space. In figure \ref{fig:crd-example} we give an example of a CRD.
+
+\begin{figure}[h]
+\begin{center}
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+		\node[smallvertex](S0){$c_1 - c_2$};
+		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S4){};
+		\draw[->] (S4) --(S0) node [midway, above, sloped, scale=0.75,
+		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\node[smallvertex, below of = S0, yshift = -1 cm, xshift = -1 cm](S1){$c_2 - c_1$};
+		\node[smallvertex, below of = S0, yshift = -1 cm, xshift = 1  cm](S2){$c_2 - c_1$};
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+		\draw[->] (S0) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=65, xshift =0.3 cm, yshift = -0.1cm]{$\leq 8$};
+		\node[smallvertex, below of = S0, yshift = -3cm](S3){$T$};
+		\draw[->] (S1) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=60, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
+		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=300, xshift =0.4 cm, yshift = -0.2cm]{$\leq-7$};
+	\end{tikzpicture}
+\end{center}
+\caption{CRD representation}
+\label{fig:crd-example}
+\end{figure}
+
+CMDs~\cite{5702245} combine CDDs, CRDs and DBMs into a single structure. This diagram type differs from the others by having multiple constraints per edge, resulting in a diagram with few nodes. Upper- and lower-bounds of multiple clock pairs can be on a single edge. CMDs do not have a canonical form so only some reductions are proposed. 
+
+\begin{figure}[h]
+\begin{center}
 	\begin{tikzpicture}[
 		smallvertex/.style={circle,draw,scale=0.8}
 		]
@@ -80,11 +108,12 @@ The most established method to represent clock zones are DBMs. We gave an introd
 		\draw[->] (S0) edge [bend right](S3) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =1.5 cm, yshift = -1.5cm]{$7\leq c_1-c_2\leq8$};
 	\end{tikzpicture}	
-	
 \end{center}
-\caption{A CRD, CDD, DDD and CMD representation}
-\label{fig:examples}
+\caption{CMD representation}
+\label{fig:cmd-example}
 \end{figure}
+
+In ~\cite{7098276, 7184781} a method is proposed purely based on BDDs by translating the constraints directly into BDD nodes. We call this method BDD zones. This results in a unified structure for both the discrete variables and the clock constraints. The method is only a proof of concept and has not been implemented in a model checker and no performance results are known. Subsumption for this method may be difficult. On BDDs only equalities can be checked, and no inequalities. This way inclusion is not trivial to check by normal BDD algorithms.
 
 \begin{table}[]
 \centering
@@ -98,25 +127,25 @@ DDD                                                    & \begin{tabular}[c]{@{}l
 CDD                                                    & \begin{tabular}[c]{@{}l@{}}Structure like MDD\\ Inclusion check\\ (intersection of complement)\end{tabular}                                                                                                                     & \begin{tabular}[c]{@{}l@{}}No algorithm to get normal form\\ Only high level algorithms given\\ Methods don't maintain disjointness\\ Expensive normal form computation\\ No implementation results available\\ Disjointness memory inefficient\end{tabular} \\ \hline
 CRD                                                    & \begin{tabular}[c]{@{}l@{}}Combination with BDD possible\\ Variable reordering shows advantage\\ Library available\\ Some benchmarks exp better than CDD\\ Extensive benchmarks\\ Good performance backwards reach\end{tabular} & \begin{tabular}[c]{@{}l@{}}3 possible canonical forms\\ No algorithms in paper\\ Some benchmarks linear worse than CDD\end{tabular}                                                                                                                          \\ \hline
 CMD                                                    & Benchmarks against RED and \uppaal{} & \begin{tabular}[c]{@{}l@{}}Results differ per case\\ Needs translation from vector to edges\\ Two reduced forms\end{tabular}                                                                                                                                 \\ \hline
-\begin{tabular}[c]{@{}l@{}}BDD\\ discrete\end{tabular} & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ Good performance for small clock values\end{tabular}                                                                                                                   & \begin{tabular}[c]{@{}l@{}}Performance decreases fast for large values\\ Not possible with current Ppaal \pins{}\\ Introducing additional 'tick' actions\\ Only for closed timed automata\end{tabular}                                                          \\ \hline
+\begin{tabular}[c]{@{}l@{}}BDD\\ discrete\end{tabular} & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ Good performance for small clock values\end{tabular}                                                                                                                   & \begin{tabular}[c]{@{}l@{}}Performance decreases fast for large values\\ Not possible with current Opaal \pins{}\\ Introducing additional 'tick' actions\\ Only for closed timed automata\end{tabular}                                                          \\ \hline
 \begin{tabular}[c]{@{}l@{}}BDD\\ zones\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ All variable reorderings possible\\ Only need direct translation DBM to\\ state vector\\ Easy to implement\end{tabular}                                                & \begin{tabular}[c]{@{}l@{}}Losing zone containment\\ No implementation results\end{tabular}                                                                                                                                                                  \\ \hline
 \end{tabular}
 \end{table}
 
-A known difficulty in BDDs is the variable ordering. A bad ordering can lead to a BDD exponential in size, where a good ordering can sometimes lead to a significant smaller diagram. Of the zone diagrams named above, only for CRDs experiments with different orderings have been conducted, the other researches assume a given ordering on the variables and the ordering of the values is fixed. The CRD case shows that full interleaving and having related variables close to each other in the ordering is preferable and gives the best results, both on speed and memory. This is the same result as expected with BDDs, this suggests that similar orderings should be used with these techniques. In Table \ref{table:diagrams} we compare the different types of diagrams we discussed above.
+A known difficulty in BDDs is the variable ordering. A bad ordering can lead to a BDD of exponential size, where a good ordering can sometimes lead to a significantly smaller diagram. Of the zone diagrams named above, only for CRDs experiments with different orderings have been conducted, the other researches assume a given ordering on the variables and the ordering of the values is fixed. The CRD case shows that full interleaving and having related variables close to each other in the ordering is preferable and gives the best results, both on speed and memory. This is the same result as expected with BDDs, this suggests that similar orderings should be used with these techniques. In Table \ref{table:diagrams} we compare the different types of diagrams we discussed above.
 
-\begin{figure}[t] 
+\begin{figure}[h] 
 \input{pins}
 \caption{Modular structure of \ltsmin{}}
 \label{fig:pins_modern}
 \end{figure}
 
 \subsection{LTSmin}
-\ltsmin{}~\cite{eemcs18152,ltsmin-mc:nmf2011} is a language independent model checker. It is built in a modular way such that new languages can be added by a \pins{} (Partitioned Next-State Interface) interface without too much effort, and new algorithms can be added easily. \ltsmin{} offers four different algorithmic back-ends for model analysis: symbolic, multi-core, sequential and distributed. All of these back-ends support different types of reduction and model checking. Several language modules have already been built for \ltsmin{} such as \mcrl{}, \promela{}, \dve{} and \uppaal{}. The modular structure of \ltsmin{} is shown in Figure \ref{fig:pins_modern}. The \pins{} is the core of \ltsmin{}. This interface abstracts as much as possible from the model without losing the structure. It represents states as fixed length integer arrays. The main function of the interface is a (partitioned) next-state function which returns the successor states. With these functions a state space can be generated on the fly. With the use of dependency matrices event locality can be determined statically~\cite{rwcmatrices}. Using these matrices, more efficient symbolic algorithms can be used, the number of next-state calls can be reduced, efficient variable reorderings can be used, and transition caching can be used. In the current \uppaal{} \pins{} the next-state function is not partitioned and therefore no meaningful dependency matrix is created, and none of these algorithms can be used.
+\ltsmin{}~\cite{eemcs18152,ltsmin-mc:nmf2011} is a language independent model checker. It is built in a modular way such that new languages can be added by a \pins{} (Partitioned Next-State Interface) interface without too much effort, and new algorithms can be added easily. \ltsmin{} offers four different algorithmic back-ends for model analysis: symbolic, multi-core, sequential and distributed. All of these back-ends support different types of reduction and model checking. Several language modules have already been built for \ltsmin{} such as \mcrl{}, \promela{}, \dve{} and \uppaal{}. The modular structure of \ltsmin{} is shown in Figure \ref{fig:pins_modern}. The \pins{} is the core of \ltsmin{}. This interface abstracts as much as possible from the model without losing the structure. It represents states as fixed length integer arrays. The main function of the interface is a (partitioned) next-state function which returns the successor states. With these functions a state space can be generated on the fly. With the use of dependency matrices event locality can be determined statically~\cite{rwcmatrices}. With these matrices, more efficient symbolic algorithms can be used, the number of next-state calls can be reduced, efficient variable re-orderings can be used, and transition caching can be used. In the current \uppaal{} \pins{} the next-state function is not partitioned and therefore no meaningful dependency matrix is created, and none of these algorithms can be used. Also the DBM variable is only represented by a pointer, which is not a meaningful value for the transition system. \ltsmin{} uses the pointer to a DBM to do the subsumption check as described in section \ref{subsec:subsumtion}.
 
 \subsection{Difference Decision Diagrams}
 
-We have discussed several symbolic approaches for representing zones. All of these approaches have benefits and downsides over each other. We chose to develop one of these approaches in \ltsmin{}. We wanted a diagram that can store both discrete states and zones, this can either be done in the diagram, or in a combination of the diagram and BDD or LDD nodes. Also a subsumption check on the diagram should be possible. We chose from the four zone representing diagrams discussed earlier. The CDD approach was not chosen due to the memory inefficient disjoint intervals and their algorithms not maintaining these intervals, the CMD approach is too similar to DBMs, on which we already have an approach. The choice between CRD and DDD was between two quite similar diagrams. We have decided to continue on the DDD. It is a diagram form that is closely related to LDDs, for which we already have a library, and it is also quite compatible to the current \pins{} structure and its next-state function. The method still has some loose ends that need research, mostly on the algorithms and efficiently creating a canonical form. No results on the memory usage are available, which is normally the greatest benefit of a symbolic approach, so also on the results side we can extend the current research. 
+We have discussed several symbolic approaches for representing zones. All of these approaches have benefits and downsides over each other. We chose to develop one of these approaches in \ltsmin{}. We wanted a diagram that can store both discrete states and zones, this can either be done in the diagram, or in a combination of the diagram and BDD or LDD nodes. Also a subsumption check on the diagram should be possible. We chose from the four zone representing diagrams discussed earlier. The CDD approach was not chosen due to the memory inefficient disjoint intervals and their algorithms not maintaining these intervals. The CMD approach is too similar to DBMs, on which we already have an approach. The choice between CRD and DDD was between two quite similar diagrams. We have decided to continue on the DDD. It is a diagram form that is closely related to LDDs, for which we already have a library, and it is also quite compatible to the current \pins{} structure and its next-state function. The method still has some loose ends that need research, mostly on the algorithms and efficiently creating a canonical form. No results on the memory usage are available, which is normally the greatest benefit of a symbolic approach, so also on the results side we can extend the current research. 
 
 So DDDs are a diagram type that seems to fit well in the current structure we have, but there is still room for some more research. First we give the definition of a DDD.
 
@@ -145,6 +174,8 @@ $cstr(v)$  & $=$ & $(var(v),bound(v))$
 \end{tabular}
 \end{center}
 
+To order DDD nodes we use the operator $\prec$. This orders variables and variable pairs in a predefined order. It orders bounds by increasing constants, and the $\le$ operator before the $\leq$ operator. So a node $v$ with $bound(v) = (0,<)$ comes before $bound(u) = (0,\leq)$ which comes before $bound(w) = (1,<)$.
+
 \begin{mydef}[Ordered DDD~\cite{ddds}]
 \label{def:ODDD}
 An ordered DDD (ODDD) is a DDD where each non-terminal vertex $v$ satisfies:
@@ -158,6 +189,7 @@ An ordered DDD (ODDD) is a DDD where each non-terminal vertex $v$ satisfies:
 After ordering a DDD some local reductions can be defined to reduce the size of a DDD.
 
 \begin{mydef}[Locally Reduced DDD~\cite{ddds}]
+\label{def:RLDDD}
 A locally reduced DDD ($R_LDDD$) is an ODDD satisfying, for all non-terminals u and v:
 \begin{enumerate}
   \item $\mathbb{D} = \mathbb{Z}$ implies $op(v) = '\leq'$,
@@ -167,10 +199,60 @@ A locally reduced DDD ($R_LDDD$) is an ODDD satisfying, for all non-terminals u 
 \end{enumerate}
 \end{mydef}
 
-These reductions are not enough to reach a canonical form. Here we define the other reductions and methods needed to reach a canonical form.
+We give an example of the last point in figure \ref{fig:rlddd}. Here both diagrams represent the same zone: $2 < c_1 - c_2 \leq 8$. The node with $< 4$ on the high edge is redundant in this example and can thus be removed. These reductions are not enough to reach a canonical form. Here we define the other reductions and methods needed to reach a canonical form.
+
+\begin{figure}[h]
+\begin{center}
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+			
+		\node[smallvertex](S0){$c_1 - c_2$};
+		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S5){};
+		\draw[->] (S5) --(S0) node [midway, above, sloped, scale=0.75,
+		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\node[smallvertex, right of = S0, xshift = 1cm](S1){$c_1 - c_2$};
+		\draw[dashed,->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
+		\node[smallvertex, below of = S0, yshift = -1cm](S2){$c_2 - c_1$};
+		\draw[->] (S0) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$< 4$};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=315, xshift =-0.4 cm, yshift = -0.2cm]{$\leq 8$};
+		\node[smallvertex, below of = S0, yshift = -3cm](S4){$T$};
+		\draw[->] (S2) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
+	\end{tikzpicture}
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+			
+		\node[smallvertex](S0){$c_1 - c_2$};
+		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S5){};
+		\draw[->] (S5) --(S0) node [midway, above, sloped, scale=0.75,
+		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\node[smallvertex, below of = S0, yshift = -1cm](S2){$c_2 - c_1$};
+		\draw[->] (S0) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$\leq 8$};
+		\node[smallvertex, below of = S0, yshift = -3cm](S4){$T$};
+		\draw[->] (S2) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
+	\end{tikzpicture}
+\end{center}
+\caption{Local reduction}
+\label{fig:rlddd}
+\end{figure}
+
+
 
 \begin{mydef}[Path-reduced DDD~\cite{ddds}]
 A path-reduced DDD ($R_PDDD$) is a locally reduced DDD where all paths are feasible.
+\end{mydef}
+
+To define tightness we first need to define dominating constraints.
+
+\begin{mydef}[Dominating constraint~\cite{ddds}]
+A constraint $x_i - x_j \lesssim c$ is dominating in a path $p$ if all other constraints $x_i - x_j \lesssim' c'$ on the same pair of variables in $p$ are less restrictive.
 \end{mydef}
 
 \begin{mydef}[Tightness~\cite{ddds}]

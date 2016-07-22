@@ -5,24 +5,9 @@
 \contentsline {subsection}{\numberline {2.3}Zone subsumption}{5}
 \contentsline {section}{\numberline {3}Related Work}{6}
 \contentsline {subsection}{\numberline {3.1}Methods}{6}
-\contentsline {subsection}{\numberline {3.2}LTSmin}{7}
-\contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{9}
-\contentsline {section}{\numberline {4}Plan}{13}
-\contentsline {subsection}{\numberline {4.1}Questions}{13}
-\contentsline {subsection}{\numberline {4.2}Algorithms}{14}
-\contentsline {subsection}{\numberline {4.3}Planning}{14}
-\contentsline {section}{\numberline {5}Notes}{19}
-\contentsline {subsection}{\numberline {5.1}Flattening DBM}{19}
-\contentsline {subsection}{\numberline {5.2}Dependency Matrices}{19}
-\contentsline {subsection}{\numberline {5.3}Animo Models}{19}
-\contentsline {subsection}{\numberline {5.4}DDD nodes}{20}
-\contentsline {subsection}{\numberline {5.5}Minus}{22}
-\contentsline {section}{\numberline {6}Time Extrapolation}{24}
-\contentsline {section}{\numberline {7}Benchmarks}{25}
-\contentsline {subsection}{\numberline {7.1}Viking}{25}
-\contentsline {subsection}{\numberline {7.2}Fischer}{25}
-\contentsline {subsection}{\numberline {7.3}CSMA-CD}{25}
-\contentsline {subsection}{\numberline {7.4}Animo}{26}
-\contentsline {subsection}{\numberline {7.5}Lynch-Shavit}{26}
-\contentsline {subsection}{\numberline {7.6}Milner}{26}
-\contentsline {subsection}{\numberline {7.7}Other models}{26}
+\contentsline {subsection}{\numberline {3.2}LTSmin}{10}
+\contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{10}
+\contentsline {section}{\numberline {4}Plan}{14}
+\contentsline {subsection}{\numberline {4.1}Questions}{14}
+\contentsline {subsection}{\numberline {4.2}Algorithms}{15}
+\contentsline {subsection}{\numberline {4.3}Planning}{15}

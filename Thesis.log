@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  1 JUL 2016 11:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  22 JUL 2016 16:10
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -666,132 +666,85 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] (Preliminaries.tex [4
 
 ]) [5] (RelatedWork.tex
-Overfull \hbox (9.53249pt too wide) in paragraph at lines 4--5
+Overfull \hbox (4.05748pt too wide) in paragraph at lines 4--5
 \OT1/cmr/m/n/10.95 Already sev-eral model check-ers for timed au-tomata ex-ist 
-such as UP-PAAL [14],
+such as UP-PAAL [3],
  []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [6
 
 ]
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7]
+
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 89.
+               Default added (so using `tbp') on input line 118.
 
 
-Overfull \hbox (111.88657pt too wide) in paragraph at lines 93--104
+Overfull \hbox (111.88657pt too wide) in paragraph at lines 122--133
  [][] 
  []
 
 (pins.tex)
-Overfull \hbox (68.17549pt too wide) in paragraph at lines 76--110
+Overfull \hbox (68.17549pt too wide) in paragraph at lines 76--139
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--110
+Underfull \hbox (badness 10000) in paragraph at lines 76--139
 
  []
 
-[7] [8] [9]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 130.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8] [9] [10]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 159.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 130.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 130.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 159.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 159.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 130.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 159.
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--134
+Underfull \hbox (badness 10000) in paragraph at lines 154--163
 
  []
 
-[10]
-Overfull \hbox (7.40977pt too wide) in paragraph at lines 161--162
-[]\OT1/cmr/bx/n/10.95 Definition 5 \OT1/cmr/m/n/10.95 (Lo-cally Re-duced DDD [1
+[11]
+Overfull \hbox (7.40977pt too wide) in paragraph at lines 193--194
+[]\OT1/cmr/bx/n/10.95 Definition 5 \OT1/cmr/m/n/10.95 (Lo-cally Re-duced DDD [2
 0])\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/it/10.95 A lo-cally re-duced DDD ($\OML/c
 mm/m/it/10.95 R[]DDD$\OT1/cmr/m/it/10.95 )
  []
 
-) [11] [12] (Plan.tex [13
 
-] [14] [15] [16] [17]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12]) [13] (Plan.tex [14
+
+] [15] [16] [17] [18]
 Overfull \hbox (38.27756pt too wide) in paragraph at lines 193--212
  [] 
  []
 
-) [18] (Notes.tex [19
-
-]
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
- [20] [21]
-Package epstopdf Info: Source file: <MyGraph.ps>
-(epstopdf)                    date: 2016-07-01 11:17:16
-(epstopdf)                    size: 9343 bytes
-(epstopdf)             Output file: <MyGraph-ps-converted-to.pdf>
-(epstopdf)             Command: <ps2pdf -dEPSCrop -dNOSAFER MyGraph.ps MyGraph-
-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 130.
-runsystem(ps2pdf -dEPSCrop -dNOSAFER MyGraph.ps MyGraph-ps-converted-to.pdf)...
-executed (allowed).
-
-Package epstopdf Info: Result file: <MyGraph-ps-converted-to.pdf>.
-
-
-! Package pdftex.def Error: File `MyGraph-ps-converted-to.pdf' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \includegraphics{MyGraph.ps}
-                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-runsystem(dot -Tps -o MyGraph.ps MyGraph.dot)...disabled (restricted).
-
-Package epstopdf Info: Source file: <MyGraph.ps>
-(epstopdf)                    date: 2016-07-01 11:17:16
-(epstopdf)                    size: 9343 bytes
-(epstopdf)             Output file: <MyGraph-ps-converted-to.pdf>
-(epstopdf)             Command: <ps2pdf -dEPSCrop -dNOSAFER MyGraph.ps MyGraph-
-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 137.
-runsystem(ps2pdf -dEPSCrop -dNOSAFER MyGraph.ps MyGraph-ps-converted-to.pdf)...
-executed (allowed).
-
-Package epstopdf Info: Result file: <MyGraph-ps-converted-to.pdf>.
-
-! Package pdftex.def Error: File `MyGraph-ps-converted-to.pdf' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.137 		\digraph[scale=0.5]{MyGraph}
-                                    {
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-\dotfile=\write5
-[22]) [23] (TimeExtrapolation.tex) [24
-
-] (Benchmarks.tex [25
-
-]) [26] (Thesis.bbl
-[27
+) [19] (Thesis.bbl [20
 
 ]
 Missing character: There is no Ã in font cmr10!
@@ -800,41 +753,37 @@ Missing character: There is no Å in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [28]
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no © in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [29]) [30] (Thesis.aux) ) 
+ [21] [22]) [23] (Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 16009 strings out of 493698
- 303116 string characters out of 3144415
- 371169 words of memory out of 3000000
- 18995 multiletter control sequences out of 15000+200000
- 13446 words of font info for 50 fonts, out of 3000000 for 9000
+ 15897 strings out of 493698
+ 301854 string characters out of 3144415
+ 367169 words of memory out of 3000000
+ 18896 multiletter control sequences out of 15000+200000
+ 13278 words of font info for 49 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 55i,16n,54p,2090b,1032s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (30 pages, 308550 bytes).
+ 55i,16n,54p,2119b,1032s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx
+ti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Thesis.pdf (23 pages, 275422 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
+ 147 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
