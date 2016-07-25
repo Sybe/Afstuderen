@@ -11,3 +11,9 @@
 \contentsline {subsection}{\numberline {4.1}Questions}{15}
 \contentsline {subsection}{\numberline {4.2}Algorithms}{16}
 \contentsline {subsection}{\numberline {4.3}Planning}{16}
+\contentsline {section}{\numberline {5}Notes}{21}
+\contentsline {subsection}{\numberline {5.1}Flattening DBM}{21}
+\contentsline {subsection}{\numberline {5.2}Dependency Matrices}{21}
+\contentsline {subsection}{\numberline {5.3}Animo Models}{21}
+\contentsline {subsection}{\numberline {5.4}DDD nodes}{22}
+\contentsline {subsection}{\numberline {5.5}Minus}{24}

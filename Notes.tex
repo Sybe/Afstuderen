@@ -127,33 +127,81 @@ In figure \ref{fig:md-minus} we have a two-dimensional example of how the minus 
 
 
 
-\includegraphics{MyGraph.ps}
+%\includegraphics{MyGraph.ps}
  
 
-\begin{figure}
-\caption{Multi-Dimensional Minus}
-\label{fig:md-minus}
-	\centering
-		\digraph[scale=0.5]{MyGraph}{
-		graph [dpi = 300];
-		center = true;
-		edge [dir = forward];
-		59 [shape=record, label="<1> 1leq|<4> 4le"];
-		51 [shape=record, label="<0> 0le"];
-		41 [shape=record, label="<4> 4le"];
-		40 [shape=record, label="<0> 0le"];
-		41:4 -> 40:0 [style=solid];
-		51:0 -> 41:4 [style=solid];
-		59:1 -> 51:0 [style=solid];
-		57 [shape=record, label="<-3> -3leq|<0> 0le"];
-		57:-3 -> 41:4 [style=solid];
-		55 [shape=record, label="<1> 1leq|<4> 4le"];
-		55:1 -> 40:0 [style=solid];
-		47 [shape=record, label="<-3> -3leq"];
-		55:4 -> 47:-3 [style=solid];
-		57:0 -> 55:1 [style=solid];
-		59:4 -> 57:-3 [style=solid];
-		}
-\end{figure}
+%\begin{figure}
+%\caption{Multi-Dimensional Minus}
+%\label{fig:md-minus}
+%	\centering
+%		\digraph[scale=0.5]{MyGraph}{
+%		graph [dpi = 300];
+%		center = true;
+%		edge [dir = forward];
+%		59 [shape=record, label="<1> 1leq|<4> 4le"];
+%		51 [shape=record, label="<0> 0le"];
+%		41 [shape=record, label="<4> 4le"];
+%		40 [shape=record, label="<0> 0le"];
+%		41:4 -> 40:0 [style=solid];
+%		51:0 -> 41:4 [style=solid];
+%		59:1 -> 51:0 [style=solid];
+%		57 [shape=record, label="<-3> -3leq|<0> 0le"];
+%		57:-3 -> 41:4 [style=solid];
+%		55 [shape=record, label="<1> 1leq|<4> 4le"];
+%		55:1 -> 40:0 [style=solid];
+%		47 [shape=record, label="<-3> -3leq"];
+%		55:4 -> 47:-3 [style=solid];
+%		57:0 -> 55:1 [style=solid];
+%		59:4 -> 57:-3 [style=solid];
+%		}
+%\end{figure}
 
 The DBM function we use is defined in the \uppaal{} DBM library. The minus function is defined over a federation of DBMs. This federation is a C++ class containing multiple DBMs. This federation is needed as we can do a minus over a collection of zones, multiple paths in the DDD, and the result can contain multiple zones. As already shown in the example of figure \ref{fig:md-minus}. For this function we first take the normal LDD minus function over the discrete part. At the first DDD level representing the zones, the DBM function is called. From this level all possible paths are searched, and for each path a DBM is created. All these DBMs are put in a federation, on which the library function can be called. The result is again (a possibly empty) federation. If the federation is empty, simply a DDD-false node is returned. Otherwise each DBM is turned into a DDD path and these paths are unioned together.
+
+\begin{algorithm}
+\caption{BFS}\label{alg:bfs-orig}
+\begin{algorithmic}[1]
+\Procedure{BFS}{$initial$}
+	\State $vis := cur := initial$
+	\While{$cur \neq \emptyset$}
+		\State{$cur := next(cur)$}
+		\State{$vis := vis \cup cur$}
+		\State{$cur := cur \setminus vis$}
+	\EndWhile
+	
+\EndProcedure	
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{BFS}\label{alg:bfs-check}
+\begin{algorithmic}[1]
+\Procedure{BFS}{$initial$}
+	\State $vis := cur := initial$
+	\State $vis_{prev} := \emptyset$
+	\While{$vis \neq vis_{prev}$}
+		\State{$vis_{prev} := vis$}
+		\State{$cur := next(cur)$}
+		\State{$vis := vis \cup cur$}
+		\State{$cur := cur \setminus vis$}
+	\EndWhile
+	
+\EndProcedure	
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{BFS}\label{alg:bfs-no-minus}
+\begin{algorithmic}[1]
+\Procedure{BFS}{$initial$}
+	\State $vis := cur := initial$
+	\State $vis_{prev} := \emptyset$
+	\While{$vis \neq vis_{prev}$}
+		\State{$vis_{prev} := vis$}
+		\State{$cur := next(cur)$}
+		\State{$vis := vis \cup cur$}
+	\EndWhile
+	
+\EndProcedure	
+\end{algorithmic}
+\end{algorithm}
