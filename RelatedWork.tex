@@ -5,7 +5,7 @@ Already several model checkers for timed automata exist such as \uppaal{}~\cite{
 
 Digitization approximates the continuous values of clocks by using discrete values~\cite{CHARME01}. The method however only works for closed timed automata, meaning that no strict comparisons on clocks can be made in the model and that clocks only can be compared to integers. This approach is very sensitive to the granularity of the values used and the upper bound of the clock values. When fine granularity or large upper bounds are used, the memory usage will increase too much. An advantage of this approach is that basic model checking approaches can be used and no extra complexity due to zone calculations is added. This method results in a transition system with only discrete variables, so a normal BDD package can be used. In ~\cite{nguyen2012discrete} a similar approach is proposed by using clock tick actions to represent time progress and removing clock variables altogether. 
 
-The most established method to represent clock zones are DBMs. We gave an introduction to this structure in the preliminaries section. Several methods based on BDDs have been developed to represent zones. All of these are similar to DBMs in the sense that they use clock constraints to represent the zones. They use a BDD-like structure to represent the zones more efficiently. Below we shortly describe four methods. For each method we give an example, all examples represent $2 < c_1 - c_2 < 4 \vee 7 \leq c_1 - c_2 \leq 8$.
+The most established method to represent clock zones are DBMs. We gave an introduction to this structure in the preliminaries section. Several methods based on BDDs have been developed to represent zones. All of these are similar to DBMs in the sense that they use clock constraints to represent the zones. These structures use a BDD-like structure to represent the zones more efficiently. Below we shortly describe four methods. For each method we give an example, all examples represent $2 < c_1 - c_2 < 4 \vee 7 \leq c_1 - c_2 \leq 8$.
 
 CDDs~\cite{BRICS19491} use single nodes for each variable and have multiple disjoint intervals for that variable on the edges. This results in a node with a larger fanout. The upper and lower bound for each pear of clocks are represented in a single node, as the edges represent intervals. Requiring the disjointness of intervals can lead to a memory inefficient representation, as intervals need to be cut in more smaller parts. All algorithms on CDDs do not maintain disjointness, after every step it needs to be re-established. In figure \ref{fig:cdd-example} we have an example of a CDD.
 
@@ -90,15 +90,16 @@ CRDs~\cite{crds} differ mainly from CDDs by not using disjoint intervals but pos
 \label{fig:crd-example}
 \end{figure}
 
-CMDs~\cite{5702245} combine CDDs, CRDs and DBMs into a single structure. This diagram type differs from the others by having multiple constraints per edge, resulting in a diagram with few nodes. Upper- and lower-bounds of multiple clock pairs can be on a single edge. CMDs do not have a canonical form so only some reductions are proposed. 
+CMDs~\cite{5702245} combine CDDs, CRDs and DBMs into a single structure. This diagram type differs from the others by having multiple constraints per edge, resulting in a diagram with few nodes. Upper- and lower-bounds of multiple clock pairs can be on a single edge. CMDs do not have a canonical form so only some reductions are proposed. An example of a CMD is given in figure \ref{fig:cmd-example}. This figure contains two examples, the first is a diagram of the constraint we use in this section. To show the difference with other diagrams we also give a diagram representing the same zone as the DBM in figure \ref{fig:dbm}.
 
 \begin{figure}[h]
-\begin{center}
+%\begin{center}
+\begin{subfigure}{.5\textwidth}
 	\begin{tikzpicture}[
 		smallvertex/.style={circle,draw,scale=0.8}
 		]
 			
-		\node[smallvertex](S0){$c_1 - c_2$};
+		\node[smallvertex](S0){ };
 		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S4){};
 		\draw[->] (S4) --(S0) node [midway, above, sloped, scale=0.75,
 		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{};
@@ -108,7 +109,22 @@ CMDs~\cite{5702245} combine CDDs, CRDs and DBMs into a single structure. This di
 		\draw[->] (S0) edge [bend right](S3) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =1.5 cm, yshift = -1.5cm]{$7\leq c_1-c_2\leq8$};
 	\end{tikzpicture}	
-\end{center}
+\end{subfigure}	
+\begin{subfigure}{.5\textwidth}
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+			
+		\node[smallvertex](S0){ };
+		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S4){};
+		\draw[->] (S4) --(S0) node [midway, above, sloped, scale=0.75,
+		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\node[smallvertex, below of = S0, yshift = -1cm](S3){$T$};
+		\draw[->] (S0) edge (S3) node [midway, above, sloped, scale=0.75,		
+		rotate=0, xshift =-1 cm, yshift = -1.5cm, align=center]{$0 \leq c_1 \leq 5$\\$ 0 \leq c_2 \leq 4$};
+	\end{tikzpicture}
+\end{subfigure}
+%\end{center}
 \caption{CMD representation}
 \label{fig:cmd-example}
 \end{figure}
@@ -145,7 +161,7 @@ A known difficulty in BDDs is the variable ordering. A bad ordering can lead to 
 
 \subsection{Difference Decision Diagrams}
 
-We have discussed several symbolic approaches for representing zones. All of these approaches have benefits and downsides over each other. We chose to develop one of these approaches in \ltsmin{}. We wanted a diagram that can store both discrete states and zones, this can either be done in the diagram, or in a combination of the diagram and BDD or LDD nodes. Also a subsumption check on the diagram should be possible. We chose from the four zone representing diagrams discussed earlier. The CDD approach was not chosen due to the memory inefficient disjoint intervals and their algorithms not maintaining these intervals. The CMD approach is too similar to DBMs, on which we already have an approach. The choice between CRD and DDD was between two quite similar diagrams. We have decided to continue on the DDD. It is a diagram form that is closely related to LDDs, for which we already have a library, and it is also quite compatible to the current \pins{} structure and its next-state function. The method still has some loose ends that need research, mostly on the algorithms and efficiently creating a canonical form. No results on the memory usage are available, which is normally the greatest benefit of a symbolic approach, so also on the results side we can extend the current research. 
+We have discussed several symbolic approaches for representing zones. All of these approaches have benefits and downsides over each other. We chose to develop one of these approaches in \ltsmin{}. We wanted a diagram that can store both discrete states and zones, this can either be done in the diagram, or in a combination of the diagram and BDD or LDD nodes. Also a subsumption check on the diagram should be possible. We chose from the four zone representing diagrams discussed earlier. The CDD approach was not chosen due to the memory inefficient disjoint intervals and their algorithms not maintaining these disjointness. The CMD approach is too similar to DBMs, on which we already have an approach. The choice between CRD and DDD was between two quite similar diagrams. We have decided to continue on the DDD. It is a diagram form that is closely related to LDDs, for which we already have a library, so we can reuse parts of the LDD library, and it is also quite compatible to the current \pins{} structure and its next-state function. The method still has some loose ends that need research, mostly on the algorithms and efficiently creating a canonical form. No results on the memory usage are available, which is normally the greatest benefit of a symbolic approach, so also on the results side we can extend the current research. 
 
 So DDDs are a diagram type that seems to fit well in the current structure we have, but there is still room for some more research. First we give the definition of a DDD.
 
@@ -192,7 +208,7 @@ After ordering a DDD some local reductions can be defined to reduce the size of 
 \label{def:RLDDD}
 A locally reduced DDD ($R_LDDD$) is an ODDD satisfying, for all non-terminals u and v:
 \begin{enumerate}
-  \item $\mathbb{D} = \mathbb{Z}$ implies $op(v) = '\leq'$,
+  \item $\mathbb{D} = \mathbb{Z}$ implies $\forall v. op(v) = '\leq'$,
   \item $(cstr(u),high(u),low(u)) = (cstr(v),high(v),low(v))$ implies $u = v$,
   \item $low(v) \neq high(v)$,
   \item $var(v) = var(low(v))$ implies $high(v) \neq high(low(v))$.

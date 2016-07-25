@@ -25,6 +25,9 @@ With this definition we can combine timed automata to a network of timed automat
 Let Act = $\{ch!,ch?|ch \in Chan\} \cup \{\tau\}$ be a finite set of actions, and let C be a finite set of clocks. Then the parallel composition of extended timed automata $A_i = \langle L_i, C, Act, S^i_0, \rightarrow_{i}, I^i_C\rangle$ for all $1 \leq i \leq n$, where $n \in \mathbb{N}$, is a network of timed automata, denoted $A = A_1||A_2||..||A_n$.
 \end{mydef}
 
+A network of timed automata is a parallel composition that synchronizes on a set of channels $Chan$~\cite{UPPAAL}. $ch!$ and $ch?$ represent the output and input action on the channel $ch \in Chan$.
+
+
 \subsection{Zones}
 For basic transition systems the state space can grow exponentially for the size of the system. The state space of Timed automata is by definition infinite, as clocks have real values. If a state is defined between two points in time, an infinite amount of moments in time can happen during that state. Even when some granularity is used, that defines that clocks will only increase with certain step size the automata can still have infinite state space. To tackle this problem most model checkers use a notion of zones for the representation of time. A zone can be seen as a set of constraints over the clocks $C$
  of the form $c_i \sim x$ and $c_i - c_j \sim x$ where $\sim  \in \{<, \leq, =, \geq, >\}$ and $x \in \mathbb{N}$. To represent these zones several data structures have been developed. One of the most common used structures are Difference Bound Matrices (DBMs)~\cite{dbmorig,bengtsson2002clocks}.
@@ -34,12 +37,12 @@ These matrices use both a column and a row for each clock, and on each position 
 \begin{figure}
 	\centering
 	\begin{math}
- 		\begin{pmatrix}
- 		                 & \mathbf{O} & c_1           & c_2        \\
- 			\mathbf{O} &(0,\leq)      & (0,\leq)      & (0,\leq)     \\
- 			c_1        &(5,\leq)      & (0,\leq)      & (\infty,\leq)\\
- 			c_2        &(4,\leq)      & (\infty,\leq) & (0,\leq)     \\
- 		\end{pmatrix}
+% 		\begin{pmatrix}
+ \bordermatrix{ 		                 & \mathbf{O} & c_1           & c_2        \cr
+ 			\mathbf{O} &(0,\leq)      & (0,\leq)      & (0,\leq)     \cr
+ 			c_1        &(5,\leq)      & (0,\leq)      & (\infty,\leq)\cr
+ 			c_2        &(4,\leq)      & (\infty,\leq) & (0,\leq)     \cr}
+% 		\end{pmatrix}
 	\end{math}
 	\caption{DBM}
 	\label{fig:dbm}

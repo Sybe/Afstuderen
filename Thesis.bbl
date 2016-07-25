@@ -12,7 +12,7 @@ Rajeev Alur and David~L. Dill.
 
 \bibitem{UPPAAL}
 Gerd Behrmann, Alexandre David, and KimG. Larsen.
-\newblock {A Tutorial on Uppaal}.
+\newblock A tutorial on {Uppaal}.
 \newblock In Marco Bernardo and Flavio Corradini, editors, {\em Formal Methods
   for the Design of Real-Time Systems}, volume 3185 of {\em Lecture Notes in
   Computer Science}, pages 200--236. Springer Berlin Heidelberg, 2004.
@@ -42,7 +42,7 @@ Dirk Beyer, Claus Lewerentz, and Andreas Noack.
 
 \bibitem{eemcs18152}
 S.~C.~C. {Blom}, J.~C. {van de Pol}, and M.~{Weber}.
-\newblock Ltsmin: Distributed and symbolic reachability.
+\newblock {LTSmin}: Distributed and symbolic reachability.
 \newblock In T.~{Touili}, B.~{Cook}, and P.~{Jackson}, editors, {\em Computer
   Aided Verification, Edinburgh}, volume 6174 of {\em Lecture Notes in Computer
   Science}, pages 354--359, Berlin, July 2010. Springer Verlag.
@@ -100,7 +100,7 @@ R.~Ehlers, D.~Fass, M.~Gerke, and H.-J. Peter.
 
 \bibitem{ltsmin-mc:nmf2011}
 A.~W. {Laarman}, J.~C. {van de Pol}, and M.~{Weber}.
-\newblock {Multi-Core LTSmin: Marrying Modularity and Scalability}.
+\newblock {Multi-Core {LTSmin}: Marrying Modularity and Scalability}.
 \newblock In M.~{Bobaru}, K.~{Havelund}, G.~{Holzmann}, and R.~{Joshi},
   editors, {\em Proceedings of the Third International Symposium on NASA Formal
   Methods, NFM 2011, Pasadena, CA, USA}, volume 6617 of {\em Lecture Notes in
@@ -141,7 +141,7 @@ Jesper M{\o}ller, Jakob Lichtenberg, HenrikReif Andersen, and Henrik Hulgaard.
 
 \bibitem{nguyen2012discrete}
 TruongKhanh Nguyen, Jun Sun, Yang Liu, JinSong Dong, and Yan Liu.
-\newblock Improved bdd-based discrete analysis of timed systems.
+\newblock Improved {BDD}-based discrete analysis of timed systems.
 \newblock In Dimitra Giannakopoulou and Dominique M\'{e}ry, editors, {\em FM
   2012: Formal Methods}, volume 7436 of {\em Lecture Notes in Computer
   Science}, pages 326--340. Springer Berlin Heidelberg, 2012.
@@ -171,7 +171,7 @@ Tom van Dijk and Jaco van~de Pol.
 
 \bibitem{crds}
 Farn Wang.
-\newblock Efficient verification of timed automata with bdd-like
+\newblock Efficient verification of timed automata with {BDD}-like
   data-structures.
 \newblock In LenoreD. Zuck, PaulC. Attie, Agostino Cortesi, and Supratik
   Mukhopadhyay, editors, {\em Verification, Model Checking, and Abstract
