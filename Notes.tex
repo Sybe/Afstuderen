@@ -158,6 +158,9 @@ In figure \ref{fig:md-minus} we have a two-dimensional example of how the minus 
 
 The DBM function we use is defined in the \uppaal{} DBM library. The minus function is defined over a federation of DBMs. This federation is a C++ class containing multiple DBMs. This federation is needed as we can do a minus over a collection of zones, multiple paths in the DDD, and the result can contain multiple zones. As already shown in the example of figure \ref{fig:md-minus}. For this function we first take the normal LDD minus function over the discrete part. At the first DDD level representing the zones, the DBM function is called. From this level all possible paths are searched, and for each path a DBM is created. All these DBMs are put in a federation, on which the library function can be called. The result is again (a possibly empty) federation. If the federation is empty, simply a DDD-false node is returned. Otherwise each DBM is turned into a DDD path and these paths are unioned together.
 
+\subsection{BFS}
+The DBM minus function we use is quite expensive. To overcome this problem we will use two different versions of the search algorithm. Our second version will not use the minus function. In algorithm \ref{alg:bfs-orig} we show the standard BFS algorithm, this will be the first algorithm we use. Algorithm \ref{alg:bfs-check} shows how we can edit this algorithm. The constraint of the loop is changed from an empty check of the current set, to a check that the total visited set has not changed. This change now shows that the minus is not necessary any more, as shown in algorithm \ref{alg:bfs-no-minus}. The implication is that the current set will in some cases be larger than in the previous algorithm. This will have some negative impact on the next-state calls, which will take more time. Not using the expensive minus function might compensate for that.
+
 \begin{algorithm}
 \caption{BFS}\label{alg:bfs-orig}
 \begin{algorithmic}[1]
