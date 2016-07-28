@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  26 JUL 2016 09:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  28 JUL 2016 12:40
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -569,7 +569,246 @@ Package: subcaption 2015/09/15 v1.1-100 Sub-captions (AR)
 \c@subfigure=\count141
 \c@subtable=\count142
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\adjustbox\adjustbox.sty
+Package: adjustbox 2012/05/21 v1.0 Adjusting TeX boxes (trim, clip, ...)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
+\XKV@toks=\toks45
+\XKV@tempa@toks=\toks46
+)
+\XKV@depth=\count143
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\adjustbox\adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\adjustbox\trimclip.sty
+Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\collectbox\collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box43
+)
+\tc@llx=\dimen184
+\tc@lly=\dimen185
+\tc@urx=\dimen186
+\tc@ury=\dimen187
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\adjustbox\tc-pdftex.def
+File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen188
+\adjbox@Height=\dimen189
+\adjbox@Depth=\dimen190
+\adjbox@Totalheight=\dimen191
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\ifoddpage\ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count144
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\varwidth.sty"
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box44
+\sift@deathcycles=\count145
+\@vwid@loff=\dimen192
+\@vwid@roff=\dimen193
+))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-euclide\tkz-euclide.sty
+Package: tkz-euclide 2011/06/01 1.16 c for plots 2d 
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-base\tkz-base.sty
+Package: tkz-base 2011/06/01 1.16 c tkz-base
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
+Package: etex 2015/03/02 v2.1 eTeX basic definition package (PEB,DPC)
+\et@xins=\count146
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\li
+braries\tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibrarya
+rrows.code.tex
+File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
+\arrowsize=\dimen194
+))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\li
+braries\tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibraryp
+lotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
+))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\li
+braries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\li
+braries\tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\shapes\pgfl
+ibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2013/07/18 v3.0.1a (rcs-revision 1.5)
+))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\li
+braries\tikzlibrarydecorations.code.tex
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduledeco
+rations.code.tex
+\pgfdecoratedcompleteddistance=\dimen195
+\pgfdecoratedremainingdistance=\dimen196
+\pgfdecoratedinputsegmentcompleteddistance=\dimen197
+\pgfdecoratedinputsegmentremainingdistance=\dimen198
+\pgf@decorate@distancetomove=\dimen199
+\pgf@decorate@repeatstate=\count147
+\pgfdecorationsegmentamplitude=\dimen200
+\pgfdecorationsegmentlength=\dimen201
+)
+\tikz@lib@dec@box=\box45
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\li
+braries\tikzlibrarydecorations.markings.code.tex
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\decorations
+\pgflibrarydecorations.markings.code.tex))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\li
+braries\tikzlibrarydecorations.pathreplacing.code.tex
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\decorations
+\pgflibrarydecorations.pathreplacing.code.tex))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\li
+braries\tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2008/01/15 v3.0.1a (rcs-revision 1.2)
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibraryp
+atterns.code.tex
+File: pgflibrarypatterns.code.tex 2008/03/03 v3.0.1a (rcs-revision 1.13)
+))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\numprint\numprint.sty
+Package: numprint 2012/08/20 v1.39 Print numbers (HH)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen202
+\extrarowheight=\dimen203
+\NC@list=\toks47
+\extratabsurround=\skip52
+\backup@length=\skip53
+)
+\c@nprt@mantissa@digitsbefore=\count148
+\c@nprt@mantissa@digitsafter=\count149
+\c@nprt@exponent@digitsbefore=\count150
+\c@nprt@exponent@digitsafter=\count151
+\nprt@digitwidth=\skip54
+\nprt@sepwidth=\skip55
+\nprt@decimalwidth=\skip56
+\nprt@blockwidth=\skip57
+\nprt@digittoks=\toks48
+\nprt@pretoks=\toks49
+\nprt@posttoks=\toks50
+\nprt@thisdigit=\count152
+\nprt@curpos=\count153
+\nprt@rndpos=\count154
+\c@nprt@digitsfirstblock=\count155
+\c@nprt@blockcnt=\count156
+\c@nprt@cntprint=\count157
+
+No configuration file `numprint.cfg' found.)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp.sty
+Package: fp 1995/04/02
+
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count158
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count159
+\FP@xia=\count160
+\FP@xib=\count161
+\FP@xfa=\count162
+\FP@xfb=\count163
+\FP@rega=\count164
+\FP@regb=\count165
+\FP@regs=\count166
+\FP@times=\count167
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-addons.sty
+Package: fp-addons 1995/03/15
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-snap.sty
+Package: fp-snap 1995/04/05
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-exp.sty
+Package: fp-exp 1995/04/03
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-trigo.sty
+Package: fp-trigo 1995/04/14
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-pas.sty
+Package: fp-pas 1994/08/29
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count168
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-eqn.sty
+Package: fp-eqn 1995/04/03
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-upn.sty
+Package: fp-upn 1996/10/21
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\fp\fp-eval.sty
+Package: fp-eval 1995/04/03
+))
+\tkzRadius=\dimen204
+\tkzLength=\dimen205
+\tkz@radi=\dimen206
+\tkz@ax=\dimen207
+\tkz@ay=\dimen208
+\tkz@bx=\dimen209
+\tkz@by=\dimen210
+\tkz@cx=\dimen211
+\tkz@cy=\dimen212
+\tkz@dx=\dimen213
+\tkz@dy=\dimen214
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-base\tkz-tools-utilitie
+s.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-base\tkz-tools-arith.te
+x
+File: tkz-tool-arith.tex tkz-tool-arith 1.161 c
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-base\tkz-tools-base.tex
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-base\tkz-tools-misc.tex
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-base\tkz-tools-math.tex
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-base\tkz-obj-points.tex
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-base\tkz-obj-segments.t
+ex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-base\tkz-obj-marks.tex
+\tkz@cntmk=\count169
+))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-euclide\tkz-tools-inter
+sections.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-euclide\tkz-tools-trans
+formations.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-euclide\tkz-obj-lines.t
+ex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-euclide\tkz-lib-symbols
+.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-euclide\tkz-obj-circles
+.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\tkz-euclide\tkz-obj-addpoin
+ts.tex)) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
@@ -617,45 +856,45 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
 )) (Thesis.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 (C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count143
-\scratchdimen=\dimen184
-\scratchbox=\box43
-\nofMPsegments=\count144
-\nofMParguments=\count145
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count146
-\MPscratchDim=\dimen185
-\MPnumerator=\count147
-\makeMPintoPDFobject=\count148
-\everyMPtoPDFconversion=\toks46
+\scratchcounter=\count170
+\scratchdimen=\dimen215
+\scratchbox=\box46
+\nofMPsegments=\count171
+\nofMParguments=\count172
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count173
+\MPscratchDim=\dimen216
+\MPnumerator=\count174
+\makeMPintoPDFobject=\count175
+\everyMPtoPDFconversion=\toks52
 ) ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count149
-\c@mydef=\count150
-LaTeX Font Info:    Try loading font information for U+msa on input line 47.
+\c@lstlisting=\count176
+\c@mydef=\count177
+LaTeX Font Info:    Try loading font information for U+msa on input line 49.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 47.
+LaTeX Font Info:    Try loading font information for U+msb on input line 49.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -673,7 +912,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ]) [5] [6] (RelatedWork.tex
 Overfull \hbox (4.05748pt too wide) in paragraph at lines 4--5
 \OT1/cmr/m/n/10.95 Already sev-eral model check-ers for timed au-tomata ex-ist 
-such as UP-PAAL [3],
+such as UP-PAAL [4],
  []
 
 
@@ -699,7 +938,7 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 134.
 
 
-Overfull \hbox (111.88657pt too wide) in paragraph at lines 138--149
+Overfull \hbox (113.48654pt too wide) in paragraph at lines 138--149
  [][] 
  []
 
@@ -740,7 +979,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 170--179
 [12]
 Overfull \hbox (7.40977pt too wide) in paragraph at lines 209--210
 []\OT1/cmr/bx/n/10.95 Definition 5 \OT1/cmr/m/n/10.95 (Lo-cally Re-duced DDD [2
-0])\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/it/10.95 A lo-cally re-duced DDD ($\OML/c
+5])\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/it/10.95 A lo-cally re-duced DDD ($\OML/c
 mm/m/it/10.95 R[]DDD$\OT1/cmr/m/it/10.95 )
  []
 
@@ -761,14 +1000,38 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
  [22] [23]
 
-LaTeX Warning: Reference `fig:md-minus' on page 24 undefined on input line 126.
+LaTeX Warning: Reference `fig:md-minus' on page 24 undefined on input line 131.
 
 
 
-LaTeX Warning: Reference `fig:md-minus' on page 24 undefined on input line 159.
+LaTeX Warning: Reference `fig:md-minus' on page 24 undefined on input line 164.
 
 
-[24]) [25] [26] (Thesis.bbl [27
+[24]) [25] [26] (TimeExtrapolation.tex) [27
+
+] (Benchmarks.tex [28
+
+]) [29]
+(Results.tex
+
+LaTeX Warning: Float too large for page by 0.02077pt on input line 57.
+
+
+Overfull \hbox (50.69923pt too wide) in paragraph at lines 114--115
+[] 
+ []
+
+
+LaTeX Warning: Float too large for page by 0.00624pt on input line 115.
+
+
+Overfull \hbox (121.4713pt too wide) in paragraph at lines 133--150
+[] [] 
+ []
+
+) [30
+
+] [31] [32] (Thesis.bbl [33
 
 ]
 Missing character: There is no Ã in font cmr10!
@@ -777,26 +1040,23 @@ Missing character: There is no Å in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [28]
+ [34]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [29]) [30] (Thesis.aux)
+ [35]) [36] (Thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 16066 strings out of 493698
- 304134 string characters out of 3144415
- 369169 words of memory out of 3000000
- 19060 multiletter control sequences out of 15000+200000
+ 20589 strings out of 493698
+ 401096 string characters out of 3144415
+ 543634 words of memory out of 3000000
+ 23395 multiletter control sequences out of 15000+200000
  13278 words of font info for 49 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 55i,16n,54p,2119b,1032s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,16n,75p,2119b,1035s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
@@ -813,9 +1073,9 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9
 pe1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (30 pages, 297889 bytes).
+Output written on Thesis.pdf (36 pages, 318066 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
+ 188 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

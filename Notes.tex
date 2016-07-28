@@ -101,19 +101,24 @@ The difference between the original LDD nodes and our DDD nodes is only in the o
 \begin{algorithm}
 \caption{MK}\label{alg:MK}
 \begin{algorithmic}[1]
-\Procedure{MK}{$var, bound, h, l$}
-	\If{$bound = "<\infty"$}
-		\State{\Return $h$}
+\Procedure{MK}{$bound, h, l$}
+	\If{$h = 1 \wedge l = 1$}
+		\State \Return $1$
 	\EndIf
-	\If{member hashtable}
-		\State{\Return lookup}
-	\ElsIf{l = h}
-		\State{\Return $l$}
-	\ElsIf{$var = l.var \wedge h = l.high$}
-		\State{\Return $l$}
-	\Else
-		\State{\Return insert(new Node)}
+	\If{$h = 0 \wedge l = 0$}
+		\State \Return $0$
 	\EndIf
+	\If{$h = 0 \wedge l \neq 0$}
+		\State \Return $1$
+	\EndIf
+	\If{$h = high(l)$}
+		\State \Return $l$
+	\EndIf
+	\State $node =$ \Call{makeNode}{$bound, h, l$}
+	\If{$node \notin table$}
+		\State \Call{Put}{$node$}
+	\EndIf
+	\State \Return $node$
 \EndProcedure	
 \end{algorithmic}
 \end{algorithm}
@@ -208,3 +213,7 @@ The DBM minus function we use is quite expensive. To overcome this problem we wi
 \EndProcedure	
 \end{algorithmic}
 \end{algorithm}
+
+
+
+

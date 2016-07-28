@@ -10,6 +10,12 @@ Rajeev Alur and David~L. Dill.
 \newblock A theory of timed automata.
 \newblock {\em Theoretical Computer Science}, 126(2):183 -- 235, 1994.
 
+\bibitem{Behrmann2004}
+Gerd Behrmann, Patricia Bouyer, Kim~G. Larsen, and Radek Pel{\'a}nek.
+\newblock {\em Lower and Upper Bounds in Zone Based Abstractions of Timed
+  Automata}, pages 312--326.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2004.
+
 \bibitem{UPPAAL}
 Gerd Behrmann, Alexandre David, and KimG. Larsen.
 \newblock A tutorial on {Uppaal}.
@@ -98,6 +104,13 @@ R.~Ehlers, D.~Fass, M.~Gerke, and H.-J. Peter.
 \newblock In {\em Real-Time Systems Symposium (RTSS), 2010 IEEE 31st}, pages
   360--371, Nov 2010.
 
+\bibitem{641264}
+K.~Havelund, A.~Skou, K.~G. Larsen, and K.~Lund.
+\newblock Formal modeling and analysis of an audio/video protocol: an
+  industrial case study using {UPPAAL}.
+\newblock In {\em Real-Time Systems Symposium, 1997. Proceedings., The 18th
+  IEEE}, pages 2--13, Dec 1997.
+
 \bibitem{ltsmin-mc:nmf2011}
 A.~W. {Laarman}, J.~C. {van de Pol}, and M.~{Weber}.
 \newblock {Multi-Core {LTSmin}: Marrying Modularity and Scalability}.
@@ -106,10 +119,21 @@ A.~W. {Laarman}, J.~C. {van de Pol}, and M.~{Weber}.
   Methods, NFM 2011, Pasadena, CA, USA}, volume 6617 of {\em Lecture Notes in
   Computer Science}, pages 506--511, Berlin, July 2011. Springer Verlag.
 
+\bibitem{Lamport:1987:FME:7351.7352}
+Leslie Lamport.
+\newblock A fast mutual exclusion algorithm.
+\newblock {\em ACM Trans. Comput. Syst.}, 5(1):1--11, January 1987.
+
 \bibitem{BRICS19491}
 Kim Larsen, Carsten Weise, Wang Yi, and Justin Pearson.
 \newblock Clock difference diagrams.
 \newblock {\em BRICS Report Series}, 5(46), 1998.
+
+\bibitem{LS}
+N.~Lynch and N.~Shavit.
+\newblock Timing based mutual exclusion.
+\newblock In {\em Proc. of the Annual Real-Time Symposium (RTSS)}, pages 2--11,
+  1992.
 
 \bibitem{rwcmatrices}
 Jeroen Meijer, Gijs Kant, Stefan Blom, and Jaco van~de Pol.
@@ -117,6 +141,11 @@ Jeroen Meijer, Gijs Kant, Stefan Blom, and Jaco van~de Pol.
 \newblock In Eran Yahav, editor, {\em Hardware and Software: Verification and
   Testing}, volume 8855 of {\em Lecture Notes in Computer Science}, pages
   204--219. Springer International Publishing, 2014.
+
+\bibitem{Milner:1989:CC:534666}
+R.~Milner.
+\newblock {\em Communication and Concurrency}.
+\newblock Prentice-Hall, Inc., Upper Saddle River, NJ, USA, 1989.
 
 \bibitem{ddd-datastructure-99}
 J.~M{\o}ller, J.~Lichtenberg, H.~R. Andersen, and H.~Hulgaard.
