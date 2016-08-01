@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{caption}
+\usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage{amssymb}
 \usepackage{algorithm}
@@ -18,9 +19,10 @@
 \usepackage{listings}             % Include the listings-package
 \lstset{language=C}  
 \usepackage{graphviz}
-\usepackage{subcaption}
 \usepackage{adjustbox}
 \usepackage{tkz-euclide}
+\usepackage[endianness=big]{bytefield}
+\bytefieldsetup{boxformatting={\centering\footnotesize}}
 
 \usepackage{graphicx,epstopdf}
 \epstopdfsetup{update}
@@ -33,7 +35,7 @@
 \newcommand{\promela}{Promela}
 \newcommand{\prob}{prob}
 \newcommand{\dve}{DVE}
-\newcommand{\uppaal}{UPPAAL}
+\newcommand{\uppaal}{Uppaal}
 \newcommand{\ltsmin}{LTSmin}
 \newcommand{\pins}{PINS}
 \newcommand{\algorithmicbreak}{\textbf{break}}
@@ -72,10 +74,6 @@
 \clearpage
 \section{Notes}
 \input{Notes}
-
-\clearpage
-\section{Time Extrapolation}
-\input{TimeExtrapolation}
 
 \clearpage
 \section{Benchmarks}

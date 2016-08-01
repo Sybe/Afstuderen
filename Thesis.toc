@@ -14,17 +14,20 @@
 \contentsline {section}{\numberline {5}Notes}{21}
 \contentsline {subsection}{\numberline {5.1}Flattening DBM}{21}
 \contentsline {subsection}{\numberline {5.2}Dependency Matrices}{21}
-\contentsline {subsection}{\numberline {5.3}Animo Models}{21}
-\contentsline {subsection}{\numberline {5.4}DDD nodes}{22}
-\contentsline {subsection}{\numberline {5.5}Minus}{24}
-\contentsline {subsection}{\numberline {5.6}BFS}{25}
-\contentsline {section}{\numberline {6}Time Extrapolation}{27}
-\contentsline {section}{\numberline {7}Benchmarks}{28}
-\contentsline {subsection}{\numberline {7.1}Viking}{28}
-\contentsline {subsection}{\numberline {7.2}Fischer}{28}
-\contentsline {subsection}{\numberline {7.3}CSMA-CD}{28}
-\contentsline {subsection}{\numberline {7.4}Animo}{29}
-\contentsline {subsection}{\numberline {7.5}Lynch-Shavit}{29}
-\contentsline {subsection}{\numberline {7.6}Milner}{29}
-\contentsline {subsection}{\numberline {7.7}Other models}{29}
-\contentsline {section}{\numberline {8}Results}{30}
+\contentsline {subsection}{\numberline {5.3}Time Extrapolation}{21}
+\contentsline {subsection}{\numberline {5.4}Animo Models}{22}
+\contentsline {subsection}{\numberline {5.5}DDD nodes}{22}
+\contentsline {subsection}{\numberline {5.6}Minus}{23}
+\contentsline {subsection}{\numberline {5.7}BFS}{25}
+\contentsline {section}{\numberline {6}Other semantics}{26}
+\contentsline {subsection}{\numberline {6.1}DBM Translation}{27}
+\contentsline {subsection}{\numberline {6.2}Minus}{28}
+\contentsline {section}{\numberline {7}Benchmarks}{30}
+\contentsline {subsection}{\numberline {7.1}Viking}{30}
+\contentsline {subsection}{\numberline {7.2}Fischer}{30}
+\contentsline {subsection}{\numberline {7.3}CSMA-CD}{30}
+\contentsline {subsection}{\numberline {7.4}Animo}{31}
+\contentsline {subsection}{\numberline {7.5}Lynch-Shavit}{31}
+\contentsline {subsection}{\numberline {7.6}Milner}{31}
+\contentsline {subsection}{\numberline {7.7}Other models}{31}
+\contentsline {section}{\numberline {8}Results}{32}
