@@ -1,0 +1,144 @@
+This section will go more into detail about the implementation we made and the design choices that were needed. 
+
+\subsection{Flattening DBM}
+In the \ltsmin{} implementation that we already have the state vector exists of all discrete variables and an 64 bit pointer to a C++ class containing a DBM~\cite{eemcs21972}. For a symbolic solution this pointer has no meaning, thus we take the actual values from the DBM and put these into the state vector. This increases the length of a state vector, but does not need to increase the memory footprint, as the DBM was already stored. 
+In the DBM library we use a DBM is represented by a one dimensional array of 32-bit integers. In the integers the complete bound is stored, so both the operator and the constant value. We flattened the DBMs to work with a symbolic solution. We only did this on the edges of the successor function. So this function reads a flattened DBM as input and returns it as successor states, internally the original DBM representation is still used. This way the code had to be adapted the least. In this flattening we removed the diagonal elements of each DBM. By the way DBMs are constructed this will always represent the difference between a clock and itself. This difference is by definition always 0, so it can be removed, and hard coded be set to $(0,\leq)$ internally. This reduces the number of state variables in the state vector by one for each clock. This flattening of DBMs results into a language module that can be connected to all \ltsmin{} algorithmic back-ends for state-space generation. 
+
+\subsection{Dependency Matrices}
+To get the best possible result of the regrouping algorithms, the dependency matrices had to be made as sparse as possible. This has been done for both the read matrix and may-write matrix. For even better results, also the must-write matrix is needed. This needs effort when analysing the code, this can be done, but is left out for this thesis. First of all, all C-like code is parsed. Here it is stored per function which variables are read and written, and which other functions are called. Next all transitions are parsed, here some variables are read and written directly. Transitions can also call functions, in such cases the variables that were found in the parsing of these functions are added to the read and may-write variables of the transition. In the third step we need to look at the time extrapolation. This extrapolation is based on the value of the location variable, so it results in a read dependency. In some cases, there is no difference between all possible location values for this extrapolation, so a location does not need to be read. A final step is that a location variable that can be urgent or committed always has to be read. If this location is in an urgent state, than no other transitions can happen, so all other transitions have to check that they are not in an urgent state. In which only an other transition can take place.
+The flattened DBMs and the sparser dependency matrices together enable the reordering algorithms in the symbolic back-end of \ltsmin{} to be used.
+
+\subsection{DBM reduction}
+We work towards a fully reduced DDD solution. This is already started at the language module size. The next-state function will only return tight and saturated paths. In DBM terms this is a minimal constraint system~\cite{bengtsson2002clocks}. As the length of a state-vector can not be changed on the fly, all removed constraints are set to $(<,\infty)$. This means that there is no upper-bound on the variable pair of that position. In algoorithm \ref{alg:ReduceZero} which uses algorithm \ref{alg:reduce} we show the algorithm that determines all bounds that are not needed an can be set to $(<,\infty)$. 
+The DBM library can not use these minimal constraint systems. In the next state function the incoming DBM is tightened, then all needed operations for the successor generation are conducted and if a successor is returned, its DBM is again turned into a minimal constraint system. This will give algorithmic overhead for each next-state call. The advantage of this procedure is that many bounds will be redundant and turned into $(<,\infty)$. In the symbolic back-end these bounds which are the same can be shared in a single node. Thus taking more time in the successor generator, it can also reduce the number of nodes in the algorithmic back-end.
+This reduction is used in the successor generator for the symbolic back-end, and will also be used for the DDD solution.
+
+\begin{algorithm}
+\caption{Reduce}\label{alg:Reduce}
+\begin{algorithmic}[1]
+\Procedure{Reduce}{$dbm, dim$}
+	\For{$i \in dim$}
+		\For{$j \in dim$}
+			\For{$k \in dim$}
+				\If{$!(dbm[i,k] \vee dbm[k,j] \vee dbm[i,j]$ on diagonal)}
+					\If{$dbm[i,k] + dbm[k,j] \leq dbm[i,j]$}
+						\State{$dbm[i,j] := \infty$} 
+					\EndIf
+				\EndIf
+			\EndFor
+		\EndFor
+	\EndFor				
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{Reduce}\label{alg:ReduceZero}
+\begin{algorithmic}[1]
+\Procedure{ReduceZero}{$dbm, dim$}
+	\State{$placed[dim]$ all 0}
+	\State{$red[dim,dim]$ all 0}
+	\State{$eq[dim,dim]$ all 0}
+	\State{$cl := 0$}
+	\State{$newDBM[dim,dim]$ diagonal $\infty$ rest $0$}
+	\For{$i \in dim$}
+		\If{$placed[i] = 0$}
+			\For{$j \in \dim$}
+				\If{$dbm[i,j] + dbm[j,i] = 0$}
+					\State{$placed[j] := 1$}
+					\State{$eq[cl,j] := 1$}
+				\EndIf
+			\EndFor
+			\State{$cl++$}
+		\EndIf
+	\EndFor
+	\State{$repr[cl]$}
+	\For{$i \in cl$}
+		\For{$j \in dim$}
+			\If{$eq[i,j] = 1$}
+				\State{$repr[i] := j$}
+				\Break
+			\EndIf
+		\EndFor
+	\EndFor
+	\State{$clg[cl,cl]$}
+	\For{$i \in cl$}
+		\For{$j \in cl$}
+			\State{$clg[i,j] := dbm[repr[i],repr[j]]$}
+		\EndFor
+	\EndFor
+	\State{\Call{Reduce}{$clg, cl$}}
+	\For{$i \in cl$}
+		\For{$j \in dim$}
+			\If{$eq[i,j] = 1$}
+				\For{$k \in dim$}
+					\If{$eq[i,k]$}
+						\State{$newDBM[j,k] = dbm[j,k]$}
+					\EndIf
+				\EndFor
+			\EndIf
+		\EndFor
+		\For{$j \in cl$}
+			\State{$newDBM[repr[i],repr[j]] := clg[i,j]$}
+		\EndFor
+	\EndFor
+	\State{\Return newDBM}
+		
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Connecting LDD and DDD}
+
+
+\subsection{DDD nodes}
+We used the basis of the LDD package in Sylvan to create our DDD nodes. The nodes are the same as the LDD nodes, only two previously unused bits are now used to store the operator and the type of the node. DDD nodes are stored in 128 bits, represented as a struct of two 64 bit integers. The hashtable that is already used by Sylvan is specifically for 128 bit entries, so the DDD nodes can use the same hashtable. A node is in C code represented as follows:
+\begin{lstlisting} 
+
+struct dddnode {
+    uint64_t a, b;
+} * dddnode_t; 
+\end{lstlisting}
+
+In this struct the value(32 bits), the true edge(40 bits), the false edge(40 bits) and a type bit, operator bit and flag bit are stored. These values are not specifically named in the struct, all values are stored in the two integers a and b. Figure \ref{fig:ddd-node} shows how this is coded in memory. The type, operator and flag bit are stored in the black areas. We do not show them explicitly due to the scale.
+The type bit indicates if a node is a DDD or an LDD node, if it is set to 0 it should be treated as a normal LDD node. The operator bit shows if the operator is $<$ or $\leq$, this can only be used if the type bit is also set to 1(DDD). The flag bit is used in some algorithms to indicate that a certain node has already been visited. All of this is stored compactly in the two 64 bit integers. The total information is 115 bits, so there are still 17 unused bits, all unused bits are set to 0. The depth of the node is not stored, this can be calculated by going down through the structure. This implies that no level can be skipped. Other DDD algorithms and reductions show that some levels are not needed. We solved this by indication a skipped level by $< \infty$, which is true for every upper bound. For such nodes the false edge will always directly lead to the false end node.
+
+\begin{figure}
+\centering
+\begin{bytefield}[bitwidth=1.2em]{16}
+  \bitbox{5}{low edge}
+  \bitbox{1}{\rule{\width}{\height}}
+  \bitbox{4}{value}
+  \bitbox{1}{\rule{\width}{\height}}
+  \bitbox{5}{high edge}\\
+\end{bytefield}
+\caption{In memory representation of LDD node}
+\label{fig:ddd-node}
+\end{figure}
+
+\subsection{Creating Nodes}
+To create a node a special MK function is used. This function will ensure that a DDD is always locally reduced. 
+\begin{algorithm}
+\caption{MK}\label{alg:MK}
+\begin{algorithmic}[1]
+\Procedure{MK}{$bound, h, l$}
+	\If{$h = 1 \wedge l = 1$}
+		\State \Return $1$
+	\EndIf
+	\If{$h = 0 \wedge l = 0$}
+		\State \Return $0$
+	\EndIf
+	\If{$h = 0 \wedge l \neq 0$}
+		\State \Return $1$
+	\EndIf
+	\If{$h = high(l)$}
+		\State \Return $l$
+	\EndIf
+	\State $node =$ \Call{makeNode}{$bound, h, l$}
+	\If{$node \notin table$}
+		\State \Call{Put}{$node$}
+	\EndIf
+	\State \Return $node$
+\EndProcedure	
+\end{algorithmic}
+\end{algorithm}

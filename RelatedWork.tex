@@ -180,6 +180,25 @@ high(v), low(v)          & $V$                       & High-branch h, and low-br
 The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is a non-terminal vertex.
 \end{mydef}
 
+Now we have the definition of the structure. We also give the semantics of this structure. 
+
+\begin{mydef}[DDD semantics]
+\label{def:Semantics1}
+The semantics of a vertex is defined recursively by the function $\mathcal{V}: V \rightarrow \textbf{Exp}:$
+\begin{itemize}
+\item $\mathcal{V}[[0]] \myeq$ false,
+\item $\mathcal{V}[[1]] \myeq$ true,
+\item \begin{math} \mathcal{V}[[v]] \myeq
+\begin{cases}
+(pos(v) - neg(v) < const(v)) \rightarrow \mathcal{V}[[high(v)]],\mathcal{V}[[low(v)]]\text{if }op(v) = '<'\\
+(pos(v) - neg(v) \leq const(v)) \rightarrow \mathcal{V}[[high(v)]],\mathcal{V}[[low(v)]]\text{if }op(v) = '\leq'
+\end{cases}
+\end{math}
+\end{itemize}
+\end{mydef}
+
+In the semantics we only take the information on the high edges. The implicit information on the low edge is not used. A node can thus only represent an upper-bound which is either true or false, it can not implicitly represent a lower-bound on the same variable pair. This representation also makes it easier to work with the state-vectors of \ltsmin{}.
+
 In ~\cite{ddds} a canonical form for DDDs is discussed, also called a fully reduced DDD. Only definitions are given here, no algorithms to reach this form. It is stated that it is difficult to reach this fully reduced form. It is not clear if they managed to make their apply function in such a way that it maintains canonicity, as the function for BDDs does. To reach canonicity, local reductions and ordering are a first step, but it is not enough due to dependencies among the constraints. For BDDs the local reductions and ordering are sufficient to reach a canonical form. First we give some notational shorthands and then we define an ordering and local reductions on DDDs.
 %
 \begin{center}
@@ -215,7 +234,7 @@ A locally reduced DDD ($R_LDDD$) is an ODDD satisfying, for all non-terminals u 
 \end{enumerate}
 \end{mydef}
 
-We give an example of the last point in figure \ref{fig:rlddd}. Here both diagrams represent the same zone: $2 < c_1 - c_2 \leq 8$. The node with $< 4$ on the high edge is redundant in this example and can thus be removed. These reductions are not enough to reach a canonical form. Here we define the other reductions and methods needed to reach a canonical form.
+We give an example of the last point in figure \ref{fig:rlddd}. Here both diagrams represent the same zone: $2 < c_1 - c_2 \leq 8$. The node with $< 4$ on the high edge is redundant in this example and can thus be removed. 
 
 \begin{figure}[h]
 \begin{center}
@@ -259,13 +278,104 @@ We give an example of the last point in figure \ref{fig:rlddd}. Here both diagra
 \label{fig:rlddd}
 \end{figure}
 
+For BDDs these reductions would be enough to have a fully canonical structure. For DDDs this is not the case. Due to dependencies between the bounds. In figure \ref{fig:non-canonical} we give an example for this by giving two different locally reduced DDDs representing the same zone. The resulting zone of both these DDDs is drawn in figure \ref{fig:non-canonical-zone} we show the result of this zone, which is the square in which both clock $c_1$ and $c_2$ are between 0 and 5.
 
+\begin{figure}[h]
+\begin{center}
+	\begin{subfigure}{0.3\textwidth}
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S0){};
+		\node[smallvertex](S1){$\mathbf{O} - c_1$};
+		\node[smallvertex, below of = S1, yshift = -1cm](S2){$\mathbf{O} - c_2$};
+		\node[smallvertex, below of = S2, yshift = -1cm](S3){$c_1 - \mathbf{O}$};
+		\node[smallvertex, below of = S3, yshift = -1cm](S4){$c_1 - c_2$};
+		\node[smallvertex, below of = S4, yshift = -1cm](S5){$c_2 - \mathbf{O}$};
+		\node[smallvertex, below of = S5, yshift = -1cm](S6){$c_2 - c_1$};
+		\node[smallvertex, below of = S6, yshift = -1cm](S7){$T$};
+		
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<5$};
+		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<\infty$};
+		\draw[->] (S5) --(S6) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<5$};
+		\draw[->] (S6) --(S7) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<\infty$};
+		
+	\end{tikzpicture}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
+		\node[smallvertex](S1){$\mathbf{O} - c_1$};
+		\node[smallvertex, below of = S1, yshift = -1cm](S2){$\mathbf{O} - c_2$};
+		\node[smallvertex, below of = S2, yshift = -1cm](S3){$c_1 - \mathbf{O}$};
+		\node[smallvertex, below of = S3, yshift = -1cm](S4){$c_1 - c_2$};
+		\node[smallvertex, below of = S4, yshift = -1cm](S5){$c_2 - \mathbf{O}$};
+		\node[smallvertex, below of = S5, yshift = -1cm](S6){$c_2 - c_1$};
+		\node[smallvertex, below of = S6, yshift = -1cm](S7){$T$};
+		
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<5$};
+		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<5$};
+		\draw[->] (S5) --(S6) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<5$};
+		\draw[->] (S6) --(S7) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<5$};
+		
+	\end{tikzpicture}
+	\end{subfigure}
+\end{center}
+\caption{Two DDDs representing the same zone}
+\label{fig:non-canonical}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+
+\draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (5.9,5.9);
+
+%\shadedraw[inner color=blue,outer color=red, draw=black] (0,0) rectangle (4,4);
+
+\draw[thick,->] (-1.9,0) -- (5.9,0) node[anchor=north west] {$c_1$};
+\draw[thick,->] (0,-1.9) -- (0,5.9) node[anchor=south east] {$c_2$};
+
+\foreach \x in {-1,0,1,2,3,4,5}
+    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {-1,0,1,2,3,4,5}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+    
+\filldraw[fill=blue!40!white, draw=black] (0,0) rectangle (5,5);
+\end{tikzpicture}
+\caption{Resulting zone of DDDs in figure \ref{fig:non-canonical}}
+\label{fig:non-canonical-zone}
+\end{figure}
+
+The $R_LDDD$ is clearly not canonical. We first define a path in a DDD as the bound on all high edges that are traversed in a single walk from the top node to the true node. A path will only have one bound for each variable pair.
 
 \begin{mydef}[Path-reduced DDD~\cite{ddds}]
 A path-reduced DDD ($R_PDDD$) is a locally reduced DDD where all paths are feasible.
 \end{mydef}
 
-To define tightness we first need to define dominating constraints.
+This definition ensures that all paths in a DDD actually represent a zone, and that there are no redundant paths in the DDD that just represent an empty set. This usage of paths is compatible to the state vectors used in \ltsmin{}. An $R_PDDD$ is still not canonical. We need to define tightness, saturation and disjunctive vertices. To define tightness we first need to define dominating constraints.
 
 \begin{mydef}[Dominating constraint~\cite{ddds}]
 A constraint $x_i - x_j \lesssim c$ is dominating in a path $p$ if all other constraints $x_i - x_j \lesssim' c'$ on the same pair of variables in $p$ are less restrictive.
@@ -284,12 +394,20 @@ Let $p$ be a path leading to the vertex $u$ in a DDD, and assume $\alpha = cstr(
 \end{mydef}
 
 All of these definitions together lead to the following definition of a fully reduced DDD.
-% 
+ 
 \begin{mydef}[Fully reduced DDD~\cite{ddds}]
 \label{def:RFDDD}
 An $R_pDDD$ u is a fully-reduced DDD ($R_FDDD$) if it is tight, saturated and has no disjunctive vertices.
 \end{mydef}
 
-DDDs are also used to represent the discrete variables in automata. This is done by translating the variable into a difference constraint. For example $x_1 = 3$ will be translated into $x_1 - 0 \leq 3 \wedge 0 - x_1 \leq -3$, thus resulting into a DDD with two nodes. 
+We assume that this fully-reduced DDD is canonical and work from that. It is not ensured that this is actually the case, there is no proof for it.
 
-So far we only found the results of two benchmark tests of DDDs, Milner's scheduler and Fischer's protocol~\cite{Møller200253}. Here the DDD approach has been compared with KRONOS and \uppaal{} which were both slower than the DDD implementation. The results of these benchmarks show no memory usage.  
+\begin{myconjecture}[Canonical DDD~\cite{ddds}]
+\label{def:Canonical-ddd}
+If $u$ and $v$ are $R_FDDDs$ with the same set of solutions then $u = v$.
+\end{myconjecture}
+
+
+DDDs can also be used to represent the discrete variables in automata. This is done by translating the variable into a difference constraint. For example $x_1 = 3$ will be translated into $x_1 - 0 \leq 3 \wedge 0 - x_1 \leq -3$, thus resulting into a DDD with two nodes. We will connect the DDD to an LDD to represent discrete variables to limit the number of nodes.
+
+So far we only found the results of two benchmark tests of DDDs, Milner's scheduler and Fischer's protocol~\cite{Møller200253}. Here the DDD approach has been compared with KRONOS and \uppaal{} which were both slower than the DDD implementation. The results of these benchmarks show no memory usage or number of nodes needed.

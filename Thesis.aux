@@ -61,33 +61,42 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}LTSmin}{11}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{11}}
 \citation{ddds}
-\citation{ddds}
 \newlabel{def:DDD}{{3}{12}}
+\newlabel{def:Semantics1}{{4}{12}}
 \citation{ddds}
 \citation{ddds}
 \citation{ddds}
+\newlabel{def:ODDD}{{5}{13}}
+\newlabel{def:RLDDD}{{6}{13}}
 \citation{ddds}
 \citation{ddds}
-\newlabel{def:ODDD}{{4}{13}}
-\newlabel{def:RLDDD}{{5}{13}}
 \citation{ddds}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Local reduction\relax }}{14}}
+\newlabel{fig:rlddd}{{7}{14}}
+\citation{ddds}
+\citation{ddds}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Two DDDs representing the same zone\relax }}{15}}
+\newlabel{fig:non-canonical}{{8}{15}}
 \citation{ddds}
 \citation{ddds}
 \citation{Møller200253}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Local reduction\relax }}{14}}
-\newlabel{fig:rlddd}{{7}{14}}
-\newlabel{def:RFDDD}{{11}{14}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Plan}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Questions}{15}}
-\citation{ddds}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Algorithms}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Planning}{16}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Apply\relax }}{17}}
-\newlabel{alg:apply}{{1}{17}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Union\relax }}{18}}
-\newlabel{alg:union}{{2}{18}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Zone containment for DDDs\relax }}{18}}
-\newlabel{alg:contain}{{3}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Resulting zone of DDDs in figure 8\hbox {}\relax }}{16}}
+\newlabel{fig:non-canonical-zone}{{9}{16}}
+\newlabel{def:RFDDD}{{12}{16}}
+\newlabel{def:Canonical-ddd}{{1}{16}}
+\citation{eemcs21972}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Implementation}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Flattening DBM}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Dependency Matrices}{17}}
+\citation{bengtsson2002clocks}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}DBM reduction}{18}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Reduce\relax }}{18}}
+\newlabel{alg:Reduce}{{1}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}DDD nodes}{18}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Reduce\relax }}{19}}
+\newlabel{alg:ReduceZero}{{2}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces In memory representation of LDD node\relax }}{20}}
+\newlabel{fig:ddd-node}{{10}{20}}
 \citation{Behrmann2004}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Notes}{21}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Flattening DBM}{21}}
@@ -95,60 +104,60 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Time Extrapolation}{21}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Animo Models}{22}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5}DDD nodes}{22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces In memory representation of LDD node\relax }}{23}}
-\newlabel{alg:ldd-node}{{8}{23}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Reduce\relax }}{23}}
-\newlabel{alg:Reduce}{{4}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces In memory representation of LDD node\relax }}{23}}
+\newlabel{alg:ldd-node}{{11}{23}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Reduce\relax }}{23}}
+\newlabel{alg:Reduce}{{3}{23}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Minus}{23}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces Reduce\relax }}{24}}
-\newlabel{alg:ReduceZero}{{5}{24}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {6}{\ignorespaces MK\relax }}{25}}
-\newlabel{alg:MK}{{6}{25}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Reduce\relax }}{24}}
+\newlabel{alg:ReduceZero}{{4}{24}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces MK\relax }}{25}}
+\newlabel{alg:MK}{{5}{25}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.7}BFS}{25}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {6}{\ignorespaces BFS\relax }}{26}}
+\newlabel{alg:bfs-orig}{{6}{26}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {7}{\ignorespaces BFS\relax }}{26}}
-\newlabel{alg:bfs-orig}{{7}{26}}
+\newlabel{alg:bfs-check}{{7}{26}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {8}{\ignorespaces BFS\relax }}{26}}
-\newlabel{alg:bfs-check}{{8}{26}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {9}{\ignorespaces BFS\relax }}{26}}
-\newlabel{alg:bfs-no-minus}{{9}{26}}
+\newlabel{alg:bfs-no-minus}{{8}{26}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Other semantics}{26}}
-\newlabel{def:Semantics2}{{12}{27}}
+\newlabel{def:Semantics2}{{13}{27}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}DBM Translation}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Implicit bound DDD\relax }}{28}}
-\newlabel{fig:double-bound}{{9}{28}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Minus}{28}}
-\newlabel{fig:dbm-original}{{10a}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Implicit bound DDD\relax }}{28}}
+\newlabel{fig:double-bound}{{12}{28}}
+\newlabel{fig:dbm-original}{{13a}{29}}
 \newlabel{sub@fig:dbm-original}{{a}{29}}
-\newlabel{fig:dbm-new}{{10b}{29}}
+\newlabel{fig:dbm-new}{{13b}{29}}
 \newlabel{sub@fig:dbm-new}{{b}{29}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces DBM's of two different DDD interpretations\relax }}{29}}
-\newlabel{fig:dbm-versions}{{10}{29}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {10}{\ignorespaces Complement\relax }}{29}}
-\newlabel{alg:complement}{{10}{29}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {11}{\ignorespaces Minus\relax }}{29}}
-\newlabel{alg:minus-new}{{11}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces DBM's of two different DDD interpretations\relax }}{29}}
+\newlabel{fig:dbm-versions}{{13}{29}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Minus}{29}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {9}{\ignorespaces Complement\relax }}{29}}
+\newlabel{alg:complement}{{9}{29}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {10}{\ignorespaces Minus\relax }}{30}}
+\newlabel{alg:minus-new}{{10}{30}}
 \citation{Lamport:1987:FME:7351.7352}
 \citation{kronos}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Benchmarks}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Viking}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Fischer}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}CSMA-CD}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Benchmarks}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Viking}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Fischer}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}CSMA-CD}{31}}
 \citation{LS}
 \citation{Milner:1989:CC:534666}
 \citation{641264}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Animo}{31}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Lynch-Shavit}{31}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.6}Milner}{31}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.7}Other models}{31}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Results}{32}}
-\newlabel{fig:vis_zone}{{11a}{35}}
-\newlabel{sub@fig:vis_zone}{{a}{35}}
-\newlabel{fig:cur_zone}{{11b}{35}}
-\newlabel{sub@fig:cur_zone}{{b}{35}}
-\newlabel{fig:after_minus_zone}{{11c}{35}}
-\newlabel{sub@fig:after_minus_zone}{{c}{35}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Minus fragmentation\relax }}{35}}
-\newlabel{fig:fragmentation}{{11}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Animo}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Lynch-Shavit}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6}Milner}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.7}Other models}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Results}{33}}
+\newlabel{fig:vis_zone}{{14a}{36}}
+\newlabel{sub@fig:vis_zone}{{a}{36}}
+\newlabel{fig:cur_zone}{{14b}{36}}
+\newlabel{sub@fig:cur_zone}{{b}{36}}
+\newlabel{fig:after_minus_zone}{{14c}{36}}
+\newlabel{sub@fig:after_minus_zone}{{c}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Minus fragmentation\relax }}{36}}
+\newlabel{fig:fragmentation}{{14}{36}}
 \bibdata{references}
 \bibcite{Akers:1978:BDD:1310167.1310815}{1}
 \bibcite{Alur1994183}{2}

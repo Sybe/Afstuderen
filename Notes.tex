@@ -230,14 +230,25 @@ The DBM minus function we use is quite expensive. To overcome this problem we wi
 \end{algorithm}
 
 \section{Other semantics}
-We chose in our implementation to take no information from the low edges of nodes. A node only represents an upper-bound, a false edge does not implicitly represent a lower bound. This is a design choice we made to be able to switch efficiently from the DBM representation in the language module to the DDD representation. We could however also have used a semantics where the low edges do represent a lower-bound. We did not implement this, but this section will discuss this other semantics. 
+We chose in our implementation to take no information from the low edges of nodes. A node only represents an upper-bound, a false edge does not implicitly represent a lower bound. This is a design choice we made to be able to switch efficiently from the DBM representation in the language module to the DDD representation. We could however also have used a semantics where the low edges do represent a lower-bound. We did not implement this, but this section will discuss this other semantics.
 
 \begin{mydef}
-\label{def:Semantics2}\
+\label{def:Semantics2}
+The semantics of a vertex is defined recursively by the function $\mathcal{V}: V \rightarrow \textbf{Exp}:$
+\begin{itemize}
+\item $\mathcal{V}[[0]] \myeq$ false,
+\item $\mathcal{V}[[1]] \myeq$ true,
+\item \begin{math} \mathcal{V}[[v]] \myeq
+\begin{cases}
+(pos(v) - neg(v) < const(v)) \rightarrow \mathcal{V}[[high(v)]],\mathcal{V}[[low(v)]]\text{if }op(v) = '<'\\
+(pos(v) - neg(v) \leq const(v)) \rightarrow \mathcal{V}[[high(v)]],\mathcal{V}[[low(v)]]\text{if }op(v) = '\leq'
+\end{cases}
+\end{math}
 
+\end{itemize}
 
 \end{mydef}
-In this semantics the low edge does not just represent that the upper-bound is higher than the bound of the node, but the actual value of the variable is higher than the bound of the node. 
+The semantics are almost equal to the one in definition \ref{def:Semantics1}, the difference is in the interpretation of the low edge. In this semantics the low edge does not just represent that the upper-bound is higher than the bound of the node, but the actual value of the variable is higher than the bound of the node. 
 
 \subsection{DBM Translation}
 The translation from a single DBM to a DDD will not change. The translation from multiple DBMs will change neither, as that can be done as a union of DBMs which are individually translated to a DDD. The other way around, from a DDD back to a DBM becomes more complicated. For a DDD with a single path to true nothing will change. For paths that go down some low edges the translation will change. The falsification of an upper-bound, leading to a lower-bound, or a upper-bound of the inverse pair, can overrule the upper-bound of an other node. We give an example in figure \ref{fig:double-bound}. In this example all nodes that are not in the path we consider are hidden. The DDD will have more nodes to reach this representation. In figure \ref{fig:dbm-versions} we have a DBM for both interpretations. In figure \ref{fig:dbm-original} we have the DBM as we use the interpretation from our implementation. In figure \ref{fig:dbm-new} the DBM of the other interpretation is shown. The difference between the two DBMs is on the position $c_2 - O)$. The information from the low edge of the $O - c_2$ node has overruled the information of the high edge of the $c_2 - O$ node. Using a canonical form of a DDD can also overcome this problem.
@@ -321,7 +332,7 @@ $\Updownarrow$\\
 $c_2 - c_1 \leq -3$
 \end{center}
 
-A similar translation will have to be conducted in the relprod function. This function does not explicitly need the DBMs. The relations that are used are however created in the language module which uses DBMs. In the current implementation, a path in the state space needs to be found that has on each level the same high edges as the relation. What low edges are traversed on the way is not important. Now this information is taken into account some changes will have to be made. 
+A similar translation will have to be conducted in the relprod function. This function does not explicitly need the DBMs. The relations that are used are however created in the language module which uses DBMs. In the current implementation, a path in the state space needs to be found that has on each level the same high edges as the relation. Which low edges are traversed on the way is not important. Now this information is taken into account some changes will have to be made. A simple path in the relation, might need some false edges in the state-space to get all the correct bounds.
 
 \subsection{Minus}
 Implementation of the minus function will become easier in DDDs, no coupling to the DBM library will be needed any more. First of all we will give the complement function. We give the pseudocode for this function in algorithm \ref{alg:complement}. The algorithm switches all 0 and 1 nodes. This will have a running time of $O(n)$ where n is the number of nodes in the tree. 

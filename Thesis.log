@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  1 AUG 2016 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  2 AUG 2016 17:24
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -846,6 +846,29 @@ LaTeX Info: Redefining \addtolength on input line 76.
 \label@box@height=\skip75
 \word@label@box=\box48
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\euscript.sty"
+Package: euscript 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mathtools.sty
+Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count175
+\l_MT_multwidth_dim=\dimen217
+\origjot=\skip76
+\l_MT_shortvdotswithinadjustabove_dim=\dimen218
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen219
+\l_MT_above_intertext_sep=\dimen220
+\l_MT_below_intertext_sep=\dimen221
+\l_MT_above_shortintertext_sep=\dimen222
+\l_MT_below_shortintertext_sep=\dimen223
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
@@ -893,46 +916,53 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
-)) (Thesis.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
+)) (Thesis.aux
 
-(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+LaTeX Warning: Label `alg:Reduce' multiply defined.
+
+
+LaTeX Warning: Label `alg:ReduceZero' multiply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+ (C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count175
-\scratchdimen=\dimen217
+\scratchcounter=\count176
+\scratchdimen=\dimen224
 \scratchbox=\box49
-\nofMPsegments=\count176
-\nofMParguments=\count177
+\nofMPsegments=\count177
+\nofMParguments=\count178
 \everyMPshowfont=\toks51
-\MPscratchCnt=\count178
-\MPscratchDim=\dimen218
-\MPnumerator=\count179
-\makeMPintoPDFobject=\count180
+\MPscratchCnt=\count179
+\MPscratchDim=\dimen225
+\MPnumerator=\count180
+\makeMPintoPDFobject=\count181
 \everyMPtoPDFconversion=\toks52
 ) ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count181
-\c@mydef=\count182
-LaTeX Font Info:    Try loading font information for U+msa on input line 51.
+\c@lstlisting=\count182
+\c@mydef=\count183
+\c@myconjecture=\count184
+LaTeX Font Info:    Try loading font information for U+msa on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 51.
+LaTeX Font Info:    Try loading font information for U+msb on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1009,28 +1039,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 170--179
 
  []
 
+LaTeX Font Info:    Try loading font information for U+eus on input line 187.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\ueus.fd"
+File: ueus.fd 2013/01/14 v3.01 Euler Script
+)
+Overfull \hbox (55.937pt too wide) in paragraph at lines 191--197
+[]$\U/eus/m/n/10.95 V\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 v\OT1/cmr/m/n/10.
+95 ]] [] []$ 
+ []
+
 [12]
-Overfull \hbox (7.40977pt too wide) in paragraph at lines 209--210
-[]\OT1/cmr/bx/n/10.95 Definition 5 \OT1/cmr/m/n/10.95 (Lo-cally Re-duced DDD [2
+Overfull \hbox (7.40977pt too wide) in paragraph at lines 228--229
+[]\OT1/cmr/bx/n/10.95 Definition 6 \OT1/cmr/m/n/10.95 (Lo-cally Re-duced DDD [2
 5])\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/it/10.95 A lo-cally re-duced DDD ($\OML/c
 mm/m/it/10.95 R[]DDD$\OT1/cmr/m/it/10.95 )
  []
 
+[13]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[13]) [14] (Plan.tex [15
 
-] [16] [17] [18] [19]
-Overfull \hbox (38.27756pt too wide) in paragraph at lines 193--212
- [] 
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
+[14] [15]) [16] (Implementation.tex [17
+
+]
+
+LaTeX Warning: Reference `alg:reduce' on page 18 undefined on input line 12.
+
+[18] [19]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 95.
+
+
+LaTeX Warning: Reference `fig:ddd-node' on page 20 undefined on input line 100.
+
+
+\height=\dimen32767 (local)
+\depth=\dimen32766 (local)
+\totalheight=\dimen32765 (local)
+\width=\dimen32764 (local)
+\height=\dimen32767 (local)
+\depth=\dimen32766 (local)
+\totalheight=\dimen32765 (local)
+\width=\dimen32764 (local)
+\height=\dimen32767 (local)
+\depth=\dimen32766 (local)
+\totalheight=\dimen32765 (local)
+\width=\dimen32764 (local)
+\height=\dimen32767 (local)
+\depth=\dimen32766 (local)
+\totalheight=\dimen32765 (local)
+\width=\dimen32764 (local)
+\height=\dimen32767 (local)
+\depth=\dimen32766 (local)
+\totalheight=\dimen32765 (local)
+\width=\dimen32764 (local)
 ) [20] (Notes.tex [21
 
 ]
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
 \height=\dimen32767 (local)
 \depth=\dimen32766 (local)
 \totalheight=\dimen32765 (local)
@@ -1062,15 +1130,20 @@ LaTeX Warning: Reference `fig:md-minus' on page 25 undefined on input line 179.
 
 
 [25] [26]
+Overfull \hbox (55.937pt too wide) in paragraph at lines 241--247
+[]$\U/eus/m/n/10.95 V\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 v\OT1/cmr/m/n/10.
+95 ]] [] []$ 
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[27]) [28] [29] (Benchmarks.tex [30
+[27] [28]) [29] [30] (Benchmarks.tex [31
 
-]) [31] (Results.tex
+]) [32] (Results.tex
 
 LaTeX Warning: Float too large for page by 0.02077pt on input line 57.
 
@@ -1083,7 +1156,7 @@ Overfull \hbox (50.69923pt too wide) in paragraph at lines 114--115
 LaTeX Warning: Float too large for page by 0.00624pt on input line 115.
 
 
-LaTeX Warning: Reference `' on page 32 undefined on input line 119.
+LaTeX Warning: Reference `' on page 33 undefined on input line 119.
 
 
 LaTeX Warning: Float too large for page by 20.04277pt on input line 206.
@@ -1091,9 +1164,9 @@ LaTeX Warning: Float too large for page by 20.04277pt on input line 206.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [32
+) [33
 
-] [33] [34] [35] (Thesis.bbl [36
+] [34] [35] [36] (Thesis.bbl [37
 
 ]
 Missing character: There is no Ã in font cmr10!
@@ -1102,23 +1175,26 @@ Missing character: There is no Å in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [37]
+ [38]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [38]) [39] (Thesis.aux)
+ [39]) [40] (Thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 20869 strings out of 493698
- 405419 string characters out of 3144415
- 548728 words of memory out of 3000000
- 23671 multiletter control sequences out of 15000+200000
- 13278 words of font info for 49 fonts, out of 3000000 for 9000
+ 21377 strings out of 493698
+ 414595 string characters out of 3144415
+ 561811 words of memory out of 3000000
+ 24162 multiletter control sequences out of 15000+200000
+ 15297 words of font info for 56 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 55i,16n,75p,2119b,1041s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,16n,75p,1779b,1041s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
@@ -1133,11 +1209,12 @@ m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (39 pages, 331184 bytes).
+ic/amsfonts/euler/eusm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb>
+Output written on Thesis.pdf (40 pages, 338692 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
+ 207 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

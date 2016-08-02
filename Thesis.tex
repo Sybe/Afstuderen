@@ -23,6 +23,8 @@
 \usepackage{tkz-euclide}
 \usepackage[endianness=big]{bytefield}
 \bytefieldsetup{boxformatting={\centering\footnotesize}}
+\usepackage[mathcal]{euscript}
+\usepackage{mathtools}
 
 \usepackage{graphicx,epstopdf}
 \epstopdfsetup{update}
@@ -40,11 +42,13 @@
 \newcommand{\pins}{PINS}
 \newcommand{\algorithmicbreak}{\textbf{break}}
 \newcommand{\Break}{\State{\algorithmicbreak}}
+\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
 
 
 \begin{document}
 
 \newtheorem{mydef}{Definition}
+\newtheorem{myconjecture}{Conjecture}
 \title{Symbolic Model Checking of Timed Automata using \ltsmin{}}
 \author{Sybe van Hijum}
 \date{\today{}}
@@ -68,8 +72,12 @@
 \input{RelatedWork}
 
 \clearpage
-\section{Plan}
-\input{Plan}
+\section{Implementation}
+\input{Implementation}
+
+%\clearpage
+%\section{Plan}
+%\input{Plan}
 
 \clearpage
 \section{Notes}

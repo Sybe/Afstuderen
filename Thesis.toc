@@ -7,10 +7,11 @@
 \contentsline {subsection}{\numberline {3.1}Methods}{7}
 \contentsline {subsection}{\numberline {3.2}LTSmin}{11}
 \contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{11}
-\contentsline {section}{\numberline {4}Plan}{15}
-\contentsline {subsection}{\numberline {4.1}Questions}{15}
-\contentsline {subsection}{\numberline {4.2}Algorithms}{16}
-\contentsline {subsection}{\numberline {4.3}Planning}{16}
+\contentsline {section}{\numberline {4}Implementation}{17}
+\contentsline {subsection}{\numberline {4.1}Flattening DBM}{17}
+\contentsline {subsection}{\numberline {4.2}Dependency Matrices}{17}
+\contentsline {subsection}{\numberline {4.3}DBM reduction}{18}
+\contentsline {subsection}{\numberline {4.4}DDD nodes}{18}
 \contentsline {section}{\numberline {5}Notes}{21}
 \contentsline {subsection}{\numberline {5.1}Flattening DBM}{21}
 \contentsline {subsection}{\numberline {5.2}Dependency Matrices}{21}
@@ -21,13 +22,13 @@
 \contentsline {subsection}{\numberline {5.7}BFS}{25}
 \contentsline {section}{\numberline {6}Other semantics}{26}
 \contentsline {subsection}{\numberline {6.1}DBM Translation}{27}
-\contentsline {subsection}{\numberline {6.2}Minus}{28}
-\contentsline {section}{\numberline {7}Benchmarks}{30}
-\contentsline {subsection}{\numberline {7.1}Viking}{30}
-\contentsline {subsection}{\numberline {7.2}Fischer}{30}
-\contentsline {subsection}{\numberline {7.3}CSMA-CD}{30}
-\contentsline {subsection}{\numberline {7.4}Animo}{31}
-\contentsline {subsection}{\numberline {7.5}Lynch-Shavit}{31}
-\contentsline {subsection}{\numberline {7.6}Milner}{31}
-\contentsline {subsection}{\numberline {7.7}Other models}{31}
-\contentsline {section}{\numberline {8}Results}{32}
+\contentsline {subsection}{\numberline {6.2}Minus}{29}
+\contentsline {section}{\numberline {7}Benchmarks}{31}
+\contentsline {subsection}{\numberline {7.1}Viking}{31}
+\contentsline {subsection}{\numberline {7.2}Fischer}{31}
+\contentsline {subsection}{\numberline {7.3}CSMA-CD}{31}
+\contentsline {subsection}{\numberline {7.4}Animo}{32}
+\contentsline {subsection}{\numberline {7.5}Lynch-Shavit}{32}
+\contentsline {subsection}{\numberline {7.6}Milner}{32}
+\contentsline {subsection}{\numberline {7.7}Other models}{32}
+\contentsline {section}{\numberline {8}Results}{33}
