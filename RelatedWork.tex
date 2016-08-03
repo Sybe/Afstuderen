@@ -411,3 +411,23 @@ If $u$ and $v$ are $R_FDDDs$ with the same set of solutions then $u = v$.
 DDDs can also be used to represent the discrete variables in automata. This is done by translating the variable into a difference constraint. For example $x_1 = 3$ will be translated into $x_1 - 0 \leq 3 \wedge 0 - x_1 \leq -3$, thus resulting into a DDD with two nodes. We will connect the DDD to an LDD to represent discrete variables to limit the number of nodes.
 
 So far we only found the results of two benchmark tests of DDDs, Milner's scheduler and Fischer's protocol~\cite{Møller200253}. Here the DDD approach has been compared with KRONOS and \uppaal{} which were both slower than the DDD implementation. The results of these benchmarks show no memory usage or number of nodes needed.
+
+\subsection{List Decision Diagram}
+The DDD nodes are connected to LDD nodes to represent the discrete variables. We will introduce the LDD structure here. An LDD is used to represent variables with integer values, not only binary values. In contrast to MDDs this is done for one value per node. Resulting in nodes with equal size. We will first define the LDD structure.
+
+\begin{mydef}[List Decision Diagram]
+\label{def:LDD}
+A list decision diagram (LDD) is a directed acyclic graph $(V,E)$. The vertex set $V$ contains two terminals $0$ and $1$ with out-degree zero, and a set of non-terminal vertices with out-degree two and the following attributes.
+\\\\
+\begin{tabular}{lll}
+Attribute                & Type                      & Description                                           \\\hline
+var(v)                   & \textbf{Var}              & Variable x \\
+
+const(v)                 & $\mathbb{Z}$              & Constant c.                                           \\
+high(v), low(v)          & $V$                       & High-branch h, and low-branch l.                   
+\end{tabular}
+\captionof*{table}{}  
+The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is a non-terminal vertex.
+\end{mydef} 
+
+The definition is almost equal to DDDs, definition \ref{def:DDD}. The difference is the operator that is not in LDDs. LDDs can be seen as a DDD with not a $<$ or $\leq$ as operator, but a $=$. 
