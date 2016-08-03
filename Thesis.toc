@@ -1,27 +1,37 @@
-\contentsline {section}{\numberline {1}Introduction}{3}
-\contentsline {section}{\numberline {2}Preliminaries}{4}
-\contentsline {subsection}{\numberline {2.1}Timed Automata}{4}
-\contentsline {subsection}{\numberline {2.2}Zones}{5}
-\contentsline {subsection}{\numberline {2.3}Zone subsumption}{5}
-\contentsline {section}{\numberline {3}Related Work}{7}
-\contentsline {subsection}{\numberline {3.1}Methods}{7}
-\contentsline {subsection}{\numberline {3.2}LTSmin}{11}
-\contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{11}
-\contentsline {subsection}{\numberline {3.4}List Decision Diagram}{17}
-\contentsline {section}{\numberline {4}Implementation}{18}
-\contentsline {subsection}{\numberline {4.1}Flattening DBM}{18}
-\contentsline {subsection}{\numberline {4.2}Dependency Matrices}{18}
-\contentsline {subsection}{\numberline {4.3}DBM reduction}{19}
-\contentsline {subsection}{\numberline {4.4}Connecting LDD and DDD}{19}
-\contentsline {subsection}{\numberline {4.5}DDD nodes}{21}
-\contentsline {subsection}{\numberline {4.6}Creating Nodes}{21}
-\contentsline {subsection}{\numberline {4.7}Minus}{22}
-\contentsline {section}{\numberline {5}Benchmarks}{26}
-\contentsline {subsection}{\numberline {5.1}Viking}{26}
-\contentsline {subsection}{\numberline {5.2}Fischer}{26}
-\contentsline {subsection}{\numberline {5.3}CSMA-CD}{26}
-\contentsline {subsection}{\numberline {5.4}Animo}{27}
-\contentsline {subsection}{\numberline {5.5}Lynch-Shavit}{27}
-\contentsline {subsection}{\numberline {5.6}Milner}{27}
-\contentsline {subsection}{\numberline {5.7}Other models}{27}
-\contentsline {section}{\numberline {6}Results}{28}
+\contentsline {section}{\numberline {1}Introduction}{4}
+\contentsline {section}{\numberline {2}Preliminaries}{5}
+\contentsline {subsection}{\numberline {2.1}Timed Automata}{5}
+\contentsline {subsection}{\numberline {2.2}Zones}{6}
+\contentsline {subsection}{\numberline {2.3}Zone subsumption}{6}
+\contentsline {section}{\numberline {3}Related Work}{8}
+\contentsline {subsection}{\numberline {3.1}Methods}{8}
+\contentsline {subsection}{\numberline {3.2}LTSmin}{12}
+\contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{12}
+\contentsline {subsection}{\numberline {3.4}List Decision Diagram}{18}
+\contentsline {section}{\numberline {4}Implementation}{19}
+\contentsline {subsection}{\numberline {4.1}Flattening DBM}{19}
+\contentsline {subsection}{\numberline {4.2}Dependency Matrices}{19}
+\contentsline {subsection}{\numberline {4.3}DBM reduction}{20}
+\contentsline {subsection}{\numberline {4.4}Connecting LDD and DDD}{20}
+\contentsline {subsection}{\numberline {4.5}DDD nodes}{22}
+\contentsline {subsection}{\numberline {4.6}Creating Nodes}{22}
+\contentsline {subsection}{\numberline {4.7}Minus}{23}
+\contentsline {subsection}{\numberline {4.8}BFS}{24}
+\contentsline {section}{\numberline {5}Notes}{28}
+\contentsline {subsection}{\numberline {5.1}Successor Generator}{28}
+\contentsline {subsection}{\numberline {5.2}Time Extrapolation}{28}
+\contentsline {subsection}{\numberline {5.3}Animo Models}{28}
+\contentsline {section}{\numberline {6}Benchmarks}{30}
+\contentsline {subsection}{\numberline {6.1}Viking}{30}
+\contentsline {subsection}{\numberline {6.2}Fischer}{30}
+\contentsline {subsection}{\numberline {6.3}CSMA-CD}{30}
+\contentsline {subsection}{\numberline {6.4}Animo}{31}
+\contentsline {subsection}{\numberline {6.5}Lynch-Shavit}{31}
+\contentsline {subsection}{\numberline {6.6}Milner}{31}
+\contentsline {subsection}{\numberline {6.7}Other models}{31}
+\contentsline {section}{\numberline {7}Results}{32}
+\contentsline {section}{\numberline {8}Different Semantics}{36}
+\contentsline {subsection}{\numberline {8.1}DBM Translation}{36}
+\contentsline {subsection}{\numberline {8.2}Minus}{38}
+\contentsline {section}{\numberline {9}Future Work}{40}
+\contentsline {section}{\numberline {10}Conclusions}{41}

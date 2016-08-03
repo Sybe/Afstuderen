@@ -1,376 +1,68 @@
-\subsection{Flattening DBM}
-In the DBM library we use a DBM is represented by a one dimensional array of 32-bit integers. In the integers both the complete bound is stored, so both the operator and the constant value. We flattened the DBM, to make the opaal language module work with any algorithmic back-end in \ltsmin{}. We only did this on the edges of the successor function. So this function reads a flattened DBM as input and returns it as successor states, internally the original DBM representation is still used. This way the code had to be adapted the least. In this flattening we removed the diagonal elements of each DBM. By the way DBMs are constructed this will always represent the difference between a clock and itself. This difference is by definition always 0, so it can be removed, and hard coded be set to $(0,\leq)$ internally. This reduces the number of state variables in the state vector by one for each clock.
+\subsection{Successor Generator}
+The language module uses the opaal successor generator for \uppaal{} models. This generator is written in Python and reads \uppaal{} XML files. A C++ file is generated from this. These files are compiled to object files which can be dynamically linked to \ltsmin{}. The structure of the next-state function is slightly different from ~\cite{eemcs21972}. The new structure can be found in algorithm \ref{alg:successor-gen}. Al line \ref{lst:line:alltrans}, the function iterates over all outgoing transitions from the current location. If it is an internal transition the successor will be generated on lines \ref{lst:line:normaltrans}-\ref{lst:line:endnormaltrans}. If it is a sending transition, receivers will be searched for on lines \ref{lst:line:synctrans}-\ref{lst:line:endsynctrans}. In the generated C++ code the loops on lines \ref{lst:line:alllocs} and \ref{lst:line:alllocs2} are unrolled. 
 
-\subsection{Dependency Matrices}
-To get the best possible result of the regrouping algorithms, the dependency matrices had to be made as sparse as possible. This has been done for both the read matrix and may-write matrix. We had to use the may-write, instead of the must write matrix, as it is not always clear if a variable will really be written, or that in may stay untouched. First of all, all C-like code is parsed. Here it is stored per function which variables are read and written, and which other functions are called. Next all transitions are parsed, here some variables are read and written directly. Transitions can also call functions, then from the earlier parsed functions the read and written variables are used. In the third step we need to look at the time extrapolation. This extrapolation is based on the value of the location variable, so it results in a read dependency. In some cases, there is no difference between all possible location values, so a location does not need to be read. A final step is that a location variable that can be urgent or committed always has to be read. If this location is in an urgent state, than no other transitions can happen, so all other transitions have to check that they are not in an urgent state.
+%\begin{algorithm}
+%\caption{Next-State}\label{alg:successor-gen}
+%\begin{algorithmic}[1]
+%\Procedure{Next-State}{$s_{in} = {l_1,...l_n,l_n+1,...,l_m$}
+%\State out_states := $\emptyset$
+%	
+%\EndProcedure
+%\end{algorithmic}
+%\end{algorithm}
+%
+\begin{algorithm}
+\caption{Next-State}\label{alg:successor-gen}
+\begin{algorithmic}[1]
+\Procedure{Next-State}{$s_{in} = \{l_1,...l_n,l_{n+1},...,l_m\}$}
+	\State $out\_states := \emptyset$	
+	\State $D := $\Call{CreateDBM}{$\{l_{n+1},...,l_m\}$}		
+	\State \Call{TightenDBM}{$D$}
+	\For{$l_i \in l_1,...,l_n$} \label{lst:line:alllocs}
+		\ForAll{$l_i \xrightarrow{g,a,r} l_i'$} \label{lst:line:alltrans}
+			\State $D' := D \cap g$
+			\If{$D' \neq \emptyset$}
+				\If{$a = \tau$} \label{lst:line:normaltrans}
+					\State $D' := D'[r]$
+					\State $D' := D'\uparrow$
+					\State $D' := D' \cap I_C^i(l_i') \cap \bigcap_{k \neq i} I_C^k(l_k)$
+					\If{$D' \neq \emptyset$}
+						\State $D' := D'/ B(l_1,...,l_i',...,l_n)$
+						\State \Call{ReduceZero}{$D'$}
+						\State $\{l_{n+1}',...,l_m'\} := $\Call{FlattenDBM}{$D'$}
+						\State $s_{out} := \{l_1,...,l_i',...,l_n,l_{n+1}',...,l_m'\}$
+						\State $out\_states := out\_states \cup s_{out}$
+					\EndIf \label{lst:line:endnormaltrans}
+				\Else
+					\If{$a = ch!$} \label{lst:line:synctrans}
+						\For{$l_j \in l_1,...,l_n, j \neq i$}\label{lst:line:alllocs2}
+							\ForAll{$l_j \xrightarrow{g_j,ch?,r_j} l_j'$}
+								\If{$D'' "= D' \cap g_j \neq \emptyset$}
+									\State $D'' := D''[r][r_j]$
+									\State $D'' := D''\uparrow$
+									\State $D'' := D'' \cap I_C^i(l_i') \cap I_C^j(l_j') \cap \bigcap_{k \neq \{i,j\}} I_C^k(l_k)$
+									\If{$D'' \neq \emptyset$}
+										\State $D''	:= D''/ B(l_1,...,l_i',...,l_j',...,l_n)$						
+										\State \Call{ReduceZero}{$D''$}		
+										\State $\{l_{n+1}',...,l_m'\} := $\Call{FlattenDBM}{$D'$}
+										\State $s_{out} := \{l_1,...,l_i',...,l_j',...,l_n,l_{n+1}',...,l_m'\}$
+										\State $out\_states := out\_states \cup s_{out}$
+									\EndIf								
+								\EndIf							
+							\EndFor
+						\EndFor \label{lst:line:endsynctrans}
+					\EndIf
+				\EndIf
+			\EndIf
+		\EndFor
+	\EndFor
+	\State \Return $out\_states$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{Time Extrapolation}
 In the successor generator step a time extrapolation is used. This extrapolation step reduces the number of DBMs created and makes sure that this number is finite. The most coarse abstraction as described in ~\cite{Behrmann2004} is used. This extrapolation reduces the number of zones that are explored significantly. It also makes that less improvements can be made on the representation of the zones, for some models all states are extrapolated to the same zone, so nothing interesting happens at the timed side of the model any more. In opaal this algorithm is implemented in such a way that all \uppaal{} locations are always read. The maximum extrapolation is based on the values of these locations. Only if there is no difference between all values for a certain location, it is not needed to read this. This results into an densely populated dependency matrix. 
 
 \subsection{Animo Models}
 We started the project with ANIMO models that were not compatible with opaal. As opaal does only support a subset of all options of \uppaal{}. First of all we changed the model, such that it does not use global variables in in the system declaration. Also some smaller changes to the use of structs had to be made. This resulted in a basic ANIMO model that is compatible. Larger models are still not compatible due to clock guards on input synchronization channels. This is a feature only recently implemented by \uppaal{}(version 4.1.3). Opaal does not support this feature, and its semantics are not completely clear, as it is not described in the manual. Adding this to opaal can be done, but is not trivial. This improvement of the language module is out of scope of this thesis.  
-
-\subsection{DDD nodes}
-We used the basis of the LDD package in Sylvan to create our DDD nodes. DDD nodes are stored in 128 bits, represented as a struct of two 64 bit integers.  
-
-\begin{lstlisting} 
-
-struct dddnode {
-    uint64_t a, b;
-} * dddnode_t; 
-\end{lstlisting}
-
-In this struct the value(32 bits), the true edge(40 bits), the false edge(40 bits) and a type bit, operator bit and flag bit are stored. The type bit indicates if a node is a DDD or an LDD node, if it is set to 0 it should be treated as a normal LDD node. The operator bit shows if the operator is $<$ or $\leq$, this can only be used if the type bit is also set to 1(DDD). The flag bit is used in some algorithms to indicate that a certain node has already been visited. All of this is stored compactly in the two 64 bit integers. The total information is 115 bits, so there are still 17 unused bits, all unused bits are set to 0. The depth of the node is not stored, this can be calculated by going down through the structure. This implies that no level can be skipped. Other DDD algorithms and reductions show that some levels are not needed. We solved this by indication a skipped level by $< \infty$, which is true for every upper bound. For such nodes the false edge will always directly lead to the false end node.
-
-The difference between the original LDD nodes and our DDD nodes is only in the operator and type bit. This way we can still use the same unique table. 
-\begin{figure}
-\centering
-\begin{bytefield}[bitwidth=1.2em]{16}
-  \bitbox{5}{low edge}
-  \bitbox{1}{\rule{\width}{\height}}
-  \bitbox{4}{value}
-  \bitbox{1}{\rule{\width}{\height}}
-  \bitbox{5}{high edge}\\
-\end{bytefield}
-\caption{In memory representation of LDD node}
-\label{alg:ldd-node}
-\end{figure}
-
-
-\begin{algorithm}
-\caption{Reduce}\label{alg:Reduce}
-\begin{algorithmic}[1]
-\Procedure{Reduce}{$dbm, dim$}
-	\For{$i \in dim$}
-		\For{$j \in dim$}
-			\For{$k \in dim$}
-				\If{$!(dbm[i,k] \vee dbm[k,j] \vee dbm[i,j]$ on diagonal)}
-					\If{$dbm[i,k] + dbm[k,j] \leq dbm[i,j]$}
-						\State{$dbm[i,j] := \infty$} 
-					\EndIf
-				\EndIf
-			\EndFor
-		\EndFor
-	\EndFor				
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-
-\begin{algorithm}
-\caption{Reduce}\label{alg:ReduceZero}
-\begin{algorithmic}[1]
-\Procedure{ReduceZero}{$dbm, dim$}
-	\State{$placed[dim]$ all 0}
-	\State{$red[dim,dim]$ all 0}
-	\State{$eq[dim,dim]$ all 0}
-	\State{$cl := 0$}
-	\State{$newDBM[dim,dim]$ diagonal $\infty$ rest $0$}
-	\For{$i \in dim$}
-		\If{$placed[i] = 0$}
-			\For{$j \in \dim$}
-				\If{$dbm[i,j] + dbm[j,i] = 0$}
-					\State{$placed[j] := 1$}
-					\State{$eq[cl,j] := 1$}
-				\EndIf
-			\EndFor
-			\State{$cl++$}
-		\EndIf
-	\EndFor
-	\State{$repr[cl]$}
-	\For{$i \in cl$}
-		\For{$j \in dim$}
-			\If{$eq[i,j] = 1$}
-				\State{$repr[i] := j$}
-				\Break
-			\EndIf
-		\EndFor
-	\EndFor
-	\State{$clg[cl,cl]$}
-	\For{$i \in cl$}
-		\For{$j \in cl$}
-			\State{$clg[i,j] := dbm[repr[i],repr[j]]$}
-		\EndFor
-	\EndFor
-	\State{\Call{Reduce}{$clg, cl$}}
-	\For{$i \in cl$}
-		\For{$j \in dim$}
-			\If{$eq[i,j] = 1$}
-				\For{$k \in dim$}
-					\If{$eq[i,k]$}
-						\State{$newDBM[j,k] = dbm[j,k]$}
-					\EndIf
-				\EndFor
-			\EndIf
-		\EndFor
-		\For{$j \in cl$}
-			\State{$newDBM[repr[i],repr[j]] := clg[i,j]$}
-		\EndFor
-	\EndFor
-	\State{\Return newDBM}
-		
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-
-
-\begin{algorithm}
-\caption{MK}\label{alg:MK}
-\begin{algorithmic}[1]
-\Procedure{MK}{$bound, h, l$}
-	\If{$h = 1 \wedge l = 1$}
-		\State \Return $1$
-	\EndIf
-	\If{$h = 0 \wedge l = 0$}
-		\State \Return $0$
-	\EndIf
-	\If{$h = 0 \wedge l \neq 0$}
-		\State \Return $1$
-	\EndIf
-	\If{$h = high(l)$}
-		\State \Return $l$
-	\EndIf
-	\State $node =$ \Call{makeNode}{$bound, h, l$}
-	\If{$node \notin table$}
-		\State \Call{Put}{$node$}
-	\EndIf
-	\State \Return $node$
-\EndProcedure	
-\end{algorithmic}
-\end{algorithm}
-
-We use a path reduced version of the DDD. This reduced version is not needed for all operations. Maybe we can improve performance by use the reduce function more or less often. For the count of the number of states we will use the amount of paths in the reduced DDD. States are not well defined for timed automata, as it is a set of discrete locations together with a zone of clocks. As the zones can have different representations, this gives some strange results. We will use the DDD function Biimplication for the equal operation and we will use implication for the subsumption check.
-
-\subsection{Minus}
-The minus function, used for the reachability, has not been implemented as an DDD functions. This function is different to other functions, as information has to be transferred over different levels. For simple cases, an upper-bound in one of the operands of the minus, can become a lower-bound in the result, and vice-versa. A simple one dimensional example is $[0..8] / [0..4)$, this will result in $[4..8]$. In this case the 4 is the upper-bound of the subtrahend. It will however become the lower-bound of the difference. As lower- and upper-bounds are saved on different levels in DDDs this makes the function different from all other functions, which only look at values on the same level.
-
-In figure \ref{fig:md-minus} we have a two-dimensional example of how the minus function can become more complex for multiple-dimensions. In this case we make a hole in a larger zone. Both the minuend and the subtrahend are represented by a DDD with a single path. For simplicity we removed the diagonals in this example, as they play no role. The difference however becomes a DDD with 4 paths and 10 nodes. Again a lot of upper- and lower-bounds are switched. Already for this example we could not find a algorithm that does this in general. For more dimensions, and DDDs with already multiple paths the problem will only get harder. That is why we returned to a DBM function for this.
-
-
-
-%\includegraphics{MyGraph.ps}
- 
-
-%\begin{figure}
-%\caption{Multi-Dimensional Minus}
-%\label{fig:md-minus}
-%	\centering
-%		\digraph[scale=0.5]{MyGraph}{
-%		graph [dpi = 300];
-%		center = true;
-%		edge [dir = forward];
-%		59 [shape=record, label="<1> 1leq|<4> 4le"];
-%		51 [shape=record, label="<0> 0le"];
-%		41 [shape=record, label="<4> 4le"];
-%		40 [shape=record, label="<0> 0le"];
-%		41:4 -> 40:0 [style=solid];
-%		51:0 -> 41:4 [style=solid];
-%		59:1 -> 51:0 [style=solid];
-%		57 [shape=record, label="<-3> -3leq|<0> 0le"];
-%		57:-3 -> 41:4 [style=solid];
-%		55 [shape=record, label="<1> 1leq|<4> 4le"];
-%		55:1 -> 40:0 [style=solid];
-%		47 [shape=record, label="<-3> -3leq"];
-%		55:4 -> 47:-3 [style=solid];
-%		57:0 -> 55:1 [style=solid];
-%		59:4 -> 57:-3 [style=solid];
-%		}
-%\end{figure}
-
-The DBM function we use is defined in the \uppaal{} DBM library. The minus function is defined over a federation of DBMs. This federation is a C++ class containing multiple DBMs. This federation is needed as we can do a minus over a collection of zones, multiple paths in the DDD, and the result can contain multiple zones. As already shown in the example of figure \ref{fig:md-minus}. For this function we first take the normal LDD minus function over the discrete part. At the first DDD level representing the zones, the DBM function is called. From this level all possible paths are searched, and for each path a DBM is created. All these DBMs are put in a federation, on which the library function can be called. The result is again (a possibly empty) federation. If the federation is empty, simply a DDD-false node is returned. Otherwise each DBM is turned into a DDD path and these paths are unioned together.
-
-\subsection{BFS}
-The DBM minus function we use is quite expensive. To overcome this problem we will use two different versions of the search algorithm. Our second version will not use the minus function. In algorithm \ref{alg:bfs-orig} we show the standard BFS algorithm, this will be the first algorithm we use. Algorithm \ref{alg:bfs-check} shows how we can edit this algorithm. The constraint of the loop is changed from an empty check of the current set, to a check that the total visited set has not changed. This change now shows that the minus is not necessary any more, as shown in algorithm \ref{alg:bfs-no-minus}. The implication is that the current set will in some cases be larger than in the previous algorithm. This will have some negative impact on the next-state calls, which will take more time. Not using the expensive minus function might compensate for that.
-
-\begin{algorithm}
-\caption{BFS}\label{alg:bfs-orig}
-\begin{algorithmic}[1]
-\Procedure{BFS}{$initial$}
-	\State $vis := cur := initial$
-	\While{$cur \neq \emptyset$}
-		\State{$cur := next(cur)$}
-		\State{$vis := vis \cup cur$}
-		\State{$cur := cur \setminus vis$}
-	\EndWhile
-	
-\EndProcedure	
-\end{algorithmic}
-\end{algorithm}
-
-\begin{algorithm}
-\caption{BFS}\label{alg:bfs-check}
-\begin{algorithmic}[1]
-\Procedure{BFS}{$initial$}
-	\State $vis := cur := initial$
-	\State $vis_{prev} := \emptyset$
-	\While{$vis \neq vis_{prev}$}
-		\State{$vis_{prev} := vis$}
-		\State{$cur := next(cur)$}
-		\State{$vis := vis \cup cur$}
-		\State{$cur := cur \setminus vis$}
-	\EndWhile
-	
-\EndProcedure	
-\end{algorithmic}
-\end{algorithm}
-
-\begin{algorithm}
-\caption{BFS}\label{alg:bfs-no-minus}
-\begin{algorithmic}[1]
-\Procedure{BFS}{$initial$}
-	\State $vis := cur := initial$
-	\State $vis_{prev} := \emptyset$
-	\While{$vis \neq vis_{prev}$}
-		\State{$vis_{prev} := vis$}
-		\State{$cur := next(cur)$}
-		\State{$vis := vis \cup cur$}
-	\EndWhile
-	
-\EndProcedure	
-\end{algorithmic}
-\end{algorithm}
-
-\section{Other semantics}
-We chose in our implementation to take no information from the low edges of nodes. A node only represents an upper-bound, a false edge does not implicitly represent a lower bound. This is a design choice we made to be able to switch efficiently from the DBM representation in the language module to the DDD representation. We could however also have used a semantics where the low edges do represent a lower-bound. We did not implement this, but this section will discuss this other semantics.
-
-\begin{mydef}
-\label{def:Semantics2}
-The semantics of a vertex is defined recursively by the function $\mathcal{V}: V \rightarrow \textbf{Exp}:$
-\begin{itemize}
-\item $\mathcal{V}[[0]] \myeq$ false,
-\item $\mathcal{V}[[1]] \myeq$ true,
-\item \begin{math} \mathcal{V}[[v]] \myeq
-\begin{cases}
-(pos(v) - neg(v) < const(v)) \rightarrow \mathcal{V}[[high(v)]],\mathcal{V}[[low(v)]]\text{if }op(v) = '<'\\
-(pos(v) - neg(v) \leq const(v)) \rightarrow \mathcal{V}[[high(v)]],\mathcal{V}[[low(v)]]\text{if }op(v) = '\leq'
-\end{cases}
-\end{math}
-
-\end{itemize}
-
-\end{mydef}
-The semantics are almost equal to the one in definition \ref{def:Semantics1}, the difference is in the interpretation of the low edge. In this semantics the low edge does not just represent that the upper-bound is higher than the bound of the node, but the actual value of the variable is higher than the bound of the node. 
-
-\subsection{DBM Translation}
-The translation from a single DBM to a DDD will not change. The translation from multiple DBMs will change neither, as that can be done as a union of DBMs which are individually translated to a DDD. The other way around, from a DDD back to a DBM becomes more complicated. For a DDD with a single path to true nothing will change. For paths that go down some low edges the translation will change. The falsification of an upper-bound, leading to a lower-bound, or a upper-bound of the inverse pair, can overrule the upper-bound of an other node. We give an example in figure \ref{fig:double-bound}. In this example all nodes that are not in the path we consider are hidden. The DDD will have more nodes to reach this representation. In figure \ref{fig:dbm-versions} we have a DBM for both interpretations. In figure \ref{fig:dbm-original} we have the DBM as we use the interpretation from our implementation. In figure \ref{fig:dbm-new} the DBM of the other interpretation is shown. The difference between the two DBMs is on the position $c_2 - O)$. The information from the low edge of the $O - c_2$ node has overruled the information of the high edge of the $c_2 - O$ node. Using a canonical form of a DDD can also overcome this problem.
-
-\begin{figure}[h]
-\begin{center}
-	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
-		]
-		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S0){};
-		\node[smallvertex](S1){$\mathbf{O} - c_1$};
-		\node[smallvertex, below of = S1, yshift = -1cm](S2){$\mathbf{O} - c_2$};
-		\node[smallvertex, right of = S2, xshift = 1cm](S3){$\mathbf{O} - c_2$};
-		\node[smallvertex, below of = S3, yshift = -1cm](S4){$c_1 - \mathbf{O}$};
-		\node[smallvertex, below of = S4, yshift = -1cm](S5){$c_1 - c_2$};
-		\node[smallvertex, below of = S5, yshift = -1cm](S6){$c_2 - \mathbf{O}$};
-		\node[smallvertex, below of = S6, yshift = -1cm](S7){$c_2 - c_1$};
-		\node[smallvertex, below of = S7, yshift = -1cm](S8){$T$};
-		\node[smallvertex, draw = none, below of = S2, yshift = -1cm](S9){};
-		
-		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
-		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
-		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
-		\draw[->] (S2) --(S9) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<-2$};
-		\draw[dashed,->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
-		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
-		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
-		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<5$};
-		\draw[->] (S5) --(S6) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<\infty$};
-		\draw[->] (S6) --(S7) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<5$};
-		\draw[->] (S7) --(S8) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<\infty$};
-		
-	\end{tikzpicture}
-\end{center}
-\caption{Implicit bound DDD}
-\label{fig:double-bound}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\begin{subfigure}[l]{.5\linewidth}
-	\centering
-	\begin{math}
-    \bordermatrix{ 	   & \mathbf{O}   & c_1           & c_2          \cr
- 			\mathbf{O} &(0,\leq)      & (0,<)      & (0,<)     \cr
- 			c_1        &(5,<)      & (0,\leq)      & (\infty,<)\cr
- 			c_2        &(5,<)      & (\infty,<) & (0,\leq)     \cr}
-	\end{math}
-	\caption{Original semantics}
-	\label{fig:dbm-original}
-	\end{subfigure}
-	
-		\begin{subfigure}[r]{.5\linewidth}
-	\centering
-	\begin{math}
-    \bordermatrix{ 	   & \mathbf{O}   & c_1           & c_2          \cr
- 			\mathbf{O} &(0,\leq)      & (0,<)      & (0,<)     \cr
- 			c_1        &(5,<)      & (0,\leq)      & (\infty,<)\cr
- 			c_2        &(2,\leq)      & (\infty,<) & (0,\leq)     \cr}
-	\end{math}
-	\caption{New semantics}
-	\label{fig:dbm-new}
-	\end{subfigure}
-\caption{DBM's of two different DDD interpretations}
-\label{fig:dbm-versions}
-\end{figure}
-
-To make the translation from DDD to DBM correctly the relative positions of the upper- and lower-bound of each pair of variables need to be known. Also a function to determine the stronger bound of a pair needs to be created. Lastly the bounds need to be changed correctly. A $<$ sign changes into a $\leq$ and vice versa, the constant is multiplied by $-1$. We give an example of this change:
-\begin{center}
-$c_1 - c_2 \nless 3$\\
-$\Updownarrow$\\
-$c_1 - c_2 \geq 3$\\
-$\Updownarrow$\\
-$c_2 - c_1 \leq -3$
-\end{center}
-
-A similar translation will have to be conducted in the relprod function. This function does not explicitly need the DBMs. The relations that are used are however created in the language module which uses DBMs. In the current implementation, a path in the state space needs to be found that has on each level the same high edges as the relation. Which low edges are traversed on the way is not important. Now this information is taken into account some changes will have to be made. A simple path in the relation, might need some false edges in the state-space to get all the correct bounds.
-
-\subsection{Minus}
-Implementation of the minus function will become easier in DDDs, no coupling to the DBM library will be needed any more. First of all we will give the complement function. We give the pseudocode for this function in algorithm \ref{alg:complement}. The algorithm switches all 0 and 1 nodes. This will have a running time of $O(n)$ where n is the number of nodes in the tree. 
-
-\begin{algorithm}
-\caption{Complement}\label{alg:complement}
-\begin{algorithmic}[1]
-\Procedure{Complement}{$a$}
-	\If{$a = 0$}
-		\State \Return $1$
-	\EndIf
-	\If{$a = 1$}
-		\State \Return $0$
-	\EndIf
-	\State $h :=$ \Call{Complement}{$high(a)$}
-	\State $l :=$ \Call{Complement}{$low(a)$}
-	\State \Return \Call{MK}{$bound(a), h, l$}
-	
-\EndProcedure	
-\end{algorithmic}
-\end{algorithm}
-
-With this function we can create a minus function, as for set theory, minus can be defined as $A \setminus B = A \cap \overline{B}$. Now we can build the minus function from the complement and intersection function as shown in algorithm \ref{alg:minus-new}. This algorithm is probably less complex than the DBM minus we currently use. We do not know the exact complexity of the DBM minus algorithm, so we cannot call this certain. 
-
-\begin{algorithm}
-\caption{Minus}\label{alg:minus-new}
-\begin{algorithmic}[1]
-\Procedure{Minus}{$a, b$}
-	\If{$a = 0$}
-		\State \Return $0$
-	\EndIf
-	\If{$b = 0$}
-		\State \Return $1$
-	\EndIf
-	\State $notB = $\Call{Complement}{$b$}
-	\State $result =$ \Call{Intersection}{$a, notB$}
-	\State \Return $result$
-	
-\EndProcedure	
-\end{algorithmic}
-\end{algorithm}
