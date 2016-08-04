@@ -10,6 +10,12 @@ Rajeev Alur and David~L. Dill.
 \newblock A theory of timed automata.
 \newblock {\em Theoretical Computer Science}, 126(2):183 -- 235, 1994.
 
+\bibitem{Behrmann2004}
+Gerd Behrmann, Patricia Bouyer, Kim~G. Larsen, and Radek Pel{\'a}nek.
+\newblock {\em Lower and Upper Bounds in Zone Based Abstractions of Timed
+  Automata}, pages 312--326.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2004.
+
 \bibitem{UPPAAL}
 Gerd Behrmann, Alexandre David, and Kim~G. Larsen.
 \newblock A tutorial on {Uppaal}.

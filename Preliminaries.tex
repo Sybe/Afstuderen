@@ -48,6 +48,15 @@ These matrices use both a column and a row for each clock, and on each position 
 	\label{fig:dbm}
 \end{figure}
 
+A number of operations on DBMs has been defined. We will introduce the operations we use. The same notation as ~\cite{eemcs21972} is used.
+\begin{itemize}
+\item $D \uparrow$ is also called the delay operator. This lets time pass unlimitedly from the zone in D.
+\item $D \cap D'$ adds additional constraints from $D'$ to $D$. This is used for transitions that have clock constraints. These constraints can be represented as a DBM.
+\item $D[r]$ with $r \subseteq C$, resets all clocks in $r$.
+\item $D/B$ does a maximal bounds extrapolation. In section \ref{subsec:extrapolation} we will go into more detail about this extrapolation.
+
+\end{itemize}
+
 \subsection{Zone subsumption}
 \label{subsec:subsumtion}
 In model checking an important function is to check if a certain state has been visited already earlier. For normal automata this can be done by comparing the newly found state to all states that have already been visited, and check if one of those states is equal to that new state. This is often done by more efficient methods, like hash functions, but the equality check remains. For states with zones this equality check does not satisfy. Two zones do not need to be equal, but the newly discovered zone can also be a subset of the earlier discovered zones. In \ltsmin{} this is done by a subsumption check~\cite{eemcs21972} that is performed over the DBMs. This check is delegated to the \uppaal{} DBM library. The function checks if a new zone is a subset of the zone represented by a DBM.

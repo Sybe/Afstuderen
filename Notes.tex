@@ -1,16 +1,6 @@
 \subsection{Successor Generator}
-The language module uses the opaal successor generator for \uppaal{} models. This generator is written in Python and reads \uppaal{} XML files. A C++ file is generated from this. These files are compiled to object files which can be dynamically linked to \ltsmin{}. The structure of the next-state function is slightly different from ~\cite{eemcs21972}. The new structure can be found in algorithm \ref{alg:successor-gen}. Al line \ref{lst:line:alltrans}, the function iterates over all outgoing transitions from the current location. If it is an internal transition the successor will be generated on lines \ref{lst:line:normaltrans}-\ref{lst:line:endnormaltrans}. If it is a sending transition, receivers will be searched for on lines \ref{lst:line:synctrans}-\ref{lst:line:endsynctrans}. In the generated C++ code the loops on lines \ref{lst:line:alllocs} and \ref{lst:line:alllocs2} are unrolled. 
+The language module uses the opaal successor generator for \uppaal{} models. This generator is written in Python and reads \uppaal{} XML files. A C++ file is generated from this. These files are compiled to object files which can be dynamically linked to \ltsmin{}. The structure of the next-state function is slightly different from ~\cite{eemcs21972}. The new structure can be found in algorithm \ref{alg:successor-gen}. Al line \ref{lst:line:alltrans}, the function iterates over all outgoing transitions from the current location. If it is an internal transition the successor will be generated on lines \ref{lst:line:normaltrans}-\ref{lst:line:endnormaltrans}. If it is a sending transition, receivers will be searched for on lines \ref{lst:line:synctrans}-\ref{lst:line:endsynctrans}. In the generated C++ code the loops on lines \ref{lst:line:alllocs} and \ref{lst:line:alllocs2} are unrolled. The algorithm contains several empty checks, on lines \ref{lst:line:empty1},  \ref{lst:line:empty2}, \ref{lst:line:empty3} and \ref{lst:line:empty4}. After each addition of constraints the DBM can possibly be empty. If the DBM is at one of these points empty, no point in time exists where the new state can exist, so further exploration of the transition is not needed. After the empty checks on lines \ref{lst:line:empty2} and \ref{lst:line:empty4} the extrapolation and the reduction are done. These operations can not empty the DBM, the extrapolation can make the zone larger, not smaller. The reduction will not change the zone at all, only its representation. If the DBM is not empty before these operations it can safely be put into the output.
 
-%\begin{algorithm}
-%\caption{Next-State}\label{alg:successor-gen}
-%\begin{algorithmic}[1]
-%\Procedure{Next-State}{$s_{in} = {l_1,...l_n,l_n+1,...,l_m$}
-%\State out_states := $\emptyset$
-%	
-%\EndProcedure
-%\end{algorithmic}
-%\end{algorithm}
-%
 \begin{algorithm}
 \caption{Next-State}\label{alg:successor-gen}
 \begin{algorithmic}[1]
@@ -21,12 +11,12 @@ The language module uses the opaal successor generator for \uppaal{} models. Thi
 	\For{$l_i \in l_1,...,l_n$} \label{lst:line:alllocs}
 		\ForAll{$l_i \xrightarrow{g,a,r} l_i'$} \label{lst:line:alltrans}
 			\State $D' := D \cap g$
-			\If{$D' \neq \emptyset$}
+			\If{$D' \neq \emptyset$}\label{lst:line:empty1}
 				\If{$a = \tau$} \label{lst:line:normaltrans}
 					\State $D' := D'[r]$
 					\State $D' := D'\uparrow$
 					\State $D' := D' \cap I_C^i(l_i') \cap \bigcap_{k \neq i} I_C^k(l_k)$
-					\If{$D' \neq \emptyset$}
+					\If{$D' \neq \emptyset$}\label{lst:line:empty2}
 						\State $D' := D'/ B(l_1,...,l_i',...,l_n)$
 						\State \Call{ReduceZero}{$D'$}
 						\State $\{l_{n+1}',...,l_m'\} := $\Call{FlattenDBM}{$D'$}
@@ -37,11 +27,11 @@ The language module uses the opaal successor generator for \uppaal{} models. Thi
 					\If{$a = ch!$} \label{lst:line:synctrans}
 						\For{$l_j \in l_1,...,l_n, j \neq i$}\label{lst:line:alllocs2}
 							\ForAll{$l_j \xrightarrow{g_j,ch?,r_j} l_j'$}
-								\If{$D'' "= D' \cap g_j \neq \emptyset$}
+								\If{$D'' "= D' \cap g_j \neq \emptyset$}\label{lst:line:empty3}
 									\State $D'' := D''[r][r_j]$
 									\State $D'' := D''\uparrow$
 									\State $D'' := D'' \cap I_C^i(l_i') \cap I_C^j(l_j') \cap \bigcap_{k \neq \{i,j\}} I_C^k(l_k)$
-									\If{$D'' \neq \emptyset$}
+									\If{$D'' \neq \emptyset$}\label{lst:line:empty4}
 										\State $D''	:= D''/ B(l_1,...,l_i',...,l_j',...,l_n)$						
 										\State \Call{ReduceZero}{$D''$}		
 										\State $\{l_{n+1}',...,l_m'\} := $\Call{FlattenDBM}{$D'$}
@@ -62,6 +52,7 @@ The language module uses the opaal successor generator for \uppaal{} models. Thi
 \end{algorithm}
 
 \subsection{Time Extrapolation}
+\label{subsec:extrapolation}
 In the successor generator step a time extrapolation is used. This extrapolation step reduces the number of DBMs created and makes sure that this number is finite. The most coarse abstraction as described in ~\cite{Behrmann2004} is used. This extrapolation reduces the number of zones that are explored significantly. It also makes that less improvements can be made on the representation of the zones, for some models all states are extrapolated to the same zone, so nothing interesting happens at the timed side of the model any more. In opaal this algorithm is implemented in such a way that all \uppaal{} locations are always read. The maximum extrapolation is based on the values of these locations. Only if there is no difference between all values for a certain location, it is not needed to read this. This results into an densely populated dependency matrix. 
 
 \subsection{Animo Models}
