@@ -3,5 +3,6 @@
 \subsection{Reordering}
 
 \subsection{Multi-Core}
+The DDD library is built in the Sylvan framework which allows for multi-threaded decision diagrams. The DDD library is not suited for multi-threading however. For the most operations this will only need some small adaptations. The biggest problem is in the minus operation. This uses the DBM library. This part is not completely thread-safe. We expect this problem to be in the coupling between the DDD and the DBM library, in the DBM part no objects can be shared between threads. We expect that making the DDD part suitable for multi-threading will give much better time results.
 
 \subsection{Animo Model Compatibility}
