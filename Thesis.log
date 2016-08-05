@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  4 AUG 2016 17:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  5 AUG 2016 16:40
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -917,18 +917,18 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
 )) (Thesis.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
 
 (C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -951,12 +951,12 @@ Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count182
 \c@mydef=\count183
 \c@myconjecture=\count184
-LaTeX Font Info:    Try loading font information for U+msa on input line 55.
+LaTeX Font Info:    Try loading font information for U+msa on input line 56.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 55.
+LaTeX Font Info:    Try loading font information for U+msb on input line 56.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1069,9 +1069,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 420--429
 
 ]
 
-LaTeX Warning: Reference `alg:reduce' on page 20 undefined on input line 12.
+LaTeX Warning: Reference `alg:reduce' on page 20 undefined on input line 13.
 
-[20] [21]
+[20] [21] [22]
 \height=\dimen32767 (local)
 \depth=\dimen32766 (local)
 \totalheight=\dimen32765 (local)
@@ -1092,9 +1092,9 @@ LaTeX Warning: Reference `alg:reduce' on page 20 undefined on input line 12.
 \depth=\dimen32766 (local)
 \totalheight=\dimen32765 (local)
 \width=\dimen32764 (local)
- [22] [23] [24] [25]
+ [23] [24] [25]
 
-LaTeX Warning: Float too large for page by 20.04277pt on input line 322.
+LaTeX Warning: Float too large for page by 20.04277pt on input line 323.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1105,16 +1105,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [26] [27] [28] [29] (Notes.tex
+[26]) [27] [28] [29] [30] (Notes.tex
 Underfull \hbox (badness 10000) in paragraph at lines 38--39
 [] $\OML/cmm/m/it/10.95 s[] \OT1/cmr/m/n/10.95 :=$
  []
 
-) [30
+[31
 
-] [31] [32] (Benchmarks.tex [33
+] [32]) [33] (Benchmarks.tex [34
 
-]) [34] [35] (Results.tex
+]) [35] [36] (Results.tex
 
 LaTeX Warning: Float too large for page by 0.02077pt on input line 57.
 
@@ -1127,7 +1127,7 @@ Overfull \hbox (50.69923pt too wide) in paragraph at lines 114--115
 LaTeX Warning: Float too large for page by 0.00624pt on input line 115.
 
 
-LaTeX Warning: Reference `' on page 36 undefined on input line 119.
+LaTeX Warning: Reference `' on page 37 undefined on input line 119.
 
 
 LaTeX Warning: Float too large for page by 20.04277pt on input line 206.
@@ -1135,10 +1135,10 @@ LaTeX Warning: Float too large for page by 20.04277pt on input line 206.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [36
+) [37
 
-] [37] [38] [39] (Different_Semantics.tex
-Overfull \hbox (55.937pt too wide) in paragraph at lines 9--15
+] [38] [39] [40] (Different_Semantics.tex
+Overfull \hbox (55.937pt too wide) in paragraph at lines 10--16
 []$\U/eus/m/n/10.95 V\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 v\OT1/cmr/m/n/10.
 95 ]] [] []$ 
  []
@@ -1149,14 +1149,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[40
+[41
 
-] [41] [42]) [43] (FutureWork.tex) [44
+] [42] [43]) [44] (FutureWork.tex [45
 
-] (Conclusions.tex) [45
+]) [46] [47] (Conclusions.tex) [48
 
-] (Thesis.bbl
-[46
+]
+(Thesis.bbl [49
 
 ]
 Missing character: There is no Ã in font cmr10!
@@ -1165,20 +1165,20 @@ Missing character: There is no Å in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [47]
+ [50]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [48]) [49] (Thesis.aux)
+ [51]) [52] (Thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 21448 strings out of 493698
- 415839 string characters out of 3144415
- 573049 words of memory out of 3000000
- 24224 multiletter control sequences out of 15000+200000
+ 21451 strings out of 493698
+ 415884 string characters out of 3144415
+ 571852 words of memory out of 3000000
+ 24227 multiletter control sequences out of 15000+200000
  15297 words of font info for 56 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  55i,16n,75p,1779b,1041s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1200,9 +1200,9 @@ c/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/euler/eusm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/sy
 mbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbo
 ls/msbm10.pfb>
-Output written on Thesis.pdf (49 pages, 369160 bytes).
+Output written on Thesis.pdf (52 pages, 378699 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
+ 249 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
