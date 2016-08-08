@@ -161,6 +161,12 @@ Jesper M{\o}ller, Henrik Hulgaard, and Henrik~Reif Andersen.
 \newblock {\em The Journal of Logic and Algebraic Programming}, 52–53:53 --
   77, 2002.
 
+\bibitem{ddd-mt-98}
+Jesper M{\o}ller and Jakob Lichtenberg.
+\newblock Difference decision diagrams.
+\newblock Master's thesis, Department of Information Technology, Technical
+  University of Denmark, Building 344, DK-2800 Lyngby, Denmark, aug 1998.
+
 \bibitem{ddds}
 Jesper M{\o}ller, Jakob Lichtenberg, HenrikReif Andersen, and Henrik Hulgaard.
 \newblock Difference decision diagrams.
@@ -175,7 +181,7 @@ TruongKhanh Nguyen, Jun Sun, Yang Liu, JinSong Dong, and Yan Liu.
   2012: Formal Methods}, volume 7436 of {\em Lecture Notes in Computer
   Science}, pages 326--340. Springer Berlin Heidelberg, 2012.
 
-\bibitem{DBLP:conf/bibe/SchivoSWCVKLPP12}
+\bibitem{SchivoSWCVKLPP12}
 Stefano Schivo, Jetse Scholma, Brend Wanders, Ricardo A.~Urquidi Camacho,
   Paul~E. van~der Vet, Marcel Karperien, Rom Langerak, Jaco van~de Pol, and
   Janine~N. Post.

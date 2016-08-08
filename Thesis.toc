@@ -41,8 +41,9 @@
 \contentsline {section}{\numberline {9}Future Work}{45}
 \contentsline {subsection}{\numberline {9.1}Canonization}{45}
 \contentsline {subsection}{\numberline {9.2}Reordering}{45}
-\contentsline {subsection}{\numberline {9.3}Sparser Dependency Matrix}{45}
+\contentsline {subsection}{\numberline {9.3}Sparser Dependency Matrix}{46}
 \contentsline {subsection}{\numberline {9.4}Multi-Core}{46}
-\contentsline {subsection}{\numberline {9.5}Animo Model Compatibility}{46}
-\contentsline {subsection}{\numberline {9.6}Subsumption}{46}
-\contentsline {section}{\numberline {10}Conclusions}{48}
+\contentsline {subsection}{\numberline {9.5}Animo Model Compatibility}{47}
+\contentsline {subsection}{\numberline {9.6}Subsumption}{47}
+\contentsline {subsection}{\numberline {9.7}Checking Properties}{47}
+\contentsline {section}{\numberline {10}Conclusions}{49}
