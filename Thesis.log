@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  8 AUG 2016 16:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  22 AUG 2016 13:44
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -869,6 +869,105 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen222
 \l_MT_below_shortintertext_sep=\dimen223
 )
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgfplots\pgfplots.sty
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplots.revisio
+n.tex)
+Package: pgfplots 2016/01/06 v1.13 Data Visualization (1.13)
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplots.code.te
+x
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplotscore.cod
+e.tex
+\t@pgfplots@toka=\toks51
+\t@pgfplots@tokb=\toks52
+\t@pgfplots@tokc=\toks53
+\pgfplots@tmpa=\dimen224
+\c@pgfplots@coordindex=\count176
+\c@pgfplots@scanlineindex=\count177
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\sys\pgfplotssysg
+eneric.code.tex))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\libs\pgfplotslib
+rary.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\oldpgfcompatib\p
+gfplotsoldpgfsupp_loader.code.tex
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibraryf
+pu.code.tex)
+Package pgfplots: loading complementary arithmetics for your pgf version...
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\oldpgfcompatib\p
+gfplotsoldpgfsupp_pgflibraryfpu.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\oldpgfcompatib\p
+gfplotsoldpgfsupp_pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count178
+))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\util\pgfplotsuti
+l.code.tex
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\liststructure\pg
+fplotsliststructure.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\liststructure\pg
+fplotsliststructureext.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\liststructure\pg
+fplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count179
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\liststructure\pg
+fplotsmatrix.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\numtable\pgfplot
+stableshared.code.tex
+\c@pgfplotstable@counta=\count180
+\t@pgfplotstable@a=\toks54
+)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\liststructure\pg
+fplotsdeque.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\util\pgfplotsbin
+ary.code.tex
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\util\pgfplotsbin
+ary.data.code.tex))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\util\pgfplotsuti
+l.verb.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\libs\pgflibraryp
+gfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count181
+
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\sys\pgflibrarypg
+fplots.surfshading.pgfsys-pdftex.def)))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\util\pgfplotscol
+ormap.code.tex
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\util\pgfplotscol
+or.code.tex))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplotsstackedp
+lots.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplotsplothand
+lers.code.tex
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplotsmeshplot
+handler.code.tex
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplotsmeshplot
+image.code.tex)))
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplots.scaling
+.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplotscoordpro
+cessing.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplots.errorba
+rs.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplots.markers
+.code.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplotsticks.co
+de.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgfplots\pgfplots.paths.c
+ode.tex)
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\li
+braries\tikzlibrarydecorations.pathmorphing.code.tex
+(C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\decorations
+\pgflibrarydecorations.pathmorphing.code.tex))
+\pgfplots@numplots=\count182
+\pgfplots@xmin@reg=\dimen225
+\pgfplots@xmax@reg=\dimen226
+\pgfplots@ymin@reg=\dimen227
+\pgfplots@ymax@reg=\dimen228
+\pgfplots@zmin@reg=\dimen229
+\pgfplots@zmax@reg=\dimen230
+))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
@@ -917,46 +1016,49 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
 )) (Thesis.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
 
 (C:\Users\Sybe\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count176
-\scratchdimen=\dimen224
+\scratchcounter=\count183
+\scratchdimen=\dimen231
 \scratchbox=\box49
-\nofMPsegments=\count177
-\nofMParguments=\count178
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count179
-\MPscratchDim=\dimen225
-\MPnumerator=\count180
-\makeMPintoPDFobject=\count181
-\everyMPtoPDFconversion=\toks52
+\nofMPsegments=\count184
+\nofMParguments=\count185
+\everyMPshowfont=\toks55
+\MPscratchCnt=\count186
+\MPscratchDim=\dimen232
+\MPnumerator=\count187
+\makeMPintoPDFobject=\count188
+\everyMPtoPDFconversion=\toks56
 ) ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count182
-\c@mydef=\count183
-\c@myconjecture=\count184
-LaTeX Font Info:    Try loading font information for U+msa on input line 56.
+\c@lstlisting=\count189
 
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.13}).
+
+\c@mydef=\count190
+\c@myconjecture=\count191
+LaTeX Font Info:    Try loading font information for U+msa on input line 58.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 56.
+LaTeX Font Info:    Try loading font information for U+msb on input line 58.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1090,7 +1192,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 420--429
 \width=\dimen32764 (local)
  [23] [24] [25]
 
-LaTeX Warning: Float too large for page by 20.04277pt on input line 323.
+LaTeX Warning: Float too large for page by 20.04277pt on input line 324.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1110,27 +1212,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
 ] [32]) [33] (Benchmarks.tex [34
 
-]) [35] [36] (Results.tex
+]) [35] [36] (Results.tex [37
 
-LaTeX Warning: Float too large for page by 0.02077pt on input line 57.
+]
 
-
-Overfull \hbox (50.69923pt too wide) in paragraph at lines 114--115
-[] 
- []
-
-
-LaTeX Warning: Float too large for page by 0.00624pt on input line 115.
-
-
-LaTeX Warning: Float too large for page by 20.04277pt on input line 206.
+LaTeX Warning: Float too large for page by 20.04277pt on input line 98.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [37
-
-] [38] [39] [40] (Different_Semantics.tex
+) [38] [39] (Different_Semantics.tex
 Overfull \hbox (55.937pt too wide) in paragraph at lines 10--16
 []$\U/eus/m/n/10.95 V\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 v\OT1/cmr/m/n/10.
 95 ]] [] []$ 
@@ -1142,14 +1233,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[41
+[40
 
-] [42] [43]) [44] (FutureWork.tex [45
+] [41] [42]) [43] (FutureWork.tex [44
 
-] [46]) [47] [48] (Conclusions.tex)
-[49
+] [45] [46]) [47] (Conclusions.tex)
+[48
 
-] (Thesis.bbl [50
+] (Thesis.bbl [49
 
 ]
 Missing character: There is no Ã in font cmr10!
@@ -1158,40 +1249,75 @@ Missing character: There is no Å in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [51]
+ [50]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [52]) [53] (Thesis.aux) ) 
+ [51]) [52] (ExperimentResults.tex
+Overfull \hbox (85.45566pt too wide) in paragraph at lines 75--76
+[] 
+ []
+
+
+LaTeX Warning: Float too large for page by 0.0069pt on input line 76.
+
+
+Overfull \hbox (40.49007pt too wide) in paragraph at lines 150--151
+[] 
+ []
+
+
+LaTeX Warning: Float too large for page by 0.0069pt on input line 151.
+
+
+LaTeX Warning: Float too large for page by 0.02698pt on input line 227.
+
+
+LaTeX Warning: Float too large for page by 0.0069pt on input line 303.
+
+
+LaTeX Warning: Float too large for page by 0.0069pt on input line 380.
+
+
+Overfull \hbox (40.49007pt too wide) in paragraph at lines 455--456
+[] 
+ []
+
+
+LaTeX Warning: Float too large for page by 0.0069pt on input line 456.
+
+) [53
+
+] [54] [55] [56] [57] [58] [59] (Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 21450 strings out of 493698
- 415866 string characters out of 3144415
- 571820 words of memory out of 3000000
- 24226 multiletter control sequences out of 15000+200000
+ 30227 strings out of 493698
+ 711930 string characters out of 3144415
+ 1197626 words of memory out of 3000000
+ 32883 multiletter control sequences out of 15000+200000
  15297 words of font info for 56 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 55i,16n,75p,1779b,1041s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/euler/eusm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (53 pages, 381626 bytes).
+ 55i,16n,84p,1779b,1051s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+ex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Thesis.pdf (59 pages, 404386 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
+ 271 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

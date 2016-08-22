@@ -27,3 +27,4 @@ The subsumption check that is included in the multi-core explicit-state back-end
 
 \subsection{Checking Properties}
 The model-checker that we have created is only suited for state-space generation. It is not suited for property checking. One extra function is needed to use the \ltsmin{} mu-calculus checker, which can also check CTL* formulas. The DDD library needs to be extended with a relprev function, which returns the predecessors given a set of states and a relation. This will only result in a discrete model-checker. \ltsmin{} is not suited for timing properties. Some timing properties can be checked by extending the model with an extra automaton.
+

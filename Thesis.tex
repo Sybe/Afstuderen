@@ -25,6 +25,8 @@
 \bytefieldsetup{boxformatting={\centering\footnotesize}}
 \usepackage[mathcal]{euscript}
 \usepackage{mathtools}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
 
 \usepackage{graphicx,epstopdf}
 \epstopdfsetup{update}
@@ -85,7 +87,7 @@
 \input{Notes}
 
 \clearpage
-\section{Benchmarks}
+\section{Experiments}
 \input{Benchmarks}
 
 \clearpage
@@ -107,4 +109,10 @@
 \clearpage
 \bibliography{references}{}
 \bibliographystyle{plain}
+
+\clearpage
+\appendix
+\section{Experiment Results}
+\label{app:results}
+\input{ExperimentResults}
 \end{document}
