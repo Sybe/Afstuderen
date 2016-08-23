@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  22 AUG 2016 16:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  23 AUG 2016 16:28
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -1203,25 +1203,24 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[26]) [27] [28] [29] [30] (Notes.tex
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+[26] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
 [] $\OML/cmm/m/it/10.95 s[] \OT1/cmr/m/n/10.95 :=$
  []
 
-[31
+[28] [29]) [30] [31] [32] (Benchmarks.tex [33
 
-] [32]) [33] (Benchmarks.tex [34
+]) [34] [35] (Results.tex [36
 
-]) [35] [36] (Results.tex [37
-
-] [38]
+]
+[37]
 
 LaTeX Warning: Float too large for page by 20.04277pt on input line 142.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [39] [40] (Different_Semantics.tex
+) [38] [39] (Different_Semantics.tex
 Overfull \hbox (55.937pt too wide) in paragraph at lines 10--16
 []$\U/eus/m/n/10.95 V\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 v\OT1/cmr/m/n/10.
 95 ]] [] []$ 
@@ -1233,14 +1232,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[41
+[40
 
-] [42] [43]) [44] (FutureWork.tex [45
+] [41] [42]) [43] (FutureWork.tex [44
 
-] [46] [47]) [48] (Conclusions.tex)
-[49
+] [45] [46]) [47] (Conclusions.tex)
+[48
 
-] (Thesis.bbl [50
+] (Thesis.bbl [49
 
 ]
 Missing character: There is no Ã in font cmr10!
@@ -1249,11 +1248,11 @@ Missing character: There is no Å in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [51]
+ [50]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [52]) [53] (ExperimentResults.tex
+ [51]) [52] (ExperimentResults.tex
 Overfull \hbox (85.45566pt too wide) in paragraph at lines 75--76
 [] 
  []
@@ -1286,13 +1285,13 @@ Overfull \hbox (40.49007pt too wide) in paragraph at lines 455--456
 
 LaTeX Warning: Float too large for page by 0.0069pt on input line 456.
 
-) [54
+) [53
 
-] [55] [56] [57] [58] [59] [60] (Thesis.aux) ) 
+] [54] [55] [56] [57] [58] [59] (Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 30229 strings out of 493698
- 711966 string characters out of 3144415
- 1197626 words of memory out of 3000000
+ 30226 strings out of 493698
+ 711943 string characters out of 3144415
+ 1198626 words of memory out of 3000000
  32885 multiletter control sequences out of 15000+200000
  15297 words of font info for 56 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -1315,9 +1314,9 @@ ts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (60 pages, 408581 bytes).
+Output written on Thesis.pdf (59 pages, 409320 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
+ 271 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -20,34 +20,33 @@
 \contentsline {subsection}{\numberline {4.9}Relation}{26}
 \contentsline {subsection}{\numberline {4.10}BFS}{27}
 \contentsline {subsection}{\numberline {4.11}State-space count}{28}
-\contentsline {section}{\numberline {5}Notes}{31}
-\contentsline {subsection}{\numberline {5.1}Successor Generator}{31}
-\contentsline {subsection}{\numberline {5.2}Time Extrapolation}{31}
-\contentsline {subsection}{\numberline {5.3}Animo Models}{31}
-\contentsline {subsection}{\numberline {5.4}Correctness}{33}
-\contentsline {section}{\numberline {6}Experiments}{34}
-\contentsline {subsection}{\numberline {6.1}Viking}{34}
-\contentsline {subsection}{\numberline {6.2}Fischer}{34}
-\contentsline {subsection}{\numberline {6.3}CSMA-CD}{35}
-\contentsline {subsection}{\numberline {6.4}Animo}{35}
-\contentsline {subsection}{\numberline {6.5}Lynch-Shavit}{35}
-\contentsline {subsection}{\numberline {6.6}Milner}{35}
-\contentsline {subsection}{\numberline {6.7}Other models}{35}
-\contentsline {subsection}{\numberline {6.8}Benchmark Runs}{36}
-\contentsline {section}{\numberline {7}Results}{37}
-\contentsline {subsection}{\numberline {7.1}Time}{37}
-\contentsline {subsection}{\numberline {7.2}Memory}{38}
-\contentsline {section}{\numberline {8}Different Semantics}{41}
-\contentsline {subsection}{\numberline {8.1}DBM Translation}{41}
-\contentsline {subsection}{\numberline {8.2}Minus}{43}
-\contentsline {section}{\numberline {9}Future Work}{45}
-\contentsline {subsection}{\numberline {9.1}Canonization}{45}
-\contentsline {subsection}{\numberline {9.2}Reordering}{45}
-\contentsline {subsection}{\numberline {9.3}Sparser Dependency Matrix}{46}
-\contentsline {subsection}{\numberline {9.4}Multi-Core}{46}
-\contentsline {subsection}{\numberline {9.5}Animo Model Compatibility}{47}
-\contentsline {subsection}{\numberline {9.6}Subsumption}{47}
-\contentsline {subsection}{\numberline {9.7}Checking Properties}{47}
-\contentsline {subsection}{\numberline {9.8}Skipping Levels}{48}
-\contentsline {section}{\numberline {10}Conclusions}{49}
-\contentsline {section}{\numberline {A}Experiment Results}{54}
+\contentsline {subsection}{\numberline {4.12}Successor Generator}{28}
+\contentsline {subsection}{\numberline {4.13}Time Extrapolation}{30}
+\contentsline {subsection}{\numberline {4.14}Animo Models}{30}
+\contentsline {subsection}{\numberline {4.15}Correctness}{30}
+\contentsline {section}{\numberline {5}Experiments}{33}
+\contentsline {subsection}{\numberline {5.1}Viking}{33}
+\contentsline {subsection}{\numberline {5.2}Fischer}{33}
+\contentsline {subsection}{\numberline {5.3}CSMA-CD}{34}
+\contentsline {subsection}{\numberline {5.4}Animo}{34}
+\contentsline {subsection}{\numberline {5.5}Lynch-Shavit}{34}
+\contentsline {subsection}{\numberline {5.6}Milner}{34}
+\contentsline {subsection}{\numberline {5.7}Other models}{34}
+\contentsline {subsection}{\numberline {5.8}Benchmark Runs}{35}
+\contentsline {section}{\numberline {6}Results}{36}
+\contentsline {subsection}{\numberline {6.1}Time}{36}
+\contentsline {subsection}{\numberline {6.2}Memory}{37}
+\contentsline {section}{\numberline {7}Different Semantics}{40}
+\contentsline {subsection}{\numberline {7.1}DBM Translation}{40}
+\contentsline {subsection}{\numberline {7.2}Minus}{42}
+\contentsline {section}{\numberline {8}Future Work}{44}
+\contentsline {subsection}{\numberline {8.1}Canonization}{44}
+\contentsline {subsection}{\numberline {8.2}Reordering}{44}
+\contentsline {subsection}{\numberline {8.3}Sparser Dependency Matrix}{45}
+\contentsline {subsection}{\numberline {8.4}Multi-Core}{46}
+\contentsline {subsection}{\numberline {8.5}Animo Model Compatibility}{46}
+\contentsline {subsection}{\numberline {8.6}Subsumption}{46}
+\contentsline {subsection}{\numberline {8.7}Checking Properties}{47}
+\contentsline {subsection}{\numberline {8.8}Skipping Levels}{47}
+\contentsline {section}{\numberline {9}Conclusions}{48}
+\contentsline {section}{\numberline {A}Experiment Results}{53}

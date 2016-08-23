@@ -7,7 +7,7 @@ One of the reasons we found was the high number of next-state calls. This is muc
 
 Another problem seems to be the flattening of the DBM. This is an extra action that has to be executed in each next-state call, compared to the multi-core tool. This flattening is not a really expensive operation, it is only copying values, but it has to be executed a lot of times. For the DDD approach it is also necessary to close each DBM, as the DDD structure does not guarantee this. This is a more expensive operation and will also be executed in each next-state call. We implemented this in the language module, this closing is used for all experiments, so also for the experiments where it is not explicitly needed. This will also explain why the explicit state tool with subsumption is in most cases faster than the explicit state tool with flattened DBMs and without subsumption, even for models where subsumption will not have a real role, like the Viking models.
 
-The last problem we see are the large state-vectors. This is mostly due to the quadratic size of the DBMs. For each of these variables a DDD level is created. As we have shown earlier, in some cases a lot of these levels will not have any impact on the zone represented. We can exploit this a little by setting these nodes to $(<,\infty)$, but the time-expensive function that does this has too much of an impact on the timing results. The diagram could make much more use of this by skipping levels. This is not possible in our implementation as we only implicitly store the level of each node by its depth. 
+The last problem we see are the large state-vectors. This is mostly due to the quadratic size of the DBMs. For each of these variables a DDD level is created. As we have shown earlier, in some cases a lot of these levels will not have any impact on the zone represented. We can exploit this a little by setting these nodes to $(\infty,<)$, but the time-expensive function that does this has too much of an impact on the timing results. The diagram could make much more use of this by skipping levels. This is not possible in our implementation as we only implicitly store the level of each node by its depth. 
 
 \begin{table}
 
@@ -140,4 +140,6 @@ There is a difference between the number of nodes for the normal BFS and the BFS
 \caption{Minus fragmentation}
 \label{fig:fragmentation}
 \end{figure}
+
+The DBM reduction does not give the results we aimed for. For most models exploration is faster without the reduction. This is due to the expensive algorithm that the reduction is. Also the reduction of the number of nodes is not what we hoped for. Most models get more nodes when the reduction is turned on. The reduction can however still become usefull if we go to a canonical DDD representation. 
 
