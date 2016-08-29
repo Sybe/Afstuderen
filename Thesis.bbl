@@ -10,6 +10,13 @@ Rajeev Alur and David~L. Dill.
 \newblock A theory of timed automata.
 \newblock {\em Theoretical Computer Science}, 126(2):183 -- 235, 1994.
 
+\bibitem{bbdlpw-ftrtft02}
+Gerd Behrmann, Johan Bengtsson, Alexandre David, Kim~G. Larsen, Paul
+  Pettersson, and Wang Yi.
+\newblock {\sc Uppaal} implementation secrets.
+\newblock In {\em Proc.\ of 7{\em th} International Symposium on Formal
+  Techniques in Real-Time and Fault Tolerant Systems}, 2002.
+
 \bibitem{Behrmann2004}
 Gerd Behrmann, Patricia Bouyer, Kim~G. Larsen, and Radek Pel{\'a}nek.
 \newblock {\em Lower and Upper Bounds in Zone Based Abstractions of Timed
