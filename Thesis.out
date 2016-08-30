@@ -1,0 +1,60 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Preliminaries}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Timed Automata}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Zones}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Zone subsumption}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Binary Decision Diagram}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Related Work}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Methods}{section.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Clock Difference Diagram}{subsection.3.1}% 9
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Difference Decision Diagram}{subsection.3.1}% 10
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Clock Restriction Diagram}{subsection.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Constraint Matrix Diagram}{section.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Zone BDD}{subsection.3.2}% 13
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Digitization}{subsection.3.2}% 14
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Orderings}{subsection.3.2}% 15
+\BOOKMARK [2][-]{subsection.3.3}{LTSmin}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.4}{Difference Decision Diagrams}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.5}{List Decision Diagram}{section.3}% 18
+\BOOKMARK [1][-]{section.4}{Implementation}{}% 19
+\BOOKMARK [2][-]{subsection.4.1}{Flattening DBM}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.2}{Dependency Matrices}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.3}{DBM reduction}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.4}{Connecting LDD and DDD}{section.4}% 23
+\BOOKMARK [2][-]{subsection.4.5}{DDD nodes}{section.4}% 24
+\BOOKMARK [2][-]{subsection.4.6}{Creating Nodes}{section.4}% 25
+\BOOKMARK [2][-]{subsection.4.7}{Apply}{section.4}% 26
+\BOOKMARK [2][-]{subsection.4.8}{Minus}{section.4}% 27
+\BOOKMARK [2][-]{subsection.4.9}{Relation}{section.4}% 28
+\BOOKMARK [2][-]{subsection.4.10}{BFS}{section.4}% 29
+\BOOKMARK [2][-]{subsection.4.11}{State-space count}{section.4}% 30
+\BOOKMARK [2][-]{subsection.4.12}{Successor Generator}{section.4}% 31
+\BOOKMARK [2][-]{subsection.4.13}{Time Extrapolation}{section.4}% 32
+\BOOKMARK [2][-]{subsection.4.14}{Animo Models}{section.4}% 33
+\BOOKMARK [2][-]{subsection.4.15}{Correctness}{section.4}% 34
+\BOOKMARK [1][-]{section.5}{Experiments}{}% 35
+\BOOKMARK [2][-]{subsection.5.1}{Viking}{section.5}% 36
+\BOOKMARK [2][-]{subsection.5.2}{Fischer}{section.5}% 37
+\BOOKMARK [2][-]{subsection.5.3}{CSMA-CD}{section.5}% 38
+\BOOKMARK [2][-]{subsection.5.4}{Animo}{section.5}% 39
+\BOOKMARK [2][-]{subsection.5.5}{Lynch-Shavit}{section.5}% 40
+\BOOKMARK [2][-]{subsection.5.6}{Milner}{section.5}% 41
+\BOOKMARK [2][-]{subsection.5.7}{Other models}{section.5}% 42
+\BOOKMARK [2][-]{subsection.5.8}{Benchmark Runs}{section.5}% 43
+\BOOKMARK [1][-]{section.6}{Results}{}% 44
+\BOOKMARK [2][-]{subsection.6.1}{Time}{section.6}% 45
+\BOOKMARK [2][-]{subsection.6.2}{Memory}{section.6}% 46
+\BOOKMARK [1][-]{section.7}{Different Semantics}{}% 47
+\BOOKMARK [2][-]{subsection.7.1}{DBM Translation}{section.7}% 48
+\BOOKMARK [2][-]{subsection.7.2}{Minus}{section.7}% 49
+\BOOKMARK [1][-]{section.8}{Future Work}{}% 50
+\BOOKMARK [2][-]{subsection.8.1}{Canonization}{section.8}% 51
+\BOOKMARK [2][-]{subsection.8.2}{Reordering}{section.8}% 52
+\BOOKMARK [2][-]{subsection.8.3}{Sparser Dependency Matrix}{section.8}% 53
+\BOOKMARK [2][-]{subsection.8.4}{Multi-Core}{section.8}% 54
+\BOOKMARK [2][-]{subsection.8.5}{Animo Model Compatibility}{section.8}% 55
+\BOOKMARK [2][-]{subsection.8.6}{Subsumption}{section.8}% 56
+\BOOKMARK [2][-]{subsection.8.7}{Checking Properties}{section.8}% 57
+\BOOKMARK [2][-]{subsection.8.8}{Skipping Levels}{section.8}% 58
+\BOOKMARK [1][-]{section.9}{Conclusions}{}% 59
+\BOOKMARK [1][-]{appendix.A}{Experiment Results}{}% 60
