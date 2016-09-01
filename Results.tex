@@ -11,9 +11,9 @@ The last problem we see are the large state-vectors. This is mostly due to the q
 
 \begin{table}
 
-    \begin{tabular}{|l|l|l|l|l|l|}
+    \begin{tabular}{|l|r|r|r|r|r|}
     \hline
-                       & DDD   & LDD   & mc-flattened & mc-original & uppaal \\ \hline
+                       & \multicolumn{1}{l|}{DDD}   & \multicolumn{1}{l|}{LDD}   & \multicolumn{1}{l|}{mc-flattened} & \multicolumn{1}{l|}{mc-original} & \multicolumn{1}{l|}{uppaal} \\ \hline
     fischer6           & 481.9 & 48.3  & 19.2         & 0.4         & 0.0    \\
     critRegion4        & 56.3  & 39.5  & 24.3         & 0.5         & 0.1    \\
     Critical\_04-25-50 & TO    & TO    & 1.1          & 0.9         & 0.6    \\
@@ -32,9 +32,9 @@ The last problem we see are the large state-vectors. This is mostly due to the q
 
 \begin{table}
 
-    \begin{tabular}{|l|l|l|}
+    \begin{tabular}{|l|r|r|}
     \hline
-                       & DDD   & LDD    \\ \hline
+                       & \multicolumn{1}{l|}{DDD}   & \multicolumn{1}{l|}{LDD}    \\ \hline
     fischer6           & 15156 & 85041  \\
     critRegion4        & 55890 & 100006 \\
     Critical\_03-25-50 & 3291  & 17505  \\
@@ -49,6 +49,27 @@ The last problem we see are the large state-vectors. This is mostly due to the q
     \end{tabular}
 \caption{Node Results}
 \label{tab:node_results}
+\end{table}
+
+\begin{table}
+\rotatebox{90}{
+    \begin{tabular}{|l|l|ll|ll|l|l|l|}
+    \hline
+     Model      & Discrete states & DDD     & ~     & LDD     & ~     & mc-flattened & mc-original & Uppaal \\
+    ~           & ~               & \#nodes & time  & \#nodes & time  & time         & time        & time   \\ \hline
+    fischer6    & ~               & 15156   & 481.9 & 85041   & 48.3  & 19.2         & 0.4         & 0.0    \\
+    critRegion4 & ~               & 55890   & 46.3  & 100006  & 39.5  & 24.3         & 0.5         & 0.1    \\
+    Critical4   & ~               & -       & TO    & -       & TO    & 1.1          & 0.5         & 0.6    \\
+    CSMACD8     & ~               & 96098   & 1.9   & 321001  & 7.3   & 6.9          & 0.5         & 0.1    \\
+    Viking12    & ~               & 342     & 17.6  & 342     & 18.7  & 10.4         & 0.7         & 1.0    \\
+    Lynch5      & ~               & 49430   & 34.2  & 112397  & 120.0 & 50.0         & 0.3         & 0.0    \\
+    bocdp       & ~               & 487     & 0.1   & 355     & 0.2   & 0.2          & 0.0         & 0.2    \\
+    bocdpFIXED  & ~               & 488     & 0.2   & 427     & 0.2   & 0.1          & 0.0         & 0.3    \\
+    bando       & ~               & 488     & 0.2   & 425     & 0.2   & 0.1          & 0.0         & 0.3    \\
+    Milner8     & ~               & 11012   & 0.4   & 30887   & 1.2   & 1.4          & 0.1         & 0.0    \\
+    hddi10      & ~               & -       & TO    & 454246  & 93.3  & 43.1         & 0.0         & 0.0    \\ \hline
+    \end{tabular}
+    }
 \end{table}
 
 \subsection{Memory}

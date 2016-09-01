@@ -68,6 +68,11 @@ Stefan {Blom} and Jaco van~de {Pol}.
   Computer Science}, pages 81--95, Berlin, Germany, August 2008. Springer
   Verlag.
 
+\bibitem{Bryant:1986:GAB:6432.6433}
+Randal~E. Bryant.
+\newblock Graph-based algorithms for boolean function manipulation.
+\newblock {\em IEEE Trans. Comput.}, 35(8):677--691, August 1986.
+
 \bibitem{1676819}
 R.E. Bryant.
 \newblock Graph-based algorithms for boolean function manipulation.

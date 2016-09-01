@@ -1,4 +1,4 @@
-Below we describe the different models we used to run the benchmarks. We tried to find models that scale up for a number of nodes or processes, so that we can also check the behaviour of our approaches for different sizes of the same model. In this section we use the terminology 'locations' and other 'discrete variables'. The definition of timed automata does not have this difference, but we use it to describe models, because the time extrapolation is dependent on locations, and not on the other discrete variables. This dependency fills a large part of the dependency matrices. In this section, a location is a location in the \uppaal{} transition system editor, the other discrete variables are declared in the C-like syntax that \uppaal{} uses.
+Below we describe the different models we used to run the benchmarks. We tried to find models that scale up for a number of nodes or processes, so that we can also check the behaviour of our approaches for different sizes of the same model. We summarized the number of nodes and clocks in Table \ref{tab:experiments-variables}
 
 \subsection{Viking}
 The set of Viking tests, models the classical Viking and bridge problem. It models 4 Vikings at a dark bridge, they only carry one torch. The torch is only strong enough to give light for 2 Vikings. All Vikings have different walking speeds, a faster Viking will have to adapt to a slower one, when crossing the bridge together. The walking speed of the Vikings is modelled by time constraints on the action of letting go of the torch. The model has a low number of discrete variables, one per Viking, one for the torch and an indicator for the side of the bridge on which the torch is. It has a global clock and a clock per Viking. The standard version of this problem has 4 Vikings. This can however be generalized to $n$ Vikings.
@@ -28,6 +28,22 @@ Milners scheduler~\cite{Milner:1989:CC:534666} is modelled for a number of nodes
 
 \subsection{Other models}
 We also used some models that we could not scale up enough due to memory/time limitations, or that could not scale up due to the nature of the model. We will not describe those models into detail. These models were the critRegion, Critical, bocdp(-fixed)~\cite{641264}, bando and timelock model.
+
+\begin{table}
+\label{tab:experiments-variables}
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+     Model  & Parameters  & Components & Clocks & Discrete variables \\ \hline
+    Viking  & n vikings   & n + 1      & n + 1  & n + 2              \\
+    Fischer & n processes & n          & n      & 2n+2               \\
+    CSMA-CD & n stations  & n + 1      & n + 1  & n + 2              \\
+    Animo   & n nodes     & n          & n + 1  & 9n + 7             \\
+    Lynch   & n processes & n          & n      & 2n + 3             \\
+    Milner  & n processes & n + 1      & 2n + 1 & n + 1              \\
+    HDDI    & n stations  & n + 1      & 3n + 1 & n + 1              \\ \hline
+    \end{tabular}
+\caption{Experiment models}
+\end{table}
 
 \subsection{Benchmark Runs}
 We ran benchmarks with the different solutions we described to compare them to each other. The DDD solution has been ran with the two BFS-prev algorithms as explained in Section \ref{subsection:bfs}; we also used the BFS algorithm from \ltsmin{}. For the LDD solution we only used the original BFS-prev algorithm. We ran this without reordering and with some of the reordering algorithms that \ltsmin{} provides. We used the options gsa, rb4w, cw, rs,rn, rs,ru. These results are compared to the explicit-state multi-core \ltsmin{} and the original \uppaal{}. All experiments have been done with and without the DBM reduction, described in Section \ref{subsection:dbm_reduction}. All solutions are ran with one thread. The LDD and explicit-state multi-core solutions can be ran with multiple treads. The DDD solution does not support this, so for comparison reasons all methods are used in single-core mode. We also used the new language module with flattened DBMs in combination with the explicit-state multi-core tool.
