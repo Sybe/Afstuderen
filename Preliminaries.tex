@@ -91,10 +91,46 @@ In model checking an important function is to check if a certain state has been 
 
 \subsection{Binary Decision Diagram}
 We shortly introduce binary decision diagrams(BDDs)~\cite{Bryant:1986:GAB:6432.6433}. BDDs are the basis of most symbolic model checking techniques. BDDs are a way to represent boolean functions. All diagrams that we discuss in the rest of this thesis are based on BDDs.
+\begin{figure}[h]
+\centering
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+		\node[smallvertex](S1){$a$};
+		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
+		
+		\node[smallvertex, below of = S1, yshift = -.5cm](S2){$b$};
+		\node[smallvertex, below of = S2, yshift = -.5cm](S3){$c$};
+		\node[smallvertex, below of = S3, yshift = -.5cm](S4){$1$};
+		\node[smallvertex, left of = S4](S5){$0$};
+		
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[dashed,->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};		
+		\draw[->,dashed] (S1) edge[bend right](S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};	
+		\draw[->] (S2) edge[bend left](S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};	
+		\draw[dashed,->] (S3) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
+		[bend left]
+	\end{tikzpicture}
+\caption{A BDD representing $(a \wedge b) \vee c$}
+\label{fig:BDD}
+\end{figure}
+
+
 
 \begin{mydef}[Binary Decision Diagram~\cite{Bryant:1986:GAB:6432.6433}]
-A BDD is a rooted, directed graph with vertex set $V$ containing two types of vertices. A nonterminal vertex $v$ has as attributes an argument index $index(v) \in \{1,...,n\}$, and two children $low(v),high(v) \in V$ A terminal vertex $v$ has as attribute a value $value(v) \in \{0,1\}$
+A BDD is a rooted, directed graph with vertex set $V$ containing two types of vertices. A nonterminal vertex $v$ has as attributes an argument index $index(v) \in \{1,...,n\}$, and two children $low(v),high(v) \in V$. A terminal vertex $v$ has as attribute a value $value(v) \in \{0,1\}$
 \end{mydef}
+
+
 
 \begin{mydef}[BDD Semantics~\cite{Bryant:1986:GAB:6432.6433}]
 A BDD $G$ having root vertex $v$ denotes a function $f_v$ defined recursively as:
@@ -108,3 +144,5 @@ A BDD $G$ having root vertex $v$ denotes a function $f_v$ defined recursively as
 $f_v(x_1,...,x_n) = \overline{x_i}\cdot f_{low(v)}(x_1,...,x_n)+x_i\cdot f_{high(v)}(x_1,...,x_n)$.
 \end{itemize}
 \end{mydef}
+
+The high and low edges of a node are graphically shown as a straight and a dotted line respectively. A BDD can also be reduced and ordered, we will not go into detail on that here. In Figure \ref{fig:BDD} we show a BDD representing the boolean formula $(a \wedge b) \vee c$. For larger diagrams, edges that go directly to the terminal vertex with value $0$ are often omitted for better readability. 

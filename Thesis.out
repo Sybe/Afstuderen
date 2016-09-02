@@ -9,13 +9,13 @@
 \BOOKMARK [3][-]{subsubsection.3.1.1}{Clock Difference Diagram}{subsection.3.1}% 9
 \BOOKMARK [3][-]{subsubsection.3.1.2}{Difference Decision Diagram}{subsection.3.1}% 10
 \BOOKMARK [3][-]{subsubsection.3.1.3}{Clock Restriction Diagram}{subsection.3.1}% 11
-\BOOKMARK [2][-]{subsection.3.2}{Constraint Matrix Diagram}{section.3}% 12
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Zone BDD}{subsection.3.2}% 13
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Digitization}{subsection.3.2}% 14
-\BOOKMARK [3][-]{subsubsection.3.2.3}{Orderings}{subsection.3.2}% 15
-\BOOKMARK [2][-]{subsection.3.3}{LTSmin}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.4}{Difference Decision Diagrams}{section.3}% 17
-\BOOKMARK [2][-]{subsection.3.5}{List Decision Diagram}{section.3}% 18
+\BOOKMARK [3][-]{subsubsection.3.1.4}{Constraint Matrix Diagram}{subsection.3.1}% 12
+\BOOKMARK [3][-]{subsubsection.3.1.5}{Zone BDD}{subsection.3.1}% 13
+\BOOKMARK [3][-]{subsubsection.3.1.6}{Digitization}{subsection.3.1}% 14
+\BOOKMARK [3][-]{subsubsection.3.1.7}{Orderings}{subsection.3.1}% 15
+\BOOKMARK [2][-]{subsection.3.2}{LTSmin}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.3}{Difference Decision Diagrams}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.4}{List Decision Diagram}{section.3}% 18
 \BOOKMARK [1][-]{section.4}{Implementation}{}% 19
 \BOOKMARK [2][-]{subsection.4.1}{Flattening DBM}{section.4}% 20
 \BOOKMARK [2][-]{subsection.4.2}{Dependency Matrices}{section.4}% 21

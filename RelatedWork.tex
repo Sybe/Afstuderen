@@ -3,7 +3,30 @@ In this related work section we will discuss a number of methods used for model 
 \subsection{Methods}
 Already several model checkers for timed automata exist such as \uppaal{}~\cite{UPPAAL}, KRONOS~\cite{kronos}, RABBIT~\cite{CAV03} and RED~\cite{crds}. We focus mainly on the \uppaal{} tool as we use the same input format. Opaal~\cite{opaal}, the language module for \ltsmin{}, uses the XML format that is created by the \uppaal{} tools. This way we can use the \uppaal{} user interface to create and adapt models. We also use the \uppaal{} DBM library to represent zones.
 
-The most established method to represent clock zones are DBMs. We gave an introduction to this structure in the preliminaries section. Several diagrams based on BDDs have been developed to represent zones. All of these are similar to DBMs in the sense that they use clock constraints to represent the zones. The structure of these diagrams is BDD-like to represent the zones more efficiently. Below we shortly describe four zone based methods. For each method we give an example, all examples represent $2 < c_1 - c_2 < 4 \vee 7 \leq c_1 - c_2 \leq 8$.
+The most established method to represent clock zones are DBMs. We gave an introduction to this structure in the preliminaries section. Several diagrams based on BDDs have been developed to represent zones. All of these are similar to DBMs in the sense that they use clock constraints to represent the zones. The structure of these diagrams is BDD-like to represent the zones more efficiently. Below we shortly describe four zone based methods. For each method we give an example, all examples represent $2 < c_1 - c_2 < 4 \vee 7 \leq c_1 - c_2 \leq 8$. This is a non-convex zone, and thus cannot be represented by a single DBM. The representing zone is drawn in Figure \ref{fig:symbolic-example}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.5]
+
+\draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (9.9,9.9);
+\draw[thick,->] (-1.9,0) -- (9.9,0) node[anchor=north west] {$c_1$};
+\draw[thick,->] (0,-1.9) -- (0,9.9) node[anchor=south east] {$c_2$};
+
+\foreach \x in {-1,0,1,2,3,4,5,6,7,8,9}
+    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {-1,0,1,2,3,4,5,6,7,8,9}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+\fill[fill=blue!40!white] (5,-2) -- (10,3) -- (10,2) -- (6,-2) -- (5,-2);
+
+\fill[fill=blue!40!white] (0,-2) -- (2,-2) -- (10,6) -- (10,8) -- (0,-2);
+    
+%\filldraw[fill=blue!40!white, draw=black] (0,0) rectangle (5,5);
+\end{tikzpicture}
+\caption{Zone represented by the examples for all symbolic approaches}
+\label{fig:symbolic-example}
+\end{figure}
 
 \subsubsection{Clock Difference Diagram}
 CDDs~\cite{BRICS19491} use single nodes for each variable and have multiple edges each containing a disjoint interval of that variable. This results in a node with a larger fanout. The upper and lower bound for each pair of clocks are represented in a single node, as the edges represent intervals. Requiring the disjointness of intervals can lead to a memory inefficient representation, as intervals need to be cut in more smaller parts. All algorithms on CDDs do not maintain disjointness, after every step it needs to be re-established. In Figure \ref{fig:cdd-example} we have an example of a CDD.
@@ -41,6 +64,21 @@ A clock difference diaram is defined as a directed, acyclic graph, which has
 
 \subsubsection{Difference Decision Diagram}
 DDDs~\cite{ddds, ddd-datastructure-99} use an upper-bound constraint for a variable pair on each node that can either be true or false. Each node thus has a fixed fanout of two. When a constraint is false, a next node will have another constraint on the same variable. This requires a fixed ordering based on the variables, values and operators. In Figure \ref{fig:ddd-example} an example of a DDD is shown.
+
+\begin{mydef}[Difference Decision Diagram~\cite{ddds}]
+\label{def:DDD}
+A difference decision diagram (DDD) is a directed acyclic graph $(V,E)$. The vertex set $V$ contains two terminals $0$ and $1$ with out-degree zero, and a set of non-terminal vertices with out-degree two and the following attributes.
+\\\\
+\begin{tabular}{lll}
+Attribute                & Type                      & Description                                           \\\hline
+pos(v), neg(v)           & \textbf{Var}              & Positive variable $x_i$, and negative variable $x_j$. \\
+op(v)                    & $\{<$, $\leq\}$     & Operator $<$ or $\leq$.                         \\
+const(v)                 & $\mathbb{D}$              & Constant c.                                           \\
+high(v), low(v)          & $V$                       & High-branch h, and low-branch l.                   
+\end{tabular}
+\captionof*{table}{}  
+The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is a non-terminal vertex.
+\end{mydef}
 
 \begin{figure}[h]
 \begin{center}
@@ -110,7 +148,7 @@ Given a set of variables $V=\{x-x'|x,x'\in X \cup \{0\}\}\cup \{true\}$, an eval
 \label{fig:crd-example}
 \end{figure}
 
-\subsection{Constraint Matrix Diagram}
+\subsubsection{Constraint Matrix Diagram}
 CMDs~\cite{5702245} combine CDDs, CRDs and DBMs into a single structure. This diagram type differs from the others by having multiple constraints per edge, resulting in a diagram with few nodes. Upper- and lower-bounds of multiple clock pairs can be on a single edge. The diagram can also be used with only single constraints per edge, which gives a structure quite similar to CRDs. CMDs do not have a canonical form so only some reductions are proposed. An example of a CMD is given in Figure \ref{fig:cmd-example}. This figure contains two examples, the first is a diagram of the constraint we use in this section. To show the difference with other diagrams we also give a diagram representing the same zone as the DBM in Figure \ref{fig:dbm}.
 \begin{mydef}[Constraint Matrix Diagram~\cite{5702245}]
 A Constraint Matrix Diagram (CMD) over the set of constraint matrices $\mathcal{M}$ is a tuple $M = (Q,q_0,q_\top,$type$,E)$ where
@@ -202,24 +240,7 @@ In Table \ref{table:diagrams} we compare the different types of diagrams we disc
 
 We have discussed several symbolic approaches for representing zones. All of these approaches have benefits and downsides over each other. We chose to develop one of these approaches in \ltsmin{}. We wanted a diagram that can store both discrete states and zones, this can either be done in the diagram, or in a combination of the diagram and BDD or LDD nodes. Also a subsumption check on the diagram should be possible. We chose from the four zone-representing diagrams discussed earlier. The CDD approach was not chosen due to the memory inefficient disjoint intervals and their algorithms not maintaining these disjointness. The CMD approach is too similar to DBMs, on which we already have an approach. The choice between CRD and DDD was between two quite similar diagrams. We have decided to continue on the DDD. It is a diagram form that is closely related to LDDs, for which we already have a library, so we can reuse parts of the LDD library, and it is also quite compatible to the current \pins{} structure and its next-state function, so no big changes are needed to that. %The method still has some loose ends that need research, mostly on the algorithms and efficiently creating a canonical form. No results on the memory usage are available, which is normally the greatest benefit of a symbolic approach, so also on the results side we can extend the current research. 
 
-So DDDs are a diagram type that seems to fit well in the current structure we have, but there is still room for some more research. First we give the definition of a DDD.
-
-\begin{mydef}[Difference Decision Diagram~\cite{ddds}]
-\label{def:DDD}
-A difference decision diagram (DDD) is a directed acyclic graph $(V,E)$. The vertex set $V$ contains two terminals $0$ and $1$ with out-degree zero, and a set of non-terminal vertices with out-degree two and the following attributes.
-\\\\
-\begin{tabular}{lll}
-Attribute                & Type                      & Description                                           \\\hline
-pos(v), neg(v)           & \textbf{Var}              & Positive variable $x_i$, and negative variable $x_j$. \\
-op(v)                    & \{\textless, $\leq\}$     & Operator \textless or $\leq$.                         \\
-const(v)                 & $\mathbb{D}$              & Constant c.                                           \\
-high(v), low(v)          & $V$                       & High-branch h, and low-branch l.                   
-\end{tabular}
-\captionof*{table}{}  
-The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is a non-terminal vertex.
-\end{mydef}
-
-Now we have the definition of the structure. We also give the semantics of this structure. 
+So DDDs are a diagram type that seems to fit well in the current structure we have. We already defined a DDD in the previous subsection. We will now also give the semantics of this structure. 
 
 \begin{mydef}[DDD semantics]
 \label{def:Semantics1}
@@ -452,7 +473,7 @@ DDDs can also be used to represent the discrete variables in automata. This is d
 So far we only found the results of two benchmark tests of DDDs, Milner's scheduler and Fischer's protocol~\cite{Møller200253}. Here the DDD approach has been compared with KRONOS and \uppaal{} which were both slower than the DDD implementation. The results of these benchmarks show no memory usage or number of nodes needed.
 
 \subsection{List Decision Diagram}
-We will introduce the LDD structure here. An LDD is used to represent variables with integer values, not only binary values. In contrast to MDDs this is done for one value per node, resulting in nodes with equal size. We will first define the LDD structure.
+We will introduce the LDD structure here. An LDD is used to represent variables with integer values, not only binary values. In contrast to MDDs\cite{129849}, which have multiple outgoing edges per node, this is done for one value per node, resulting in nodes with equal size. We will first define the LDD structure.
 
 \begin{mydef}[List Decision Diagram]
 \label{def:LDD}

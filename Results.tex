@@ -1,4 +1,4 @@
-In this section we will only give an overview of all experiment results. The complete tables with all results are added in Appendix \ref{app:results}. In Table \ref{tab:time_results} and Table \ref{tab:node_results} we have summarized the results for some of the most interesting models. For the DDD, LDD and mc-flattened column, we give the best result that was found in the different experiment setups. 
+In this section we will only give an overview of all experiment results. The complete tables with all results are added in Appendix \ref{app:results}. In Table \ref{tab:results-summary}  we have summarized the results for some of the most interesting models. For the DDD, LDD and mc-flattened column, we give the best result that was found in the different experiment setups. 
 
 \subsection{Time}
 The timed results show that our symbolic solutions are slower for almost all models, compared to both \uppaal{} and the explicit state multi-core tool. Only for the small bocdp models we have a symbolic solution that is faster than \uppaal{}. 
@@ -9,68 +9,28 @@ Another problem seems to be the flattening of the DBM. This is an extra action t
 
 The last problem we see are the large state-vectors. This is mostly due to the quadratic size of the DBMs. For each of these variables a DDD level is created. As we have shown earlier, in some cases a lot of these levels will not have any impact on the zone represented. We can exploit this a little by setting these nodes to $(\infty,<)$, but the time-expensive function that does this has too much of an impact on the timing results. The diagram could make much more use of this by skipping levels. This is not possible in our implementation as we only implicitly store the level of each node by its depth. 
 
+\begin{landscape}
 \begin{table}
-
-    \begin{tabular}{|l|r|r|r|r|r|}
-    \hline
-                       & \multicolumn{1}{l|}{DDD}   & \multicolumn{1}{l|}{LDD}   & \multicolumn{1}{l|}{mc-flattened} & \multicolumn{1}{l|}{mc-original} & \multicolumn{1}{l|}{uppaal} \\ \hline
-    fischer6           & 481.9 & 48.3  & 19.2         & 0.4         & 0.0    \\
-    critRegion4        & 56.3  & 39.5  & 24.3         & 0.5         & 0.1    \\
-    Critical\_04-25-50 & TO    & TO    & 1.1          & 0.9         & 0.6    \\
-    CSMACD\_08         & 1.9   & 7.3   & 6.9          & 0.5         & 0.1    \\
-    viking12           & 17.6  & 18.7  & 10.4         & 0.7         & 1.0    \\
-    Lynch5-16          & 34.2  & 120.0 & 50.0         & 0.3         & 0.0    \\
-    bocdp              & 0.1   & 0.2   & 0.2          & 0.0         & 0.2    \\
-    bocdpFIXED         & 0.2   & 0.2   & 0.1          & 0.0         & 0.3    \\
-    bando              & 0.2   & 0.2   & 0.1          & 0.0         & 0.3    \\
-    Milner-8Nodes-flat & 0.4   & 1.2   & 1.4          & 0.1         & 0.0    \\
-    hddi\_input\_10    & TO    & 93.3  & 43.1         & 0.0         & 0.0    \\ \hline
-    \end{tabular}
-\caption{Time Results (seconds)}
-\label{tab:time_results}
-\end{table}
-
-\begin{table}
-
-    \begin{tabular}{|l|r|r|}
-    \hline
-                       & \multicolumn{1}{l|}{DDD}   & \multicolumn{1}{l|}{LDD}    \\ \hline
-    fischer6           & 15156 & 85041  \\
-    critRegion4        & 55890 & 100006 \\
-    Critical\_03-25-50 & 3291  & 17505  \\
-    CSMACD\_08         & 36098 & 321001 \\
-    viking12           & 342   & 342    \\
-    Lynch5-16          & 49430 & 112397 \\
-    bocdp              & 487   & 355    \\
-    bocdpFIXED         & 488   & 427    \\
-    bando              & 488   & 425    \\
-    Milner-8Nodes-flat & 11012 & 30883  \\
-    hddi\_input\_10    & TO    & 454246 \\ \hline
-    \end{tabular}
-\caption{Node Results}
-\label{tab:node_results}
-\end{table}
-
-\begin{table}
-\rotatebox{90}{
-    \begin{tabular}{|l|l|ll|ll|l|l|l|}
+    \begin{tabular}{|l|r|rr|rr|r|r|r|}
     \hline
      Model      & Discrete states & DDD     & ~     & LDD     & ~     & mc-flattened & mc-original & Uppaal \\
     ~           & ~               & \#nodes & time  & \#nodes & time  & time         & time        & time   \\ \hline
-    fischer6    & ~               & 15156   & 481.9 & 85041   & 48.3  & 19.2         & 0.4         & 0.0    \\
-    critRegion4 & ~               & 55890   & 46.3  & 100006  & 39.5  & 24.3         & 0.5         & 0.1    \\
-    Critical4   & ~               & -       & TO    & -       & TO    & 1.1          & 0.5         & 0.6    \\
-    CSMACD8     & ~               & 96098   & 1.9   & 321001  & 7.3   & 6.9          & 0.5         & 0.1    \\
-    Viking12    & ~               & 342     & 17.6  & 342     & 18.7  & 10.4         & 0.7         & 1.0    \\
-    Lynch5      & ~               & 49430   & 34.2  & 112397  & 120.0 & 50.0         & 0.3         & 0.0    \\
-    bocdp       & ~               & 487     & 0.1   & 355     & 0.2   & 0.2          & 0.0         & 0.2    \\
-    bocdpFIXED  & ~               & 488     & 0.2   & 427     & 0.2   & 0.1          & 0.0         & 0.3    \\
-    bando       & ~               & 488     & 0.2   & 425     & 0.2   & 0.1          & 0.0         & 0.3    \\
-    Milner8     & ~               & 11012   & 0.4   & 30887   & 1.2   & 1.4          & 0.1         & 0.0    \\
-    hddi10      & ~               & -       & TO    & 454246  & 93.3  & 43.1         & 0.0         & 0.0    \\ \hline
+    fischer6    & 16320           & 15156   & 481.9 & 85041   & 48.3  & 19.2         & 0.4         & 0.0    \\
+    critRegion4 & 6629            & 55890   & 46.3  & 100006  & 39.5  & 24.3         & 0.5         & 0.1    \\
+    Critical4   & -               & -       & TO    & -       & TO    & 1.1          & 0.5         & 0.6    \\
+    CSMACD8     & 10515           & 96098   & 1.9   & 321001  & 7.3   & 6.9          & 0.5         & 0.1    \\
+    Viking12    & 241662          & 342     & 17.6  & 342     & 18.7  & 10.4         & 0.7         & 1.0    \\
+    Lynch5      & 228579          & 49430   & 34.2  & 112397  & 120.0 & 50.0         & 0.3         & 0.0    \\
+    bocdp       & 33              & 487     & 0.1   & 355     & 0.2   & 0.2          & 0.0         & 0.2    \\
+    bocdpFIXED  & 33              & 488     & 0.2   & 427     & 0.2   & 0.1          & 0.0         & 0.3    \\
+    bando       & 33              & 488     & 0.2   & 425     & 0.2   & 0.1          & 0.0         & 0.3    \\
+    Milner8     & 128             & 11012   & 0.4   & 30887   & 1.2   & 1.4          & 0.1         & 0.0    \\
+    hddi10      & 86              & -       & TO    & 454246  & 93.3  & 43.1         & 0.0         & 0.0    \\ \hline
     \end{tabular}
-    }
+\caption{Summarized table of results with number of discrete states, nodes and time in seconds}
+\label{tab:results-summary}
 \end{table}
+\end{landscape}
 
 \subsection{Memory}
 We have not measured memory usage. A good symbolic solution will use a lot of memory for caching when it is available. Comparing this to other solutions which use less caching will not be representative. We do compare the number of nodes between the different solutions. 
