@@ -12,10 +12,10 @@
 \contentsline {subsubsection}{\numberline {3.1.4}Constraint Matrix Diagram}{12}{subsubsection.3.1.4}
 \contentsline {subsubsection}{\numberline {3.1.5}Zone BDD}{13}{subsubsection.3.1.5}
 \contentsline {subsubsection}{\numberline {3.1.6}Digitization}{13}{subsubsection.3.1.6}
-\contentsline {subsubsection}{\numberline {3.1.7}Orderings}{13}{subsubsection.3.1.7}
+\contentsline {subsubsection}{\numberline {3.1.7}Orderings}{15}{subsubsection.3.1.7}
 \contentsline {subsection}{\numberline {3.2}LTSmin}{15}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{16}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}List Decision Diagram}{20}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.4}List Decision Diagram}{21}{subsection.3.4}
 \contentsline {section}{\numberline {4}Implementation}{22}{section.4}
 \contentsline {subsection}{\numberline {4.1}Flattening DBM}{22}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Dependency Matrices}{22}{subsection.4.2}
