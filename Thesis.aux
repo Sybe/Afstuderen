@@ -126,44 +126,37 @@
 \newlabel{def:LDD}{{22}{21}{List Decision Diagram}{mydef.22}{}}
 \citation{eemcs21972}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Implementation}{22}{section.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Flattening DBM}{22}{subsection.4.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Dependency Matrices}{22}{subsection.4.2}}
-\newlabel{subsec:matrices}{{4.2}{22}{Dependency Matrices}{subsection.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Language module}{22}{subsection.4.1}}
+\newlabel{subsec:matrices}{{4.1}{22}{Language module}{subsection.4.1}{}}
 \citation{bengtsson2002clocks}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}DBM reduction}{23}{subsection.4.3}}
-\newlabel{subsection:dbm_reduction}{{4.3}{23}{DBM reduction}{subsection.4.3}{}}
+\newlabel{subsection:dbm_reduction}{{4.1}{23}{Language module}{subsection.4.1}{}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Reduce\relax }}{23}{algorithm.1}}
 \newlabel{alg:Reduce}{{1}{23}{Reduce\relax }{algorithm.1}{}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Reduce\relax }}{24}{algorithm.2}}
 \newlabel{alg:ReduceZero}{{2}{24}{Reduce\relax }{algorithm.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Connecting LDD and DDD}{25}{subsection.4.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}DDD nodes}{25}{subsection.4.5}}
 \citation{ddds}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces In memory representation of DDD node\relax }}{26}{figure.caption.14}}
-\newlabel{fig:ddd-node}{{12}{26}{In memory representation of DDD node\relax }{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Creating Nodes}{26}{subsection.4.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces In memory representation of DDD node\relax }}{25}{figure.caption.14}}
+\newlabel{fig:ddd-node}{{12}{25}{In memory representation of DDD node\relax }{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}DDD implementation}{25}{subsection.4.2}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces MK\relax }}{26}{algorithm.3}}
 \newlabel{alg:MK}{{3}{26}{MK\relax }{algorithm.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Apply}{26}{subsection.4.7}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Apply\relax }}{27}{algorithm.4}}
 \newlabel{alg:apply}{{4}{27}{Apply\relax }{algorithm.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Minus}{27}{subsection.4.8}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces Union\relax }}{28}{algorithm.5}}
 \newlabel{alg:union}{{5}{28}{Union\relax }{algorithm.5}{}}
 \citation{rwcmatrices}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.9}Relation}{29}{subsection.4.9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.10}BFS}{30}{subsection.4.10}}
-\newlabel{subsection:bfs}{{4.10}{30}{BFS}{subsection.4.10}{}}
+\citation{eemcs21972}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}BFS}{30}{subsection.4.3}}
+\newlabel{subsection:bfs}{{4.3}{30}{BFS}{subsection.4.3}{}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {6}{\ignorespaces BFS\relax }}{30}{algorithm.6}}
 \newlabel{alg:bfs-orig}{{6}{30}{BFS\relax }{algorithm.6}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {7}{\ignorespaces BFS\relax }}{30}{algorithm.7}}
-\newlabel{alg:bfs-check}{{7}{30}{BFS\relax }{algorithm.7}{}}
-\citation{eemcs21972}
 \citation{Behrmann2004}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {7}{\ignorespaces BFS\relax }}{31}{algorithm.7}}
+\newlabel{alg:bfs-check}{{7}{31}{BFS\relax }{algorithm.7}{}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {8}{\ignorespaces BFS\relax }}{31}{algorithm.8}}
 \newlabel{alg:bfs-no-minus}{{8}{31}{BFS\relax }{algorithm.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.11}State-space count}{31}{subsection.4.11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.12}Successor Generator}{31}{subsection.4.12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Successor Generator}{31}{subsection.4.4}}
+\newlabel{subsec:extrapolation}{{4.4}{31}{Successor Generator}{algorithm.9}{}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {9}{\ignorespaces Next-State\relax }}{32}{algorithm.9}}
 \newlabel{alg:successor-gen}{{9}{32}{Next-State\relax }{algorithm.9}{}}
 \newlabel{lst:line:alllocs}{{5}{32}{Next-State\relax }{algorithm.9}{}}
@@ -171,16 +164,16 @@
 \newlabel{lst:line:empty1}{{8}{32}{Next-State\relax }{algorithm.9}{}}
 \newlabel{lst:line:normaltrans}{{9}{32}{Next-State\relax }{algorithm.9}{}}
 \newlabel{lst:line:empty2}{{13}{32}{Next-State\relax }{algorithm.9}{}}
+\newlabel{lst:line:extrap1}{{14}{32}{Next-State\relax }{algorithm.9}{}}
 \newlabel{lst:line:endnormaltrans}{{18}{32}{Next-State\relax }{algorithm.9}{}}
 \newlabel{lst:line:synctrans}{{20}{32}{Next-State\relax }{algorithm.9}{}}
 \newlabel{lst:line:alllocs2}{{21}{32}{Next-State\relax }{algorithm.9}{}}
 \newlabel{lst:line:empty3}{{23}{32}{Next-State\relax }{algorithm.9}{}}
 \newlabel{lst:line:empty4}{{27}{32}{Next-State\relax }{algorithm.9}{}}
+\newlabel{lst:line:extrap2}{{28}{32}{Next-State\relax }{algorithm.9}{}}
 \newlabel{lst:line:endsynctrans}{{32}{32}{Next-State\relax }{algorithm.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.13}Time Extrapolation}{33}{subsection.4.13}}
-\newlabel{subsec:extrapolation}{{4.13}{33}{Time Extrapolation}{subsection.4.13}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.14}Animo Models}{33}{subsection.4.14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.15}Correctness}{33}{subsection.4.15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Animo Models}{33}{subsection.4.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Correctness}{33}{subsection.4.6}}
 \newlabel{fig:minuend_zone}{{13a}{34}{Minuend\relax }{figure.caption.15}{}}
 \newlabel{sub@fig:minuend_zone}{{a}{34}{Minuend\relax }{figure.caption.15}{}}
 \newlabel{fig:subtrahend_zone}{{13b}{34}{Subtrahend\relax }{figure.caption.15}{}}
