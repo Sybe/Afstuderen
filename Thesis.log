@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  5 SEP 2016 11:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  6 SEP 2016 17:00
 entering extended mode
 **Thesis.tex
 (Thesis.tex
@@ -1222,56 +1222,60 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 167--198
 []$[]$ $[]$ 
  []
 
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 208.
-
-
-Overfull \hbox (113.48654pt too wide) in paragraph at lines 212--223
- [][] 
+[13] [14]
+Overfull \hbox (3.71722pt too wide) in paragraph at lines 228--239
+[][] 
  []
 
-[13] [14] (pins.tex)
-Overfull \hbox (68.17549pt too wide) in paragraph at lines 76--232
+[15] (pins.tex)
+Overfull \hbox (68.17549pt too wide) in paragraph at lines 76--252
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--232
+Underfull \hbox (badness 10000) in paragraph at lines 76--252
 
  []
 
-[15]
-Overfull \hbox (55.937pt too wide) in paragraph at lines 251--257
+[16
+
+
+] [17]
+Overfull \hbox (55.937pt too wide) in paragraph at lines 271--277
 []$\U/eus/m/n/10.95 V\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 v\OT1/cmr/m/n/10.
 95 ]] [] []$ 
  []
 
-[16]
-Overfull \hbox (13.70598pt too wide) in paragraph at lines 288--289
+
+Overfull \hbox (13.70598pt too wide) in paragraph at lines 308--309
 [][]\OT1/cmr/bx/n/10.95 Definition 15 \OT1/cmr/m/n/10.95 (Lo-cally Re-duced DDD
  [[]28[]])\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/it/10.95 A lo-cally re-duced DDD (
 $\OML/cmm/m/it/10.95 R[]DDD$\OT1/cmr/m/it/10.95 )
  []
 
-[17]
+[18]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[18] [19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 480--489
+[19] [20] [21]
+Underfull \hbox (badness 10000) in paragraph at lines 551--560
 
  []
 
-) [21] (Implementation.tex [22
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 574--577
+
+ []
+
+) [23] (Implementation.tex [24
 
 ]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 19.
- [23] [24]
+ [25] [26]
 \height=\dimen32767 (local)
 \depth=\dimen32766 (local)
 \totalheight=\dimen32765 (local)
@@ -1292,7 +1296,7 @@ put line 19.
 \depth=\dimen32766 (local)
 \totalheight=\dimen32765 (local)
 \width=\dimen32764 (local)
- [25] [26] [27] [28]
+ [27] [28] [29] [30]
 
 LaTeX Warning: Float too large for page by 20.04277pt on input line 318.
 
@@ -1305,35 +1309,35 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[29] [30]
+[31] [32]
 Underfull \hbox (badness 10000) in paragraph at lines 526--527
 [] $\OML/cmm/m/it/10.95 s[] \OT1/cmr/m/n/10.95 :=$
  []
 
-[31] [32]) [33] [34] [35] (Benchmarks.tex
+[33] [34]) [35] [36] [37] (Benchmarks.tex
 
 Package caption Warning: \label without proper \caption on input line 33.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:experiments-variables' on page 36 undefined on in
+LaTeX Warning: Reference `tab:experiments-variables' on page 38 undefined on in
 put line 1.
 
-[36
+[38
 
-]) [37] [38] (Results.tex [39
+]) [39] [40] (Results.tex [41
 
-] [40] [41]
+] [42] [43]
 
 LaTeX Warning: Float too large for page by 20.04277pt on input line 123.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [42
+) [44
 
 
-] [43] (Different_Semantics.tex
+] [45] (Different_Semantics.tex
 Overfull \hbox (55.937pt too wide) in paragraph at lines 10--16
 []$\U/eus/m/n/10.95 V\OT1/cmr/m/n/10.95 [[\OML/cmm/m/it/10.95 v\OT1/cmr/m/n/10.
 95 ]] [] []$ 
@@ -1345,14 +1349,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[44
+[46
 
-] [45] [46]) [47] (FutureWork.tex [48
+] [47] [48]) [49] (FutureWork.tex [50
 
-] [49] [50]) [51] (Conclusions.tex)
-[52
+] [51] [52]) [53] (Conclusions.tex)
+[54
 
-] (Thesis.bbl [53
+] (Thesis.bbl [55
 
 ]
 Missing character: There is no Ã in font cmr10!
@@ -1361,11 +1365,11 @@ Missing character: There is no Å in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [54]
+ [56]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
- [55]) [56] (ExperimentResults.tex
+ [57]) [58] (ExperimentResults.tex
 Overfull \hbox (85.45566pt too wide) in paragraph at lines 75--76
 [] 
  []
@@ -1398,16 +1402,16 @@ Overfull \hbox (40.49007pt too wide) in paragraph at lines 455--456
 
 LaTeX Warning: Float too large for page by 0.0069pt on input line 456.
 
-) [57
+) [59
 
-] [58] [59] [60] [61] [62] [63]
+] [60] [61] [62] [63] [64] [65]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 120.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
  (Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 120.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 120.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 92AECF2E1220383FB1070FFA9A0F6E57;3205.
+(rerunfilecheck)             Checksum: 6DE3868E8A6D49499AF7BCD24B7A1C3A;3215.
 
 
 LaTeX Warning: There were undefined references.
@@ -1415,10 +1419,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 120.
  ) 
 Here is how much of TeX's memory you used:
- 33978 strings out of 493698
- 768596 string characters out of 3144415
- 1230013 words of memory out of 3000000
- 36386 multiletter control sequences out of 15000+200000
+ 33989 strings out of 493698
+ 768787 string characters out of 3144415
+ 1231126 words of memory out of 3000000
+ 36393 multiletter control sequences out of 15000+200000
  15297 words of font info for 56 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  55i,16n,84p,1850b,1064s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1440,9 +1444,9 @@ c/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/euler/eusm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/sy
 mbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbo
 ls/msbm10.pfb>
-Output written on Thesis.pdf (63 pages, 509742 bytes).
+Output written on Thesis.pdf (65 pages, 514247 bytes).
 PDF statistics:
- 910 PDF objects out of 1000 (max. 8388607)
- 225 named destinations out of 1000 (max. 500000)
+ 923 PDF objects out of 1000 (max. 8388607)
+ 229 named destinations out of 1000 (max. 500000)
  421 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -63,7 +63,7 @@ A clock difference diaram is defined as a directed, acyclic graph, which has
 \end{figure}
 
 \subsubsection{Difference Decision Diagram}
-DDDs~\cite{ddds, ddd-datastructure-99} use an upper-bound clock constraint for a variable pair on each node that can either be true or false. Each node thus has a fixed fanout of two, a true and a false edge. When a constraint is false, a next node will have another constraint on the same variable, a true edge will go down to the next level with constraints over another pair of variables. This requires a fixed ordering based on the variables, values and operators. In Figure \ref{fig:ddd-example} an example of a DDD is shown.
+DDDs~\cite{ddds, ddd-datastructure-99} use an upper-bound clock constraint for a variable pair on each node that can either be true or false. Each node thus has a fixed fanout of two, a true and a false edge. When a constraint is false, a next node will have another constraint on the same variable, a true edge will go down to the next level with constraints over another pair of variables. This requires a fixed ordering based on the variables, values and operators. The apply operator that is defined over DDDs has the same complexity as that over BDDs. In Figure \ref{fig:ddd-example} an example of a DDD is shown.
 
 \begin{mydef}[Difference Decision Diagram~\cite{ddds}]
 \label{def:DDD}
@@ -111,7 +111,7 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 \end{figure}
 
 \subsubsection{Clock Restriction Diagram}
-CRDs~\cite{crds} differ mainly from CDDs by not using disjoint intervals but possibly overlapping upper bounds, for a pair of variables on their edges. This diagram will have a larger fanout per node, like CDDs. Several normal forms for this diagram are proposed, with different performance results. It is also shown that CRDs can be combined with BDDs into a single structure to fully symbolically represent the state space. In Figure \ref{fig:crd-example} we give an example of a CRD.
+CRDs~\cite{crds} differ mainly from CDDs by not using disjoint intervals but possibly overlapping upper bounds, for a pair of variables on their edges. This diagram will have a larger fanout per node, like CDDs. Several normal forms for this diagram are proposed, with different performance results. Results of CRDs have been compared to CDDs. Results were sometimes exponential better, in other cases linear worse than CDDs, this due to the fact that each variable pair needs a node for both their upper and lower bound, where CDDs fit this in a single node. It is also shown that CRDs can be combined with BDDs into a single structure to fully symbolically represent the state space. In Figure \ref{fig:crd-example} we give an example of a CRD.
 \begin{mydef}[Clock Restriction Diagram~\cite{crds}]
 Given a set of variables $V=\{x-x'|x,x'\in X \cup \{0\}\}\cup \{true\}$, an evaluation index $\Omega$ over $V$, and a timing constant $C_A$, a CRD over $V, \Omega$, and $C_A$ is a tuple $D = (v,(\beta_1,D_1),...,(\beta_n,D_n))$ with $n  \geq 0$ and $v \in V$ such that
 \begin{itemize}
@@ -205,27 +205,47 @@ In ~\cite{7098276, 7184781} a method is proposed purely based on BDDs by transla
 \subsubsection{Digitization}
 Digitization approximates the continuous values of clocks by using discrete values~\cite{CHARME01}. The method however only works for closed timed automata, meaning that no strict comparisons on clocks can be made in the model and that clocks only can be compared to integers. This approach is very sensitive to the granularity of the values used and the upper bound of the clock values. When fine granularity or large upper bounds are used, the memory usage will increase too much. An advantage of this approach is that basic model checking approaches can be used and no extra complexity due to zone calculations is added. This method results in a transition system with only discrete variables, so a normal BDD package can be used. In ~\cite{nguyen2012discrete} a similar approach is proposed by using clock tick actions to represent time progress and removing clock variables altogether.
 
-\begin{table}[]
-\centering
+%\begin{table}[]
+%\centering
+%\caption{Comparing Diagrams}
+%\label{table:diagrams}
+%\begin{tabular}{|l|l|l|}
+%\hline
+%Type                                                   & Pro                                                                                                                                                                                                                             & Con                                                                                                                                                                                                                                                          \\ \hline
+%DBM                                                    & \begin{tabular}[c]{@{}l@{}}Canonical form for convex zones\\ Existing library\\ Inclusion check\end{tabular}                                                                                                                    & \begin{tabular}[c]{@{}l@{}}Concave zones need multiple DBMs\\ Not memory efficient\end{tabular}                                                                                                                                                              \\ \hline
+%DDD                                                    & \begin{tabular}[c]{@{}l@{}}Structure like LDD\\ Re-ordering of variables possible\\ Apply same efficiency as BDDs\\ Discrete variables also in DDD\end{tabular}                                                                  & \begin{tabular}[c]{@{}l@{}}Canonicity hard to obtain\\ No on the fly canonicity\\ Expensive normal form computation\\ Only time performance tested\\ Only reduction algorithms\end{tabular}                                                                  \\ \hline
+%CDD                                                    & \begin{tabular}[c]{@{}l@{}}Structure like MDD\\ Inclusion check\\ (intersection of complement)\end{tabular}                                                                                                                     & \begin{tabular}[c]{@{}l@{}}No algorithm to get normal form\\ Only high level algorithms given\\ Methods don't maintain disjointness\\ Expensive normal form computation\\ No implementation results available\\ Disjointness memory inefficient\end{tabular} \\ \hline
+%CRD                                                    & \begin{tabular}[c]{@{}l@{}}Combination with BDD possible\\ Variable reordering shows advantage\\ Library available\\ Some benchmarks exp better than CDD\\ Extensive benchmarks\\ Good performance backwards reach\end{tabular} & \begin{tabular}[c]{@{}l@{}}3 possible canonical forms\\ No algorithms in paper\\ Some benchmarks linear worse than CDD\end{tabular}                                                                                                                          \\ \hline
+%CMD                                                    & Benchmarks against RED and \uppaal{} & \begin{tabular}[c]{@{}l@{}}Results differ per case\\ Needs translation from vector to edges\\ Two reduced forms\end{tabular}                                                                                                                                 \\ \hline
+%\begin{tabular}[c]{@{}l@{}}BDD\\ discrete\end{tabular} & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ Good performance for small clock values\end{tabular}                                                                                                                   & \begin{tabular}[c]{@{}l@{}}Performance decreases fast for large values\\ Not possible with current Opaal \pins{}\\ Introducing additional 'tick' actions\\ Only for closed timed automata\end{tabular}                                                          \\ \hline
+%\begin{tabular}[c]{@{}l@{}}BDD\\ zones\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ All variable reorderings possible\\ Only need direct translation DBM to\\ state vector\\ Easy to implement\end{tabular}                                                & \begin{tabular}[c]{@{}l@{}}Losing zone containment\\ No implementation results\end{tabular}                                                                                                                                                                  \\ \hline
+%\end{tabular}
+%\end{table}
+
+
+\begin{landscape}
+\begin{table}
+    \begin{tabular}{|l|llllllll|}
+    \hline
+                  & Reordering & Subsumption & Experiments & Results & Algorithms & \begin{tabular}[c]{@{}l@{}}Canonical\\form\end{tabular}& Similarity & \begin{tabular}[c]{@{}l@{}}Connect with\\ other diagram\end{tabular} \\ \hline
+    DBM                  & -          & +           & +           & ~       & +          & +              & -          & ?                          \\
+    DDD                  & +          & +           & time only   & +       & +/-        & hard           & LDD        & ?                          \\
+    CDD                  & ?          & +           & -           & -       & +/-        & hard           & MDD        & ?                          \\
+    CRD                  & +          & ?           & +           & +       & -          & 3 options      & MDD        & BDD                        \\
+    CMD                  & -          & ?           & +           & +/-     & ~          & reduced        & -          & ?                          \\
+    BDD discrete         & +          & -           & +           & +/-     & +          & +              & BDD        & BDD                        \\
+    BDD zones            & +          & -           & -           & -       & +          & +              & BDD        & BDD                        \\ \hline
+    \end{tabular}
 \caption{Comparing Diagrams}
 \label{table:diagrams}
-\begin{tabular}{|l|l|l|}
-\hline
-Type                                                   & Pro                                                                                                                                                                                                                             & Con                                                                                                                                                                                                                                                          \\ \hline
-DBM                                                    & \begin{tabular}[c]{@{}l@{}}Canonical form for convex zones\\ Existing library\\ Inclusion check\end{tabular}                                                                                                                    & \begin{tabular}[c]{@{}l@{}}Concave zones need multiple DBMs\\ Not memory efficient\end{tabular}                                                                                                                                                              \\ \hline
-DDD                                                    & \begin{tabular}[c]{@{}l@{}}Structure like LDD\\ Re-ordering of variables possible\\ Apply same efficiency as BDDs\\ Discrete variables also in DDD\end{tabular}                                                                  & \begin{tabular}[c]{@{}l@{}}Canonicity hard to obtain\\ No on the fly canonicity\\ Expensive normal form computation\\ Only time performance tested\\ Only reduction algorithms\end{tabular}                                                                  \\ \hline
-CDD                                                    & \begin{tabular}[c]{@{}l@{}}Structure like MDD\\ Inclusion check\\ (intersection of complement)\end{tabular}                                                                                                                     & \begin{tabular}[c]{@{}l@{}}No algorithm to get normal form\\ Only high level algorithms given\\ Methods don't maintain disjointness\\ Expensive normal form computation\\ No implementation results available\\ Disjointness memory inefficient\end{tabular} \\ \hline
-CRD                                                    & \begin{tabular}[c]{@{}l@{}}Combination with BDD possible\\ Variable reordering shows advantage\\ Library available\\ Some benchmarks exp better than CDD\\ Extensive benchmarks\\ Good performance backwards reach\end{tabular} & \begin{tabular}[c]{@{}l@{}}3 possible canonical forms\\ No algorithms in paper\\ Some benchmarks linear worse than CDD\end{tabular}                                                                                                                          \\ \hline
-CMD                                                    & Benchmarks against RED and \uppaal{} & \begin{tabular}[c]{@{}l@{}}Results differ per case\\ Needs translation from vector to edges\\ Two reduced forms\end{tabular}                                                                                                                                 \\ \hline
-\begin{tabular}[c]{@{}l@{}}BDD\\ discrete\end{tabular} & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ Good performance for small clock values\end{tabular}                                                                                                                   & \begin{tabular}[c]{@{}l@{}}Performance decreases fast for large values\\ Not possible with current Opaal \pins{}\\ Introducing additional 'tick' actions\\ Only for closed timed automata\end{tabular}                                                          \\ \hline
-\begin{tabular}[c]{@{}l@{}}BDD\\ zones\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Using existing BDD packages\\ All variable reorderings possible\\ Only need direct translation DBM to\\ state vector\\ Easy to implement\end{tabular}                                                & \begin{tabular}[c]{@{}l@{}}Losing zone containment\\ No implementation results\end{tabular}                                                                                                                                                                  \\ \hline
-\end{tabular}
 \end{table}
+\end{landscape}
+
 
 \subsubsection{Orderings}
 A known difficulty in BDDs is the variable ordering. A bad ordering can lead to a BDD of exponential size, where a good ordering can sometimes lead to a significantly smaller diagram. Of the zone diagrams named above, only for CRDs experiments with different orderings have been conducted, the other researches assume a given ordering on the variables and the ordering of the values is fixed. The CRD case shows that full interleaving and having related variables close to each other in the ordering is preferable and gives the best results, both on speed and memory. This is the same result as expected with BDDs. This suggests that similar orderings should be used with these techniques. The techniques using normal BDDs can use standard BDD reorderings.
 
-In Table \ref{table:diagrams} we compare the different types of diagrams we discussed above.
+In Table \ref{table:diagrams} we compare the different types of diagrams we discussed above. We used different criteria. The table shows if reorderings are possible, if a subsumption check can be made, if experiments are done with the structure and their results, if canonical forms can be reached and how hard this is, if it is similar to a diagram for discrete variables, and if it can be connected to another type of diagram. The table uses $+$ and $-$ to express if a diagram has a certain property or not, $+/-$ is used for experiments and results if the experiments were limited or the results differ per test case. A $?$ is used when it is not clear if the diagram has a certain property or not. 
 
 \begin{figure}[h] 
 \input{pins}
@@ -473,7 +493,58 @@ DDDs can also be used to represent the discrete variables in automata. This is d
 So far we only found the results of two benchmark tests of DDDs, Milner's scheduler and Fischer's protocol~\cite{Møller200253}. Here the DDD approach has been compared with KRONOS and \uppaal{} which were both slower than the DDD implementation. The results of these benchmarks show no memory usage or number of nodes needed.
 
 \subsection{List Decision Diagram}
-We will introduce the LDD structure here. An LDD is used to represent variables with integer values, not only binary values. In contrast to MDDs\cite{129849}, which have multiple outgoing edges per node, this is done for one value per node, resulting in nodes with equal size. We will first define the LDD structure.
+We will introduce the LDD structure here~\cite{sylvan}. An LDD is used to represent variables with integer values, not only binary values. In contrast to MDDs\cite{129849}, which have multiple outgoing edges per node, this is done for one value per node, resulting in nodes with equal size. We will first define the LDD structure.
+
+\begin{figure}
+\centering
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
+		\node[smallvertex](S1){$a$};
+		\node[smallvertex, below of = S1, yshift = -.5cm](S2){$b$};
+		\node[smallvertex, below of = S2, yshift = -.5cm](S3){$c$};
+		\node[smallvertex, below of = S3, yshift = -.5cm](S4){$d$};
+		\node[smallvertex, below of = S4, yshift = -.5cm](S5){$T$};
+		\node[smallvertex, right of = S2](S6){$b$};
+		\node[smallvertex, right of = S3](S7){$c$};
+		\node[smallvertex, right of = S6](S9){$b$};
+		\node[smallvertex, above of = S9, yshift = .5cm](S8){$a$};
+		\node[smallvertex, below of = S9, yshift = -.5cm](S10){$c$};
+		\node[smallvertex, below of = S10, yshift = -.5cm](S11){$d$};
+		
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
+		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
+		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
+		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
+		\draw[dashed, ->] (S2) --(S6) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S6) --(S7) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$2$};
+		\draw[->] (S7) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=300, xshift =0.4 cm, yshift = -0.2cm]{$3$};
+		\draw[dashed, ->] (S1) --(S8) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S8) --(S9) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$2$};
+		\draw[->] (S9) --(S10) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
+        \draw[->] (S10) --(S11) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$3$};
+		\draw[->] (S11) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=320, xshift =-0.4 cm, yshift = -0.2cm]{$1$};
+
+
+	\end{tikzpicture}
+\caption{LDD representation}
+\label{fig:ldd-example}
+\end{figure}
 
 \begin{mydef}[List Decision Diagram]
 \label{def:LDD}
@@ -490,4 +561,21 @@ high(v), low(v)          & $V$                       & High-branch h, and low-br
 The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is a non-terminal vertex.
 \end{mydef} 
 
-The definition is almost equal to DDDs, Definition \ref{def:DDD}. The difference is the operator that is not in LDDs. LDDs can be seen as a DDD with not a $<$ or $\leq$ as operator, but a $=$. 
+The definition is almost equal to DDDs, Definition \ref{def:DDD}. The difference is the operator that is not in LDDs. LDDs can be seen as a DDD with not a $<$ or $\leq$ as operator, but a $=$. The semantics of this diagram are again similar to those of DDDs, which can be defined using the if-then-else operator. 
+
+
+
+\begin{mydef}[LDD semantics]
+\label{def:LDDSemantics}
+The semantics of a vertex is defined recursively by the function $\mathcal{V}: V \rightarrow \textbf{Exp}:$
+\begin{itemize}
+\item $\mathcal{V}[[0]] \myeq$ false,
+\item $\mathcal{V}[[1]] \myeq$ true,
+\item \begin{math} \mathcal{V}[[v]] \myeq
+(var(v) = const(v)) \rightarrow \mathcal{V}[[high(v)]],\mathcal{V}[[low(v)]]\\
+\end{math}
+\end{itemize}
+\end{mydef}
+
+We give an example of an LDD in Figure \ref{fig:ldd-example} which represents the following values: $\{0,0,0,0\}, \{0,2,3,0\}, \{2,0,3,1\}$, for the vector $\{a,b,c,d\}$.
+
