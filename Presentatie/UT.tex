@@ -1,0 +1,26 @@
+\documentclass[xcolor=pdftex,dvipsnames,table]{UT}
+
+\usepackage{amsthm}
+\usepackage{tikz}
+
+\usetikzlibrary{arrows}
+\newtheorem{mydef}{Definition}
+
+\background{1}	% choose background {1..5}
+\taal{EN} 	%EN or NL
+
+\title{Symbolic Model Checking of Timed Automata using LTSmin}
+\subtitle{Sybe van Hijum}
+\date{\today} 
+
+\begin{document} 
+
+\maketitleslide
+
+%Choose a sideway banner, choose (side1, side2, side3, side4, side5)
+\setbeamertemplate{background}{\includegraphics[width=0.1\paperwidth,height=\paperheight]{img/side5}} 
+
+%includes the acutal text of the files.
+  \include{tex/text}	
+
+\end{document} 

@@ -29,6 +29,7 @@
 \pgfplotsset{compat=1.13}
 \usepackage{hyperref}
 \usepackage{pdflscape}
+\usepackage{kbordermatrix}
 
 \usepackage{graphicx,epstopdf}
 \epstopdfsetup{update}
@@ -48,6 +49,14 @@
 \newcommand{\algorithmicbreak}{\textbf{break}}
 \newcommand{\Break}{\State{\algorithmicbreak}}
 \newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+
+
+\newcolumntype{R}[2]{%
+    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+    l%
+    <{\egroup}%
+}
+\newcommand*\rot{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
 
 
 \begin{document}

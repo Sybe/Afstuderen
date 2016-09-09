@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Timed Automata}{2}{0}{1}
+\beamer@sectionintoc {2}{Symbolic Model Checking}{5}{0}{2}
+\beamer@sectionintoc {3}{LTSmin}{6}{0}{3}
+\beamer@sectionintoc {4}{Working with \LaTeX }{7}{0}{4}
+\beamer@sectionintoc {5}{Second Section}{21}{0}{5}
+\beamer@sectionintoc {6}{Third Section}{23}{0}{6}

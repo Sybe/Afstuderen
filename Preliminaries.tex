@@ -38,12 +38,16 @@ An extended timed automaton is a 6-tuple A = $\langle L, C, Act, l_0, \rightarro
 }
 \end{mydef}
 
-In the rest of this thesis we will not strictly stick to the definition of locations. We use the terminology 'locations' and other 'discrete variables'. Locations are the locations in the \uppaal{} transition system editor, the other discrete variables are declared in the C-like syntax that \uppaal{} uses. With the definition of a timed automaton we can combine a finite number of timed automata to a network of timed automata, which is a parallel composition, to define larger systems. This is a parallel composition that synchronizes on a set of channels $Chan$~\cite{UPPAAL}. $ch!$ and $ch?$ represent the output and input action on the channel $ch \in Chan$.
+With the definition of a timed automaton we can combine a finite number of timed automata to a network of timed automata, which is a parallel composition, to define larger systems. This is a parallel composition that synchronizes on a set of channels $Chan$~\cite{UPPAAL}. $ch!$ and $ch?$ represent the output and input action on the channel $ch \in Chan$.
 
 \begin{mydef}[Network of timed automata~\cite{eemcs21972}]
 \label{def:networkTA}
 Let Act = $\{ch!,ch?|ch \in Chan\} \cup \{\tau\}$ be a finite set of actions, and let C be a finite set of clocks. Then the parallel composition of extended timed automata $A_i = \langle L_i, C, Act, l^i_0, \rightarrow_{i}, I^i_C\rangle$ for all $1 \leq i \leq n$, where $n \in \mathbb{N}$, is a network of timed automata, denoted $A = A_1||A_2||..||A_n$.
 \end{mydef}
+
+In the rest of this thesis we will not strictly stick to the definition of locations. We use the terminology 'locations' and other 'discrete variables'. Locations are the locations in the \uppaal{} transition system editor, the other discrete variables are declared in the C-like syntax that \uppaal{} uses. These discrete variables can also be used in guards and updates on transitions.
+
+\subsubsection{uppaal}
 
 \subsection{Zones}
 For basic transition systems the state space can grow exponentially for the number of variables in the system. The state space of timed automata is by definition infinite, as clocks have real values. If a discrete state is defined between two points in time, an infinite amount of moments in time can happen during that state. Even when some granularity is used, that defines that clocks will only increase with certain step size the automata can still have infinite state space if a clock is unbounded. To tackle this problem most model checkers use a notion of zones for the representation of time. A zone can be seen as a set of clock guards. To represent these zones several data structures have been developed. One of the most common used structures are Difference Bound Matrices (DBMs)~\cite{dbmorig,bengtsson2002clocks}.
@@ -87,7 +91,7 @@ A number of operations on DBMs has been defined. We will introduce the operation
 
 \subsection{Zone subsumption}
 \label{subsec:subsumtion}
-In model checking an important function is to check if a certain state has been visited already earlier. For normal automata this can be done by comparing the newly found state to all states that have already been visited, and check if one of those states is equal to that new state. This is often done by more efficient methods, like hash functions, but the equality check remains. For states with zones this equality check does not suffice. Two zones do not need to be equal, but the newly discovered zone can also be a subset of the earlier discovered zones. In \ltsmin{} this is done by a subsumption check~\cite{eemcs21972} that is performed over the DBMs. This check is delegated to the \uppaal{} DBM library. The function checks if a new zone is a subset of the zone represented by a DBM.
+In model checking an important function is to check if a certain state has been visited already earlier. For normal automata this can be done by comparing the newly found state to all states that have already been visited, and check if one of those states is equal to that new state. This is often done by more efficient methods, like hash functions, but the equality check remains. For states with zones this equality check does not suffice. Two zones do not need to be equal, but the newly discovered zone can also be a subset of the earlier discovered zones. In both \ltsmin{} and \uppaal{} this is done by a subsumption check~\cite{eemcs21972,bbdlpw-ftrtft02} that is performed over the DBMs. This check is delegated to the \uppaal{} DBM library. The function checks if a new zone is a subset of the zone represented by a DBM.
 
 \subsection{Binary Decision Diagram}
 We shortly introduce binary decision diagrams(BDDs)~\cite{Bryant:1986:GAB:6432.6433}. BDDs are the basis of most symbolic model checking techniques. BDDs are a way to represent boolean functions. All diagrams that we discuss in the rest of this thesis are based on BDDs.
