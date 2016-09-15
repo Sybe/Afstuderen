@@ -83,13 +83,80 @@ An extended timed automaton is a 6-tuple A = $\langle L, C, Act, l_0, \rightarro
 \includegraphics[width=\textwidth]{img/TA}
 \end{frame}
 
+\begin{frame}{Time Zones}
+Time not represented as a variable, but as a zone. Most used structure to represent zones: Different Bound Matrix (DBM)
+\begin{itemize}
+	\item Only convex zones
+	\item Memory inefficient
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.25\textwidth]{img/TA}
+\end{center}
+\begin{figure}
+\centering
+	\begin{subfigure}{0.3\textwidth}
+	\centering
+		$0 \leq c < 60$
+		
+		$\Downarrow$		
+		
+		$c - 0 < 60$
+		
+		$0 - c \leq 0 $
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+	\begin{math}
+ \bordermatrix{ 	   & \mathbf{O}    & c         \cr
+ 			\mathbf{O} &(0,\leq)       & (0,\leq)  \cr
+ 			c          &(60,<   )      & (0,\leq)  \cr}
+	\end{math}
+	\end{subfigure}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+	\centering
+	\begin{math}
+% 		\begin{pmatrix}
+ \bordermatrix{ 		                 & \mathbf{O} & c_1           & c_2        \cr
+ 			\mathbf{O} &(0,\leq)      & (0,\leq)      & (0,\leq)     \cr
+ 			c_1        &(5,<)      & (0,\leq)      & (5,<)\cr
+ 			c_2        &(5,<)      & (5,<) & (0,\leq)     \cr}
+% 		\end{pmatrix}
+	\end{math}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\scalebox{0.65}{
+\begin{tikzpicture}
+
+\draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (5.9,5.9);
+
+%\shadedraw[inner color=blue,outer color=red, draw=black] (0,0) rectangle (4,4);
+
+\draw[thick,->] (-1.9,0) -- (5.9,0) node[anchor=north west] {$c_1$};
+\draw[thick,->] (0,-1.9) -- (0,5.9) node[anchor=south east] {$c_2$};
+
+\foreach \x in {-1,0,1,2,3,4,5}
+    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {-1,0,1,2,3,4,5}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+    
+\filldraw[fill=blue!40!white, draw=black] (0,0) rectangle (5,5);
+\end{tikzpicture}
+}
+\end{figure}
+\end{frame}
+
 
 \section{Symbolic Model Checking}
 
 \begin{frame}{Boolean Decision Diagram}
 	\begin{itemize} 
-		\item Expresses boolean expressions \pause
-		\item States can be seen as boolean expressions \pause
+		\item Expresses boolean expressions 
+		\item States can be seen as boolean expressions 
 		\item Memory efficient
 	\end{itemize} 
 \end{frame}
@@ -181,6 +248,230 @@ An extended timed automaton is a 6-tuple A = $\langle L, C, Act, l_0, \rightarro
 \end{frame}
 
 \section{LTSmin}
+
+\begin{frame}{LTSmin}
+	\begin{itemize} 
+		\item Language independent model checker
+		\item Multiple algorithmic back ends
+		\item Internal optimization wrappers	
+	\end{itemize} 
+\end{frame}	
+	
+\begin{frame}{LTSmin}
+\begin{figure}[width=\textwidth] 
+\scalebox{0.65}{\input{img/pins}}
+\end{figure}
+\end{frame}
+
+\begin{frame}{LTSmin}
+	\begin{itemize}
+		\item States as integer vectors
+	 	\item Partitioned next-state function
+	 	\item Optimizations based on matrices
+	 	\begin{itemize}
+	 		\item Read(r)
+	 		\item Must-write(w)
+	 		\item May-write(W)
+	 		\item Copy(-)
+	 	\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Matrices}
+\begin{center}
+    \begin{tabular}{lll}
+    1: & $x = 1 \vee a[1] = 0$ & $\rightarrow a[1] := 1, x:=0 , y:=5$  \\
+    2: & $a[0] = 1 \vee y = 5$                     & $\rightarrow a[x] := 0, x:= 1$ \\
+    \end{tabular}
+\end{center}
+
+\begin{figure}[h]
+\centering
+	\begin{math}
+ \kbordermatrix{ 		               & x & y & a[0] & a[1] \cr
+ 									  1& + & w & -    & +    \cr
+ 									  2& + & r & +    & W    \cr}
+	\end{math}
+%	\caption{Dependency Matrix}
+%	\label{fig:dep_matrix}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+Problem: Model checkers are designed for discrete variables (integers), clocks have real values.
+\begin{itemize}
+\item Can we use the LTSmin symbolic model checker for timed automata?
+\item Can we optimize the symbolic back end for clocks?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Current LTSmin Uppaal setup}
+States as a vector of discrete locations and a pointer to a DBM.
+Implemented in explicit-state multi-core tool.
+
+First approach: values from DBM directly into an LDD
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+	\centering
+	\begin{math}
+% 		\begin{pmatrix}
+ \bordermatrix{ 		                 & \mathbf{O} & c_1           & c_2        \cr
+ 			\mathbf{O} &(0,\leq)      & (0,\leq)      & (0,\leq)     \cr
+ 			c_1        &(5,<)      & (0,\leq)      & (5,<)\cr
+ 			c_2        &(5,<)      & (5,<) & (0,\leq)     \cr}
+% 		\end{pmatrix}
+	\end{math}
+\end{figure}
+Old situation: $\{l_0,...,l_n,ptr\}$
+
+New situation: $\{l_0,...,l_n,(0,\leq),(0,\leq),(5,<),(5,<),(5,<),(5,<)\}$
+\end{frame}
+
+\begin{frame}{LDD solution}
+\begin{itemize}
+	\item Correct, working solution
+	\item Variable reordering possible
+	\item All variables seen as discrete values
+	\item No optimizations based on time
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Difference Decision Diagram}
+\begin{mydef}[Difference Decision Diagram]
+A difference decision diagram (DDD) is a directed acyclic graph $(V,E)$. The vertex set $V$ contains two terminals $0$ and $1$ with out-degree zero, and a set of non-terminal vertices with out-degree two and the following attributes.
+\\
+\scalebox{0.85}{
+\begin{tabular}{lll}
+Attribute                & Type                      & Description                                           \\\hline
+pos(v), neg(v)           & \textbf{Var}              & Positive variable $x_i$, and negative variable $x_j$. \\
+op(v)                    & $\{<$, $\leq\}$     & Operator $<$ or $\leq$.                         \\
+const(v)                 & $\mathbb{D}$              & Constant c.                                           \\
+high(v), low(v)          & $V$                       & High-branch h, and low-branch l.                   
+\end{tabular}}
+The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is a non-terminal vertex.
+\end{mydef}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\begin{subfigure}{0.2\textwidth}
+\scalebox{0.50}{
+\begin{tikzpicture}[scale=0.5]
+
+\draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (9.9,9.9);
+\draw[thick,->] (-1.9,0) -- (9.9,0) node[anchor=north west] {$c_1$};
+\draw[thick,->] (0,-1.9) -- (0,9.9) node[anchor=south east] {$c_2$};
+
+\foreach \x in {-1,0,1,2,3,4,5,6,7,8,9}
+    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {-1,0,1,2,3,4,5,6,7,8,9}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+\fill[fill=blue!40!white] (5,-2) -- (10,3) -- (10,2) -- (6,-2) -- (5,-2);
+
+\fill[fill=blue!40!white] (0,-2) -- (2,-2) -- (10,6) -- (10,8) -- (0,-2);
+    
+%\filldraw[fill=blue!40!white, draw=black] (0,0) rectangle (5,5);
+\end{tikzpicture}}
+\end{subfigure}
+
+\begin{subfigure}{0.2\textwidth}
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+			
+		\node[smallvertex](S0){$c_1 - c_2$};
+		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S5){};
+		\draw[->] (S5) --(S0) node [midway, above, sloped, scale=0.75,
+		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\node[smallvertex, right of = S0, xshift = 1cm](S1){$c_1 - c_2$};
+		\draw[dashed,->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
+		\node[smallvertex, below of = S0, yshift = -1cm](S2){$c_2 - c_1$};
+		\draw[->] (S0) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$< 4$};
+		\node[smallvertex, below of = S1, yshift = -1cm](S3){$c_1 - c_2$};
+		\draw[->] (S1) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$\leq 8$};
+		\node[smallvertex, below of = S0, xshift = 1cm, yshift = -3cm](S4){$T$};
+		\draw[->] (S2) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=65, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
+		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=297, xshift =0.7 cm, yshift = -0.2cm]{$\leq-7$};
+	\end{tikzpicture}
+	\end{subfigure}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{mydef}[Ordered DDD]
+An ordered DDD (ODDD) is a DDD where each non-terminal vertex $v$ satisfies:
+\begin{enumerate}
+  \item $neg(v) \prec pos(v)$,
+  \item $var(v) \prec var(high(v))$,
+  \item $var(v) \prec var(low(v))$ or \\ $var(v) = var(low(v))$ and $bound(v) \prec bound(low(v))$.
+\end{enumerate}
+\end{mydef}
+\end{frame}
+
+
+\begin{frame}
+\begin{mydef}[Locally Reduced DDD]
+A locally reduced DDD ($R_LDDD$) is an ODDD satisfying, for all non-terminals u and v:
+\begin{enumerate}
+  \item $\mathbb{D} = \mathbb{Z}$ implies $\forall v. op(v) = '\leq'$,
+  \item $(cstr(u),high(u),low(u)) = (cstr(v),high(v),low(v))$ implies $u = v$,
+  \item $low(v) \neq high(v)$,
+  \item $var(v) = var(low(v))$ implies $high(v) \neq high(low(v))$.
+\end{enumerate}
+\end{mydef}
+
+\begin{figure}[h]
+\begin{center}
+	\scalebox{0.9}{
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+			
+		\node[smallvertex](S0){$c_1 - c_2$};
+		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S5){};
+		\draw[->] (S5) --(S0) node [midway, above, sloped, scale=0.75,
+		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\node[smallvertex, right of = S0, xshift = 1cm](S1){$c_1 - c_2$};
+		\draw[dashed,->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
+		\node[smallvertex, below of = S0, yshift = -1cm](S2){$c_2 - c_1$};
+		\draw[->] (S0) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$< 4$};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=315, xshift =-0.4 cm, yshift = -0.2cm]{$\leq 8$};
+		\node[smallvertex, below of = S0, yshift = -3cm](S4){$T$};
+		\draw[->] (S2) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
+	\end{tikzpicture}
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+			
+		\node[smallvertex](S0){$c_1 - c_2$};
+		\node[smallvertex, draw = none, above of = S0, yshift = 0.25cm](S5){};
+		\draw[->] (S5) --(S0) node [midway, above, sloped, scale=0.75,
+		rotate=295, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\node[smallvertex, below of = S0, yshift = -1cm](S2){$c_2 - c_1$};
+		\draw[->] (S0) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$\leq 8$};
+		\node[smallvertex, below of = S0, yshift = -3cm](S4){$T$};
+		\draw[->] (S2) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
+	\end{tikzpicture}}
+\end{center}
+\end{figure}
+
+\end{frame}
+
+
 
 \section{Working with \LaTeX}
 \begin{frame}{Font Sizes}
