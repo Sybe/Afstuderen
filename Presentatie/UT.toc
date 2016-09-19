@@ -1,7 +1,5 @@
 \beamer@endinputifotherversion {3.36pt}
-\beamer@sectionintoc {1}{Timed Automata}{2}{0}{1}
-\beamer@sectionintoc {2}{Symbolic Model Checking}{11}{0}{2}
-\beamer@sectionintoc {3}{LTSmin}{15}{0}{3}
-\beamer@sectionintoc {4}{Working with \LaTeX }{28}{0}{4}
-\beamer@sectionintoc {5}{Second Section}{42}{0}{5}
-\beamer@sectionintoc {6}{Third Section}{44}{0}{6}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{Our Work}{19}{0}{2}
+\beamer@sectionintoc {3}{Results}{29}{0}{3}
+\beamer@sectionintoc {4}{Future Work}{34}{0}{4}

@@ -1,7 +1,7 @@
 % DO NOT COMPILE THIS FILE DIRECTLY!
 % This is included by the other .tex files.
 
-\section{Timed Automata}
+\section{Introduction}
 \begin{frame}{Transition System}
 \begin{mydef}[Labeled Transition System]
 A labeled transition system is a 3-tuple A = $\langle S, Act, s_o \rangle$ where
@@ -151,8 +151,6 @@ Time not represented as a variable, but as a zone. Most used structure to repres
 \end{frame}
 
 
-\section{Symbolic Model Checking}
-
 \begin{frame}{Boolean Decision Diagram}
 	\begin{itemize} 
 		\item Expresses boolean expressions 
@@ -247,8 +245,6 @@ Time not represented as a variable, but as a zone. Most used structure to repres
 \end{figure}
 \end{frame}
 
-\section{LTSmin}
-
 \begin{frame}{LTSmin}
 	\begin{itemize} 
 		\item Language independent model checker
@@ -305,9 +301,13 @@ Problem: Model checkers are designed for discrete variables (integers), clocks h
 \end{itemize}
 \end{frame}
 
+\section{Our Work}
+
 \begin{frame}{Current LTSmin Uppaal setup}
 States as a vector of discrete locations and a pointer to a DBM.
 Implemented in explicit-state multi-core tool.
+
+\includegraphics[width=\textwidth]{img/opaal}
 
 First approach: values from DBM directly into an LDD
 \end{frame}
@@ -324,6 +324,7 @@ First approach: values from DBM directly into an LDD
 % 		\end{pmatrix}
 	\end{math}
 \end{figure}
+
 Old situation: $\{l_0,...,l_n,ptr\}$
 
 New situation: $\{l_0,...,l_n,(0,\leq),(0,\leq),(5,<),(5,<),(5,<),(5,<)\}$
@@ -471,146 +472,143 @@ A locally reduced DDD ($R_LDDD$) is an ODDD satisfying, for all non-terminals u 
 
 \end{frame}
 
+\begin{frame}{DDD Nodes}
+A node contains two 40 bit pointers, 32 bit value, type, operator and flag bit
 
+Node is stored as a 128 bit struct, two 64 bit integers
 
-\section{Working with \LaTeX}
-\begin{frame}{Font Sizes}
-  \begin{table}[htdp]
-\caption{The different font sizes within \LaTeX}
-\begin{center}
-\begin{tabular}{| l c |} \hline
- tiny			& {\tiny sample text}\\
- scriptsize		& {\scriptsize sample text}\\
- footnotesize	& {\footnotesize sample text}\\
- small		& {\small sample text}\\
- normalsize	& {\normalsize sample text}\\
- large		& {\large sample text}\\
- Large 		& {\Large sample text}\\
- LARGE 		& {\LARGE sample text}\\
- huge 		& {\huge sample text}\\
- Huge		& {\Huge sample text} \\\hline
+Total information is 115 bit, 13 unused bits, all set to 0
 
-\end{tabular}
-\end{center}
-\label{default}
-\end{table}%
+%\begin{lstlisting} 
+%struct dddnode {
+%    uint64_t a, b;
+%} * dddnode_t; 
+%\end{lstlisting}
+
+\begin{figure}
+\centering
+\begin{bytefield}[bitwidth=1.2em]{16}
+  \bitbox{5}{low edge}
+  \bitbox{1}{\rule{\width}{\height}}
+  \bitbox{4}{value}
+  \bitbox{1}{\rule{\width}{\height}}
+  \bitbox{5}{high edge}\\
+\end{bytefield}
+\end{figure}
+
 \end{frame}
 
-\begin{frame}{Creation of a new frame}
-The text within the frame
+\begin{frame}{Experiments}
+\begin{itemize}
+	\item LDD vs. DDD
+	\item Different search strategies
+	\item Reorderings for LDD
+	\item Explicit state with flattened DBM
+	\item Explicit state with pointer to DBM
+	\item Uppaal
+\end{itemize}
+\end{frame}
+
+\section{Results}
+
+\begin{frame}{Results (Nodes)}
+
+\begin{table}
+    \begin{tabular}{|l|r|r|r|}
+    \hline
+     Model      & Discrete states & DDD     & LDD         \\ \hline
+    fischer6    & 16320           & 15156   & 85041       \\
+    critRegion4 & 6629            & 55890   & 100006      \\
+    Critical4   & -               & -       & -           \\
+    CSMACD8     & 10515           & 96098   & 321001      \\
+    Viking12    & 241662          & 342     & 342         \\
+    Lynch5      & 228579          & 49430   & 112397      \\
+    bocdp       & 33              & 487     & 355         \\
+    bocdpFIXED  & 33              & 488     & 427         \\
+    bando       & 33              & 488     & 425         \\
+    Milner8     & 128             & 11012   & 30887       \\
+    hddi10      & 86              & -       & 454246      \\ \hline
+    \end{tabular}
+\end{table}
+
+\end{frame}
+
+\begin{frame}{Results (Time)}
+\begin{table}
+\scalebox{0.75}{
+    \begin{tabular}{|l|r|r|r|r|r|}
+    \hline
+     Model      & DDD     & LDD   & mc-flattened & mc-original & Uppaal \\
+\hline
+    fischer6    & 481.9   & 48.3  & 19.2         & 0.4         & 0.0    \\
+    critRegion4 & 46.3    & 39.5  & 24.3         & 0.5         & 0.1    \\
+    Critical4   &  TO     & TO    & 1.1          & 0.5         & 0.6    \\
+    CSMACD8     &  1.9    & 7.3   & 6.9          & 0.5         & 0.1    \\
+    Viking12    &  17.6   & 18.7  & 10.4         & 0.7         & 1.0    \\
+    Lynch5      & 34.2    & 120.0 & 50.0         & 0.3         & 0.0    \\
+    bocdp       &  0.1    & 0.2   & 0.2          & 0.0         & 0.2    \\
+    bocdpFIXED  &  0.2    & 0.2   & 0.1          & 0.0         & 0.3    \\
+    bando       &  0.2    & 0.2   & 0.1          & 0.0         & 0.3    \\
+    Milner8     &  0.4    & 1.2   & 1.4          & 0.1         & 0.0    \\
+    hddi10      &  TO     & 93.3  & 43.1         & 0.0         & 0.0    \\ \hline
+    \end{tabular}}
+\end{table}
+\end{frame}
+
+\begin{frame}{Results}
+\begin{itemize}
+	\item DDD uses less nodes than LDD
+	\item LDD reorderings not efficient
+	\item No clearly faster symbolic solution
+	\item All new options significantly slower than Uppaal
+	\item Flattening DBM time expensive
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems}
+\begin{itemize}
+	\item Too many function calls
+	\item Dependency matrices densely filled
+	\item Large state vectors	
+\end{itemize}
+\end{frame}
+
+\section{Future Work}
+
+\begin{frame}{Future work}
+\begin{itemize}
+	\item DDD reordering
+	\begin{itemize}
+		\item Needs mapping of positions and types
+	\end{itemize}
+	\item Sparser matrix
+	\begin{itemize}
+		\item Split timed and discrete transition
+		\item May-write matrix
+		\item Better insight in timing dependencies
+	\end{itemize}
+	\item Multi threading
+	\item Subsumption
+	\item Skipping levels
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Future work}
+\begin{itemize}
+	\item Multi threading
+	\begin{itemize}
+		\item DDD is already thread save
+		\item Coupling to DBM not threadsafe
+	\end{itemize}
+	\item Subsumption
+	\item Skipping levels
+	\begin{itemize}
+		\item All nodes with $(<,\infty)$ left out
+		\item Need explicit level of each node
+		\item Node reduction up to 90\%	
+	\end{itemize}
+\end{itemize}
 \end{frame}
 
 
-\frame[containsverbatim]{\frametitle{Creation of a new frame - \texttt{source}}% 
-\begin{verbatim} 
 
-\begin{frame}{Creation of a new frame}
-    The text within the frame
-\end{frame}
-
-\end{verbatim} 
-}% 
-	
-\begin{frame}{Frame with \texttt{pause} itemes}
-	\begin{itemize} 
-		\item First item \pause
-		\item Second item \pause
-		\item You get the point. 
-	\end{itemize} 
-\end{frame}
-
-
-\frame[containsverbatim]{\frametitle{Frame with \texttt{pause} itemes - \texttt{source}}% 
-\begin{verbatim} 
-
-\begin{frame}{Frame with \texttt{pause} itemes}
-	\begin{itemize} 
-		\item First item \pause
-		\item Second item \pause
-		\item You get the point. 
-	\end{itemize} 
-\end{frame}
-
-\end{verbatim} 
-}% 
-
-
-\begin{frame}{Frame with \texttt{pause} tables}
-	
-	\rowcolors[]{1}{blue!20}{blue!10} 
-	\begin{table}
-	\caption{Caption}
-	\begin{tabular}{l!{\vrule}cccc}  
-		Class & A & B & C & D \\\hline 
-		X & 1 & 2 & 3 & 4 \pause \\ 
-		Y & 3 & 4 & 5 & 6 \pause \\ 
-		Z & 5 & 6 & 7 & 8 
-	\end{tabular}
-	\end{table}
-\end{frame}
-
-
-
-\frame[containsverbatim]{\frametitle{Frame with \texttt{pause} tables - \texttt{source}}% 
-\begin{verbatim} 
-\begin{frame}{Frame with \texttt{pause} tables}
-	
-	\rowcolors[]{1}{blue!20}{blue!10} 
-	\begin{table}
-	\caption{Caption}
-	\begin{tabular}{l!{\vrule}cccc}  
-		Class & A & B & C & D \\\hline 
-		X & 1 & 2 & 3 & 4 \pause \\ 
-		Y & 3 & 4 & 5 & 6 \pause \\ 
-		Z & 5 & 6 & 7 & 8 
-	\end{tabular}
-	\end{table}
-\end{frame}
-
-
-\end{verbatim} 
-}% 
-
-
-
-\begin{frame}{Two Column Output} 
-  \begin{columns}[c] 
-    \column{1.5in} 
-      Text here.\\ 
-      Text here.\\ 
-      Text here.
-    \column{1.5in} 
-    \framebox{\includegraphics[width=1.5in]{img/back2EN}} 
-  \end{columns} 
-\end{frame} 
-
-
-
-\frame[containsverbatim]{\frametitle{Two Column Output - \texttt{source}}% 
-\begin{verbatim} 
-\begin{frame}{Two Column Output} 
-  \begin{columns}[c] 
-    \column{1.5in} 
-      Text here.\\ 
-      Text here.\\ 
-      Text here.
-    \column{1.5in} 
-    \framebox{\includegraphics[width=1.5in]{img/back2}} 
-  \end{columns} 
-\end{frame} 
-
-
-\end{verbatim} 
-}% 
-
-
-\section{Second Section}
-
-\begin{frame}{First frame of the Second Section} 
-Each new section starts with an Table Of Contents.
-\end{frame} 
-
-\section{Third Section}
-\begin{frame}{First frame of the Second Section} 
-The Table Of Contents is clickable
-\end{frame} 
