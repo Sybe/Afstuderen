@@ -194,57 +194,6 @@ Time not represented as a variable, but as a zone. Most used structure to repres
 \end{figure}
 \end{frame}
 
-\begin{frame}{List Decision Diagram}
-\begin{figure}
-	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
-		]
-		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
-		\node[smallvertex](S1){$a$};
-		\node[smallvertex, below of = S1, yshift = -.5cm](S2){$b$};
-		\node[smallvertex, below of = S2, yshift = -.5cm](S3){$c$};
-		\node[smallvertex, below of = S3, yshift = -.5cm](S4){$d$};
-		\node[smallvertex, below of = S4, yshift = -.5cm](S5){$T$};
-		\node[smallvertex, right of = S2](S6){$b$};
-		\node[smallvertex, right of = S3](S7){$c$};
-		\node[smallvertex, right of = S6](S9){$b$};
-		\node[smallvertex, above of = S9, yshift = .5cm](S8){$a$};
-		\node[smallvertex, below of = S9, yshift = -.5cm](S10){$c$};
-		\node[smallvertex, below of = S10, yshift = -.5cm](S11){$d$};
-		
-		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
-		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
-		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
-		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
-		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
-		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
-		\draw[dashed, ->] (S2) --(S6) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
-		\draw[->] (S6) --(S7) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$2$};
-		\draw[->] (S7) --(S4) node [midway, above, sloped, scale=0.75,
-		rotate=300, xshift =0.4 cm, yshift = -0.2cm]{$3$};
-		\draw[dashed, ->] (S1) --(S8) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
-		\draw[->] (S8) --(S9) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$2$};
-		\draw[->] (S9) --(S10) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
-        \draw[->] (S10) --(S11) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$3$};
-		\draw[->] (S11) --(S5) node [midway, above, sloped, scale=0.75,
-		rotate=320, xshift =-0.4 cm, yshift = -0.2cm]{$1$};
-
-
-	\end{tikzpicture}
-\label{fig:ldd-example}
-\end{figure}
-\end{frame}
-
 \begin{frame}{LTSmin}
 	\begin{itemize} 
 		\item Language independent model checker
@@ -304,15 +253,10 @@ Problem: Model checkers are designed for discrete variables (integers), clocks h
 \section{Our Work}
 
 \begin{frame}{Current LTSmin Uppaal setup}
-States as a vector of discrete locations and a pointer to a DBM.
-Implemented in explicit-state multi-core tool.
-
 \includegraphics[width=\textwidth]{img/opaal}
-
-First approach: values from DBM directly into an LDD
 \end{frame}
 
-\begin{frame}
+\begin{frame}{DBM into state vector}
 \begin{figure}
 	\centering
 	\begin{math}
@@ -325,9 +269,86 @@ First approach: values from DBM directly into an LDD
 	\end{math}
 \end{figure}
 
-Old situation: $\{l_0,...,l_n,ptr\}$
 
-New situation: $\{l_0,...,l_n,(0,\leq),(0,\leq),(5,<),(5,<),(5,<),(5,<)\}$
+\begin{itemize}
+	\item Old situation
+	\begin{itemize}
+		\item $\{l_0,...,l_n,ptr\}$
+	\end{itemize}
+	\item New situation
+	\begin{itemize}
+		\item $\{l_0,...,l_n,(0,\leq),(0,\leq),(5,<),(5,<),(5,<),(5,<)\}$
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{List Decision Diagram}
+
+\begin{mydef}[List Decision Diagram]
+A List Decision Diagram (LDD) is a directed acyclic graph $(V,E)$. The vertex set $V$ contains two terminals $0$ and $1$ with out-degree zero, and a set of non-terminal vertices with out-degree two and the following attributes.
+%\\\\
+\begin{tabular}{lll}
+Attribute                & Type                      & Description                                           \\\hline
+var(v)                   & \textbf{Var}              & Variable x \\
+
+const(v)                 & $\mathbb{Z}$              & Constant c.                                           \\
+high(v), low(v)          & $V$                       & High-branch h, and low-branch l.                   
+\end{tabular}
+\captionof*{table}{}  
+The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is a non-terminal vertex.
+\end{mydef} 
+
+\end{frame}
+
+\begin{frame}{List Decision Diagram}
+\begin{figure}
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
+		\node[smallvertex](S1){$a$};
+		\node[smallvertex, below of = S1, yshift = -.5cm](S2){$b$};
+		\node[smallvertex, below of = S2, yshift = -.5cm](S3){$c$};
+		\node[smallvertex, below of = S3, yshift = -.5cm](S4){$d$};
+		\node[smallvertex, below of = S4, yshift = -.5cm](S5){$T$};
+		\node[smallvertex, right of = S2](S6){$b$};
+		\node[smallvertex, right of = S3](S7){$c$};
+		\node[smallvertex, right of = S6](S9){$b$};
+		\node[smallvertex, above of = S9, yshift = .5cm](S8){$a$};
+		\node[smallvertex, below of = S9, yshift = -.5cm](S10){$c$};
+		\node[smallvertex, below of = S10, yshift = -.5cm](S11){$d$};
+		
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
+		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
+		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
+		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
+		\draw[dashed, ->] (S2) --(S6) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S6) --(S7) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$2$};
+		\draw[->] (S7) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=300, xshift =0.4 cm, yshift = -0.2cm]{$3$};
+		\draw[dashed, ->] (S1) --(S8) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S8) --(S9) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$2$};
+		\draw[->] (S9) --(S10) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$0$};
+        \draw[->] (S10) --(S11) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$3$};
+		\draw[->] (S11) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=320, xshift =-0.4 cm, yshift = -0.2cm]{$1$};
+
+
+	\end{tikzpicture}
+\label{fig:ldd-example}
+\end{figure}
 \end{frame}
 
 \begin{frame}{LDD solution}
@@ -338,6 +359,8 @@ New situation: $\{l_0,...,l_n,(0,\leq),(0,\leq),(5,<),(5,<),(5,<),(5,<)\}$
 	\item No optimizations based on time
 \end{itemize}
 \end{frame}
+
+\section{Difference Decision Diagram}
 
 \begin{frame}{Difference Decision Diagram}
 \begin{mydef}[Difference Decision Diagram]
@@ -406,7 +429,7 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Ordering}
 \begin{mydef}[Ordered DDD]
 An ordered DDD (ODDD) is a DDD where each non-terminal vertex $v$ satisfies:
 \begin{enumerate}
@@ -415,6 +438,32 @@ An ordered DDD (ODDD) is a DDD where each non-terminal vertex $v$ satisfies:
   \item $var(v) \prec var(low(v))$ or \\ $var(v) = var(low(v))$ and $bound(v) \prec bound(low(v))$.
 \end{enumerate}
 \end{mydef}
+
+\begin{figure}[h]
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+			
+		\node[smallvertex](S0){$c_1 - c_2$};
+		\node[smallvertex, right of = S0, xshift = 1cm](S1){$c_1 - c_2$};
+		\node[smallvertex, right of = S1, xshift = 1cm](S2){$c_1 - c_2$};
+		\node[smallvertex, draw = none, below of = S0, yshift = -0.75cm](S3){};
+		\node[smallvertex, draw = none, below of = S1, yshift = -0.75cm](S4){};
+		\node[smallvertex, draw = none, below of = S2, yshift = -0.75cm](S5){};
+		\draw[->] (S0) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$< 4$};
+		\draw[->] (S1) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$\leq 4$};
+		\draw[->] (S2) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$\leq 5$};
+		\draw[dashed,->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
+		\draw[dashed,->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
+
+	\end{tikzpicture}
+\end{figure}
+
 \end{frame}
 
 
@@ -496,6 +545,182 @@ Total information is 115 bit, 13 unused bits, all set to 0
 \end{bytefield}
 \end{figure}
 
+\end{frame}
+
+\begin{frame}{Minus}
+\begin{figure}[ht]
+
+\begin{subfigure}[h]{.3\textwidth}
+\scalebox{0.3}{
+\begin{tikzpicture}
+
+\draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (5.9,5.9);
+
+%\shadedraw[inner color=blue,outer color=red, draw=black] (0,0) rectangle (4,4);
+
+\draw[thick,->] (-1.9,0) -- (5.9,0) node[anchor=north west] {$c_1$};
+\draw[thick,->] (0,-1.9) -- (0,5.9) node[anchor=south east] {$c_2$};
+
+\foreach \x in {-1,0,1,2,3,4,5}
+    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {-1,0,1,2,3,4,5}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+    
+\filldraw[fill=blue!40!white, draw=black] (0,0) rectangle (4,4);
+
+\end{tikzpicture}}
+\end{subfigure}
+\begin{subfigure}[h]{.3\textwidth}
+\scalebox{0.3}{
+\begin{tikzpicture}
+\draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (5.9,5.9);
+
+%\shadedraw[inner color=blue,outer color=red, draw=black] (0,0) rectangle (4,4);
+
+\draw[thick,->] (-1.9,0) -- (5.9,0) node[anchor=north west] {$c_1$};
+\draw[thick,->] (0,-1.9) -- (0,5.9) node[anchor=south east] {$c_2$};
+
+\foreach \x in {-1,0,1,2,3,4,5}
+    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {-1,0,1,2,3,4,5}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+    
+\filldraw[fill=blue!40!white, draw=black] (1,1) rectangle (3,3);
+
+\end{tikzpicture}}
+\end{subfigure}
+\begin{subfigure}[h]{.3\textwidth}
+\scalebox{0.3}{
+\begin{tikzpicture}
+\draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (5.9,5.9);
+
+%\shadedraw[inner color=blue,outer color=red, draw=black] (0,0) rectangle (4,4);
+
+\draw[thick,->] (-1.9,0) -- (5.9,0) node[anchor=north west] {$c_1$};
+\draw[thick,->] (0,-1.9) -- (0,5.9) node[anchor=south east] {$c_2$};
+
+\foreach \x in {-1,0,1,2,3,4,5}
+    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {-1,0,1,2,3,4,5}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+    
+\filldraw[fill=blue!40!white, draw=black] (0,3) rectangle (4,4);
+\filldraw[fill=blue!40!white, draw=black] (3,0) rectangle (4,4);
+\filldraw[fill=blue!40!white, draw=black] (0,0) rectangle (4,1);
+\filldraw[fill=blue!40!white, draw=black] (0,0) rectangle (1,4);
+
+\end{tikzpicture}}
+\end{subfigure}
+
+\end{figure}
+
+Difference of two convex zones not always convex
+\end{frame}
+
+\begin{frame}{Minus}
+\begin{figure}
+	\begin{subfigure}{0.2\textwidth}
+	\scalebox{0.8}{
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]		
+		\node[smallvertex](S1){$c_1 - \mathbf{O}$};
+		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
+		\node[smallvertex, below of = S1, yshift = -1cm](S2){$\mathbf{O} - c_1$};
+		\node[smallvertex, below of = S2, yshift = -1cm](S3){$c_2 - \mathbf{O}$};
+		\node[smallvertex, below of = S3, yshift = -1cm](S4){$\mathbf{O} - c_2$};
+		\node[smallvertex, below of = S4, yshift = -1cm](S5){$T$};
+		
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+
+	\end{tikzpicture}}
+	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+	\scalebox{0.8}{
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
+		\node[smallvertex](S1){$c_1 - \mathbf{O}$};
+		\node[smallvertex, below of = S1, yshift = -1cm](S2){$\mathbf{O} - c_1$};
+		\node[smallvertex, below of = S2, yshift = -1cm](S3){$c_2 - \mathbf{O}$};
+		\node[smallvertex, below of = S3, yshift = -1cm](S4){$\mathbf{O} - c_2$};
+		\node[smallvertex, below of = S4, yshift = -1cm](S5){$T$};
+		
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<-1$};
+		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<-1$};
+		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<3$};
+		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<3$};
+		
+	\end{tikzpicture}}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+	\scalebox{0.8}{
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
+		\node[smallvertex](S1){$c_1 - \mathbf{O}$};
+		\node[smallvertex, below of = S1, yshift = -1cm](S2){$\mathbf{O} - c_1$};
+		\node[smallvertex, below of = S2, yshift = -1cm](S3){$c_2 - \mathbf{O}$};
+		\node[smallvertex, below of = S3, yshift = -1cm](S4){$\mathbf{O} - c_2$};
+		\node[smallvertex, below of = S4, yshift = -1cm](S5){$T$};
+		\node[smallvertex, right of = S1, xshift = 1cm](S6){$c_1 - \mathbf{O}$};
+		\node[smallvertex, below of = S6, yshift = -1cm](S7){$\mathbf{O} - c_1$};
+		\node[smallvertex, right of = S7, xshift = 1cm](S8){$\mathbf{O} - c_1$};
+		\node[smallvertex, below of = S8, yshift = -1cm](S9){$c_2 - \mathbf{O}$};
+		\node[smallvertex, right of = S9, xshift = 1cm](S10){$c_2 - \mathbf{O}$};
+		\node[smallvertex, below of = S10, yshift = -1cm](S11){$\mathbf{O} - c_2$};
+		
+		
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$\leq1$};
+		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		\draw[dashed,->] (S1) --(S6) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
+		\draw[->] (S6) --(S7) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+		\draw[->] (S7) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=315, xshift =-0.4 cm, yshift = -0.2cm]{$\leq-3$};
+		\draw[dashed,->] (S7) --(S8) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
+		\draw[->] (S8) --(S9) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		\draw[->] (S9) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=335, xshift =-0.4 cm, yshift = -0.2cm]{$\leq1$};
+		\draw[dashed,->] (S9) --(S10) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
+		\draw[->] (S10) --(S11) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+		\draw[->] (S11) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=340, xshift =-0.4 cm, yshift = -0.2cm]{$\leq-3$};
+		
+	
+	\end{tikzpicture}}
+	\end{subfigure}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Experiments}
@@ -584,12 +809,9 @@ Total information is 115 bit, 13 unused bits, all set to 0
 	\item Sparser matrix
 	\begin{itemize}
 		\item Split timed and discrete transition
-		\item May-write matrix
+		\item Must-write matrix
 		\item Better insight in timing dependencies
 	\end{itemize}
-	\item Multi threading
-	\item Subsumption
-	\item Skipping levels
 \end{itemize}
 \end{frame}
 
@@ -609,6 +831,8 @@ Total information is 115 bit, 13 unused bits, all set to 0
 	\end{itemize}
 \end{itemize}
 \end{frame}
+
+\section{Questions?}
 
 
 

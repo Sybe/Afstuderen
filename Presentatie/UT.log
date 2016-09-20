@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  19 SEP 2016 16:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.1)  20 SEP 2016 16:37
 entering extended mode
 **UT.tex
 (UT.tex
@@ -1165,7 +1165,7 @@ LaTeX Info: Redefining \includegraphics on input line 33.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
-(UT.nav) <img/UTEN.pdf, id=28, 234.73798pt x 45.17155pt>
+(UT.nav) <img/UTEN.pdf, id=36, 234.73798pt x 45.17155pt>
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
 Package pdftex.def Info: img/UTEN.pdf used on input line 33.
@@ -1193,7 +1193,7 @@ Overfull \hbox (13.08199pt too wide) in paragraph at lines 33--33
  [][][]  
  []
 
-<img/back1EN.pdf, id=30, 728.39026pt x 546.29295pt>
+<img/back1EN.pdf, id=38, 728.39026pt x 546.29295pt>
 File: img/back1EN.pdf Graphic file (type pdf)
  <use img/back1EN.pdf>
 Package pdftex.def Info: img/back1EN.pdf used on input line 35.
@@ -1207,7 +1207,7 @@ Overfull \hbox (1.23003pt too wide) in paragraph at lines 4--4
 []|  []  
  []
 
-<img/side5.pdf, id=130, 76.82703pt x 546.29094pt>
+<img/side5.pdf, id=140, 76.82703pt x 546.29094pt>
 File: img/side5.pdf Graphic file (type pdf)
  <use img/side5.pdf>
 Package pdftex.def Info: img/side5.pdf used on input line 4.
@@ -1390,7 +1390,7 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [7
 
-] <img/TA.png, id=212, 619.56468pt x 430.60875pt>
+] <img/TA.png, id=224, 619.56468pt x 430.60875pt>
 File: img/TA.png Graphic file (type png)
  <use img/TA.png>
 Package pdftex.def Info: img/TA.png used on input line 84.
@@ -1583,17 +1583,17 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [12
 
 ]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 246--246
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 203--203
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 246.
+Package pdftex.def Info: img/side5.pdf used on input line 203.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 246.
+Package pdftex.def Info: img/UTEN.pdf used on input line 203.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1612,18 +1612,18 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [13
 
-]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 254--254
+] (img/pins.tex)
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 209--209
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 254.
+Package pdftex.def Info: img/side5.pdf used on input line 209.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 254.
+Package pdftex.def Info: img/UTEN.pdf used on input line 209.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1642,18 +1642,18 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [14
 
-] (img/pins.tex)
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 260--260
+]
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 223--223
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 260.
+Package pdftex.def Info: img/side5.pdf used on input line 223.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 260.
+Package pdftex.def Info: img/UTEN.pdf used on input line 223.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1673,17 +1673,17 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [15
 
 ]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 274--274
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 243--243
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 274.
+Package pdftex.def Info: img/side5.pdf used on input line 243.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 274.
+Package pdftex.def Info: img/UTEN.pdf used on input line 243.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1703,17 +1703,13 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [16
 
 ]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 294--294
-[]|  []  
- []
-
 File: img/side5.pdf Graphic file (type pdf)
-<use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 294.
+ <use img/side5.pdf>
+Package pdftex.def Info: img/side5.pdf used on input line 251.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 294.
+Package pdftex.def Info: img/UTEN.pdf used on input line 251.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1732,14 +1728,18 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [17
 
-]
+] (UT.toc)
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 253--253
+[]|  []  
+ []
+
 File: img/side5.pdf Graphic file (type pdf)
- <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 302.
+<use img/side5.pdf>
+Package pdftex.def Info: img/side5.pdf used on input line 253.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 302.
+Package pdftex.def Info: img/UTEN.pdf used on input line 253.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1758,18 +1758,23 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [18
 
-] (UT.toc)
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 304--304
+] <img/opaal.png, id=304, 1076.52188pt x 334.24875pt>
+File: img/opaal.png Graphic file (type png)
+ <use img/opaal.png>
+Package pdftex.def Info: img/opaal.png used on input line 257.
+(pdftex.def)             Requested size: 304.4446pt x 94.52745pt.
+
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 257--257
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 304.
+Package pdftex.def Info: img/side5.pdf used on input line 257.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 304.
+Package pdftex.def Info: img/UTEN.pdf used on input line 257.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1788,23 +1793,18 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [19
 
-] <img/opaal.png, id=298, 1076.52188pt x 334.24875pt>
-File: img/opaal.png Graphic file (type png)
- <use img/opaal.png>
-Package pdftex.def Info: img/opaal.png used on input line 313.
-(pdftex.def)             Requested size: 304.4446pt x 94.52745pt.
-
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 313--313
+ <./img/opaal.png>]
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 283--283
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 313.
+Package pdftex.def Info: img/side5.pdf used on input line 283.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 313.
+Package pdftex.def Info: img/UTEN.pdf used on input line 283.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1823,14 +1823,23 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [20
 
- <./img/opaal.png>]
+]
+LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10.95> not available
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 301.
+LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10.95> not available
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 301.
+
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 301--301
+[]|  []  
+ []
+
 File: img/side5.pdf Graphic file (type pdf)
- <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 331.
+<use img/side5.pdf>
+Package pdftex.def Info: img/side5.pdf used on input line 301.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 331.
+Package pdftex.def Info: img/UTEN.pdf used on input line 301.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1850,17 +1859,17 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [21
 
 ]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 340--340
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 352--352
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 340.
+Package pdftex.def Info: img/side5.pdf used on input line 352.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 340.
+Package pdftex.def Info: img/UTEN.pdf used on input line 352.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1880,22 +1889,17 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [22
 
 ]
-LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <10.95> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 356.
-LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <10.95> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 356.
-
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 356--356
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 361--361
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 356.
+Package pdftex.def Info: img/side5.pdf used on input line 361.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 356.
+Package pdftex.def Info: img/UTEN.pdf used on input line 361.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1914,23 +1918,18 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [23
 
-]
-Overfull \hbox (33.83057pt too wide) in paragraph at lines 407--407
-[][] 
- []
-
-
-Overfull \hbox (26.77394pt too wide) in paragraph at lines 407--407
-[][] 
+] (UT.toc)
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 363--363
+[]|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 407.
+Package pdftex.def Info: img/side5.pdf used on input line 363.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 407.
+Package pdftex.def Info: img/UTEN.pdf used on input line 363.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1950,13 +1949,17 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [24
 
 ]
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 379--379
+[]|  []  
+ []
+
 File: img/side5.pdf Graphic file (type pdf)
- <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 418.
+<use img/side5.pdf>
+Package pdftex.def Info: img/side5.pdf used on input line 379.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 418.
+Package pdftex.def Info: img/UTEN.pdf used on input line 379.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -1976,16 +1979,22 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [25
 
 ]
-Overfull \vbox (16.24457pt too high) detected at line 473
+Overfull \hbox (33.83057pt too wide) in paragraph at lines 430--430
+[][] 
+ []
+
+
+Overfull \hbox (26.77394pt too wide) in paragraph at lines 430--430
+[][] 
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 473.
+Package pdftex.def Info: img/side5.pdf used on input line 430.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 473.
+Package pdftex.def Info: img/UTEN.pdf used on input line 430.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2005,38 +2014,17 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [26
 
 ]
-\height=\dimen223 (locally)
-\depth=\dimen224 (locally)
-\totalheight=\dimen225 (locally)
-\width=\dimen226 (locally)
-\height=\dimen223 (locally)
-\depth=\dimen224 (locally)
-\totalheight=\dimen225 (locally)
-\width=\dimen226 (locally)
-\height=\dimen223 (locally)
-\depth=\dimen224 (locally)
-\totalheight=\dimen225 (locally)
-\width=\dimen226 (locally)
-\height=\dimen223 (locally)
-\depth=\dimen224 (locally)
-\totalheight=\dimen225 (locally)
-\width=\dimen226 (locally)
-\height=\dimen223 (locally)
-\depth=\dimen224 (locally)
-\totalheight=\dimen225 (locally)
-\width=\dimen226 (locally)
-
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 499--499
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 467--467
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 499.
+Package pdftex.def Info: img/side5.pdf used on input line 467.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 499.
+Package pdftex.def Info: img/UTEN.pdf used on input line 467.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2056,17 +2044,16 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [27
 
 ]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 510--510
-[]|  []  
+Overfull \vbox (16.24457pt too high) detected at line 522
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 510.
+Package pdftex.def Info: img/side5.pdf used on input line 522.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 510.
+Package pdftex.def Info: img/UTEN.pdf used on input line 522.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2085,18 +2072,39 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [28
 
-] (UT.toc)
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 512--512
+]
+\height=\dimen223 (locally)
+\depth=\dimen224 (locally)
+\totalheight=\dimen225 (locally)
+\width=\dimen226 (locally)
+\height=\dimen223 (locally)
+\depth=\dimen224 (locally)
+\totalheight=\dimen225 (locally)
+\width=\dimen226 (locally)
+\height=\dimen223 (locally)
+\depth=\dimen224 (locally)
+\totalheight=\dimen225 (locally)
+\width=\dimen226 (locally)
+\height=\dimen223 (locally)
+\depth=\dimen224 (locally)
+\totalheight=\dimen225 (locally)
+\width=\dimen226 (locally)
+\height=\dimen223 (locally)
+\depth=\dimen224 (locally)
+\totalheight=\dimen225 (locally)
+\width=\dimen226 (locally)
+
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 548--548
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 512.
+Package pdftex.def Info: img/side5.pdf used on input line 548.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 512.
+Package pdftex.def Info: img/UTEN.pdf used on input line 548.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2116,17 +2124,17 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [29
 
 ]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 534--534
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 618--618
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 534.
+Package pdftex.def Info: img/side5.pdf used on input line 618.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 534.
+Package pdftex.def Info: img/UTEN.pdf used on input line 618.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2146,17 +2154,22 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [30
 
 ]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 556--556
+Overfull \hbox (48.58679pt too wide) in paragraph at lines 724--724
+[][] 
+ []
+
+
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 724--724
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 556.
+Package pdftex.def Info: img/side5.pdf used on input line 724.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 556.
+Package pdftex.def Info: img/UTEN.pdf used on input line 724.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2176,17 +2189,17 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [31
 
 ]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 566--566
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 735--735
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 566.
+Package pdftex.def Info: img/side5.pdf used on input line 735.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 566.
+Package pdftex.def Info: img/UTEN.pdf used on input line 735.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2205,18 +2218,18 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [32
 
-]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 574--574
+] (UT.toc)
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 737--737
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 574.
+Package pdftex.def Info: img/side5.pdf used on input line 737.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 574.
+Package pdftex.def Info: img/UTEN.pdf used on input line 737.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2235,18 +2248,18 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [33
 
-] (UT.toc)
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 576--576
+]
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 759--759
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 576.
+Package pdftex.def Info: img/side5.pdf used on input line 759.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 576.
+Package pdftex.def Info: img/UTEN.pdf used on input line 759.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2266,17 +2279,17 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [34
 
 ]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 594--594
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 781--781
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 594.
+Package pdftex.def Info: img/side5.pdf used on input line 781.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 594.
+Package pdftex.def Info: img/UTEN.pdf used on input line 781.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2296,17 +2309,17 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 [35
 
 ]
-Overfull \hbox (1.23003pt too wide) in paragraph at lines 611--611
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 791--791
 []|  []  
  []
 
 File: img/side5.pdf Graphic file (type pdf)
 <use img/side5.pdf>
-Package pdftex.def Info: img/side5.pdf used on input line 611.
+Package pdftex.def Info: img/side5.pdf used on input line 791.
 (pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
 File: img/UTEN.pdf Graphic file (type pdf)
  <use img/UTEN.pdf>
-Package pdftex.def Info: img/UTEN.pdf used on input line 611.
+Package pdftex.def Info: img/UTEN.pdf used on input line 791.
 (pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
 
 Overfull \hbox (75.04718pt too wide) has occurred while \output is active
@@ -2325,6 +2338,156 @@ Overfull \hbox (1.66792pt too wide) has occurred while \output is active
 
 [36
 
+]
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 799--799
+[]|  []  
+ []
+
+File: img/side5.pdf Graphic file (type pdf)
+<use img/side5.pdf>
+Package pdftex.def Info: img/side5.pdf used on input line 799.
+(pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
+File: img/UTEN.pdf Graphic file (type pdf)
+ <use img/UTEN.pdf>
+Package pdftex.def Info: img/UTEN.pdf used on input line 799.
+(pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
+
+Overfull \hbox (75.04718pt too wide) has occurred while \output is active
+[][] 
+ []
+
+
+Overfull \hbox (13.08199pt too wide) has occurred while \output is active
+ [][][]  
+ []
+
+
+Overfull \hbox (1.66792pt too wide) has occurred while \output is active
+[] 
+ []
+
+[37
+
+] (UT.toc)
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 801--801
+[]|  []  
+ []
+
+File: img/side5.pdf Graphic file (type pdf)
+<use img/side5.pdf>
+Package pdftex.def Info: img/side5.pdf used on input line 801.
+(pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
+File: img/UTEN.pdf Graphic file (type pdf)
+ <use img/UTEN.pdf>
+Package pdftex.def Info: img/UTEN.pdf used on input line 801.
+(pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
+
+Overfull \hbox (75.04718pt too wide) has occurred while \output is active
+[][] 
+ []
+
+
+Overfull \hbox (13.08199pt too wide) has occurred while \output is active
+ [][][]  
+ []
+
+
+Overfull \hbox (1.66792pt too wide) has occurred while \output is active
+[] 
+ []
+
+[38
+
+]
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 816--816
+[]|  []  
+ []
+
+File: img/side5.pdf Graphic file (type pdf)
+<use img/side5.pdf>
+Package pdftex.def Info: img/side5.pdf used on input line 816.
+(pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
+File: img/UTEN.pdf Graphic file (type pdf)
+ <use img/UTEN.pdf>
+Package pdftex.def Info: img/UTEN.pdf used on input line 816.
+(pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
+
+Overfull \hbox (75.04718pt too wide) has occurred while \output is active
+[][] 
+ []
+
+
+Overfull \hbox (13.08199pt too wide) has occurred while \output is active
+ [][][]  
+ []
+
+
+Overfull \hbox (1.66792pt too wide) has occurred while \output is active
+[] 
+ []
+
+[39
+
+]
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 833--833
+[]|  []  
+ []
+
+File: img/side5.pdf Graphic file (type pdf)
+<use img/side5.pdf>
+Package pdftex.def Info: img/side5.pdf used on input line 833.
+(pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
+File: img/UTEN.pdf Graphic file (type pdf)
+ <use img/UTEN.pdf>
+Package pdftex.def Info: img/UTEN.pdf used on input line 833.
+(pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
+
+Overfull \hbox (75.04718pt too wide) has occurred while \output is active
+[][] 
+ []
+
+
+Overfull \hbox (13.08199pt too wide) has occurred while \output is active
+ [][][]  
+ []
+
+
+Overfull \hbox (1.66792pt too wide) has occurred while \output is active
+[] 
+ []
+
+[40
+
+] (UT.toc)
+Overfull \hbox (1.23003pt too wide) in paragraph at lines 835--835
+[]|  []  
+ []
+
+File: img/side5.pdf Graphic file (type pdf)
+<use img/side5.pdf>
+Package pdftex.def Info: img/side5.pdf used on input line 835.
+(pdftex.def)             Requested size: 36.42287pt x 273.14479pt.
+File: img/UTEN.pdf Graphic file (type pdf)
+ <use img/UTEN.pdf>
+Package pdftex.def Info: img/UTEN.pdf used on input line 835.
+(pdftex.def)             Requested size: 103.49992pt x 19.91684pt.
+
+Overfull \hbox (75.04718pt too wide) has occurred while \output is active
+[][] 
+ []
+
+
+Overfull \hbox (13.08199pt too wide) has occurred while \output is active
+ [][][]  
+ []
+
+
+Overfull \hbox (1.66792pt too wide) has occurred while \output is active
+[] 
+ []
+
+[41
+
 ])
 \tf@nav=\write6
 \tf@toc=\write7
@@ -2335,15 +2498,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 43.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 43.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 43.
 Package rerunfilecheck Info: File `UT.out' has not changed.
-(rerunfilecheck)             Checksum: 4035FC7F1313E07B32A658C36C70E366;182.
+(rerunfilecheck)             Checksum: B9F9355EFB5B7A8F81F64709240C95AB;291.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
  ) 
 Here is how much of TeX's memory you used:
- 23044 strings out of 493698
- 464856 string characters out of 3144415
- 547489 words of memory out of 3000000
- 25755 multiletter control sequences out of 15000+200000
- 41234 words of font info for 83 fonts, out of 3000000 for 9000
+ 23093 strings out of 493698
+ 465446 string characters out of 3144415
+ 588571 words of memory out of 3000000
+ 25786 multiletter control sequences out of 15000+200000
+ 43605 words of font info for 85 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  62i,19n,66p,384b,1078s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
@@ -2361,9 +2524,9 @@ eX 2.9/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/urw/helvetic/uhvbo8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/hel
 vetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.
 pfb>
-Output written on UT.pdf (36 pages, 1092522 bytes).
+Output written on UT.pdf (41 pages, 1110382 bytes).
 PDF statistics:
- 481 PDF objects out of 1000 (max. 8388607)
- 80 named destinations out of 1000 (max. 500000)
- 100 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 544 PDF objects out of 1000 (max. 8388607)
+ 92 named destinations out of 1000 (max. 500000)
+ 116 words of extra memory for PDF output out of 10000 (max. 10000000)
 

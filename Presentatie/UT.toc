@@ -1,5 +1,7 @@
 \beamer@endinputifotherversion {3.36pt}
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
-\beamer@sectionintoc {2}{Our Work}{19}{0}{2}
-\beamer@sectionintoc {3}{Results}{29}{0}{3}
-\beamer@sectionintoc {4}{Future Work}{34}{0}{4}
+\beamer@sectionintoc {2}{Our Work}{18}{0}{2}
+\beamer@sectionintoc {3}{Difference Decision Diagram}{24}{0}{3}
+\beamer@sectionintoc {4}{Results}{33}{0}{4}
+\beamer@sectionintoc {5}{Future Work}{38}{0}{5}
+\beamer@sectionintoc {6}{Questions?}{41}{0}{6}
