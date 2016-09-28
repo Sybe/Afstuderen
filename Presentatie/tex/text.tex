@@ -2,16 +2,27 @@
 % This is included by the other .tex files.
 
 \section{Introduction}
-\begin{frame}{Transition System}
-\begin{mydef}[Labeled Transition System]
-A labeled transition system is a 3-tuple A = $\langle S, Act, s_o \rangle$ where
+
+\begin{frame}{Modelchecking}
 \begin{itemize}
-\item $S$ is a finite set of states
-\item $Act$ is a finite set of labelled actions
-\item $s_o \in S$ is a finite set of actions
+	\item Models a system, program, protocol, etc...
+	\item Check if model meets specifications
+	\item Problem: State space explosion
+	\begin{itemize}
+		\item Grows exponentially with size of model
+	\end{itemize}
+	\item Timed Automata adds time to these models	
 \end{itemize}
-\end{mydef}
 \end{frame}
+
+\begin{frame}{Research Problems}
+Problem: Model checkers are designed for discrete variables (integers), clocks have real values.
+\begin{itemize}
+\item Can we use the LTSmin symbolic model checker for timed automata?
+\item Can we optimize the symbolic back end for clocks?
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}{Transition System}
 \begin{figure}
@@ -63,6 +74,18 @@ A labeled transition system is a 3-tuple A = $\langle S, Act, s_o \rangle$ where
 \end{figure}
 \end{frame}
 
+\begin{comment}
+\begin{frame}{Transition System}
+\begin{mydef}[Labeled Transition System]
+A labeled transition system is a 3-tuple A = $\langle S, Act, s_o \rangle$ where
+\begin{itemize}
+\item $S$ is a finite set of states
+\item $Act$ is a finite set of labelled actions
+\item $s_o \in S$ is a finite set of actions
+\end{itemize}
+\end{mydef}
+\end{frame}
+
 
 \begin{frame}{Timed Automata}
 \begin{mydef}[Timed Automata]
@@ -78,10 +101,79 @@ An extended timed automaton is a 6-tuple A = $\langle L, C, Act, l_0, \rightarro
 	\end{itemize}
 \end{mydef}
 \end{frame}
+\end{comment}
 
 \begin{frame}{Timed Automata}
 \includegraphics[width=\textwidth]{img/TA}
 \end{frame}
+
+
+
+\begin{comment}
+\begin{frame}{Boolean Decision Diagram}
+	\begin{itemize} 
+		\item Expresses boolean expressions 
+		\item States can be seen as boolean expressions 
+		\item Memory efficient
+	\end{itemize} 
+\end{frame}
+
+\begin{frame}{Boolean Decision Diagram}
+\begin{figure}[h]
+\centering
+	\begin{tikzpicture}[
+		smallvertex/.style={circle,draw,scale=0.8}
+		]
+		\node[smallvertex](S1){$a$};
+		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
+		
+		\node[smallvertex, below of = S1, yshift = -.5cm](S2){$b$};
+		\node[smallvertex, below of = S2, yshift = -.5cm](S3){$c$};
+		\node[smallvertex, below of = S3, yshift = -.5cm](S4){$1$};
+		\node[smallvertex, left of = S4](S5){$0$};
+		
+		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
+		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[dashed,->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
+		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};		
+		\draw[->,dashed] (S1) edge[bend right](S3) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};	
+		\draw[->] (S2) edge[bend left](S4) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};	
+		\draw[dashed,->] (S3) --(S5) node [midway, above, sloped, scale=0.75,
+		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
+		[bend left]
+	\end{tikzpicture}
+\caption{A BDD representing $(a \wedge b) \vee c$}
+\label{fig:BDD}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{LTSmin}
+	\begin{itemize} 
+		\item Language independent model checker
+		\item Multiple algorithmic back ends
+		\item Internal optimization wrappers	
+	\end{itemize} 
+\end{frame}	
+	
+\begin{frame}{LTSmin}
+\begin{figure}[width=\textwidth] 
+\scalebox{0.65}{\input{img/pins}}
+\end{figure}
+\end{frame}
+
+\end{comment}
+
+
+
+\section{Time Zones}
+
 
 \begin{frame}{Time Zones}
 Time not represented as a variable, but as a zone. Most used structure to represent zones: Different Bound Matrix (DBM)
@@ -151,137 +243,17 @@ Time not represented as a variable, but as a zone. Most used structure to repres
 \end{frame}
 
 
-\begin{frame}{Boolean Decision Diagram}
-	\begin{itemize} 
-		\item Expresses boolean expressions 
-		\item States can be seen as boolean expressions 
-		\item Memory efficient
-	\end{itemize} 
-\end{frame}
-
-\begin{frame}{Boolean Decision Diagram}
-\begin{figure}[h]
-\centering
-	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
-		]
-		\node[smallvertex](S1){$a$};
-		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
-		
-		\node[smallvertex, below of = S1, yshift = -.5cm](S2){$b$};
-		\node[smallvertex, below of = S2, yshift = -.5cm](S3){$c$};
-		\node[smallvertex, below of = S3, yshift = -.5cm](S4){$1$};
-		\node[smallvertex, left of = S4](S5){$0$};
-		
-		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
-		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
-		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
-		\draw[dashed,->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
-		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};		
-		\draw[->,dashed] (S1) edge[bend right](S3) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};	
-		\draw[->] (S2) edge[bend left](S4) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};	
-		\draw[dashed,->] (S3) --(S5) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
-		[bend left]
-	\end{tikzpicture}
-\caption{A BDD representing $(a \wedge b) \vee c$}
-\label{fig:BDD}
-\end{figure}
-\end{frame}
-
-\begin{frame}{LTSmin}
-	\begin{itemize} 
-		\item Language independent model checker
-		\item Multiple algorithmic back ends
-		\item Internal optimization wrappers	
-	\end{itemize} 
-\end{frame}	
-	
-\begin{frame}{LTSmin}
-\begin{figure}[width=\textwidth] 
-\scalebox{0.65}{\input{img/pins}}
-\end{figure}
-\end{frame}
-
-\begin{frame}{LTSmin}
-	\begin{itemize}
-		\item States as integer vectors
-	 	\item Partitioned next-state function
-	 	\item Optimizations based on matrices
-	 	\begin{itemize}
-	 		\item Read(r)
-	 		\item Must-write(w)
-	 		\item May-write(W)
-	 		\item Copy(-)
-	 	\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Matrices}
-\begin{center}
-    \begin{tabular}{lll}
-    1: & $x = 1 \vee a[1] = 0$ & $\rightarrow a[1] := 1, x:=0 , y:=5$  \\
-    2: & $a[0] = 1 \vee y = 5$                     & $\rightarrow a[x] := 0, x:= 1$ \\
-    \end{tabular}
-\end{center}
-
-\begin{figure}[h]
-\centering
-	\begin{math}
- \kbordermatrix{ 		               & x & y & a[0] & a[1] \cr
- 									  1& + & w & -    & +    \cr
- 									  2& + & r & +    & W    \cr}
-	\end{math}
-%	\caption{Dependency Matrix}
-%	\label{fig:dep_matrix}
-\end{figure}
-\end{frame}
-
-\begin{frame}
-Problem: Model checkers are designed for discrete variables (integers), clocks have real values.
-\begin{itemize}
-\item Can we use the LTSmin symbolic model checker for timed automata?
-\item Can we optimize the symbolic back end for clocks?
-\end{itemize}
-\end{frame}
-
 \section{LDD solution}
 
+\begin{comment}
 \begin{frame}{Current LTSmin Uppaal setup}
 \includegraphics[width=\textwidth]{img/opaal}
 \end{frame}
-
-\begin{frame}{DBM into state vector}
-\begin{figure}
-	\centering
-	\begin{math}
-% 		\begin{pmatrix}
- \bordermatrix{ 		                 & \mathbf{O} & c_1           & c_2        \cr
- 			\mathbf{O} &(0,\leq)      & (0,\leq)      & (0,\leq)     \cr
- 			c_1        &(5,<)      & (0,\leq)      & (5,<)\cr
- 			c_2        &(5,<)      & (5,<) & (0,\leq)     \cr}
-% 		\end{pmatrix}
-	\end{math}
-\end{figure}
+\end{comment}
 
 
-\begin{itemize}
-	\item Old situation
-	\begin{itemize}
-		\item $\{l_0,...,l_n,ptr\}$
-	\end{itemize}
-	\item New situation
-	\begin{itemize}
-		\item $\{l_0,...,l_n,(0,\leq),(0,\leq),(5,<),(5,<),(5,<),(5,<)\}$
-	\end{itemize}
-\end{itemize}
-\end{frame}
 
+\begin{comment}
 \begin{frame}{List Decision Diagram}
 
 \begin{mydef}[List Decision Diagram]
@@ -299,14 +271,17 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 \end{mydef} 
 
 \end{frame}
+\end{comment}
 
 \begin{frame}{List Decision Diagram}
 \begin{figure}
+\begin{subfigure}[b]{.4\textwidth}
 	\begin{tikzpicture}[
 		smallvertex/.style={circle,draw,scale=0.8}
 		]
-		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
 		\node[smallvertex](S1){$a$};
+		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
+		
 		\node[smallvertex, below of = S1, yshift = -.5cm](S2){$b$};
 		\node[smallvertex, below of = S2, yshift = -.5cm](S3){$c$};
 		\node[smallvertex, below of = S3, yshift = -.5cm](S4){$d$};
@@ -347,9 +322,82 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 
 
 	\end{tikzpicture}
+	\end{subfigure}
+	\begin{subfigure}[b]{.4\textwidth}
+		\begin{itemize}
+			\item Diagram to represent integer variables
+			\item Each node has high and low edge
+			\item Each level represents a variable
+			\item Order of variables important
+		\end{itemize}
+	\end{subfigure}
 \label{fig:ldd-example}
 \end{figure}
 \end{frame}
+
+\begin{frame}{DBM into state vector}
+\begin{figure}
+	\centering
+	\begin{math}
+% 		\begin{pmatrix}
+ \bordermatrix{ 		                 & \mathbf{O} & c_1           & c_2        \cr
+ 			\mathbf{O} &(0,\leq)      & (0,\leq)      & (0,\leq)     \cr
+ 			c_1        &(5,<)      & (0,\leq)      & (5,<)\cr
+ 			c_2        &(5,<)      & (5,<) & (0,\leq)     \cr}
+% 		\end{pmatrix}
+	\end{math}
+\end{figure}
+
+
+\begin{itemize}
+	\item Old situation
+	\begin{itemize}
+		\item $\{l_0,...,l_n,ptr\}$
+	\end{itemize}
+	\item New situation
+	\begin{itemize}
+		\item $\{l_0,...,l_n,(0,\leq),(0,\leq),(5,<),(5,<),(5,<),(5,<)\}$
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{comment}
+\begin{frame}{LTSmin}
+	\begin{itemize}
+		\item States as integer vectors
+	 	\item Partitioned next-state function
+	 	\item Optimizations based on matrices
+	 	\begin{itemize}
+	 		\item Read(r)
+	 		\item Must-write(w)
+	 		\item May-write(W)
+	 		\item Copy(-)
+	 	\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Matrices}
+\begin{center}
+    \begin{tabular}{lll}
+    1: & $x = 1 \vee a[1] = 0$ & $\rightarrow a[1] := 1, x:=0 , y:=5$  \\
+    2: & $a[0] = 1 \vee y = 5$                     & $\rightarrow a[x] := 0, x:= 1$ \\
+    \end{tabular}
+\end{center}
+
+\begin{figure}[h]
+\centering
+	\begin{math}
+ \kbordermatrix{ 		               & x & y & a[0] & a[1] \cr
+ 									  1& + & w & -    & +    \cr
+ 									  2& + & r & +    & W    \cr}
+	\end{math}
+%	\caption{Dependency Matrix}
+%	\label{fig:dep_matrix}
+\end{figure}
+\end{frame}
+
+\end{comment}
 
 \begin{frame}{LDD solution}
 \begin{itemize}
@@ -362,6 +410,7 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 
 \section{DDD Solution}
 
+\begin{comment}
 \begin{frame}{Difference Decision Diagram}
 \begin{mydef}[Difference Decision Diagram]
 A difference decision diagram (DDD) is a directed acyclic graph $(V,E)$. The vertex set $V$ contains two terminals $0$ and $1$ with out-degree zero, and a set of non-terminal vertices with out-degree two and the following attributes.
@@ -377,10 +426,12 @@ high(v), low(v)          & $V$                       & High-branch h, and low-br
 The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is a non-terminal vertex.
 \end{mydef}
 \end{frame}
+\end{comment}
 
 \begin{frame}
 \begin{figure}
-\begin{subfigure}{0.2\textwidth}
+\begin{subfigure}{0.45\textwidth}
+\begin{subfigure}{\textwidth}
 \scalebox{0.50}{
 \begin{tikzpicture}[scale=0.5]
 
@@ -401,7 +452,7 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 \end{tikzpicture}}
 \end{subfigure}
 
-\begin{subfigure}{0.2\textwidth}
+\begin{subfigure}{\textwidth}
 	\begin{tikzpicture}[
 		smallvertex/.style={circle,draw,scale=0.8}
 		]
@@ -426,6 +477,15 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 		rotate=297, xshift =0.7 cm, yshift = -0.2cm]{$\leq-7$};
 	\end{tikzpicture}
 	\end{subfigure}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+Difference Decision Diagram
+\begin{itemize}
+	\item Structure like LDD
+	\item Added difference operator to each node
+	\item Operator $<$ or $\leq$
+\end{itemize}
+\end{subfigure}
 \end{figure}
 \end{frame}
 
@@ -659,9 +719,9 @@ Difference of two convex zones not always convex
 		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
 		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<-1$};
+		rotate=90, xshift =-0.6 cm, yshift = -0.2cm]{$<-1$};
 		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<-1$};
+		rotate=90, xshift =-0.6 cm, yshift = -0.2cm]{$<-1$};
 		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
 		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<3$};
 		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
@@ -723,6 +783,10 @@ Difference of two convex zones not always convex
 \end{figure}
 \end{frame}
 
+
+
+\section{Results}
+
 \begin{frame}{Experiments}
 \begin{itemize}
 	\item LDD vs. DDD
@@ -733,8 +797,6 @@ Difference of two convex zones not always convex
 	\item Uppaal
 \end{itemize}
 \end{frame}
-
-\section{Results}
 
 \begin{frame}{Results (Nodes)}
 

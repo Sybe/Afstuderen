@@ -1,53 +1,56 @@
-\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
-\contentsline {section}{\numberline {2}Preliminaries}{5}{section.2}
-\contentsline {subsection}{\numberline {2.1}Timed Automata}{5}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}uppaal}{6}{subsubsection.2.1.1}
-\contentsline {subsection}{\numberline {2.2}Zones}{6}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Zone subsumption}{7}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Binary Decision Diagram}{8}{subsection.2.4}
-\contentsline {section}{\numberline {3}Related Work}{9}{section.3}
-\contentsline {subsection}{\numberline {3.1}Methods}{9}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Clock Difference Diagram}{10}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Difference Decision Diagram}{10}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}Clock Restriction Diagram}{11}{subsubsection.3.1.3}
-\contentsline {subsubsection}{\numberline {3.1.4}Constraint Matrix Diagram}{12}{subsubsection.3.1.4}
-\contentsline {subsubsection}{\numberline {3.1.5}Zone BDD}{13}{subsubsection.3.1.5}
-\contentsline {subsubsection}{\numberline {3.1.6}Digitization}{13}{subsubsection.3.1.6}
-\contentsline {subsubsection}{\numberline {3.1.7}Orderings}{14}{subsubsection.3.1.7}
-\contentsline {subsection}{\numberline {3.2}LTSmin}{15}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Dependency Matrices}{15}{subsubsection.3.2.1}
-\contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{16}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}List Decision Diagram}{21}{subsection.3.4}
-\contentsline {section}{\numberline {4}Implementation}{23}{section.4}
-\contentsline {subsection}{\numberline {4.1}Language module}{23}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}DDD implementation}{26}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}BFS}{31}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Successor Generator}{32}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Animo Models}{34}{subsubsection.4.4.1}
-\contentsline {subsection}{\numberline {4.5}Correctness}{34}{subsection.4.5}
-\contentsline {section}{\numberline {5}Experiments}{37}{section.5}
-\contentsline {subsection}{\numberline {5.1}Viking}{37}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Fischer}{37}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}CSMA-CD}{37}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Animo}{38}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Lynch-Shavit}{38}{subsection.5.5}
-\contentsline {subsection}{\numberline {5.6}Milner}{38}{subsection.5.6}
-\contentsline {subsection}{\numberline {5.7}Other models}{38}{subsection.5.7}
-\contentsline {subsection}{\numberline {5.8}Benchmark Runs}{38}{subsection.5.8}
-\contentsline {section}{\numberline {6}Results}{40}{section.6}
-\contentsline {subsection}{\numberline {6.1}Time}{40}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Memory}{43}{subsection.6.2}
-\contentsline {section}{\numberline {7}Different Semantics}{45}{section.7}
-\contentsline {subsection}{\numberline {7.1}DBM Translation}{45}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Minus}{47}{subsection.7.2}
-\contentsline {section}{\numberline {8}Future Work}{49}{section.8}
-\contentsline {subsection}{\numberline {8.1}Canonization}{49}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Reordering}{49}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Sparser Dependency Matrix}{50}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}Multi-Core}{51}{subsection.8.4}
-\contentsline {subsection}{\numberline {8.5}Animo Model Compatibility}{51}{subsection.8.5}
-\contentsline {subsection}{\numberline {8.6}Subsumption}{51}{subsection.8.6}
-\contentsline {subsection}{\numberline {8.7}Checking Properties}{52}{subsection.8.7}
-\contentsline {subsection}{\numberline {8.8}Skipping Levels}{52}{subsection.8.8}
-\contentsline {section}{\numberline {9}Conclusions}{53}{section.9}
-\contentsline {section}{\numberline {A}Experiment Results}{58}{appendix.A}
+\select@language {italian}
+\select@language {italian}
+\select@language {italian}
+\select@language {USenglish}
+\contentsline {section}{\numberline {1}Introduction}{6}{section.1}
+\contentsline {section}{\numberline {2}Preliminaries}{7}{section.2}
+\contentsline {subsection}{\numberline {2.1}Timed Automata}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Zones}{8}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Zone subsumption}{9}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Binary Decision Diagram}{10}{subsection.2.4}
+\contentsline {section}{\numberline {3}Related Work}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Methods}{11}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Clock Difference Diagram}{12}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Difference Decision Diagram}{12}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}Clock Restriction Diagram}{13}{subsubsection.3.1.3}
+\contentsline {subsubsection}{\numberline {3.1.4}Constraint Matrix Diagram}{14}{subsubsection.3.1.4}
+\contentsline {subsubsection}{\numberline {3.1.5}Zone BDD}{15}{subsubsection.3.1.5}
+\contentsline {subsubsection}{\numberline {3.1.6}Digitization}{15}{subsubsection.3.1.6}
+\contentsline {subsubsection}{\numberline {3.1.7}Orderings}{16}{subsubsection.3.1.7}
+\contentsline {subsection}{\numberline {3.2}LTSmin}{17}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Dependency Matrices}{17}{subsubsection.3.2.1}
+\contentsline {subsection}{\numberline {3.3}Difference Decision Diagrams}{18}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}List Decision Diagram}{23}{subsection.3.4}
+\contentsline {section}{\numberline {4}Implementation}{25}{section.4}
+\contentsline {subsection}{\numberline {4.1}Language module}{25}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}DDD implementation}{28}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}BFS}{33}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Successor Generator}{34}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Animo Models}{36}{subsubsection.4.4.1}
+\contentsline {subsection}{\numberline {4.5}Correctness}{36}{subsection.4.5}
+\contentsline {section}{\numberline {5}Experiments}{39}{section.5}
+\contentsline {subsection}{\numberline {5.1}Viking}{39}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Fischer}{39}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}CSMA-CD}{39}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Animo}{40}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Lynch-Shavit}{40}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Milner}{40}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}Other models}{40}{subsection.5.7}
+\contentsline {subsection}{\numberline {5.8}Benchmark Runs}{40}{subsection.5.8}
+\contentsline {section}{\numberline {6}Results}{42}{section.6}
+\contentsline {subsection}{\numberline {6.1}Time}{42}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Memory}{45}{subsection.6.2}
+\contentsline {section}{\numberline {7}Different Semantics}{47}{section.7}
+\contentsline {subsection}{\numberline {7.1}DBM Translation}{47}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Minus}{49}{subsection.7.2}
+\contentsline {section}{\numberline {8}Future Work}{51}{section.8}
+\contentsline {subsection}{\numberline {8.1}Canonization}{51}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Reordering}{51}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Sparser Dependency Matrix}{52}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Multi-Core}{53}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}Animo Model Compatibility}{53}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}Subsumption}{53}{subsection.8.6}
+\contentsline {subsection}{\numberline {8.7}Checking Properties}{54}{subsection.8.7}
+\contentsline {subsection}{\numberline {8.8}Skipping Levels}{54}{subsection.8.8}
+\contentsline {section}{\numberline {9}Conclusions}{55}{section.9}
+\contentsline {section}{\numberline {A}Experiment Results}{60}{appendix.A}

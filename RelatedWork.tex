@@ -1,4 +1,4 @@
-In this related work section we will discuss a number of methods used for model checking timed automata. We will choose a method which we will use for the rest of this project.
+In this section we will discuss a number of methods used for model checking timed automata. We will choose a method which we will use for the rest of this project.
 
 \subsection{Methods}
 Already several model checkers for timed automata exist, such as \uppaal{}~\cite{UPPAAL}, KRONOS~\cite{kronos}, RABBIT~\cite{CAV03} and RED~\cite{crds}. We focus mainly on the \uppaal{} tool as we use the same input format. Opaal~\cite{opaal}, the language module for \ltsmin{}, uses the XML format that is created by the \uppaal{} tools. This way we can use the \uppaal{} user interface to create and adapt models. We also use the \uppaal{} DBM library to represent zones.
@@ -55,7 +55,7 @@ A clock difference diagram is defined as a directed, acyclic graph, which has
 		\draw[->] (S0) edge [bend left](S3) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =-0.9 cm, yshift = -1.5cm]{$(2,4)$};
 		\draw[->] (S0) edge [bend right](S3) node [midway, above, sloped, scale=0.75,
-		rotate=0, xshift =0.8 cm, yshift = -1.5cm]{$[7,8]$};
+		rotate=0, xshift =1 cm, yshift = -1.5cm]{$[7,8]$};
 	\end{tikzpicture}
 \end{center}
 \caption{CDD representation}

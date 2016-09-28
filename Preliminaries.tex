@@ -1,7 +1,7 @@
 We will first define timed automata and zones, a method used to represent time in timed automata. Also a subsumption check over zones will be defined. 
 
 \subsection{Timed Automata}
-Timed automata is a formalism that extends labelled transition systems with one or more clocks. Guards over these clocks, denoted as $G(C)$ can be used for transitions and as invariants. 
+Timed automata is a formalism which extends labelled transition systems with one or more clocks. Guards over these clocks, denoted as $G(C)$ can be used for transitions and as invariants. 
 
 \begin{mydef}[Clock Guards]
 \label{def:clockGuards}
@@ -14,7 +14,7 @@ Timed automata use a notion of downwards closed clock invariants. We define a do
 A set $A$ is downwards closed if $\forall a \in A. x \preceq a \implies x \in A$. 
 \end{mydef}
 
-For clock guards we define the operator $\preceq$ to be true for $x \Join c \preceq x \Join' c'$ if $c < c'$ or $c = c'$ and $\Join = < \wedge \Join' = \leq$. This leads to a much simpler definition of downwards closed clock guards.
+For clock guards we define the operator $\preceq$ to be true for $x \Join c \preceq x \Join' c'$ if $c < c'$ or $c = c'$ and $\Join = < \wedge \Join' = \leq$. This leads to a simpler definition of downwards closed clock guards.
 
 \begin{mydef}[Downwards Closed Clock Guards]
 A set $G(C)$ is downwards closed if all simple conditions are of the form $x \Join c$ or $x-y \Join c$, where $x,y \in C$, $c \in \mathbb{N}$ and $\Join \in \{<,\leq\}$.
@@ -38,19 +38,17 @@ An extended timed automaton is a 6-tuple A = $\langle L, C, Act, l_0, \rightarro
 }
 \end{mydef}
 
-With the definition of a timed automaton we can combine a finite number of timed automata to a network of timed automata, which is a parallel composition, to define larger systems. This is a parallel composition that synchronizes on a set of channels $Chan$~\cite{UPPAAL}. $ch!$ and $ch?$ represent the output and input action on the channel $ch \in Chan$.
+With the definition of a timed automaton we can combine a finite number of timed automata to a network of timed automata, which is a parallel composition, to define larger systems. This is a parallel composition which synchronizes on a set of channels $Chan$~\cite{UPPAAL}. $ch!$ and $ch?$ respectively represent the output and input action on the channel $ch \in Chan$.
 
 \begin{mydef}[Network of timed automata~\cite{eemcs21972}]
 \label{def:networkTA}
 Let Act = $\{ch!,ch?|ch \in Chan\} \cup \{\tau\}$ be a finite set of actions, and let C be a finite set of clocks. Then the parallel composition of extended timed automata $A_i = \langle L_i, C, Act, l^i_0, \rightarrow_{i}, I^i_C\rangle$ for all $1 \leq i \leq n$, where $n \in \mathbb{N}$, is a network of timed automata, denoted $A = A_1||A_2||..||A_n$.
 \end{mydef}
 
-In the rest of this thesis we will not strictly stick to the definition of locations. We use the terminology 'locations' and other 'discrete variables'. Locations are the locations in the \uppaal{} transition system editor, the other discrete variables are declared in the C-like syntax that \uppaal{} uses. These discrete variables can also be used in guards and updates on transitions.
-
-\subsubsection{uppaal}
+For the rest of this thesis we will not strictly stick to the definition of locations. We use the terminology 'locations' and other 'discrete variables'. Locations are the locations in the \uppaal{} transition system editor, the other discrete variables are declared in the C-like syntax that \uppaal{} uses. These discrete variables can also be used in guards and updates on transitions.
 
 \subsection{Zones}
-For basic transition systems the state space can grow exponentially for the number of variables in the system. The state space of timed automata is by definition infinite, as clocks have real values. If a discrete state is defined between two points in time, an infinite amount of moments in time can happen during that state. Even when some granularity is used, that defines that clocks will only increase with certain step size the automata can still have infinite state space if a clock is unbounded. To tackle this problem most model checkers use a notion of zones for the representation of time. A zone can be seen as a set of clock guards. To represent these zones several data structures have been developed. One of the most common used structures are Difference Bound Matrices (DBMs)~\cite{dbmorig,bengtsson2002clocks}.
+For basic transition systems the state space can grow exponentially for the number of variables in the system. The state space of timed automata is by definition infinite, as clocks have real values. If a discrete state is defined between two points in time, an infinite amount of moments in time can happen during that state. Even when some granularity is used, which defines that clocks will only increase with certain step size the automata can still have infinite state space if a clock is unbounded. To tackle this problem most model checkers use a notion of zones for the representation of time. A zone can be seen as a set of clock guards. To represent these zones several data structures have been developed. One of the most common used structures are Difference Bound Matrices (DBMs)~\cite{dbmorig,bengtsson2002clocks}.
 
 \begin{mydef}[Difference Bound Matrix]
 A DBM for the clocks $C = \{c_1,...c_n\}$ is a $(n+1)^2$ matrix. Each position has the following attributes.
@@ -64,7 +62,7 @@ op(v)                    & \{$<$, $\leq\}$     & Operator $<$ or $\leq$.        
 Each position $(i,j)$ defines an upper bound on the value of $c_i - c_j$. On the first row and first column an extra clock $\mathbf{O}$ is added as $c_0$ with constant value 0. 
 \end{mydef}
  
-These matrices use both a column and a row for each clock, and on each position $(i,j)$ an upper bound on the difference between the clocks $c_i$ and $c_j$ is given in the form $c_i - c_j \preceq x$ where $\preceq \in \{<, \leq\}$ and $x \in \mathbb{Z}$. For the constraints over the single clocks an extra clock $\mathbf{O}$ with a constant value 0 is added. This way the upper and lower bound of a clock $c_i$ can be given by $c_i - \mathbf{O} \preceq x$ and $\mathbf{O} - c_i \preceq y$. The addition of this $\mathbf{O}$ clock will give the matrix of a timed automaton always size $(|C|+1)^2$. This way convex zones of clock variables can be represented. Each matrix can however only contain a single convex zone. Concave zones and multiple convex zones need multiple matrices to be represented. As a solution often a list of DBMs is used. In figure \ref{fig:dbm} we give an example of a DBM with two clocks: $c_1$ and $c_2$, representing the zone $0 \leq c_1 < 5 \wedge 0 \leq c_2 \leq 4$. The diagonal only contains $(0,\leq)$ values as these elements give the difference between a clock and itself, which is clearly always 0.
+These matrices use both a column and a row for each clock, and on each position $(i,j)$ an upper bound on the difference between the clocks $c_i$ and $c_j$ is given in the form $c_i - c_j \preceq x$ where $\preceq \in \{<, \leq\}$ and $x \in \mathbb{Z}$. For the constraints over the single clocks an extra clock $\mathbf{O}$ with a constant value 0 is added. This way the upper and lower bound of a clock $c_i$ can be given by $c_i - \mathbf{O} \preceq x$ and $\mathbf{O} - c_i \preceq y$. The addition of this $\mathbf{O}$ clock will give the matrix of a timed automaton always size $(|C|+1)^2$. This way convex zones of clock variables can be represented. Each matrix can however only contain a single convex zone. Concave zones and multiple convex zones need multiple matrices to be represented. To solve this, often a list of DBMs is used. In figure \ref{fig:dbm} we give an example of a DBM with two clocks: $c_1$ and $c_2$, representing the zone $0 \leq c_1 < 5 \wedge 0 \leq c_2 \leq 4$. The diagonal only contains $(0,\leq)$ values as these elements give the difference between a clock and itself, which is clearly always 0.
 
 \begin{figure}
 	\centering
@@ -91,7 +89,7 @@ A number of operations on DBMs has been defined. We will introduce the operation
 
 \subsection{Zone subsumption}
 \label{subsec:subsumtion}
-In model checking an important function is to check if a certain state has been visited already earlier. For normal automata this can be done by comparing the newly found state to all states that have already been visited, and check if one of those states is equal to that new state. This is often done by more efficient methods, like hash functions, but the equality check remains. For states with zones this equality check does not suffice. Two zones do not need to be equal, but the newly discovered zone can also be a subset of the earlier discovered zones. In both \ltsmin{} and \uppaal{} this is done by a subsumption check~\cite{eemcs21972,bbdlpw-ftrtft02} that is performed over the DBMs. This check is delegated to the \uppaal{} DBM library. The function checks if a new zone is a subset of the zone represented by a DBM.
+In model checking an important function is to check if a certain state has been visited already. For normal, discrete, automata this can be done by comparing the newly found state to all states that have already been visited, and check if one of those states is equal to that new state. This is often done by more efficient methods, like hash functions, but the equality check remains. For states with zones this equality check does not suffice. Two zones do not need to be equal, but the newly discovered zone can also be a subset of the earlier discovered zones. In both \ltsmin{} and \uppaal{} this is done by a subsumption check~\cite{eemcs21972,bbdlpw-ftrtft02} that is performed over the DBMs. This check is delegated to the \uppaal{} DBM library. The DBM subsumption function checks if a new zone is a subset of the zone represented by a DBM.
 
 \subsection{Binary Decision Diagram}
 We shortly introduce binary decision diagrams(BDDs)~\cite{Bryant:1986:GAB:6432.6433}. BDDs are the basis of most symbolic model checking techniques. BDDs are a way to represent boolean functions. All diagrams that we discuss in the rest of this thesis are based on BDDs.
@@ -124,7 +122,7 @@ We shortly introduce binary decision diagrams(BDDs)~\cite{Bryant:1986:GAB:6432.6
 		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{};
 		[bend left]
 	\end{tikzpicture}
-\caption{A BDD representing $(a \wedge b) \vee c$}
+\caption{A BDD representing $(a \wedge b) \vee c$, with ordering $a < b < c$}
 \label{fig:BDD}
 \end{figure}
 

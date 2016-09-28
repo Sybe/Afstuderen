@@ -1,0 +1,7 @@
+Timed automata are a modelling formalism adding the continuous field of time to discrete automata. We specifically aim at the model checking methods for these automata. We aimed at a symbolic approach which uses a diagram that stores both the discrete and continuous time variables. We used models created by the \uppaal{} model checking tool set. The opaal model checker is used to read these models and making them accessible to LTSmin. 
+
+The first solution only changes the language module and uses the standard symbolic model checking algorithms. This results in a correct solution for model checking of timed automata. The second method uses a different symbolic structure to store the state-space, Difference Decision Diagrams. This structure is defined specifically to store clock guards. A third solution, that is only mentioned briefly, uses the explicit state methods, and the adapted language module that was designed for the symbolic approaches.
+
+We present an extensive set of experiments. All results are compared to both the original \uppaal{} model checker and the original explicit state method in LTSmin. All experiments are executed using several different search-orders, reorderings an other options.
+
+An important part of this work is the future work section. We created a basic model checker, on which extensions and improvements can be built. To create a model checker that can compete with other state of the art tools these improvements are needed. 

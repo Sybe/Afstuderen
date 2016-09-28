@@ -31,6 +31,10 @@
 \usepackage{pdflscape}
 \usepackage{kbordermatrix}
 
+\newcommand{\mydate}{\formatdate{30}{9}{2016}}
+\usepackage[USenglish,UKenglish,french,spanish,italian]{babel}
+\usepackage[nodayofweek,level]{datetime}
+
 \usepackage{graphicx,epstopdf}
 \epstopdfsetup{update}
 \DeclareGraphicsExtensions{.ps}
@@ -60,13 +64,22 @@
 
 
 \begin{document}
-
+\selectlanguage{USenglish}
 \newtheorem{mydef}{Definition}
 \newtheorem{myconjecture}{Conjecture}
 \title{Symbolic Model Checking of Timed Automata using \ltsmin{}}
 \author{Sybe van Hijum}
-\date{\today{}}
+\date{\mydate{}}
 \maketitle
+
+\clearpage
+\section*{Acknowledgements}
+\input{Acknowledgements}
+
+\clearpage
+\begin{abstract}
+\input{Abstract}
+\end{abstract}
 
 \clearpage
 \tableofcontents
