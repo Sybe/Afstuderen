@@ -3,15 +3,16 @@
 
 \section{Introduction}
 
-\begin{frame}{Modelchecking}
+\begin{frame}{Model Checking}
 \begin{itemize}
-	\item Models a system, program, protocol, etc...
-	\item Check if model meets specifications
-	\item Problem: State space explosion
+	
+	\item {\large  Models a system, program, protocol, etc...}
+	\item {\large  Check if model meets specifications}
+	\item {\large  Problem: State space explosion}
 	\begin{itemize}
-		\item Grows exponentially with size of model
+		\item {\large Grows exponentially with size of model}
 	\end{itemize}
-	\item Timed Automata adds time to these models	
+	\item {\large Timed Automata adds time to these models}
 \end{itemize}
 \end{frame}
 
@@ -24,6 +25,7 @@ Problem: Model checkers are designed for discrete variables (integers), clocks h
 \end{frame}
 
 
+\begin{comment}
 \begin{frame}{Transition System}
 \begin{figure}
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
@@ -73,6 +75,7 @@ Problem: Model checkers are designed for discrete variables (integers), clocks h
 \end{tikzpicture}
 \end{figure}
 \end{frame}
+\end{comment}
 
 \begin{comment}
 \begin{frame}{Transition System}
@@ -103,8 +106,20 @@ An extended timed automaton is a 6-tuple A = $\langle L, C, Act, l_0, \rightarro
 \end{frame}
 \end{comment}
 
+\begin{frame}{Transition System}
+\includegraphics[height=0.85\textheight, width=.95\textwidth, keepaspectratio=true]{img/Koffie_states}
+\end{frame}
+
+\begin{frame}{Transition System}
+\includegraphics[height=0.85\textheight, width=.95\textwidth, keepaspectratio=true]{img/Koffie_states_transitions}
+\end{frame}
+
+\begin{frame}{Transition System}
+\includegraphics[height=0.85\textheight, width=.95\textwidth, keepaspectratio=true]{img/Koffie_automaton}
+\end{frame}
+
 \begin{frame}{Timed Automata}
-\includegraphics[width=\textwidth]{img/TA}
+\includegraphics[height=0.85\textheight, width=.95\textwidth, keepaspectratio=true]{img/Koffie_complete}
 \end{frame}
 
 
@@ -325,7 +340,7 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 	\end{subfigure}
 	\begin{subfigure}[b]{.4\textwidth}
 		\begin{itemize}
-			\item Diagram to represent integer variables
+			\item Diagram to represent set of valuations of integer variables
 			\item Each node has high and low edge
 			\item Each level represents a variable
 			\item Order of variables important
@@ -333,6 +348,22 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 	\end{subfigure}
 \label{fig:ldd-example}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Breadth First Search}
+
+\begin{algorithmic}[1]
+\Procedure{BFS}{$initial$}
+	\State $vis := cur := initial$
+	\While{$cur \neq \emptyset$}
+		\State{$cur := next(cur)$}
+		\State{$cur := cur \setminus vis$}
+		\State{$vis := vis \cup cur$}
+	\EndWhile
+	
+\EndProcedure	
+\end{algorithmic}
+
 \end{frame}
 
 \begin{frame}{DBM into state vector}
@@ -454,7 +485,7 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 
 \begin{subfigure}{\textwidth}
 	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
+		smallvertex/.style={rectangle,rounded corners=3pt,draw,scale=0.8}
 		]
 			
 		\node[smallvertex](S0){$c_1 - c_2$};
@@ -467,7 +498,7 @@ The set E contains the edges $(v,low(v))$ and $(v, high(v))$, where $v \in V$ is
 		\node[smallvertex, below of = S0, yshift = -1cm](S2){$c_2 - c_1$};
 		\draw[->] (S0) --(S2) node [midway, above, sloped, scale=0.75,
 		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$< 4$};
-		\node[smallvertex, below of = S1, yshift = -1cm](S3){$c_1 - c_2$};
+		\node[smallvertex, below of = S1, yshift = -1cm](S3){$c_2 - c_1$};
 		\draw[->] (S1) --(S3) node [midway, above, sloped, scale=0.75,
 		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$\leq 8$};
 		\node[smallvertex, below of = S0, xshift = 1cm, yshift = -3cm](S4){$T$};
@@ -501,7 +532,7 @@ An ordered DDD (ODDD) is a DDD where each non-terminal vertex $v$ satisfies:
 
 \begin{figure}[h]
 	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
+		smallvertex/.style={rectangle,rounded corners=3pt,draw,scale=0.8}
 		]
 			
 		\node[smallvertex](S0){$c_1 - c_2$};
@@ -511,11 +542,11 @@ An ordered DDD (ODDD) is a DDD where each non-terminal vertex $v$ satisfies:
 		\node[smallvertex, draw = none, below of = S1, yshift = -0.75cm](S4){};
 		\node[smallvertex, draw = none, below of = S2, yshift = -0.75cm](S5){};
 		\draw[->] (S0) --(S3) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$< 4$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$< 4$};
 		\draw[->] (S1) --(S4) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$\leq 4$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$\leq 4$};
 		\draw[->] (S2) --(S5) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$\leq 5$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$\leq 5$};
 		\draw[dashed,->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
 		\draw[dashed,->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
@@ -542,7 +573,7 @@ A locally reduced DDD ($R_LDDD$) is an ODDD satisfying, for all non-terminals u 
 \begin{center}
 	\scalebox{0.9}{
 	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
+		smallvertex/.style={rectangle,rounded corners=3pt,draw,scale=0.8}
 		]
 			
 		\node[smallvertex](S0){$c_1 - c_2$};
@@ -559,10 +590,10 @@ A locally reduced DDD ($R_LDDD$) is an ODDD satisfying, for all non-terminals u 
 		rotate=315, xshift =-0.4 cm, yshift = -0.2cm]{$\leq 8$};
 		\node[smallvertex, below of = S0, yshift = -3cm](S4){$T$};
 		\draw[->] (S2) --(S4) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
+		rotate=270, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
 	\end{tikzpicture}
 	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
+		smallvertex/.style={rectangle,rounded corners=3pt,draw,scale=0.8}
 		]
 			
 		\node[smallvertex](S0){$c_1 - c_2$};
@@ -574,7 +605,7 @@ A locally reduced DDD ($R_LDDD$) is an ODDD satisfying, for all non-terminals u 
 		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$\leq 8$};
 		\node[smallvertex, below of = S0, yshift = -3cm](S4){$T$};
 		\draw[->] (S2) --(S4) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
+		rotate=270, xshift =-0.7 cm, yshift = -0.2cm]{$<-2$};
 	\end{tikzpicture}}
 \end{center}
 \end{figure}
@@ -682,7 +713,7 @@ Difference of two convex zones not always convex
 	\begin{subfigure}{0.2\textwidth}
 	\scalebox{0.8}{
 	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
+		smallvertex/.style={rectangle,rounded corners=3pt,draw,scale=0.8}
 		]		
 		\node[smallvertex](S1){$c_1 - \mathbf{O}$};
 		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
@@ -694,20 +725,20 @@ Difference of two convex zones not always convex
 		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
 		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
 		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
 		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
 		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
 
 	\end{tikzpicture}}
 	\end{subfigure}
 	\begin{subfigure}{0.2\textwidth}
 	\scalebox{0.8}{
 	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
+		smallvertex/.style={rectangle,rounded corners=3pt,draw,scale=0.8}
 		]
 		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
 		\node[smallvertex](S1){$c_1 - \mathbf{O}$};
@@ -719,20 +750,20 @@ Difference of two convex zones not always convex
 		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
 		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.6 cm, yshift = -0.2cm]{$<-1$};
+		rotate=270, xshift =-0.6 cm, yshift = -0.2cm]{$<3$};
 		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.6 cm, yshift = -0.2cm]{$<-1$};
+		rotate=270, xshift =-0.6 cm, yshift = -0.2cm]{$<-1$};
 		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<3$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<3$};
 		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<3$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<-1$};
 		
 	\end{tikzpicture}}
 	\end{subfigure}
 	\begin{subfigure}{0.3\textwidth}
 	\scalebox{0.8}{
 	\begin{tikzpicture}[
-		smallvertex/.style={circle,draw,scale=0.8}
+		smallvertex/.style={rectangle,rounded corners=3pt,draw,scale=0.8}
 		]
 		\node[smallvertex, draw = none, above of = S1, yshift = 0.25cm](S0){};
 		\node[smallvertex](S1){$c_1 - \mathbf{O}$};
@@ -751,29 +782,29 @@ Difference of two convex zones not always convex
 		\draw[->] (S0) --(S1) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =-0.4 cm, yshift = -0.2cm]{};
 		\draw[->] (S1) --(S2) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$\leq1$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$\leq1$};
 		\draw[->] (S2) --(S3) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
 		\draw[->] (S3) --(S4) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
 		\draw[->] (S4) --(S5) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
 		\draw[dashed,->] (S1) --(S6) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
 		\draw[->] (S6) --(S7) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
 		\draw[->] (S7) --(S3) node [midway, above, sloped, scale=0.75,
 		rotate=315, xshift =-0.4 cm, yshift = -0.2cm]{$\leq-3$};
 		\draw[dashed,->] (S7) --(S8) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
 		\draw[->] (S8) --(S9) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<0$};
 		\draw[->] (S9) --(S4) node [midway, above, sloped, scale=0.75,
 		rotate=335, xshift =-0.4 cm, yshift = -0.2cm]{$\leq1$};
 		\draw[dashed,->] (S9) --(S10) node [midway, above, sloped, scale=0.75,
 		rotate=0, xshift =-0.7 cm, yshift = -0.2cm]{};
 		\draw[->] (S10) --(S11) node [midway, above, sloped, scale=0.75,
-		rotate=90, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
+		rotate=270, xshift =-0.4 cm, yshift = -0.2cm]{$<4$};
 		\draw[->] (S11) --(S5) node [midway, above, sloped, scale=0.75,
 		rotate=340, xshift =-0.4 cm, yshift = -0.2cm]{$\leq-3$};
 		
@@ -864,37 +895,46 @@ Difference of two convex zones not always convex
 
 \begin{frame}{Future work}
 \begin{itemize}
-	\item DDD reordering
+	\item {\large DDD reordering}
 	\begin{itemize}
-		\item Needs mapping of positions and types
+		\item {\large Needs mapping of positions and types}
 	\end{itemize}
-	\item Sparser matrix
+	\item {\large Sparser matrix}
 	\begin{itemize}
-		\item Split timed and discrete transition
-		\item Must-write matrix
-		\item Better insight in timing dependencies
+		\item {\large Split timed and discrete transition}
+		\item {\large Must-write matrix}
+		\item {\large Better insight in timing dependencies}
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Future work}
 \begin{itemize}
-	\item Multi threading
+	\item {\large Multi threading}
 	\begin{itemize}
-		\item DDD is already thread save
-		\item Coupling to DBM not threadsafe
+		\item {\large DDD is already thread-safe}
+		\item {\large Coupling to DBM not thread-safe}
 	\end{itemize}
-	\item Subsumption
-	\item Skipping levels
+	\item {\large Subsumption}
+	\item {\large Skipping levels}
 	\begin{itemize}
-		\item All nodes with $(<,\infty)$ left out
-		\item Need explicit level of each node
-		\item Node reduction up to 90\%	
+		\item {\large All nodes with $(<,\infty)$ left out}
+		\item {\large Need explicit level of each node}
+		\item {\large Node reduction up to 90\%	}
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
-\section{Questions?}
+\begin{frame}
+	\begin{itemize}
+		\item Timed Automata
+		\item Stored as discrete values in LDD
+		\item Stored in specific diagram DDD
+		\item Minus for DDD problematic
+		\item Both solutions slower than original tools
+		\item Many points for future work
+	\end{itemize}
+\end{frame}
 
 
 
